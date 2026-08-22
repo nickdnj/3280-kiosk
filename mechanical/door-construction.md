@@ -129,8 +129,10 @@ up three months after install, not on the bench. Two mitigations, both required:
    **entire shroud a heatsink**. This is the main reason the shroud is aluminum.
    S2 positions the Pi to hold that contact.
 2. **Convection.** Vent pattern cut into P2 while it's flat — free, the laser is
-   already running. **Intake low, exhaust high**, so it chimneys. Slots or a
-   perforated field; keep open area ≥ 15% of the shroud's rear face.
+   already running. **Intake low, exhaust high**, so it chimneys. As drawn
+   in [`fab/`](fab/): two fields of 6 × 10 slots at 1.60″ × 0.20″ — 38.4 sq in,
+   **8.8%** of the rear face, webs 0.47″. The soak test below is the real
+   acceptance criterion; if it runs hot, open the fields up or add a fan.
 
 **Verify on the bench** (part of EL-1 / IN-2): assembled and closed, run the app
 for two hours and log `vcgencmd measure_temp`. Sustained temps under 70 °C are
@@ -236,6 +238,9 @@ Step 3 is not optional. A cardboard door costs an hour and catches every
 proportion mistake that would otherwise arrive as finished, painted metal.
 
 ---
+
+**Fabrication package:** [`fab/`](fab/) — order sheet, DXFs, previews and the
+parametric generator. Built against assumed numbers; see its §6 release gate.
 
 *Tracks [ME-4](https://github.com/nickdnj/3280-kiosk/issues/29). Revised when
 ME-1 and EL-5 data land.*

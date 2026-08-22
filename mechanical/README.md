@@ -32,6 +32,9 @@ it**.
   - [`03-plan-section-clearance.svg`](drawings/03-plan-section-clearance.svg) — depth budget, swing envelope, **the C1 clearance risk**
   - [`04-mount-candidates.svg`](drawings/04-mount-candidates.svg) — three no-drill mounting options
   - [`05-door-exploded.svg`](drawings/05-door-exploded.svg) — door assembly stack, depth budget, thermal path
+- **[`fab/`](fab/)** — the fabrication package: order sheet, laser-cut DXFs,
+  review previews, and the parametric generator that rebuilds them all from one
+  PARAMS block. **Not for order until the release gate clears.**
 - **[`door-construction.md`](door-construction.md)** — ME-4 build spec: laser-cut
   5052 aluminium (outsourced), parts P1–P4, assembly stack, thermal, finish, and
   what's still blocked before anything can be ordered.
