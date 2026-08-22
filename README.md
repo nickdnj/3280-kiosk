@@ -17,10 +17,31 @@ This repo spans three disciplines:
 |---|---|---|
 | On-screen app | `src/kiosk-app/` | Concept build — clickable, imagery is concept art |
 | Button/kiosk controller | `src/controller/` | Concept / placeholder |
-| Electronics | `electronics/` | Concept / placeholder |
-| Mechanical | `mechanical/` | Concept / placeholder |
+| Electronics | `electronics/` | v0 BOM + salvage recon list |
+| Mechanical | `mechanical/` | v0 assumed dimensions + drawings + ME-1 field sheet |
 
 Team: **Software Project Team**, provisioned by AgentArchitect (2026-08-22).
+
+## Going to the museum or the warehouse?
+
+Field materials, all phone-readable:
+
+- **[Measurement field sheet](mechanical/measurement-checklist.md)** — the ME-1
+  checklist. Fill the blanks on site.
+- **[Salvage shopping list](electronics/salvage-recon.md)** — what to scavenge,
+  with monitor acceptance criteria and the powered test to run before de-casing.
+- **[Assumed dimensions + drawings](mechanical/dimensions-assumed.md)** — the
+  design as currently drawn, and exactly which numbers are guesses.
+
+> Everything mechanical is drawn against **assumed** dimensions taken from the
+> concept render. Nothing has been measured. Don't cut material against it.
+
+## Planning docs
+
+`docs/00-project-brief.md` → `01-prd.md` → `02-architecture.md` →
+`03-ux.md` → `04-dev-plan.md`. Work is tracked as
+[GitHub issues](https://github.com/nickdnj/3280-kiosk/issues) across five
+milestones.
 
 ## Start
 
@@ -28,8 +49,8 @@ Team: **Software Project Team**, provisioned by AgentArchitect (2026-08-22).
 claude
 ```
 
-New here? Read `docs/00-project-brief.md`, then say **"let's write the PRD"** —
-the team runs requirements → architecture → UX → dev plan → build.
+New here? Read `docs/00-project-brief.md`. The PRD → architecture → UX → dev-plan
+flow is complete; work is now execution against the issue list.
 
 ## Run the app locally
 

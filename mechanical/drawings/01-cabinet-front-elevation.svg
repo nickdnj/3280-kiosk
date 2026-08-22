@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1010" viewBox="0 0 760 1010" font-family="Helvetica,Arial,sans-serif">
+<rect x="0" y="0" width="760" height="1010" fill="#ffffff"/>
+
+<text x="30" y="34" font-size="19" font-weight="700" fill="#1b1b1b">Concurrent 3280 — Kiosk Front Elevation</text>
+<text x="30" y="54" font-size="12.5" fill="#555">Door closed. Scale 11 px = 1 in. Heights are AFF (above finished floor).</text>
+<rect x="30" y="66" width="330" height="20" fill="#FBE7E1" stroke="#B3401A" stroke-width="1"/>
+<text x="40" y="80" font-size="12" font-weight="700" fill="#B3401A">ALL DIMENSIONS ASSUMED — VERIFY ON SITE (ME-1)</text>
+
+<!-- ADA reach band -->
+<rect x="95" y="372" width="26" height="363" fill="#E4EFDF" stroke="#4A7A3A" stroke-width="1"/>
+<text x="108" y="560" font-size="10.5" fill="#33612A" text-anchor="middle" transform="rotate(-90 108 560)">ADA REACH BAND</text>
+<text x="123" y="369" font-size="10" fill="#33612A">48"</text>
+<text x="123" y="746" font-size="10" fill="#33612A">15"</text>
+
+<!-- floor -->
+<line x1="150" y1="900" x2="700" y2="900" stroke="#333" stroke-width="2"/>
+<line x1="150" y1="905" x2="700" y2="905" stroke="#999" stroke-width="1"/>
+<text x="660" y="921" font-size="11" fill="#777">FLOOR</text>
+
+<!-- cabinet body -->
+<rect x="250" y="135.5" width="253" height="764.5" fill="#E8E1D2" stroke="#3a3a3a" stroke-width="1.5"/>
+<!-- top cap -->
+<rect x="244" y="135.5" width="265" height="49.5" fill="#EFE9DC" stroke="#3a3a3a" stroke-width="1.5"/>
+<!-- opening (interior) -->
+<rect x="272" y="185" width="209" height="627" fill="#1c1c1c"/>
+<!-- card cage boards below door -->
+<g stroke="#4a5566" stroke-width="2">
+<line x1="280" y1="640" x2="280" y2="795"/><line x1="289" y1="640" x2="289" y2="795"/>
+<line x1="298" y1="640" x2="298" y2="795"/><line x1="307" y1="640" x2="307" y2="795"/>
+<line x1="316" y1="640" x2="316" y2="795"/><line x1="325" y1="640" x2="325" y2="795"/>
+<line x1="334" y1="640" x2="334" y2="795"/><line x1="343" y1="640" x2="343" y2="795"/>
+<line x1="352" y1="640" x2="352" y2="795"/><line x1="361" y1="640" x2="361" y2="795"/>
+<line x1="370" y1="640" x2="370" y2="795"/><line x1="379" y1="640" x2="379" y2="795"/>
+<line x1="388" y1="640" x2="388" y2="795"/><line x1="397" y1="640" x2="397" y2="795"/>
+<line x1="406" y1="640" x2="406" y2="795"/><line x1="415" y1="640" x2="415" y2="795"/>
+<line x1="424" y1="640" x2="424" y2="795"/><line x1="433" y1="640" x2="433" y2="795"/>
+<line x1="442" y1="640" x2="442" y2="795"/><line x1="451" y1="640" x2="451" y2="795"/>
+<line x1="460" y1="640" x2="460" y2="795"/><line x1="469" y1="640" x2="469" y2="795"/>
+</g>
+<line x1="276" y1="800" x2="477" y2="800" stroke="#7a8494" stroke-width="3"/>
+<text x="376" y="828" font-size="10.5" fill="#c9c2b4" text-anchor="middle">CARD CAGE (visible)</text>
+<!-- cabling above door -->
+<path d="M280 210 q30 26 60 0 q30 -26 60 0 q30 26 60 0" stroke="#5a6473" stroke-width="2.5" fill="none"/>
+<text x="376" y="252" font-size="10.5" fill="#c9c2b4" text-anchor="middle">upper bay</text>
+<!-- plinth + feet -->
+<rect x="250" y="812" width="253" height="66" fill="#E8E1D2" stroke="#3a3a3a" stroke-width="1.5"/>
+<rect x="262" y="878" width="30" height="22" fill="#2b2b2b"/>
+<rect x="461" y="878" width="30" height="22" fill="#2b2b2b"/>
+
+<!-- KIOSK DOOR -->
+<rect x="297" y="284" width="159.5" height="330" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.5"/>
+<rect x="303" y="288" width="70" height="14" fill="#1b1b1b"/>
+<text x="338" y="299" font-size="8" fill="#f0ebe0" text-anchor="middle" letter-spacing="1">CONCURRENT</text>
+<rect x="306" y="306" width="140.8" height="241" fill="#141414" stroke="#000" stroke-width="1"/>
+<rect x="311.5" y="311.5" width="130" height="230" fill="#E9E2D0"/>
+<text x="376.5" y="418" font-size="12" fill="#4a4436" text-anchor="middle">PORTRAIT</text>
+<text x="376.5" y="436" font-size="12" fill="#4a4436" text-anchor="middle">SCREEN</text>
+<text x="376.5" y="456" font-size="10.5" fill="#7a7264" text-anchor="middle">11.8" x 20.9" active</text>
+<rect x="306" y="553" width="140.8" height="44" fill="#1b1b1b"/>
+<circle cx="341" cy="575" r="13" fill="#3d3d3d" stroke="#8d8d8d"/>
+<circle cx="376.5" cy="575" r="13" fill="#3d3d3d" stroke="#8d8d8d"/>
+<circle cx="412" cy="575" r="13" fill="#3d3d3d" stroke="#8d8d8d"/>
+<text x="341" y="578" font-size="11" fill="#eee" text-anchor="middle">&#8592;</text>
+<text x="376.5" y="579" font-size="11" fill="#eee" text-anchor="middle">&#8962;</text>
+<text x="412" y="578" font-size="11" fill="#eee" text-anchor="middle">&#8594;</text>
+<!-- hinges (left) -->
+<rect x="288" y="318" width="10" height="26" fill="#8b8b8b" stroke="#333"/>
+<rect x="288" y="554" width="10" height="26" fill="#8b8b8b" stroke="#333"/>
+<text x="284" y="470" font-size="10.5" fill="#333" text-anchor="middle" transform="rotate(-90 284 470)">HINGE (LEFT)</text>
+
+<!-- ===== DIMENSIONS ===== -->
+<g stroke="#B3401A" stroke-width="1" fill="none">
+<!-- overall width, top -->
+<line x1="250" y1="130" x2="250" y2="104"/><line x1="503" y1="130" x2="503" y2="104"/>
+<line x1="250" y1="110" x2="503" y2="110"/>
+<line x1="250" y1="105" x2="250" y2="115"/><line x1="503" y1="105" x2="503" y2="115"/>
+<!-- opening width, bottom -->
+<line x1="272" y1="812" x2="272" y2="946"/><line x1="481" y1="812" x2="481" y2="946"/>
+<line x1="272" y1="940" x2="481" y2="940"/>
+<line x1="272" y1="935" x2="272" y2="945"/><line x1="481" y1="935" x2="481" y2="945"/>
+<!-- door width -->
+<line x1="297" y1="284" x2="297" y2="264"/><line x1="456.5" y1="284" x2="456.5" y2="264"/>
+<line x1="297" y1="270" x2="456.5" y2="270"/>
+<line x1="297" y1="265" x2="297" y2="275"/><line x1="456.5" y1="265" x2="456.5" y2="275"/>
+<!-- opening height, left -->
+<line x1="272" y1="185" x2="210" y2="185"/><line x1="272" y1="812" x2="210" y2="812"/>
+<line x1="215" y1="185" x2="215" y2="812"/>
+<line x1="210" y1="185" x2="220" y2="185"/><line x1="210" y1="812" x2="220" y2="812"/>
+<!-- button height, far left -->
+<line x1="376.5" y1="575" x2="160" y2="575" stroke-dasharray="4 3"/>
+<line x1="160" y1="900" x2="700" y2="900" stroke="none"/>
+<line x1="163" y1="575" x2="163" y2="900"/>
+<line x1="158" y1="575" x2="168" y2="575"/><line x1="158" y1="900" x2="168" y2="900"/>
+<!-- door height, right -->
+<line x1="456.5" y1="284" x2="545" y2="284"/><line x1="456.5" y1="614" x2="545" y2="614"/>
+<line x1="535" y1="284" x2="535" y2="614"/>
+<line x1="530" y1="284" x2="540" y2="284"/><line x1="530" y1="614" x2="540" y2="614"/>
+<!-- door bottom AFF -->
+<line x1="580" y1="614" x2="580" y2="900"/>
+<line x1="575" y1="614" x2="585" y2="614"/><line x1="575" y1="900" x2="585" y2="900"/>
+<!-- overall height -->
+<line x1="503" y1="135.5" x2="655" y2="135.5"/>
+<line x1="645" y1="135.5" x2="645" y2="900"/>
+<line x1="640" y1="135.5" x2="650" y2="135.5"/><line x1="640" y1="900" x2="650" y2="900"/>
+</g>
+<g font-size="12" fill="#B3401A" font-weight="600">
+<rect x="348" y="101" width="58" height="16" fill="#fff" stroke="none"/><text x="376" y="114" text-anchor="middle">23.0"</text>
+<rect x="348" y="931" width="58" height="16" fill="#fff" stroke="none"/><text x="376" y="944" text-anchor="middle">19.0"</text>
+<rect x="349" y="261" width="56" height="16" fill="#fff" stroke="none"/><text x="376" y="274" text-anchor="middle">14.5"</text>
+<text x="215" y="502" text-anchor="middle" transform="rotate(-90 215 502)">57.0"</text>
+<text x="163" y="740" text-anchor="middle" transform="rotate(-90 163 740)">29.5" AFF</text>
+<text x="535" y="449" text-anchor="middle" transform="rotate(-90 535 449)">30.0"</text>
+<text x="580" y="757" text-anchor="middle" transform="rotate(-90 580 757)">26.0" AFF</text>
+<text x="645" y="518" text-anchor="middle" transform="rotate(-90 645 518)">69.5"</text>
+</g>
+
+<!-- annotation callouts -->
+<g font-size="11" fill="#333">
+<line x1="441" y1="426" x2="700" y2="426" stroke="#888" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="702" y="422" text-anchor="end" fill="#fff">.</text>
+<text x="660" y="416" text-anchor="middle" font-size="10.5" fill="#333">screen ctr</text>
+<text x="660" y="429" text-anchor="middle" font-size="10.5" fill="#333">&#8776; 43" AFF</text>
+</g>
+
+<g font-size="11" fill="#444">
+<text x="30" y="968">Door centered L-R in the opening; positioned upper-middle so 18" of card cage stays visible below and 9" above.</text>
+<text x="30" y="985">Button plate center lands at 29.5" AFF — inside the 15"&#8211;48" ADA reach band with ~19" of margin (PRD A1 / open question 4).</text>
+<text x="30" y="1002" fill="#B3401A" font-weight="600">Source of assumptions: AI concept render (23.0" x 69.5") + EIA-310 19" rack practice. Nothing here is measured. See dimensions-assumed.md.</text>
+</g>
+</svg>

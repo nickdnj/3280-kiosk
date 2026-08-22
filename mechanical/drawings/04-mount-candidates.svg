@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="548" viewBox="0 0 900 548" font-family="Helvetica,Arial,sans-serif">
+<rect x="0" y="0" width="900" height="548" fill="#ffffff"/>
+<text x="30" y="32" font-size="19" font-weight="700" fill="#1b1b1b">Reversible Mount Candidates — No Drilling (MR2)</text>
+<text x="30" y="51" font-size="12.5" fill="#555">Pick on site after ME-1. Ranked by preference. All three leave the cabinet as-found on removal.</text>
+
+<!-- ============ A ============ -->
+<rect x="30" y="72" width="268" height="404" fill="#F7F5F0" stroke="#8a8a8a" stroke-width="1"/>
+<rect x="30" y="72" width="268" height="26" fill="#2F5D3A"/>
+<text x="42" y="90" font-size="12.5" font-weight="700" fill="#fff">A &#8212; 19" RACK RAIL (preferred)</text>
+
+<rect x="96" y="118" width="24" height="200" fill="#B9B9B9" stroke="#444" stroke-width="1"/>
+<g fill="#fff" stroke="#444" stroke-width="0.8">
+<rect x="103" y="128" width="10" height="10"/><rect x="103" y="149" width="10" height="10"/>
+<rect x="103" y="170" width="10" height="10"/><rect x="103" y="191" width="10" height="10"/>
+<rect x="103" y="212" width="10" height="10"/><rect x="103" y="233" width="10" height="10"/>
+<rect x="103" y="254" width="10" height="10"/><rect x="103" y="275" width="10" height="10"/>
+<rect x="103" y="296" width="10" height="10"/>
+</g>
+<text x="88" y="222" font-size="10" fill="#444" text-anchor="middle" transform="rotate(-90 88 222)">EIA-310 RAIL</text>
+<rect x="120" y="118" width="150" height="200" fill="#E8E1D2" stroke="#2b2b2b" stroke-width="1.5"/>
+<text x="200" y="212" font-size="11.5" fill="#3a3a3a" text-anchor="middle" font-weight="600">KIOSK FRAME</text>
+<text x="200" y="229" font-size="10.5" fill="#666" text-anchor="middle">(19" rack panel, ~32U)</text>
+<g fill="#5a5a5a">
+<circle cx="126" cy="154" r="4"/><circle cx="126" cy="196" r="4"/>
+<circle cx="126" cy="238" r="4"/><circle cx="126" cy="280" r="4"/>
+</g>
+<text x="200" y="140" font-size="10" fill="#B3401A" text-anchor="middle">cage nuts + rack screws</text>
+
+<g font-size="11" fill="#333">
+<text x="42" y="344" font-weight="700" fill="#2F5D3A">+ Standards-based, zero modification</text>
+<text x="42" y="360">+ Frame becomes an off-the-shelf blank</text>
+<text x="42" y="376">&#8722; Rails may be fully occupied by the</text>
+<text x="42" y="391">   card cage &#8212; needs free rail run</text>
+<rect x="42" y="404" width="244" height="58" fill="#FFF6E8" stroke="#C08A20" stroke-width="1"/>
+<text x="50" y="420" font-size="10.5" font-weight="700" fill="#8a5f10">ON SITE (B1&#8211;B6):</text>
+<text x="50" y="435" font-size="10.5" fill="#5a4a20">rail present? hole type (square /</text>
+<text x="50" y="449" font-size="10.5" fill="#5a4a20">10-32 / M6)? free run top &amp; bottom?</text>
+</g>
+
+<!-- ============ B ============ -->
+<rect x="316" y="72" width="268" height="404" fill="#F7F5F0" stroke="#8a8a8a" stroke-width="1"/>
+<rect x="316" y="72" width="268" height="26" fill="#2F5D3A"/>
+<text x="328" y="90" font-size="12.5" font-weight="700" fill="#fff">B &#8212; STRADDLE / CLAMP BRACKET</text>
+
+<path d="M 392 118 L 392 318 L 432 318 L 432 300 L 410 300 L 410 118 Z" fill="#E8E1D2" stroke="#2b2b2b" stroke-width="1.5"/>
+<text x="378" y="222" font-size="10" fill="#444" text-anchor="middle" transform="rotate(-90 378 222)">CABINET FRAME LIP</text>
+<path d="M 372 176 L 452 176 L 452 196 L 392 196 L 392 236 L 452 236 L 452 256 L 372 256 Z" fill="#8FA3B8" stroke="#2b4a66" stroke-width="1.5"/>
+<text x="470" y="200" font-size="10.5" fill="#2b4a66">bracket wraps</text>
+<text x="470" y="214" font-size="10.5" fill="#2b4a66">the lip</text>
+<circle cx="440" cy="216" r="6" fill="#C08A20" stroke="#7a5a10" stroke-width="1.2"/>
+<text x="470" y="234" font-size="10.5" fill="#8a5f10">nylon-tipped</text>
+<text x="470" y="248" font-size="10.5" fill="#8a5f10">thumbscrew</text>
+<rect x="452" y="150" width="90" height="150" fill="#E8E1D2" stroke="#2b2b2b" stroke-width="1.5"/>
+<text x="497" y="140" font-size="10.5" fill="#3a3a3a" text-anchor="middle">FRAME</text>
+
+<g font-size="11" fill="#333">
+<text x="328" y="344" font-weight="700" fill="#2F5D3A">+ Works even if rails are occupied</text>
+<text x="328" y="360">+ Adjustable position</text>
+<text x="328" y="376">&#8722; Needs a graspable lip; nylon pads</text>
+<text x="328" y="391">   required to protect the finish</text>
+<rect x="328" y="404" width="244" height="58" fill="#FFF6E8" stroke="#C08A20" stroke-width="1"/>
+<text x="336" y="420" font-size="10.5" font-weight="700" fill="#8a5f10">ON SITE (E2, D3):</text>
+<text x="336" y="435" font-size="10.5" fill="#5a4a20">lip depth &amp; thickness? continuous</text>
+<text x="336" y="449" font-size="10.5" fill="#5a4a20">along the opening? paint condition?</text>
+</g>
+
+<!-- ============ C ============ -->
+<rect x="602" y="72" width="268" height="404" fill="#F7F5F0" stroke="#8a8a8a" stroke-width="1"/>
+<rect x="602" y="72" width="268" height="26" fill="#2F5D3A"/>
+<text x="614" y="90" font-size="12.5" font-weight="700" fill="#fff">C &#8212; EXISTING FASTENER POINTS</text>
+
+<rect x="668" y="118" width="34" height="200" fill="#E8E1D2" stroke="#2b2b2b" stroke-width="1.5"/>
+<g fill="none" stroke="#B3401A" stroke-width="1.5">
+<circle cx="685" cy="146" r="5"/><circle cx="685" cy="196" r="5"/>
+<circle cx="685" cy="246" r="5"/><circle cx="685" cy="296" r="5"/>
+</g>
+<text x="655" y="222" font-size="10" fill="#444" text-anchor="middle" transform="rotate(-90 655 222)">ORIGINAL FRAME</text>
+<rect x="702" y="118" width="140" height="200" fill="#D9CFB8" stroke="#2b2b2b" stroke-width="1.5"/>
+<text x="772" y="212" font-size="11.5" fill="#3a3a3a" text-anchor="middle" font-weight="600">KIOSK FRAME</text>
+<text x="772" y="229" font-size="10.5" fill="#666" text-anchor="middle">reuses original holes</text>
+<g fill="#5a5a5a">
+<circle cx="708" cy="146" r="3.5"/><circle cx="708" cy="196" r="3.5"/>
+<circle cx="708" cy="246" r="3.5"/><circle cx="708" cy="296" r="3.5"/>
+</g>
+<text x="772" y="140" font-size="10" fill="#B3401A" text-anchor="middle">original hardware retained</text>
+
+<g font-size="11" fill="#333">
+<text x="614" y="344" font-weight="700" fill="#2F5D3A">+ Cleanest look, load into real structure</text>
+<text x="614" y="360">+ Original screws bagged &amp; kept</text>
+<text x="614" y="376">&#8722; Depends entirely on what exists;</text>
+<text x="614" y="391">   thread sizes may be obsolete</text>
+<rect x="614" y="404" width="244" height="58" fill="#FFF6E8" stroke="#C08A20" stroke-width="1"/>
+<text x="622" y="420" font-size="10.5" font-weight="700" fill="#8a5f10">ON SITE (E1, E3, D2):</text>
+<text x="622" y="435" font-size="10.5" fill="#5a4a20">photograph every hole; thread gauge</text>
+<text x="622" y="449" font-size="10.5" fill="#5a4a20">it; note removed doors/panels.</text>
+</g>
+
+<text x="30" y="496" font-size="11.5" fill="#B3401A" font-weight="600">Rule for all three: no new holes, no adhesive on original surfaces, nylon or felt at every contact point,</text>
+<text x="30" y="512" font-size="11.5" fill="#B3401A" font-weight="600">and every original fastener removed gets bagged and labelled.</text>
+<text x="30" y="532" font-size="11.5" fill="#444">Combining is fine &#8212; e.g. rail-mount the frame top and straddle-clamp the bottom. Decide once ME-1 data is in hand.</text>
+</svg>

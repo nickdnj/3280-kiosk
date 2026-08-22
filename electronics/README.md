@@ -13,9 +13,17 @@ display, the single-board computer, power, and the wiring that joins them.
   (see `../src/controller/`).
 - **Power.** Single-cord entry, distribution, on/off, surge, and safe shutdown.
 
-## Deliverables to produce here
+## What's here now
 
-- `bom.md` / `bom.csv` — bill of materials with part numbers and sourcing.
+- **[`salvage-recon.md`](salvage-recon.md)** — the warehouse shopping list:
+  what to look for, acceptance criteria (especially for monitors), the powered
+  test to run before de-casing anything, and what to write down.
+- **[`bom.md`](bom.md)** — v0 bill of materials, salvage-first, marked
+  Have / Salvage / Buy.
+
+## Deliverables still to produce
+
+- `bom.csv` — machine-readable BOM with part numbers once parts are chosen.
 - `wiring/` — pinout tables and wiring diagrams (button → GPIO, display, power).
 - `schematics/` — schematic + any adapter boards (KiCad preferred; export PDFs).
 - `assembly.md` — how it goes together and how it's tested.

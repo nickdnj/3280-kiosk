@@ -138,7 +138,8 @@ day 0 ─┬─ M1 Content lock (SW) ──────────────�
   milestone, labeled by track. Critical-path (ME-1, ME-4, ME-5, IN-1) flagged.
 - **Board (optional):** columns Backlog → Ready → In progress → Done.
 
-*Not created yet — see §8. I'll create these only on your go-ahead.*
+**Created 2026-08-22** — all 39 story issues, 5 milestones and the track labels are
+live at [nickdnj/3280-kiosk/issues](https://github.com/nickdnj/3280-kiosk/issues).
 
 ---
 
@@ -166,8 +167,11 @@ electronics can proceed alongside and are low-risk.
    turns the concept app into the maintainable v1 base.
 3. **EL-1 — bench bring-up** on the drawer Pi 4, in parallel.
 
-*Say the word and I'll create the GitHub milestones, labels, and issues (§6) — or
-we can start executing ME-1 / SW-A1 directly.*
+**In flight:** ME-1 field materials are published ahead of the site visit —
+[`mechanical/dimensions-assumed.md`](../mechanical/dimensions-assumed.md),
+[`mechanical/measurement-checklist.md`](../mechanical/measurement-checklist.md),
+[`mechanical/drawings/`](../mechanical/drawings/), and the warehouse shopping list
+at [`electronics/salvage-recon.md`](../electronics/salvage-recon.md).
 
 ---
 

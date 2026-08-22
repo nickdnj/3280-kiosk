@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="720" viewBox="0 0 980 720" font-family="Helvetica,Arial,sans-serif">
+<rect x="0" y="0" width="980" height="720" fill="#ffffff"/>
+<text x="30" y="32" font-size="19" font-weight="700" fill="#1b1b1b">Plan Section — Door Swing &amp; Closing Clearance</text>
+<text x="30" y="51" font-size="12.5" fill="#555">Looking down. Scale 12 px = 1 in. Cabinet front at the bottom; rear beyond 26" omitted.</text>
+<rect x="30" y="64" width="330" height="20" fill="#FBE7E1" stroke="#B3401A" stroke-width="1"/>
+<text x="40" y="78" font-size="12" font-weight="700" fill="#B3401A">ALL DIMENSIONS ASSUMED — VERIFY ON SITE (ME-1)</text>
+
+<!-- cabinet walls -->
+<rect x="300" y="158" width="276" height="312" fill="#F4F0E7" stroke="#3a3a3a" stroke-width="1.5"/>
+<rect x="300" y="158" width="24" height="312" fill="#E8E1D2" stroke="#3a3a3a" stroke-width="1"/>
+<rect x="552" y="158" width="24" height="312" fill="#E8E1D2" stroke="#3a3a3a" stroke-width="1"/>
+<text x="438" y="176" font-size="10.5" fill="#999" text-anchor="middle">(cabinet continues rearward, 26"+ deep)</text>
+
+<!-- card cage boards, front edge 3.0in behind the front face -->
+<g stroke="#5a6473" stroke-width="2.5">
+<line x1="332" y1="434" x2="332" y2="200"/><line x1="344" y1="434" x2="344" y2="200"/>
+<line x1="356" y1="434" x2="356" y2="200"/><line x1="368" y1="434" x2="368" y2="200"/>
+<line x1="380" y1="434" x2="380" y2="200"/><line x1="392" y1="434" x2="392" y2="200"/>
+<line x1="404" y1="434" x2="404" y2="200"/><line x1="416" y1="434" x2="416" y2="200"/>
+<line x1="428" y1="434" x2="428" y2="200"/><line x1="440" y1="434" x2="440" y2="200"/>
+<line x1="452" y1="434" x2="452" y2="200"/><line x1="464" y1="434" x2="464" y2="200"/>
+<line x1="476" y1="434" x2="476" y2="200"/><line x1="488" y1="434" x2="488" y2="200"/>
+<line x1="500" y1="434" x2="500" y2="200"/><line x1="512" y1="434" x2="512" y2="200"/>
+<line x1="524" y1="434" x2="524" y2="200"/><line x1="536" y1="434" x2="536" y2="200"/>
+<line x1="548" y1="434" x2="548" y2="200"/>
+</g>
+<rect x="336" y="278" width="204" height="34" fill="#F4F0E7"/>
+<text x="438" y="292" font-size="11.5" fill="#3f4a58" text-anchor="middle" font-weight="700">CARD CAGE — boards + connectors</text>
+<text x="438" y="307" font-size="10.5" fill="#77808c" text-anchor="middle">frontmost protrusion sets the limit</text>
+<line x1="326" y1="434" x2="550" y2="434" stroke="#B3401A" stroke-width="2.5" stroke-dasharray="6 3"/>
+
+<!-- fixed frame at the front plane -->
+<rect x="300" y="458" width="51" height="12" fill="#D9CFB8" stroke="#3a3a3a" stroke-width="1"/>
+<rect x="525" y="458" width="51" height="12" fill="#D9CFB8" stroke="#3a3a3a" stroke-width="1"/>
+<text x="592" y="486" font-size="10.5" fill="#444">fixed frame</text>
+<line x1="576" y1="478" x2="562" y2="470" stroke="#888" stroke-width="0.8"/>
+
+<!-- door CLOSED -->
+<rect x="351" y="440" width="174" height="30" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.5"/>
+<rect x="351" y="440" width="174" height="7" fill="#141414"/>
+<text x="444" y="463" font-size="10" fill="#333" text-anchor="middle">DOOR CLOSED (panel + Pi)</text>
+
+<!-- door OPEN ghost at 100 deg -->
+<g transform="translate(351,470) rotate(100)" opacity="0.5">
+<rect x="0" y="-30" width="174" height="30" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.5" stroke-dasharray="5 3"/>
+</g>
+<path d="M 525 470 A 174 174 0 0 1 320.8 641.4" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="520" y="600" font-size="11" fill="#666">swing arc R 14.5"</text>
+<text x="356" y="666" font-size="11" fill="#333" font-weight="700">OPEN &#8776;100&#176;</text>
+<!-- over-travel stop -->
+<g transform="translate(351,470) rotate(112)">
+<line x1="0" y1="0" x2="190" y2="0" stroke="#B3401A" stroke-width="1.2" stroke-dasharray="4 3"/>
+</g>
+<text x="196" y="672" font-size="10.5" fill="#B3401A" font-weight="700">hard stop &#8776;110&#176; (MR7)</text>
+<!-- hinge pivot -->
+<circle cx="351" cy="470" r="6" fill="#9a9a9a" stroke="#333" stroke-width="1.5"/>
+<text x="316" y="504" font-size="10.5" fill="#333" text-anchor="middle">HINGE</text>
+<!-- service loop cable -->
+<path d="M 351 470 q -30 -18 -14 -38 q 15 -19 -9 -32" stroke="#2f6b3f" stroke-width="2" fill="none"/>
+<text x="316" y="356" font-size="10" fill="#2f6b3f" text-anchor="end">USB-C 5 V</text>
+<text x="316" y="369" font-size="10" fill="#2f6b3f" text-anchor="end">service loop</text>
+
+<!-- ===== DIMENSIONS ===== -->
+<g stroke="#B3401A" stroke-width="1" fill="none">
+<!-- overall width, top -->
+<line x1="300" y1="158" x2="300" y2="118"/><line x1="576" y1="158" x2="576" y2="118"/>
+<line x1="300" y1="126" x2="576" y2="126"/><line x1="300" y1="121" x2="300" y2="131"/><line x1="576" y1="121" x2="576" y2="131"/>
+<!-- clear opening -->
+<line x1="324" y1="158" x2="324" y2="146"/><line x1="552" y1="158" x2="552" y2="146"/>
+<line x1="324" y1="152" x2="552" y2="152"/><line x1="324" y1="147" x2="324" y2="157"/><line x1="552" y1="147" x2="552" y2="157"/>
+<!-- door depth, left -->
+<line x1="351" y1="440" x2="276" y2="440"/><line x1="351" y1="470" x2="276" y2="470"/>
+<line x1="284" y1="440" x2="284" y2="470"/><line x1="279" y1="440" x2="289" y2="440"/><line x1="279" y1="470" x2="289" y2="470"/>
+<!-- C1 clearance, right -->
+<line x1="550" y1="434" x2="648" y2="434"/><line x1="576" y1="470" x2="648" y2="470"/>
+<line x1="638" y1="434" x2="638" y2="470"/><line x1="633" y1="434" x2="643" y2="434"/><line x1="633" y1="470" x2="643" y2="470"/>
+</g>
+<g font-size="12" fill="#B3401A" font-weight="600">
+<rect x="410" y="117" width="56" height="16" fill="#fff"/><text x="438" y="130" text-anchor="middle">23.0"</text>
+<rect x="412" y="143" width="52" height="16" fill="#fff"/><text x="438" y="156" text-anchor="middle" font-size="11">19.0"</text>
+<text x="250" y="432" text-anchor="middle" font-size="11.5">2.5"</text>
+<text x="250" y="418" text-anchor="middle" font-size="10" fill="#666">door depth</text>
+<text x="654" y="449" font-size="12">C1 = 3.0"</text>
+<text x="654" y="463" font-size="10" fill="#666">assumed</text>
+</g>
+
+<!-- CRITICAL callout -->
+<rect x="700" y="150" width="252" height="132" fill="#FBE7E1" stroke="#B3401A" stroke-width="1.5"/>
+<text x="712" y="172" font-size="12.5" font-weight="700" fill="#B3401A">C1 — THE CRITICAL NUMBER</text>
+<text x="712" y="193" font-size="11" fill="#333">Front face plane &#8594; frontmost thing</text>
+<text x="712" y="208" font-size="11" fill="#333">inside: board edge, connector, cable,</text>
+<text x="712" y="223" font-size="11" fill="#333">card-puller handle.</text>
+<text x="712" y="245" font-size="11" fill="#333">Rule: C1 &#8805; door depth + 0.5".</text>
+<text x="712" y="267" font-size="11" font-weight="700" fill="#B3401A">If C1 &lt; 3.0" the door redesigns.</text>
+
+<rect x="700" y="298" width="252" height="112" fill="#FFF6E8" stroke="#C08A20" stroke-width="1.2"/>
+<text x="712" y="320" font-size="12.5" font-weight="700" fill="#8a5f10">MEASURE C1 THREE TIMES</text>
+<text x="712" y="341" font-size="11" fill="#5a4a20">Top, middle and bottom of the</text>
+<text x="712" y="356" font-size="11" fill="#5a4a20">opening. Cabinets rack out of true</text>
+<text x="712" y="371" font-size="11" fill="#5a4a20">and cabling migrates forward.</text>
+<text x="712" y="393" font-size="11" fill="#5a4a20" font-weight="700">Design to the smallest of the three.</text>
+
+<!-- notes column -->
+<g font-size="11.5" fill="#333">
+<text x="30" y="180" font-weight="700">DEPTH BUDGET (2.5" target)</text>
+<text x="30" y="200">0.25"  bezel face + bezel</text>
+<text x="30" y="217">0.60"  bare LCD panel</text>
+<text x="30" y="234">0.40"  standoff / air gap</text>
+<text x="30" y="251">1.00"  controller board + Pi 4</text>
+<text x="30" y="268">0.25"  vented rear shroud</text>
+<text x="30" y="294" font-weight="700" fill="#B3401A">Buttons set the floor here,</text>
+<text x="30" y="310" font-weight="700" fill="#B3401A">not the panel.</text>
+<text x="30" y="330">30 mm arcade bodies need</text>
+<text x="30" y="347">~1.4" behind the plate.</text>
+<text x="30" y="364">24 mm bodies (~1.1") buy</text>
+<text x="30" y="381">back depth if C1 is tight.</text>
+<text x="30" y="407" font-weight="700">IF C1 COMES IN SHORT</text>
+<text x="30" y="427">1. 24 mm buttons  (&#8722;0.3")</text>
+<text x="30" y="444">2. Pi off-door, ribbon over</text>
+<text x="30" y="461">   the hinge  (&#8722;0.5")</text>
+<text x="30" y="478">3. Frame stands the door</text>
+<text x="30" y="495">   proud of the front face</text>
+<text x="30" y="512">4. Recess the frame between</text>
+<text x="30" y="529">   the boards, not over them</text>
+</g>
+<text x="30" y="700" font-size="11.5" fill="#444">Left-hinged per MR5. Verify ~18" of clear floor and approach to the left of the cabinet so a fully open door does not foul a neighbouring exhibit or a walkway.</text>
+</svg>
