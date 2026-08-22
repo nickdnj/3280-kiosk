@@ -31,6 +31,10 @@ it**.
   - [`02-door-assembly.svg`](drawings/02-door-assembly.svg) — every door face dimension, weight budget
   - [`03-plan-section-clearance.svg`](drawings/03-plan-section-clearance.svg) — depth budget, swing envelope, **the C1 clearance risk**
   - [`04-mount-candidates.svg`](drawings/04-mount-candidates.svg) — three no-drill mounting options
+  - [`05-door-exploded.svg`](drawings/05-door-exploded.svg) — door assembly stack, depth budget, thermal path
+- **[`door-construction.md`](door-construction.md)** — ME-4 build spec: laser-cut
+  5052 aluminium (outsourced), parts P1–P4, assembly stack, thermal, finish, and
+  what's still blocked before anything can be ordered.
 
 ## Still to produce
 

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="660" viewBox="0 0 900 660" font-family="Helvetica,Arial,sans-serif">
+<rect x="0" y="0" width="900" height="660" fill="#ffffff"/>
+<text x="30" y="32" font-size="19" font-weight="700" fill="#1b1b1b">Door Assembly — Exploded (ME-4)</text>
+<text x="30" y="51" font-size="12.5" fill="#555">Front to back. Laser-cut 5052 aluminium, outsourced. Scale 7 px = 1 in on the faces.</text>
+<rect x="30" y="64" width="432" height="20" fill="#FBE7E1" stroke="#B3401A" stroke-width="1"/>
+<text x="40" y="78" font-size="12" font-weight="700" fill="#B3401A">GEOMETRY ASSUMED — gated on ME-1 (C1) and the salvaged panel (EL-5)</text>
+
+<!-- assembly direction arrows -->
+<g stroke="#aaa" stroke-width="1" stroke-dasharray="5 4">
+<line x1="175" y1="245" x2="205" y2="245"/><line x1="315" y1="245" x2="345" y2="245"/>
+<line x1="455" y1="245" x2="485" y2="245"/><line x1="595" y1="245" x2="625" y2="245"/>
+</g>
+<g fill="#aaa">
+<polygon points="205,245 197,241 197,249"/><polygon points="345,245 337,241 337,249"/>
+<polygon points="485,245 477,241 477,249"/><polygon points="625,245 617,241 617,249"/>
+</g>
+
+<!-- ===== 1 · P1 FACE ===== -->
+<rect x="70" y="140" width="101" height="210" rx="3" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.5"/>
+<rect x="74" y="144" width="34" height="9" fill="#1b1b1b"/>
+<rect x="81" y="158" width="79" height="153" fill="#ffffff" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+<rect x="81" y="158" width="79" height="153" fill="none" stroke="#141414" stroke-width="4"/>
+<rect x="81" y="318" width="79" height="26" fill="#1b1b1b"/>
+<circle cx="101" cy="331" r="5" fill="#3d3d3d" stroke="#8d8d8d" stroke-width="0.8"/>
+<circle cx="120" cy="331" r="5" fill="#3d3d3d" stroke="#8d8d8d" stroke-width="0.8"/>
+<circle cx="139" cy="331" r="5" fill="#3d3d3d" stroke="#8d8d8d" stroke-width="0.8"/>
+<text x="120" y="372" font-size="12" font-weight="700" fill="#1b1b1b" text-anchor="middle">P1 &#183; FACE</text>
+<text x="120" y="388" font-size="10.5" fill="#555" text-anchor="middle">5052-H32, 0.080"</text>
+<text x="120" y="402" font-size="10.5" fill="#555" text-anchor="middle">tan, painted locally</text>
+<text x="120" y="420" font-size="10" fill="#B3401A" text-anchor="middle">+ P3 button plate</text>
+<text x="120" y="433" font-size="10" fill="#B3401A" text-anchor="middle">(black anodised, separate)</text>
+
+<!-- ===== 2 · FOAM ===== -->
+<rect x="210" y="158" width="101" height="153" rx="2" fill="none" stroke="#C08A20" stroke-width="5"/>
+<text x="260" y="372" font-size="12" font-weight="700" fill="#1b1b1b" text-anchor="middle">FOAM GASKET</text>
+<text x="260" y="388" font-size="10.5" fill="#555" text-anchor="middle">closed-cell tape</text>
+<text x="260" y="402" font-size="10.5" fill="#555" text-anchor="middle">~0.03"</text>
+<text x="260" y="420" font-size="10" fill="#8a5f10" text-anchor="middle">light seal + compliance</text>
+
+<!-- ===== 3 · LCD PANEL ===== -->
+<rect x="350" y="152" width="101" height="165" rx="2" fill="#2a2a2a" stroke="#111" stroke-width="1.5"/>
+<rect x="356" y="158" width="89" height="153" fill="#E9E2D0"/>
+<g stroke="#7BA05B" stroke-width="3" fill="none">
+<path d="M 346 168 l 0 -12 l 12 0"/><path d="M 455 168 l 0 -12 l -12 0"/>
+<path d="M 346 301 l 0 12 l 12 0"/><path d="M 455 301 l 0 12 l -12 0"/>
+</g>
+<text x="400" y="372" font-size="12" font-weight="700" fill="#1b1b1b" text-anchor="middle">DE-CASED LCD</text>
+<text x="400" y="388" font-size="10.5" fill="#555" text-anchor="middle">~0.60" &#183; salvaged</text>
+<text x="400" y="406" font-size="10" fill="#3f6b2f" text-anchor="middle">P4 brackets clamp the</text>
+<text x="400" y="419" font-size="10" fill="#3f6b2f" text-anchor="middle">chassis edge &#8212; slotted holes</text>
+<text x="400" y="436" font-size="10" font-weight="700" fill="#B3401A" text-anchor="middle">never screw into the panel</text>
+
+<!-- ===== 4 · BOARDS ===== -->
+<rect x="490" y="140" width="101" height="210" rx="3" fill="#F7F5F0" stroke="#bbb" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="502" y="168" width="77" height="46" fill="#2F5D3A" stroke="#1d3a24" stroke-width="1"/>
+<text x="540" y="195" font-size="9" fill="#dfe9df" text-anchor="middle">CONTROLLER</text>
+<rect x="512" y="245" width="58" height="38" fill="#2b4a66" stroke="#16293a" stroke-width="1"/>
+<text x="541" y="268" font-size="9" fill="#dbe6f0" text-anchor="middle">Pi 4</text>
+<rect x="524" y="283" width="34" height="7" fill="#B3401A"/>
+<text x="541" y="303" font-size="9" fill="#B3401A" text-anchor="middle">thermal pad</text>
+<text x="540" y="372" font-size="12" font-weight="700" fill="#1b1b1b" text-anchor="middle">BOARDS</text>
+<text x="540" y="388" font-size="10.5" fill="#555" text-anchor="middle">~1.00" on standoffs</text>
+<text x="540" y="406" font-size="10" fill="#555" text-anchor="middle">S2/S3 printed carriers</text>
+<text x="540" y="424" font-size="10" fill="#B3401A" text-anchor="middle">pad bridges Pi &#8594; shroud</text>
+
+<!-- ===== 5 · SHROUD ===== -->
+<rect x="630" y="140" width="101" height="210" rx="3" fill="#D9D5CC" stroke="#2b2b2b" stroke-width="1.5"/>
+<g fill="#8a8a8a">
+<rect x="645" y="290" width="26" height="4" rx="2"/><rect x="690" y="290" width="26" height="4" rx="2"/>
+<rect x="645" y="302" width="26" height="4" rx="2"/><rect x="690" y="302" width="26" height="4" rx="2"/>
+<rect x="645" y="314" width="26" height="4" rx="2"/><rect x="690" y="314" width="26" height="4" rx="2"/>
+<rect x="645" y="168" width="26" height="4" rx="2"/><rect x="690" y="168" width="26" height="4" rx="2"/>
+<rect x="645" y="180" width="26" height="4" rx="2"/><rect x="690" y="180" width="26" height="4" rx="2"/>
+<rect x="645" y="192" width="26" height="4" rx="2"/><rect x="690" y="192" width="26" height="4" rx="2"/>
+</g>
+<text x="680" y="215" font-size="9.5" fill="#B3401A" text-anchor="middle" font-weight="700">exhaust high</text>
+<text x="680" y="278" font-size="9.5" fill="#2F5D3A" text-anchor="middle" font-weight="700">intake low</text>
+<text x="680" y="372" font-size="12" font-weight="700" fill="#1b1b1b" text-anchor="middle">P2 &#183; SHROUD</text>
+<text x="680" y="388" font-size="10.5" fill="#555" text-anchor="middle">5052-H32, 0.063", bent tray</text>
+<text x="680" y="406" font-size="10" fill="#555" text-anchor="middle">removable for service (MR16)</text>
+<text x="680" y="424" font-size="10" font-weight="700" fill="#B3401A" text-anchor="middle">structural + heatsink</text>
+
+<!-- ===== DEPTH BAR ===== -->
+<text x="30" y="484" font-size="13" font-weight="700" fill="#1b1b1b">DEPTH BUDGET — 2.50" total</text>
+<g stroke="#2b2b2b" stroke-width="1">
+<rect x="30" y="496" width="70" height="30" fill="#E5DDCB"/>
+<rect x="100" y="496" width="9" height="30" fill="#F0DFB8"/>
+<rect x="109" y="496" width="168" height="30" fill="#2a2a2a"/>
+<rect x="277" y="496" width="112" height="30" fill="#F7F5F0"/>
+<rect x="389" y="496" width="280" height="30" fill="#dfe6ee"/>
+<rect x="669" y="496" width="70" height="30" fill="#D9D5CC"/>
+</g>
+<g font-size="10" fill="#333" text-anchor="middle">
+<text x="65" y="516">0.25"</text><text x="193" y="516" fill="#eee">0.60"</text>
+<text x="333" y="516">0.40"</text><text x="529" y="516">1.00"</text><text x="704" y="516">0.25"</text>
+</g>
+<g font-size="9.5" fill="#666" text-anchor="middle">
+<text x="65" y="540">face+bezel</text><text x="193" y="540">LCD panel</text>
+<text x="333" y="540">air gap</text><text x="529" y="540">boards + Pi</text><text x="704" y="540">shroud</text>
+</g>
+<g stroke="#B3401A" stroke-width="1" fill="none">
+<line x1="30" y1="552" x2="30" y2="566"/><line x1="739" y1="552" x2="739" y2="566"/>
+<line x1="30" y1="560" x2="739" y2="560"/>
+<line x1="30" y1="555" x2="30" y2="565"/><line x1="739" y1="555" x2="739" y2="565"/>
+</g>
+<rect x="352" y="551" width="66" height="16" fill="#fff"/>
+<text x="385" y="564" font-size="12" font-weight="600" fill="#B3401A" text-anchor="middle">2.50"</text>
+
+<!-- side note -->
+<rect x="762" y="140" width="120" height="118" fill="#FFF6E8" stroke="#C08A20" stroke-width="1.2"/>
+<text x="772" y="160" font-size="11" font-weight="700" fill="#8a5f10">THE DOOR IS</text>
+<text x="772" y="175" font-size="11" font-weight="700" fill="#8a5f10">A BOX</text>
+<text x="772" y="196" font-size="10" fill="#5a4a20">Rigidity comes from</text>
+<text x="772" y="209" font-size="10" fill="#5a4a20">the closed section of</text>
+<text x="772" y="222" font-size="10" fill="#5a4a20">face + shroud joined at</text>
+<text x="772" y="235" font-size="10" fill="#5a4a20">the perimeter &#8212; not</text>
+<text x="772" y="248" font-size="10" fill="#5a4a20">from either alone.</text>
+
+<text x="30" y="600" font-size="11.5" fill="#444">Assembled weight ~14.5 lb, CG ~7" from the hinge &#8594; ~100 in-lb. Specify a continuous (piano) hinge; two butt hinges would let the free edge sag.</text>
+<text x="30" y="620" font-size="11.5" fill="#444">Screen window is cut 0.06" smaller than the active area overall (0.03"/side) so the bezel hides the panel edge transition and any backlight leak.</text>
+<text x="30" y="640" font-size="11.5" fill="#B3401A" font-weight="600">Build a full-size cardboard mock-up and hold it in the opening before ordering any metal. Cheapest de-risking step in the project.</text>
+</svg>

@@ -99,12 +99,12 @@
 <text x="30" y="404">Dashed blanks = spare</text>
 <text x="30" y="421">lines (ER3 / SW-C3).</text>
 <text x="30" y="445" font-weight="700">WEIGHT BUDGET</text>
-<text x="30" y="464">panel + board  ~4.5 lb</text>
-<text x="30" y="481">door sheet      ~6 lb</text>
-<text x="30" y="498">Pi + buttons    ~1.5 lb</text>
-<text x="30" y="515" font-weight="700">total  ~12 lb</text>
+<text x="30" y="464">alu face + shroud  7.4 lb</text>
+<text x="30" y="481">panel + board      4.5 lb</text>
+<text x="30" y="498">Pi, buttons, fixings 2.5 lb</text>
+<text x="30" y="515" font-weight="700">total  ~14.5 lb</text>
 <text x="30" y="532">CG ~7" from hinge</text>
-<text x="30" y="549">&#8776; 85 in-lb moment</text>
+<text x="30" y="549">&#8776; 100 in-lb moment</text>
 </g>
 <text x="30" y="800" font-size="11.5" fill="#B3401A" font-weight="600">27" stretch option: active 13.2" x 23.5" &#8594; door grows to ~15.9" x 32.7". Only viable if the measured clear opening is &#8805; 21".</text>
 <text x="30" y="818" font-size="11.5" fill="#444">Panel outline (glass + backlight frame) assumed 12.4" x 21.6" — must be measured off the actual salvaged panel before cutting anything.</text>

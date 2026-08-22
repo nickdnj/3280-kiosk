@@ -35,6 +35,7 @@ by ~40%. **Treat 23.0 × 69.5 as a claim to verify, not a measurement.**
 | 02 | [Door front layout](drawings/02-door-assembly.svg) | Every face dimension of the door; weight budget |
 | 03 | [Plan section — swing & clearance](drawings/03-plan-section-clearance.svg) | Depth budget; **the C1 clearance risk**; swing envelope |
 | 04 | [Reversible mount candidates](drawings/04-mount-candidates.svg) | Three no-drill options and what to check for each |
+| 05 | [Door assembly — exploded](drawings/05-door-exploded.svg) | The build stack, depth budget, thermal path — see [`door-construction.md`](door-construction.md) |
 
 ![Cabinet front elevation](drawings/01-cabinet-front-elevation.svg)
 
@@ -81,7 +82,7 @@ viewing window each side, which loses the concept's "window around the screen".
 | B6 | Button plate | 12.8″ W × 4.0″ H | 3 buttons @ 3.2″ c-c + 2 spare blanks |
 | B7 | Bottom rail | 1.5″ | |
 | B8 | **Door depth, bezel face → rear shroud** | **≤ 2.5″** (stretch 2.0″) | See §5 |
-| B9 | Door weight | ~12 lb | ~85 in-lb moment at the hinge |
+| B9 | Door weight | **~14.5 lb** | ~100 in-lb at the hinge — see [`door-construction.md`](door-construction.md) §7 |
 
 ### Placement
 
