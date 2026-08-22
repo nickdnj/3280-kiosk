@@ -288,10 +288,10 @@ is a museum artifact — every attachment must be reversible and non-destructive
 - **A4** — **Physical safety.** Per MR7, MR14, MR15 — stops, ventilation, no pinch
   points or sharp edges, stable mounting.
 - **Exposed-board risk (from MR4).** Open framing + anyone-can-open leaves the
-  original boards reachable. Mitigations to decide in design: a shallow stand-off
-  so hands don't reach the boards, "please don't touch" signage, docent guidance,
-  and/or revisiting the friction-catch so casual visitors are less likely to open
-  it. Flagged for VCF sign-off.
+  original boards reachable. **Planned mitigation (deferred, low cost):** add a
+  **plexiglass panel behind/in the opening** to shield the boards while keeping
+  them visible. Not in the initial build — added later as a cheap follow-on;
+  signage and docent guidance cover the interim.
 
 ---
 
@@ -309,10 +309,15 @@ is a museum artifact — every attachment must be reversible and non-destructive
 **Constraints**
 - Museum artifact → **reversible, non-destructive** mounting (MR2).
 - **Offline / standalone**, **silent**, **English-only**, **no touchscreen** (v1).
-- Built **hands-on by the builder** with off-the-shelf parts.
+- Built **hands-on by the builder**.
+- **Salvage-first.** Most parts — the monitor, compute, buttons, brackets/rack
+  hardware, panel stock — are **salvaged from the VCF warehouse and reused**. Buy
+  new only what can't be salvaged. This favors adaptable, standards-based choices
+  over anything that assumes a specific new SKU.
 
 **Assumptions (flag to correct)**
-- **Budget:** modest, self/museum-funded, commodity parts. *(Confirm any ceiling.)*
+- **Budget:** not a constraint — "don't worry about it"; salvage-and-reuse keeps
+  cost low regardless. Build it right.
 - **Timeline:** no hard deadline — build it right; "done" = the **full piece
   installed** in the real 3280 (not a bench demo).
 - **Reliability:** unattended, auto-recovering, power-cycle-safe is required.
@@ -343,16 +348,17 @@ is a museum artifact — every attachment must be reversible and non-destructive
 
 ## 15. Open questions
 
-1. **Budget ceiling** for parts/fabrication — any limit to design within?
-2. **Exposed-board protection** (from MR4) — acceptable as-is with signage, or add
-   a stand-off / reconsider the catch? Needs VCF sign-off.
-3. **Confirm panel size** after measuring (MR1/MR12): 24″ vs 27″ portrait — also
-   sets the door depth / how low-profile the enclosure can go (MR19).
-4. **Reversible mount method** — what does the real cabinet offer to grab (rack
+1. **Confirm panel size** after measuring (MR1/MR12): 24″ vs 27″ portrait — also
+   sets the door depth / how low-profile the enclosure can go (MR19). Driven by
+   what monitor is available to salvage.
+2. **Reversible mount method** — what does the real cabinet offer to grab (rack
    rails, existing holes, frame lip)? Determined on measurement.
-5. **Spare-button count** to provision (MR11/ER3) — how many beyond the three?
-6. **ADA reach vs door position** (A1) — does the door-mounted button plate meet
+3. **Spare-button count** to provision (MR11/ER3) — how many beyond the three?
+4. **ADA reach vs door position** (A1) — does the door-mounted button plate meet
    reach, or do we need a separate low plate?
+
+*Resolved since first draft: budget is not a constraint; exposed boards get a
+plexiglass panel later (MR4/§11); the Pi mounts in the door shroud (MR18).*
 
 ---
 
