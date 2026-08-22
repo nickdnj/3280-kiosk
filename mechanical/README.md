@@ -37,6 +37,9 @@ it**.
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
   shareable version for a shop or makerspace. **Not for order until the release
   gate clears.**
+- **[`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md)** — is there an
+  off-the-shelf enclosure we could buy and modify instead? Open decision, gated
+  on the measured clearance.
 - **[`door-construction.md`](door-construction.md)** — ME-4 build spec: laser-cut
   5052 aluminium (outsourced), parts P1–P4, assembly stack, thermal, finish, and
   what's still blocked before anything can be ordered.

@@ -81,11 +81,18 @@ Board edges, connectors, ribbon cables, card-puller handles, anything.
 | C4 | Loose cabling hanging forward of the boards? | — | ☐ Yes ☐ No |
 | C5 | Can loose cabling be safely dressed back? | — | ☐ Yes ☐ No ☐ Ask VCF |
 
-**Decision gate:** door depth budget is **2.5″**, needs C2 ≥ **3.0″**.
+**Decision gate — now decides TWO things.** Door depth budget is **2.5″**, needs
+C2 ≥ **3.0″**. C2 also picks custom fabrication vs. buying an enclosure and
+modifying it (see [`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md) §4):
 
-- [ ] C2 ≥ 3.0″ → design proceeds as drawn
-- [ ] C2 = 2.5″–3.0″ → drop to 24 mm buttons, re-check
-- [ ] C2 < 2.5″ → **stop and re-plan the door** (see dimensions-assumed.md §5)
+- [ ] C2 < 2.5″ → **stop and re-plan the door** (dimensions-assumed.md §5)
+- [ ] C2 = 2.5″–3.0″ → custom fab, drop to 24 mm buttons, re-check
+- [ ] C2 = 3.0″–4.5″ → **custom fab as drawn.** Off-the-shelf enclosures won't close
+- [ ] C2 ≥ 4.5″ → custom fab *or* a 4″ off-the-shelf enclosure — buy-and-modify is live
+- [ ] C2 ≥ 6.5″ → full enclosure size ladder available; choose on proportions
+
+**Also on Wednesday:** look for a usable shallow **aluminium** enclosure in the
+warehouse. Salvage beats buying, and steel is too heavy for the hinge.
 
 - [ ] Photographed the card cage from a side angle showing protrusion depth
 
