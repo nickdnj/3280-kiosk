@@ -32,6 +32,7 @@ it**.
   - [`03-plan-section-clearance.svg`](drawings/03-plan-section-clearance.svg) — depth budget, swing envelope, **the C1 clearance risk**
   - [`04-mount-candidates.svg`](drawings/04-mount-candidates.svg) — three no-drill mounting options
   - [`05-door-exploded.svg`](drawings/05-door-exploded.svg) — door assembly stack, depth budget, thermal path
+  - [`06-option-comparison.svg`](drawings/06-option-comparison.svg) — **all four display approaches side by side**
 - **[`fab/`](fab/)** — the fabrication package: order sheet, laser-cut DXFs,
   review previews, and the parametric generator that rebuilds them all from one
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the

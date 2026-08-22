@@ -10,6 +10,18 @@
 
 ---
 
+## At a glance
+
+![Option comparison](drawings/06-option-comparison.svg)
+
+Drawn to the assumed cabinet geometry — proportions are real, unlike the AI
+concept art elsewhere in the repo. Regenerate with
+`python3 drawings/make-option-comparison.py`.
+
+**The headline finding:** A, B and C1 look *almost the same from the front.* If
+the monitor is recessed behind a bezel-sized cut, Option C reads as the approved
+concept. Only C2 — monitor bolted proud of the panel — looks visibly different.
+
 ## The three
 
 | | Approach | Display | Enclosure |
@@ -17,6 +29,9 @@
 | **A** | Custom door | **De-cased** bare LCD panel | Fabricated: P1 face + P2 shroud |
 | **B** | Buy + modify | **De-cased** bare LCD panel | Leviton structured-media can |
 | **C** | **VESA carrier panel** | **Cased commercial monitor, intact** | The monitor's own housing |
+
+C splits into **C1 (recessed)** and **C2 (proud)** — same architecture, very
+different result on the one axis that matters to the docents.
 
 A and B differ only in where the box comes from. **C is a different architecture.**
 
