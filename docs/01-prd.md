@@ -208,10 +208,24 @@ is a museum artifact — every attachment must be reversible and non-destructive
   the door light: favor the smaller panel (see MR12) and consider mounting the Pi
   on the door so that **only power crosses the hinge** (see §13, open recommendation).
 
+### Door enclosure (low-profile rear cover)
+- **MR18** — The door is a **fully enclosed assembly**. A rear cover/shroud closes
+  off the **back of the monitor, the Raspberry Pi, and the backs of the buttons**
+  so no electronics, wiring, or bare panel are exposed from behind — nothing loose
+  hangs off the door. The Pi mounts **inside** this shroud (so only power crosses
+  the hinge — see MR10, §13).
+- **MR19** — **As low-profile as possible.** Minimize the assembly's front-to-back
+  depth (bezel face → rear cover) so the closed door sits as near flush as it can
+  and preserves maximum closing clearance to the card cage behind it (MR3, MR7).
+  The rear cover must be **removable/openable for service** (MR16) and **vented**
+  so the enclosed Pi and panel don't overheat (MR14).
+
 ### Cabling across the hinge
-- **MR10** — **Service loop + strain relief** across the left hinge for every
-  conductor that crosses it, rated for the door's full open/close travel over many
-  cycles; no pinch, no tension on connectors at either extreme.
+- **MR10** — **Service loop + strain relief** across the left hinge for the
+  conductor(s) that cross it (with the Pi on the door per MR18, this is just
+  **power** — plus the spare-button harness only if any spare lives off-door),
+  rated for the door's full open/close travel over many cycles; no pinch, no
+  tension on connectors at either extreme.
 
 ### Buttons (mechanical placement)
 - **MR11** — Buttons ride on the door **below the screen** (per concept), in a
@@ -233,8 +247,9 @@ is a museum artifact — every attachment must be reversible and non-destructive
   finish is the fallback if matching proves impractical.
 
 ### Thermal, safety, service
-- **MR14** — **Ventilation** for the Pi and panel (open framing helps); no hot
-  surfaces reachable by visitors.
+- **MR14** — **Ventilation** for the Pi and panel — the enclosed rear shroud
+  (MR18) must be vented (passive preferred) so heat doesn't build up in the sealed
+  door; no hot surfaces reachable by visitors.
 - **MR15** — **Public-safety detailing**: no pinch points at the hinge, no sharp
   edges, nothing that tips or pulls off under a visitor's hand.
 - **MR16** — **Serviceability**: the builder can reach the Pi, wiring, and panel
@@ -302,10 +317,10 @@ is a museum artifact — every attachment must be reversible and non-destructive
   installed** in the real 3280 (not a bench demo).
 - **Reliability:** unattended, auto-recovering, power-cycle-safe is required.
 
-**Open design recommendation (for the architecture phase)**
-- **Mount the Pi on the door**, so only AC/USB-C **power crosses the hinge** rather
-  than HDMI + USB + button harness. Minimizes hinge-crossing conductors (MR10) at
-  a negligible weight cost. To be confirmed against MR9 balance and MR16 service.
+**Settled by the enclosure requirement**
+- The **Pi mounts inside the door's rear shroud** (MR18), so only **power crosses
+  the hinge** (MR10) — no HDMI/USB/button harness across it. Confirm against MR9
+  hinge balance and MR16/MR19 serviceability during design.
 
 ---
 
@@ -331,13 +346,12 @@ is a museum artifact — every attachment must be reversible and non-destructive
 1. **Budget ceiling** for parts/fabrication — any limit to design within?
 2. **Exposed-board protection** (from MR4) — acceptable as-is with signage, or add
    a stand-off / reconsider the catch? Needs VCF sign-off.
-3. **Confirm panel size** after measuring (MR1/MR12): 24″ vs 27″ portrait.
-4. **Pi-on-door** recommendation (§13) — accept for architecture, or keep the Pi
-   in the fixed cabinet?
-5. **Reversible mount method** — what does the real cabinet offer to grab (rack
+3. **Confirm panel size** after measuring (MR1/MR12): 24″ vs 27″ portrait — also
+   sets the door depth / how low-profile the enclosure can go (MR19).
+4. **Reversible mount method** — what does the real cabinet offer to grab (rack
    rails, existing holes, frame lip)? Determined on measurement.
-6. **Spare-button count** to provision (MR11/ER3) — how many beyond the three?
-7. **ADA reach vs door position** (A1) — does the door-mounted button plate meet
+5. **Spare-button count** to provision (MR11/ER3) — how many beyond the three?
+6. **ADA reach vs door position** (A1) — does the door-mounted button plate meet
    reach, or do we need a separate low plate?
 
 ---
