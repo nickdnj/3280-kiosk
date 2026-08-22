@@ -10,6 +10,10 @@
 **Method:** [`../door-construction.md`](../door-construction.md) ·
 **Generator:** [`generate.py`](generate.py)
 
+> 📄 **Sharing this with a shop or a makerspace?** Send them
+> **[`DRAWING-PACKAGE.md`](DRAWING-PACKAGE.md)** — the same drawings wrapped in
+> project context, with the ask and the capability questions up front.
+
 ---
 
 ## 1. Order sheet
@@ -40,7 +44,7 @@ self-etching primer and a matched topcoat locally.
 
 ## 2. Files
 
-| Part | DXF (for the shop) | Preview (for review) |
+| Part | DXF (for the shop) | Drawing sheet |
 |---|---|---|
 | P1 | [`P1-face.dxf`](P1-face.dxf) | [`P1-face.svg`](P1-face.svg) |
 | P2 | [`P2-shroud-flat.dxf`](P2-shroud-flat.dxf) | [`P2-shroud-flat.svg`](P2-shroud-flat.svg) |
@@ -49,7 +53,12 @@ self-etching primer and a matched topcoat locally.
 
 DXF is **R12 ASCII, units = inches**, two layers: `CUT` and `BEND`. Closed
 contours, no duplicate or overlapping geometry, no text or dimensions in the cut
-data. The previews are for human review only — **never send an SVG to the shop.**
+data.
+
+The drawing sheets carry a datum, overall dimensions, a **full feature schedule
+with X/Y coordinates for every hole**, notes and a title block — enough to lay
+the part out by hand on a mill or a drill press, not just to feed a laser. They
+are for humans; **the DXF is what a machine gets.**
 
 ---
 

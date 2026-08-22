@@ -1,62 +1,177 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="419" height="954" viewBox="0 0 419 954" font-family="Helvetica,Arial,sans-serif">
-<rect width="419" height="954" fill="#ffffff"/>
-<text x="30" y="32" font-size="18" font-weight="700" fill="#1b1b1b">P1 &#183; DOOR FACE</text>
-<text x="30" y="52" font-size="12" fill="#555">5052-H32 aluminium &#183; 0.080" &#183; qty 1 &#183; laser cut, flat, deburr all edges &#183; RAW — primed + tan topcoat locally</text>
-<rect x="30" y="64" width="360" height="19" fill="#FBE7E1" stroke="#B3401A"/>
-<text x="39" y="77.5" font-size="11.5" font-weight="700" fill="#B3401A">ASSUMED GEOMETRY &#8212; NOT FOR ORDER UNTIL ME-1 + EL-5</text>
-<g fill="none" stroke="#1b1b1b" stroke-width="1.4">
-<line x1="65.17" y1="716.00" x2="354.50" y2="716.00"/>
-<line x1="359.67" y1="710.83" x2="359.67" y2="101.17"/>
-<line x1="354.50" y1="96.00" x2="65.17" y2="96.00"/>
-<line x1="60.00" y1="101.17" x2="60.00" y2="710.83"/>
-<path d="M 354.50 716.00 A 5.17 5.17 0 0 0 359.67 710.83"/>
-<path d="M 359.67 101.17 A 5.17 5.17 0 0 0 354.50 96.00"/>
-<path d="M 65.17 96.00 A 5.17 5.17 0 0 0 60.00 101.17"/>
-<path d="M 60.00 710.83 A 5.17 5.17 0 0 0 65.17 716.00"/>
-<line x1="91.41" y1="579.19" x2="328.25" y2="579.19"/>
-<line x1="330.84" y1="576.60" x2="330.84" y2="150.66"/>
-<line x1="328.25" y1="148.08" x2="91.41" y2="148.08"/>
-<line x1="88.83" y1="150.66" x2="88.83" y2="576.60"/>
-<path d="M 328.25 579.19 A 2.58 2.58 0 0 0 330.84 576.60"/>
-<path d="M 330.84 150.66 A 2.58 2.58 0 0 0 328.25 148.08"/>
-<path d="M 91.41 148.08 A 2.58 2.58 0 0 0 88.83 150.66"/>
-<path d="M 88.83 576.60 A 2.58 2.58 0 0 0 91.41 579.19"/>
-<circle cx="97.46" cy="643.67" r="12.92"/>
-<circle cx="153.65" cy="643.67" r="12.92"/>
-<circle cx="209.83" cy="643.67" r="12.92"/>
-<circle cx="266.02" cy="643.67" r="12.92"/>
-<circle cx="322.21" cy="643.67" r="12.92"/>
-<circle cx="125.55" cy="675.70" r="1.32"/>
-<circle cx="125.55" cy="611.63" r="1.32"/>
-<circle cx="294.11" cy="675.70" r="1.32"/>
-<circle cx="294.11" cy="611.63" r="1.32"/>
-<circle cx="85.83" cy="116.67" r="1.32"/>
-<circle cx="168.50" cy="116.67" r="1.32"/>
-<circle cx="67.23" cy="695.33" r="1.32"/>
-<circle cx="352.43" cy="695.33" r="1.32"/>
-<circle cx="67.23" cy="561.00" r="1.32"/>
-<circle cx="352.43" cy="561.00" r="1.32"/>
-<circle cx="67.23" cy="406.00" r="1.32"/>
-<circle cx="352.43" cy="406.00" r="1.32"/>
-<circle cx="67.23" cy="251.00" r="1.32"/>
-<circle cx="352.43" cy="251.00" r="1.32"/>
-<circle cx="67.23" cy="116.67" r="1.32"/>
-<circle cx="352.43" cy="116.67" r="1.32"/>
-<circle cx="159.89" cy="708.77" r="1.32"/>
-<circle cx="159.89" cy="103.23" r="1.32"/>
-<circle cx="259.78" cy="708.77" r="1.32"/>
-<circle cx="259.78" cy="103.23" r="1.32"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="860" viewBox="0 0 1120 860" font-family="Helvetica,Arial,sans-serif">
+<rect width="1120" height="860" fill="#ffffff"/>
+<rect x="18" y="18" width="1084" height="824" fill="none" stroke="#1b1b1b" stroke-width="1.5"/>
+<rect x="26" y="26" width="1068" height="808" fill="none" stroke="#8a8a8a" stroke-width="0.6"/>
+<text x="44" y="60" font-size="20" font-weight="700" fill="#1b1b1b">P1 &#183; DOOR FACE</text>
+<text x="44" y="82" font-size="12" fill="#555">3280 KIOSK — DOOR ASSEMBLY &#183; all dimensions in INCHES &#183; datum X0 Y0 at lower-left of the blank</text>
+<rect x="706" y="42" width="388" height="24" fill="#FBE7E1" stroke="#B3401A" stroke-width="1.2"/>
+<text x="716" y="59" font-size="12" font-weight="700" fill="#B3401A">STATUS: ASSUMED GEOMETRY &#8212; NOT FOR ORDER</text>
+<g fill="none" stroke="#1b1b1b" stroke-width="1.5">
+<line x1="253.33" y1="702.00" x2="528.67" y2="702.00"/>
+<line x1="533.58" y1="697.08" x2="533.58" y2="116.92"/>
+<line x1="528.67" y1="112.00" x2="253.33" y2="112.00"/>
+<line x1="248.42" y1="116.92" x2="248.42" y2="697.08"/>
+<path d="M 528.67 702.00 A 4.92 4.92 0 0 0 533.58 697.08"/>
+<path d="M 533.58 116.92 A 4.92 4.92 0 0 0 528.67 112.00"/>
+<path d="M 253.33 112.00 A 4.92 4.92 0 0 0 248.42 116.92"/>
+<path d="M 248.42 697.08 A 4.92 4.92 0 0 0 253.33 702.00"/>
+<line x1="278.31" y1="571.81" x2="503.69" y2="571.81"/>
+<line x1="506.15" y1="569.35" x2="506.15" y2="164.02"/>
+<line x1="503.69" y1="161.56" x2="278.31" y2="161.56"/>
+<line x1="275.85" y1="164.02" x2="275.85" y2="569.35"/>
+<path d="M 503.69 571.81 A 2.46 2.46 0 0 0 506.15 569.35"/>
+<path d="M 506.15 164.02 A 2.46 2.46 0 0 0 503.69 161.56"/>
+<path d="M 278.31 161.56 A 2.46 2.46 0 0 0 275.85 164.02"/>
+<path d="M 275.85 569.35 A 2.46 2.46 0 0 0 278.31 571.81"/>
+<circle cx="284.06" cy="633.17" r="12.29"/>
+<circle cx="337.53" cy="633.17" r="12.29"/>
+<circle cx="391.00" cy="633.17" r="12.29"/>
+<circle cx="444.47" cy="633.17" r="12.29"/>
+<circle cx="497.94" cy="633.17" r="12.29"/>
+<circle cx="310.80" cy="663.65" r="1.26"/>
+<circle cx="310.80" cy="602.68" r="1.26"/>
+<circle cx="471.20" cy="663.65" r="1.26"/>
+<circle cx="471.20" cy="602.68" r="1.26"/>
+<circle cx="273.00" cy="131.67" r="1.26"/>
+<circle cx="351.67" cy="131.67" r="1.26"/>
+<circle cx="255.30" cy="682.33" r="1.26"/>
+<circle cx="526.70" cy="682.33" r="1.26"/>
+<circle cx="255.30" cy="554.50" r="1.26"/>
+<circle cx="526.70" cy="554.50" r="1.26"/>
+<circle cx="255.30" cy="407.00" r="1.26"/>
+<circle cx="526.70" cy="407.00" r="1.26"/>
+<circle cx="255.30" cy="259.50" r="1.26"/>
+<circle cx="526.70" cy="259.50" r="1.26"/>
+<circle cx="255.30" cy="131.67" r="1.26"/>
+<circle cx="526.70" cy="131.67" r="1.26"/>
+<circle cx="343.47" cy="695.12" r="1.26"/>
+<circle cx="343.47" cy="118.88" r="1.26"/>
+<circle cx="438.53" cy="695.12" r="1.26"/>
+<circle cx="438.53" cy="118.88" r="1.26"/>
 </g>
-<g fill="none" stroke="#B3401A" stroke-width="1.1" stroke-dasharray="7 4">
+<g fill="none" stroke="#B3401A" stroke-width="1.1" stroke-dasharray="9 5">
 </g>
-<text x="30" y="750.0" font-size="12" font-weight="700" fill="#1b1b1b">KEY DIMENSIONS (in)</text>
-<text x="30" y="770.0" font-size="11.5" fill="#333">Outline 14.50 x 30.00, corner R0.250</text>
-<text x="30" y="787.0" font-size="11.5" fill="#333">Window 11.71 x 20.86 @ (1.395, 6.620), R0.125</text>
-<text x="30" y="804.0" font-size="11.5" fill="#333">  = active area 11.77 x 20.92 less 0.06 overall</text>
-<text x="30" y="821.0" font-size="11.5" fill="#333">Button clearance 1.250 dia x 5 @ y=3.50</text>
-<text x="30" y="838.0" font-size="11.5" fill="#333">  centres x = 1.81, 4.53, 7.25, 9.97, 12.69</text>
-<text x="30" y="855.0" font-size="11.5" fill="#333">Perimeter fixings 0.128 dia x 14, 0.35 in from edge</text>
-<text x="30" y="872.0" font-size="11.5" fill="#333">NO hinge holes in this part — hinge lands on the P2 side wall,</text>
-<text x="30" y="889.0" font-size="11.5" fill="#333">so the visible tan face carries no fasteners.</text>
-<text x="389" y="938" font-size="10.5" fill="#888" text-anchor="end">solid = CUT &#183; dashed = BEND &#183; generated by fab/generate.py</text>
+<g stroke="#8a8a8a" stroke-width="0.6">
+<line x1="268.77" y1="633.17" x2="299.35" y2="633.17"/>
+<line x1="284.06" y1="617.88" x2="284.06" y2="648.46"/>
+<line x1="322.24" y1="633.17" x2="352.82" y2="633.17"/>
+<line x1="337.53" y1="617.88" x2="337.53" y2="648.46"/>
+<line x1="375.71" y1="633.17" x2="406.29" y2="633.17"/>
+<line x1="391.00" y1="617.88" x2="391.00" y2="648.46"/>
+<line x1="429.18" y1="633.17" x2="459.76" y2="633.17"/>
+<line x1="444.47" y1="617.88" x2="444.47" y2="648.46"/>
+<line x1="482.65" y1="633.17" x2="513.23" y2="633.17"/>
+<line x1="497.94" y1="617.88" x2="497.94" y2="648.46"/>
+<line x1="305.80" y1="663.65" x2="315.80" y2="663.65"/>
+<line x1="310.80" y1="658.65" x2="310.80" y2="668.65"/>
+<line x1="305.80" y1="602.68" x2="315.80" y2="602.68"/>
+<line x1="310.80" y1="597.68" x2="310.80" y2="607.68"/>
+<line x1="466.20" y1="663.65" x2="476.20" y2="663.65"/>
+<line x1="471.20" y1="658.65" x2="471.20" y2="668.65"/>
+<line x1="466.20" y1="602.68" x2="476.20" y2="602.68"/>
+<line x1="471.20" y1="597.68" x2="471.20" y2="607.68"/>
+<line x1="268.00" y1="131.67" x2="278.00" y2="131.67"/>
+<line x1="273.00" y1="126.67" x2="273.00" y2="136.67"/>
+<line x1="346.67" y1="131.67" x2="356.67" y2="131.67"/>
+<line x1="351.67" y1="126.67" x2="351.67" y2="136.67"/>
+<line x1="250.30" y1="682.33" x2="260.30" y2="682.33"/>
+<line x1="255.30" y1="677.33" x2="255.30" y2="687.33"/>
+<line x1="521.70" y1="682.33" x2="531.70" y2="682.33"/>
+<line x1="526.70" y1="677.33" x2="526.70" y2="687.33"/>
+<line x1="250.30" y1="554.50" x2="260.30" y2="554.50"/>
+<line x1="255.30" y1="549.50" x2="255.30" y2="559.50"/>
+<line x1="521.70" y1="554.50" x2="531.70" y2="554.50"/>
+<line x1="526.70" y1="549.50" x2="526.70" y2="559.50"/>
+<line x1="250.30" y1="407.00" x2="260.30" y2="407.00"/>
+<line x1="255.30" y1="402.00" x2="255.30" y2="412.00"/>
+<line x1="521.70" y1="407.00" x2="531.70" y2="407.00"/>
+<line x1="526.70" y1="402.00" x2="526.70" y2="412.00"/>
+<line x1="250.30" y1="259.50" x2="260.30" y2="259.50"/>
+<line x1="255.30" y1="254.50" x2="255.30" y2="264.50"/>
+<line x1="521.70" y1="259.50" x2="531.70" y2="259.50"/>
+<line x1="526.70" y1="254.50" x2="526.70" y2="264.50"/>
+<line x1="250.30" y1="131.67" x2="260.30" y2="131.67"/>
+<line x1="255.30" y1="126.67" x2="255.30" y2="136.67"/>
+<line x1="521.70" y1="131.67" x2="531.70" y2="131.67"/>
+<line x1="526.70" y1="126.67" x2="526.70" y2="136.67"/>
+<line x1="338.47" y1="695.12" x2="348.47" y2="695.12"/>
+<line x1="343.47" y1="690.12" x2="343.47" y2="700.12"/>
+<line x1="338.47" y1="118.88" x2="348.47" y2="118.88"/>
+<line x1="343.47" y1="113.88" x2="343.47" y2="123.88"/>
+<line x1="433.53" y1="695.12" x2="443.53" y2="695.12"/>
+<line x1="438.53" y1="690.12" x2="438.53" y2="700.12"/>
+<line x1="433.53" y1="118.88" x2="443.53" y2="118.88"/>
+<line x1="438.53" y1="113.88" x2="438.53" y2="123.88"/>
+</g>
+<g stroke="#B3401A" stroke-width="1" fill="none">
+<line x1="248.4" y1="702.0" x2="248.4" y2="744.0"/>
+<line x1="533.6" y1="702.0" x2="533.6" y2="744.0"/>
+<line x1="248.4" y1="736.0" x2="533.6" y2="736.0"/>
+<line x1="248.4" y1="731.0" x2="248.4" y2="741.0"/>
+<line x1="533.6" y1="731.0" x2="533.6" y2="741.0"/>
+<line x1="248.4" y1="702.0" x2="202.4" y2="702.0"/>
+<line x1="248.4" y1="112.0" x2="202.4" y2="112.0"/>
+<line x1="210.4" y1="702.0" x2="210.4" y2="112.0"/>
+<line x1="205.4" y1="702.0" x2="215.4" y2="702.0"/>
+<line x1="205.4" y1="112.0" x2="215.4" y2="112.0"/>
+</g>
+<rect x="361.0" y="727.0" width="60" height="15" fill="#fff"/>
+<text x="391.0" y="739.0" font-size="12.5" font-weight="600" fill="#B3401A" text-anchor="middle">14.500</text>
+<text x="210.4" y="407.0" font-size="12.5" font-weight="600" fill="#B3401A" text-anchor="middle" transform="rotate(-90 210.4 407.0)">30.000</text>
+<circle cx="248.4" cy="702.0" r="4" fill="none" stroke="#B3401A" stroke-width="1.4"/>
+<text x="239.4" y="722.0" font-size="10.5" fill="#B3401A">X0 Y0</text>
+<text x="706" y="106" font-size="12" font-weight="700" fill="#1b1b1b">FEATURE SCHEDULE  (X, Y from datum)</text>
+<line x1="706" y1="110" x2="1094" y2="110" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="706" y="130" font-size="10.5" fill="#1b1b1b">BUTTON CLEARANCE — 5 x 1.250 dia</text>
+<text x="716" y="144" font-size="10" fill="#555">(  1.812,   3.500)   (  4.531,   3.500)</text>
+<text x="716" y="158" font-size="10" fill="#555">(  7.250,   3.500)   (  9.969,   3.500)</text>
+<text x="716" y="172" font-size="10" fill="#555">( 12.688,   3.500)</text>
+<text x="706" y="189" font-size="10.5" fill="#1b1b1b">P3 FIXING — 4 x 0.128 dia</text>
+<text x="716" y="203" font-size="10" fill="#555">(  3.172,   5.050)   ( 11.328,   5.050)</text>
+<text x="716" y="217" font-size="10" fill="#555">(  3.172,   1.950)   ( 11.328,   1.950)</text>
+<text x="706" y="234" font-size="10.5" fill="#1b1b1b">BADGE FIXING — 2 x 0.128 dia</text>
+<text x="716" y="248" font-size="10" fill="#555">(  1.250,  29.000)   (  5.250,  29.000)</text>
+<text x="706" y="265" font-size="10.5" fill="#1b1b1b">PERIMETER FIXING — 14 x 0.128 dia</text>
+<text x="716" y="279" font-size="10" fill="#555">(  4.833,  29.650)   (  9.667,  29.650)</text>
+<text x="716" y="293" font-size="10" fill="#555">(  0.350,  29.000)   ( 14.150,  29.000)</text>
+<text x="716" y="307" font-size="10" fill="#555">(  0.350,  22.500)   ( 14.150,  22.500)</text>
+<text x="716" y="321" font-size="10" fill="#555">(  0.350,  15.000)   ( 14.150,  15.000)</text>
+<text x="716" y="335" font-size="10" fill="#555">(  0.350,   7.500)   ( 14.150,   7.500)</text>
+<text x="716" y="349" font-size="10" fill="#555">(  0.350,   1.000)   ( 14.150,   1.000)</text>
+<text x="716" y="363" font-size="10" fill="#555">(  4.833,   0.350)   (  9.667,   0.350)</text>
+<text x="706" y="388" font-size="12" font-weight="700" fill="#1b1b1b">NOTES</text>
+<line x1="706" y1="392" x2="1094" y2="392" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="706" y="412" font-size="10.3" fill="#333">Outline 14.50 x 30.00, corner R0.250</text>
+<text x="706" y="426" font-size="10.3" fill="#333">Window 11.71 x 20.86 @ (1.395, 6.620), R0.125</text>
+<text x="706" y="440" font-size="10.3" fill="#333">  = active area 11.77 x 20.92 less 0.06 overall</text>
+<text x="706" y="454" font-size="10.3" fill="#333">Button clearance 1.250 dia x 5 @ y=3.50</text>
+<text x="706" y="468" font-size="10.3" fill="#333">  centres x = 1.81, 4.53, 7.25, 9.97, 12.69</text>
+<text x="706" y="482" font-size="10.3" fill="#333">Perimeter fixings 0.128 dia x 14, 0.35 in from edge</text>
+<text x="706" y="496" font-size="10.3" fill="#333">NO hinge holes in this part — hinge lands on the P2 side wall,</text>
+<text x="706" y="510" font-size="10.3" fill="#333">so the visible tan face carries no fasteners.</text>
+<rect x="706" y="722" width="388" height="120" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
+<line x1="706" y1="746.0" x2="1094" y2="746.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<line x1="706" y1="770.0" x2="1094" y2="770.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<line x1="706" y1="794.0" x2="1094" y2="794.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<line x1="706" y1="818.0" x2="1094" y2="818.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<text x="714" y="732.1" font-size="8" fill="#888">PART</text>
+<text x="714" y="745.1" font-size="11" font-weight="600" fill="#1b1b1b">P1</text>
+<line x1="962.1" y1="722.0" x2="962.1" y2="746.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<text x="970.1" y="732.1" font-size="8" fill="#888">REV</text>
+<text x="970.1" y="745.1" font-size="11" font-weight="600" fill="#1b1b1b">A</text>
+<text x="714" y="756.1" font-size="8" fill="#888">MATERIAL</text>
+<text x="714" y="769.1" font-size="11" font-weight="600" fill="#1b1b1b">5052-H32 aluminium</text>
+<line x1="962.1" y1="746.0" x2="962.1" y2="770.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<text x="970.1" y="756.1" font-size="8" fill="#888">THICK</text>
+<text x="970.1" y="769.1" font-size="11" font-weight="600" fill="#1b1b1b">0.080"</text>
+<text x="714" y="780.1" font-size="8" fill="#888">QTY</text>
+<text x="714" y="793.1" font-size="11" font-weight="600" fill="#1b1b1b">1</text>
+<line x1="962.1" y1="770.0" x2="962.1" y2="794.0" stroke="#8a8a8a" stroke-width="0.7"/>
+<text x="970.1" y="780.1" font-size="8" fill="#888">UNITS</text>
+<text x="970.1" y="793.1" font-size="11" font-weight="600" fill="#1b1b1b">INCH</text>
+<text x="714" y="804.1" font-size="8" fill="#888">OPERATIONS</text>
+<text x="714" y="817.1" font-size="11" font-weight="600" fill="#1b1b1b">laser cut, flat, deburr all edges</text>
+<text x="714" y="828.1" font-size="8" fill="#888">FINISH</text>
+<text x="714" y="841.1" font-size="11" font-weight="600" fill="#1b1b1b">RAW — primed + tan topcoat locally</text>
+<text x="44" y="830" font-size="10" fill="#888">solid = CUT &#183; dashed = BEND (90&#176; up) &#183; generated by fab/generate.py &#8212; edit PARAMS and re-run to rebuild against measured numbers</text>
 </svg>

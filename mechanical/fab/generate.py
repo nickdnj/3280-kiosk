@@ -87,6 +87,9 @@ class Part:
         self.ops, self.finish, self.qty = ops, finish, qty
         self.cut, self.bend = [], []          # entity lists
         self.notes = []
+        self.feats = []                       # (tag, kind, x, y, size) schedule rows
+    def feat(self, tag, kind, x, y, size):
+        self.feats.append((tag, kind, x, y, size))
     # -- primitives (layer-tagged) -------------------------------------------
     def line(self, x1, y1, x2, y2, layer='CUT'):
         (self.cut if layer == 'CUT' else self.bend).append(('LINE', x1, y1, x2, y2))
@@ -107,11 +110,14 @@ class Part:
     def rect(self, x, y, w, h, layer='CUT'):
         self.line(x, y, x + w, y, layer); self.line(x + w, y, x + w, y + h, layer)
         self.line(x + w, y + h, x, y + h, layer); self.line(x, y + h, x, y, layer)
-    def hole(self, cx, cy, d):
+    def hole(self, cx, cy, d, tag=None):
         self.circle(cx, cy, d / 2.0)
-    def slot(self, cx, cy, length, width, vertical=False):
+        if tag: self.feat(tag, 'hole', cx, cy, f'{d:.3f} dia')
+    def slot(self, cx, cy, length, width, vertical=False, tag=None):
+        if tag: self.feat(tag, 'slot', cx, cy,
+                          f'{length:.2f} x {width:.2f}' + (' vert' if vertical else ''))
         r = width / 2.0; d = (length - width) / 2.0
-        if d <= 0: return self.hole(cx, cy, width)
+        if d <= 0: return self.circle(cx, cy, width / 2.0)
         if not vertical:
             self.line(cx - d, cy + r, cx + d, cy + r)
             self.line(cx + d, cy - r, cx - d, cy - r)
@@ -161,59 +167,165 @@ def dxf(part):
     g(0,'ENDSEC'); g(0,'EOF')
     return '\n'.join(o) + '\n'
 
-# ============================================================ SVG PREVIEW
-def svg(part, dims=()):
+# ============================================================ DRAWING SHEET
+SHEET_W, SHEET_H = 1120, 860
+VX0, VY0, VX1, VY1 = 96, 112, 686, 702        # drawing viewport
+COL_X, COL_W = 706, 388                        # right-hand column
+INK, DIM, BEND_C, LITE = '#1b1b1b', '#B3401A', '#B3401A', '#8a8a8a'
+
+def esc(t):
+    return t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+
+def sheet_svg(part, rev='A', project='3280 KIOSK — DOOR ASSEMBLY'):
     x0, y0, x1, y1 = part.extents()
     w, h = x1 - x0, y1 - y0
-    s = min(760.0 / w, 620.0 / h)
-    PADL, PADT = 60, 96
-    PADB = 78 + len(dims) * 17 + 24        # grow with the note block
-    W = int(w * s) + PADL * 2
-    H = int(h * s) + PADT + PADB
-    def px(x): return PADL + (x - x0) * s
-    def py(y): return PADT + (y1 - y) * s
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" '
-           f'viewBox="0 0 {W} {H}" font-family="Helvetica,Arial,sans-serif">',
-           f'<rect width="{W}" height="{H}" fill="#ffffff"/>',
-           f'<text x="30" y="32" font-size="18" font-weight="700" fill="#1b1b1b">'
-           f'{part.name} &#183; {part.title}</text>',
-           f'<text x="30" y="52" font-size="12" fill="#555">{part.material} &#183; '
-           f'{part.thick:.3f}" &#183; qty {part.qty} &#183; {part.ops} &#183; {part.finish}</text>',
-           f'<rect x="30" y="64" width="360" height="19" fill="#FBE7E1" stroke="#B3401A"/>',
-           f'<text x="39" y="77.5" font-size="11.5" font-weight="700" fill="#B3401A">'
-           f'ASSUMED GEOMETRY &#8212; NOT FOR ORDER UNTIL ME-1 + EL-5</text>']
-    for layer, ents, col, wid in (('CUT', part.cut, '#1b1b1b', 1.4),
-                                  ('BEND', part.bend, '#B3401A', 1.1)):
-        dash = ' stroke-dasharray="7 4"' if layer == 'BEND' else ''
-        out.append(f'<g fill="none" stroke="{col}" stroke-width="{wid}"{dash}>')
+    s = min((VX1 - VX0) / w, (VY1 - VY0) / h)
+    ox = VX0 + ((VX1 - VX0) - w * s) / 2.0
+    oy = VY1 - ((VY1 - VY0) - h * s) / 2.0
+    def px(x): return ox + (x - x0) * s
+    def py(y): return oy - (y - y0) * s
+
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{SHEET_W}" height="{SHEET_H}" '
+         f'viewBox="0 0 {SHEET_W} {SHEET_H}" font-family="Helvetica,Arial,sans-serif">',
+         f'<rect width="{SHEET_W}" height="{SHEET_H}" fill="#ffffff"/>',
+         f'<rect x="18" y="18" width="{SHEET_W-36}" height="{SHEET_H-36}" fill="none" '
+         f'stroke="{INK}" stroke-width="1.5"/>',
+         f'<rect x="26" y="26" width="{SHEET_W-52}" height="{SHEET_H-52}" fill="none" '
+         f'stroke="{LITE}" stroke-width="0.6"/>']
+
+    # ---- header ------------------------------------------------------------
+    o.append(f'<text x="44" y="60" font-size="20" font-weight="700" fill="{INK}">'
+             f'{part.name} &#183; {esc(part.title)}</text>')
+    o.append(f'<text x="44" y="82" font-size="12" fill="#555">{esc(project)} &#183; '
+             f'all dimensions in INCHES &#183; datum X0 Y0 at lower-left of the blank</text>')
+    o.append(f'<rect x="{COL_X}" y="42" width="{COL_W}" height="24" fill="#FBE7E1" '
+             f'stroke="{DIM}" stroke-width="1.2"/>')
+    o.append(f'<text x="{COL_X+10}" y="59" font-size="12" font-weight="700" fill="{DIM}">'
+             f'STATUS: ASSUMED GEOMETRY &#8212; NOT FOR ORDER</text>')
+
+    # ---- geometry ----------------------------------------------------------
+    for layer, ents, col, wid in (('CUT', part.cut, INK, 1.5),
+                                  ('BEND', part.bend, BEND_C, 1.1)):
+        dash = ' stroke-dasharray="9 5"' if layer == 'BEND' else ''
+        o.append(f'<g fill="none" stroke="{col}" stroke-width="{wid}"{dash}>')
         for e in ents:
             if e[0] == 'LINE':
                 _, ax, ay, bx, by = e
-                out.append(f'<line x1="{px(ax):.2f}" y1="{py(ay):.2f}" '
-                           f'x2="{px(bx):.2f}" y2="{py(by):.2f}"/>')
+                o.append(f'<line x1="{px(ax):.2f}" y1="{py(ay):.2f}" '
+                         f'x2="{px(bx):.2f}" y2="{py(by):.2f}"/>')
             elif e[0] == 'ARC':
                 _, cx, cy, r, a0, a1 = e
                 sa, ea = math.radians(a0), math.radians(a1)
                 ax, ay = cx + r*math.cos(sa), cy + r*math.sin(sa)
                 bx, by = cx + r*math.cos(ea), cy + r*math.sin(ea)
-                sweep = (a1 - a0) % 360
-                large = 1 if sweep > 180 else 0
-                out.append(f'<path d="M {px(ax):.2f} {py(ay):.2f} A {r*s:.2f} {r*s:.2f} '
-                           f'0 {large} 0 {px(bx):.2f} {py(by):.2f}"/>')
+                large = 1 if (a1 - a0) % 360 > 180 else 0
+                o.append(f'<path d="M {px(ax):.2f} {py(ay):.2f} A {r*s:.2f} {r*s:.2f} '
+                         f'0 {large} 0 {px(bx):.2f} {py(by):.2f}"/>')
             elif e[0] == 'CIRCLE':
                 _, cx, cy, r = e
-                out.append(f'<circle cx="{px(cx):.2f}" cy="{py(cy):.2f}" r="{r*s:.2f}"/>')
-        out.append('</g>')
-    ty = PADT + h * s + 34
-    out.append(f'<text x="30" y="{ty}" font-size="12" font-weight="700" fill="#1b1b1b">'
-               f'KEY DIMENSIONS (in)</text>')
-    for i, d in enumerate(dims):
-        out.append(f'<text x="30" y="{ty + 20 + i*17}" font-size="11.5" fill="#333">{d}</text>')
-    out.append(f'<text x="{W-30}" y="{H-16}" font-size="10.5" fill="#888" '
-               f'text-anchor="end">solid = CUT &#183; dashed = BEND &#183; '
-               f'generated by fab/generate.py</text>')
-    out.append('</svg>')
-    return '\n'.join(out)
+                o.append(f'<circle cx="{px(cx):.2f}" cy="{py(cy):.2f}" r="{r*s:.2f}"/>')
+        o.append('</g>')
+
+    # ---- centre marks on holes --------------------------------------------
+    o.append(f'<g stroke="{LITE}" stroke-width="0.6">')
+    for e in part.cut:
+        if e[0] == 'CIRCLE':
+            _, cx, cy, r = e
+            m = max(r * s + 3, 5)
+            o.append(f'<line x1="{px(cx)-m:.2f}" y1="{py(cy):.2f}" x2="{px(cx)+m:.2f}" y2="{py(cy):.2f}"/>')
+            o.append(f'<line x1="{px(cx):.2f}" y1="{py(cy)-m:.2f}" x2="{px(cx):.2f}" y2="{py(cy)+m:.2f}"/>')
+    o.append('</g>')
+
+    # ---- overall dimensions ------------------------------------------------
+    dy = py(y0) + 34
+    dx = px(x0) - 38
+    o.append(f'<g stroke="{DIM}" stroke-width="1" fill="none">')
+    o.append(f'<line x1="{px(x0):.1f}" y1="{py(y0):.1f}" x2="{px(x0):.1f}" y2="{dy+8:.1f}"/>')
+    o.append(f'<line x1="{px(x1):.1f}" y1="{py(y0):.1f}" x2="{px(x1):.1f}" y2="{dy+8:.1f}"/>')
+    o.append(f'<line x1="{px(x0):.1f}" y1="{dy:.1f}" x2="{px(x1):.1f}" y2="{dy:.1f}"/>')
+    o.append(f'<line x1="{px(x0):.1f}" y1="{dy-5:.1f}" x2="{px(x0):.1f}" y2="{dy+5:.1f}"/>')
+    o.append(f'<line x1="{px(x1):.1f}" y1="{dy-5:.1f}" x2="{px(x1):.1f}" y2="{dy+5:.1f}"/>')
+    o.append(f'<line x1="{px(x0):.1f}" y1="{py(y0):.1f}" x2="{dx-8:.1f}" y2="{py(y0):.1f}"/>')
+    o.append(f'<line x1="{px(x0):.1f}" y1="{py(y1):.1f}" x2="{dx-8:.1f}" y2="{py(y1):.1f}"/>')
+    o.append(f'<line x1="{dx:.1f}" y1="{py(y0):.1f}" x2="{dx:.1f}" y2="{py(y1):.1f}"/>')
+    o.append(f'<line x1="{dx-5:.1f}" y1="{py(y0):.1f}" x2="{dx+5:.1f}" y2="{py(y0):.1f}"/>')
+    o.append(f'<line x1="{dx-5:.1f}" y1="{py(y1):.1f}" x2="{dx+5:.1f}" y2="{py(y1):.1f}"/>')
+    o.append('</g>')
+    mx, my = (px(x0)+px(x1))/2.0, (py(y0)+py(y1))/2.0
+    o.append(f'<rect x="{mx-30:.1f}" y="{dy-9:.1f}" width="60" height="15" fill="#fff"/>')
+    o.append(f'<text x="{mx:.1f}" y="{dy+3:.1f}" font-size="12.5" font-weight="600" '
+             f'fill="{DIM}" text-anchor="middle">{w:.3f}</text>')
+    o.append(f'<text x="{dx:.1f}" y="{my:.1f}" font-size="12.5" font-weight="600" fill="{DIM}" '
+             f'text-anchor="middle" transform="rotate(-90 {dx:.1f} {my:.1f})">{h:.3f}</text>')
+    # datum
+    o.append(f'<circle cx="{px(x0):.1f}" cy="{py(y0):.1f}" r="4" fill="none" stroke="{DIM}" stroke-width="1.4"/>')
+    o.append(f'<text x="{px(x0)-9:.1f}" y="{py(y0)+20:.1f}" font-size="10.5" fill="{DIM}">X0 Y0</text>')
+
+    # ---- right column: schedule + notes ------------------------------------
+    ty = 84
+    def head(t):
+        nonlocal ty
+        ty += 22
+        o.append(f'<text x="{COL_X}" y="{ty}" font-size="12" font-weight="700" fill="{INK}">{esc(t)}</text>')
+        ty += 4
+        o.append(f'<line x1="{COL_X}" y1="{ty}" x2="{COL_X+COL_W}" y2="{ty}" stroke="{LITE}" stroke-width="0.8"/>')
+        ty += 6
+    def row(t, col=INK, size=10.5, indent=0):
+        nonlocal ty
+        ty += 14
+        o.append(f'<text x="{COL_X+indent}" y="{ty}" font-size="{size}" fill="{col}">{esc(t)}</text>')
+
+    groups = {}
+    for tag, kind, fx, fy, size in part.feats:
+        groups.setdefault((tag, size), []).append((fx, fy))
+    if groups:
+        head('FEATURE SCHEDULE  (X, Y from datum)')
+        for (tag, size), pts in groups.items():
+            row(f'{tag} — {len(pts)} x {size}', INK, 10.5)
+            if len(pts) <= 14:
+                pts_s = sorted(pts, key=lambda q: (-q[1], q[0]))
+                for i in range(0, len(pts_s), 2):
+                    chunk = pts_s[i:i+2]
+                    txt = '   '.join(f'({a:7.3f}, {b:7.3f})' for a, b in chunk)
+                    row(txt, '#555', 10, 10)
+            else:
+                row(f'   patterned — see notes', '#555', 10, 10)
+            ty += 3
+
+    if part.notes:
+        head('NOTES')
+        for n in part.notes:
+            row(n, '#333', 10.3)
+
+    # ---- title block -------------------------------------------------------
+    TB_Y, TB_H = SHEET_H - 138, 120
+    o.append(f'<rect x="{COL_X}" y="{TB_Y}" width="{COL_W}" height="{TB_H}" fill="none" '
+             f'stroke="{INK}" stroke-width="1.2"/>')
+    cells = [('PART', part.name), ('REV', rev),
+             ('MATERIAL', part.material), ('THICK', f'{part.thick:.3f}"'),
+             ('QTY', str(part.qty)), ('UNITS', 'INCH'),
+             ('OPERATIONS', part.ops), ('', ''),
+             ('FINISH', part.finish), ('', '')]
+    rh = TB_H / 5.0
+    for i in range(1, 5):
+        o.append(f'<line x1="{COL_X}" y1="{TB_Y+i*rh:.1f}" x2="{COL_X+COL_W}" '
+                 f'y2="{TB_Y+i*rh:.1f}" stroke="{LITE}" stroke-width="0.7"/>')
+    for r in range(5):
+        a, b = cells[r*2], cells[r*2+1]
+        yy = TB_Y + r*rh + rh*0.42
+        o.append(f'<text x="{COL_X+8}" y="{yy:.1f}" font-size="8" fill="#888">{esc(a[0])}</text>')
+        o.append(f'<text x="{COL_X+8}" y="{yy+13:.1f}" font-size="11" font-weight="600" fill="{INK}">{esc(a[1])}</text>')
+        if b[0]:
+            o.append(f'<line x1="{COL_X+COL_W*0.66:.1f}" y1="{TB_Y+r*rh:.1f}" '
+                     f'x2="{COL_X+COL_W*0.66:.1f}" y2="{TB_Y+(r+1)*rh:.1f}" stroke="{LITE}" stroke-width="0.7"/>')
+            o.append(f'<text x="{COL_X+COL_W*0.66+8:.1f}" y="{yy:.1f}" font-size="8" fill="#888">{esc(b[0])}</text>')
+            o.append(f'<text x="{COL_X+COL_W*0.66+8:.1f}" y="{yy+13:.1f}" font-size="11" font-weight="600" fill="{INK}">{esc(b[1])}</text>')
+
+    o.append(f'<text x="44" y="{SHEET_H-30}" font-size="10" fill="#888">'
+             f'solid = CUT &#183; dashed = BEND (90&#176; up) &#183; generated by fab/generate.py &#8212; '
+             f'edit PARAMS and re-run to rebuild against measured numbers</text>')
+    o.append('</svg>')
+    return '\n'.join(o)
 
 # ============================================================ P1 — DOOR FACE
 def build_p1():
@@ -234,22 +346,22 @@ def build_p1():
 
     # button clearance holes (P3 in front locates the buttons)
     for cx in button_x():
-        p.hole(cx, P['bottom_rail'] + P['plate_h'] / 2.0, P['btn_clear_d'])
+        p.hole(cx, P['bottom_rail'] + P['plate_h'] / 2.0, P['btn_clear_d'], 'BUTTON CLEARANCE')
     # P3 fixing holes, in the gaps between buttons
     for cx in p3_fix_x():
         for cy in (P['bottom_rail'] + 0.45, P['bottom_rail'] + P['plate_h'] - 0.45):
-            p.hole(cx, cy, P['m3'])
+            p.hole(cx, cy, P['m3'], 'P3 FIXING')
     # badge fixing holes
     bx0 = (W - P['bezel_block_w']) / 2.0
     by  = H - P['badge_band'] / 2.0
     for cx in (bx0 + 0.40, bx0 + P['badge_w'] - 0.40):
-        p.hole(cx, by, P['m3'])
+        p.hole(cx, by, P['m3'], 'BADGE FIXING')
     # perimeter fixing line -> shroud (clinch studs from the back, or M3)
     i = P['perim_inset']
     for cy in (1.00, 7.50, 15.00, 22.50, 29.00):
-        p.hole(i, cy, P['m3']); p.hole(W - i, cy, P['m3'])
+        p.hole(i, cy, P['m3'], 'PERIMETER FIXING'); p.hole(W - i, cy, P['m3'], 'PERIMETER FIXING')
     for cx in (W / 3.0, W * 2.0 / 3.0):
-        p.hole(cx, i, P['m3']); p.hole(cx, H - i, P['m3'])
+        p.hole(cx, i, P['m3'], 'PERIMETER FIXING'); p.hole(cx, H - i, P['m3'], 'PERIMETER FIXING')
 
     p.notes = [
         f'Outline {W:.2f} x {H:.2f}, corner R{P["corner_r"]:.3f}',
@@ -284,9 +396,9 @@ def build_p3():
     p.rrect(0, 0, w, h, P['plate_r'])
     x0 = (P['door_w'] - w) / 2.0
     for cx in button_x():
-        p.hole(cx - x0, h / 2.0, P['btn_hole_d'])
+        p.hole(cx - x0, h / 2.0, P['btn_hole_d'], 'BUTTON')
     for cx in p3_fix_x():
-        p.hole(cx - x0, 0.45, P['m3']); p.hole(cx - x0, h - 0.45, P['m3'])
+        p.hole(cx - x0, 0.45, P['m3'], 'FIXING'); p.hole(cx - x0, h - 0.45, P['m3'], 'FIXING')
     pitch = (button_x()[1] - button_x()[0])
     p.notes = [
         f'Outline {w:.2f} x {h:.2f}, corner R{P["plate_r"]:.3f}',
@@ -333,13 +445,13 @@ def build_p2():
     for base in (f + 1.2, f + H - 1.2 - (P['vent_rows'] - 1) * 0.75):
         for r in range(P['vent_rows']):
             for cx in cols:
-                p.slot(cx, base + r * 0.75, sl, sw)
+                p.slot(cx, base + r * 0.75, sl, sw, tag='VENT SLOT')
                 open_area += sl * sw
     # fixing holes through the walls -> perimeter angle -> P1
     for cy in (1.00, 7.50, 15.00, 22.50, 29.00):
-        p.hole(f / 2.0, f + cy, P['m3']); p.hole(FW - f / 2.0, f + cy, P['m3'])
+        p.hole(f / 2.0, f + cy, P['m3'], 'WALL FIXING'); p.hole(FW - f / 2.0, f + cy, P['m3'], 'WALL FIXING')
     for cx in (W / 3.0, W * 2.0 / 3.0):
-        p.hole(f + cx, f / 2.0, P['m3']); p.hole(f + cx, FH - f / 2.0, P['m3'])
+        p.hole(f + cx, f / 2.0, P['m3'], 'WALL FIXING'); p.hole(f + cx, FH - f / 2.0, P['m3'], 'WALL FIXING')
     pct = 100.0 * open_area / (W * H)
     p.notes = [
         f'FORMED: {W:.2f} x {H:.2f} outside x {wh:.2f} deep tray, walls up',
@@ -365,7 +477,7 @@ def build_p4():
     p.rect(0, 0, FW, L)
     p.line(fa, 0, fa, L, 'BEND')
     for cy in (0.60, L - 0.60):
-        p.slot(fa / 2.0, cy, P['p4_slot_l'], P['m3'], vertical=True)
+        p.slot(fa / 2.0, cy, P['p4_slot_l'], P['m3'], vertical=True, tag='ADJUSTMENT SLOT')
     p.notes = [
         f'FORMED: {a:.2f} fixing leg x {b:.2f} clamping lip x {L:.2f} long',
         f'FLAT BLANK: {FW:.3f} x {L:.2f}, bend at {fa:.3f}',
@@ -380,12 +492,6 @@ def build_p4():
 # ============================================================ MAIN
 def main():
     built = []
-    for fn, dimsrc in ((build_p1, None), (build_p2, None),
-                       (build_p3, None), (build_p4, None)):
-        part, notes = fn()
-        (HERE / f'{part.name}-{part.title.split("(")[0].strip().lower().replace(" ","-")}.dxf'
-         ).write_text(dxf(part))
-        built.append((part, notes))
     return built
 
 if __name__ == '__main__':
@@ -395,7 +501,7 @@ if __name__ == '__main__':
         slug = {'P1':'P1-face','P2':'P2-shroud-flat','P3':'P3-button-plate',
                 'P4':'P4-panel-bracket'}[part.name]
         (HERE / f'{slug}.dxf').write_text(dxf(part))
-        (HERE / f'{slug}.svg').write_text(svg(part, notes))
+        (HERE / f'{slug}.svg').write_text(sheet_svg(part))
         x0,y0,x1,y1 = part.extents()
         print(f'{part.name}  {slug:22s} blank {x1-x0:7.3f} x {y1-y0:7.3f} in   '
               f'{len(part.cut):4d} cut ents, {len(part.bend)} bend')

@@ -34,7 +34,9 @@ it**.
   - [`05-door-exploded.svg`](drawings/05-door-exploded.svg) — door assembly stack, depth budget, thermal path
 - **[`fab/`](fab/)** — the fabrication package: order sheet, laser-cut DXFs,
   review previews, and the parametric generator that rebuilds them all from one
-  PARAMS block. **Not for order until the release gate clears.**
+  PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
+  shareable version for a shop or makerspace. **Not for order until the release
+  gate clears.**
 - **[`door-construction.md`](door-construction.md)** — ME-4 build spec: laser-cut
   5052 aluminium (outsourced), parts P1–P4, assembly stack, thermal, finish, and
   what's still blocked before anything can be ordered.
