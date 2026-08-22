@@ -135,7 +135,9 @@ builder, versioned in git.
 - **FR5** — Reserve a **"More detail"** action bound to a spare button; inert in v1
   but wired in the interaction model.
 - **FR6** — Content is data-driven and **rebuildable** (`build-app.py`); no live
-  editor required.
+  editor required. Content is deployed on a **swappable USB drive**, separate from
+  the stable OS/Chromium/controller core on the SD card — a content refresh never
+  re-images the core (see architecture A2.5).
 - **FR7** — Portrait layout; content legible per CR1–CR3 on the chosen panel.
 
 ### Controller (`src/controller/`, on the Pi)
