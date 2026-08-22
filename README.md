@@ -5,14 +5,20 @@ An interactive exhibit kiosk built into the Vintage Computer Federation museum's
 swing it open and the real hardware is behind it. Driven by **three physical
 buttons only: BACK / HOME / NEXT. No touchscreen.**
 
+> ⚠️ **This is a concept — our guiding light, not a shipped product.** Everything
+> here describes where we're driving to. The on-screen app is a *concept-review
+> build* (cabinet imagery is AI concept art); the hardware folders are still
+> empty. Treat every artifact as "the target," not "the deliverable," until the
+> team says otherwise.
+
 This repo spans three disciplines:
 
 | Area | Path | Status |
 |---|---|---|
-| On-screen app | `src/kiosk-app/` | Working — seeded from the reviewed concept |
-| Button/kiosk controller | `src/controller/` | Placeholder |
-| Electronics | `electronics/` | Placeholder |
-| Mechanical | `mechanical/` | Placeholder |
+| On-screen app | `src/kiosk-app/` | Concept build — clickable, imagery is concept art |
+| Button/kiosk controller | `src/controller/` | Concept / placeholder |
+| Electronics | `electronics/` | Concept / placeholder |
+| Mechanical | `mechanical/` | Concept / placeholder |
 
 Team: **Software Project Team**, provisioned by AgentArchitect (2026-08-22).
 

@@ -75,6 +75,14 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Newsreader",Geo
   box-shadow:0 34px 74px -30px var(--shadow),0 12px 26px -18px var(--shadow);
   -webkit-user-select:none;user-select:none}
 
+/* CONCEPT marker — this is the guiding-light concept, not the built piece.
+   Kept on the cabinet render and the enlarged view so no screenshot loses it. */
+.cbadge{position:absolute;z-index:20;top:10px;left:10px;pointer-events:none;
+  font-family:"Oswald",sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:#f6dc8c;background:rgba(20,16,9,.72);
+  border:1px solid rgba(246,220,140,.55);border-radius:3px;padding:5px 10px 4px;
+  box-shadow:0 2px 10px -4px rgba(0,0,0,.6)}
+
 /* base screen surface — shared by the inline thumbnail and the enlarged modal */
 .display{position:relative;container-type:inline-size;overflow:hidden;
   background:var(--screen);color:var(--screen-ink);border-radius:2px;
@@ -197,7 +205,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Newsreader",Geo
 .mclose{position:fixed;top:14px;right:16px;width:44px;height:44px;border-radius:50%;border:0;cursor:pointer;
   background:rgba(255,255,255,.15);color:#fff;font-size:22px;line-height:1;z-index:62}
 .mclose:hover{background:rgba(255,255,255,.26)}
-.kbig{display:flex;flex-direction:column;align-items:center;gap:18px;margin:auto}
+.kbig{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;margin:auto}
 .kbig-screen{background:#26262a;padding:12px;border-radius:12px;
   box-shadow:0 40px 90px -24px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.4)}
 .display.big{width:min(86vw,410px);aspect-ratio:230/529;border-radius:3px}
@@ -257,6 +265,7 @@ footer .note{font-size:12px;color:var(--muted);max-width:60ch;line-height:1.5}
 
   <section class="stage" aria-label="Kiosk prototype in the 3280 cabinet">
     <div class="install">
+      <div class="cbadge">Concept</div>
       <div class="display" id="display" role="button" tabindex="0" aria-label="Kiosk screen — activate to enlarge">
         <div class="zoomtag"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
         <div class="counter" id="counter"></div>
@@ -310,6 +319,7 @@ footer .note{font-size:12px;color:var(--muted);max-width:60ch;line-height:1.5}
 <div class="modal" id="modal" aria-hidden="true">
   <button class="mclose" id="mclose" aria-label="Close">&times;</button>
   <div class="kbig" role="dialog" aria-modal="true" aria-label="Kiosk screen, enlarged">
+    <div class="cbadge">Concept</div>
     <div class="kbig-screen"><div class="display big" id="mdisplay"><div class="counter" id="mcounter"></div></div></div>
     <div class="mbuttons">
       <button class="mbtn back" id="mBack" aria-label="Back">

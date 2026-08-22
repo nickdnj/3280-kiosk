@@ -1,4 +1,9 @@
-# Kiosk App — on-screen UI
+# Kiosk App — on-screen UI (concept build)
+
+> **Concept, not shipped.** This is the concept-review build we're driving
+> toward. It's clickable and real, but the cabinet imagery is AI concept art and
+> the screen copy is an early draft. A visible "Concept" marker sits on the
+> kiosk render and the enlarged view — keep it until the piece is built.
 
 The portrait touch-free display software for the Concurrent 3280 exhibit kiosk.
 Operated by **three physical buttons only** (BACK / HOME / NEXT) — there is no

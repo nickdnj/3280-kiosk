@@ -1,5 +1,9 @@
 # 3280 Kiosk — Project Brief
 
+> **Status: CONCEPT.** This brief, the seeded app, and the renders describe the
+> exhibit we're driving toward — the guiding light, not a finished piece.
+> Everything here is a target to build against, not a shipped deliverable.
+
 **Project:** An interactive kiosk built into the Vintage Computer Federation
 museum's **Concurrent 3280** ("Cruncher 2"). A portrait display is mounted on a
 hinge over the cabinet's card cage; a docent can swing it open to reveal the
