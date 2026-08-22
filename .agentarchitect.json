@@ -1,0 +1,29 @@
+{
+  "provisionedFrom": "/Users/nickd/Workspaces/AgentArchitect",
+  "kind": "project",
+  "team": "software-project",
+  "teams": [
+    "software-project"
+  ],
+  "projectType": "software",
+  "projectName": "3280 Kiosk",
+  "agents": [
+    "dev-planning",
+    "legal",
+    "marketing",
+    "product-requirements",
+    "qa-strategy",
+    "sales",
+    "software-architecture",
+    "software-developer",
+    "ux-design",
+    "wiki-ingest"
+  ],
+  "skills": [
+    "software-project"
+  ],
+  "mcp": [],
+  "provisionedAt": "2026-08-22",
+  "aaCommit": "c8b6fd7e642e0755434bfc25c0065e1eb1330168",
+  "syncedAt": "2026-08-22"
+}
