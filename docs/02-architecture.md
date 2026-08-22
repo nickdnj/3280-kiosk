@@ -31,20 +31,20 @@ subsystems:
   │(fixed)│  across  │   └──────────┘             │              │   (on door)   │ B/H/N +sp│ │
   └──────┘  hinge    │        ▲                   └──────┬───────┘               └──────────┘ │
    (MR10)            │        │ fullscreen               │                                    │
-                     │        │ Chromium kiosk           │ serves content / writes logs       │
-                     │   ┌────┴─────────┐          ┌─────▼───────────────┐                    │
-                     │   │  Kiosk App   │◄─content──│ USB drive (KIOSK):  │                    │
-                     │   │ (local HTTP) │           │ content + logs      │                    │
-                     │   └──────────────┘           └─────────────────────┘                   │
+                     │        │ Chromium kiosk    reads │        │ writes logs               │
+                     │   ┌────┴─────────┐    ┌─────────▼──────┐ ┌───▼──────────────┐          │
+                     │   │  Kiosk App   │◄───│ USB (KIOSK):   │ │ SD /data (ext4): │          │
+                     │   │ (local HTTP) │    │ content, RO    │ │ usage logs, RW   │          │
+                     │   └──────────────┘    └────────────────┘ └──────────────────┘          │
                      └───────────────────────────────────────────────────────────────────────┘
-   SD = read-only overlay core (OS / Chromium / controller — stable) · USB = content + logs (swap)
-   Compute + input + display all ride the door
+   SD = read-only overlay core (OS/Chromium/controller, stable) + small RW /data partition (logs)
+   USB = content, mounted read-only, swappable · Compute + input + display all ride the door
 ```
 
 - **Display** — a salvaged monitor, de-cased to a bare panel for low profile (MR19).
 - **Compute** — Raspberry Pi 4, mounted inside the door's rear shroud (MR18).
-- **Storage** — stable core on the SD card (read-only overlay); content + usage
-  logs on a **swappable USB drive** (A2.5).
+- **Storage** — stable core + a small writable `/data` logs partition on the SD
+  card; content on a **swappable, read-only USB drive** (A2.5–A2.6).
 - **Input** — three active buttons (+ wired spares) on GPIO (ER1–ER3).
 - **Power** — PSU in the fixed cabinet; low-voltage across the hinge (MR10).
 - **Software** — a locked-down Chromium kiosk showing the local app; a GPIO
@@ -71,17 +71,33 @@ Everything electronic rides the door, so **only power crosses the hinge.**
   is the fastest field recovery — keep a spare card flashed and documented; content
   is separate (A2.5), so re-imaging never touches it. *(NFR4)*
 
-### Storage model — stable core on SD, content on USB
-- **A2.5 — Content lives on a removable USB drive.** The kiosk-app build (and its
-  data file, A5.1) is deployed to a **USB flash drive** mounted at a fixed point
-  (e.g. `/media/kiosk`). Updating content = **edit/swap the stick**, never re-image
-  the SD. Mount **by filesystem LABEL** (e.g. `KIOSK`) via `fstab`/systemd automount
-  so any correctly-labeled stick works and the mount point is deterministic. The
-  drive is the one thing that changes in the field. *(FR6, NFR4)*
-- **A2.6 — Graceful "no content" state.** If the USB drive is **missing or
+### Storage model — stable core + logs on SD, content on USB
+- **A2.5 — Content lives on a removable USB drive, read-only at runtime.** The
+  kiosk-app build (and its data file, A5.1) is deployed to a **USB flash drive**
+  mounted **by filesystem LABEL** (e.g. `KIOSK`) at a fixed point (e.g.
+  `/media/kiosk`) so any correctly-labeled stick lands deterministically.
+  **Mounted read-only in operation** — content only changes offline, when the stick
+  is swapped/edited — which all but eliminates USB wear and power-cut corruption.
+  Updating content = edit/swap the stick; never re-image the SD. *(FR6, NFR4)*
+- **A2.6 — Usage logs on a small writable SD partition (chosen: option B).** A
+  dedicated **journaled ext4 partition mounted at `/data`**, separate from the
+  overlay root, holds the append-only usage logs. Journaling + append + `fsync`
+  keeps it power-cut-safe, and it keeps continuous small writes **off** the
+  content USB (which stays read-only). *(FR4, FR11, NFR2)*
+- **A2.7 — Graceful "no content" state.** If the USB drive is **missing or
   unreadable** at boot, the kiosk shows a clear **"content drive not found"** screen
   (served from a tiny fallback baked into the core), not a blank screen or a crash —
   no demo fallback. *(FR1, PRD "no demo fallback")*
+- **A2.8 — Wi-Fi is a development convenience, off in production.** During bring-up
+  and bench work, **enable Wi-Fi** for easy updates (SSH/`scp`/`rsync`, `git pull`,
+  log collection) — far quicker than pulling cards or sticks. It is **not** part of
+  the exhibit's operation: the installed kiosk runs **offline** (PRD constraint),
+  and the app never depends on the network. Make it a **toggle** (a documented
+  `raspi-config`/`nmcli` step or a `dev`-vs-`prod` flag in provisioning) so the
+  same image ships either way. If Wi-Fi is left on for maintenance convenience on
+  the floor, it must stay **inbound-locked** (SSH only, no listening services, no
+  cloud) and is a maintenance path only — see §11. *(dev tooling; preserves PRD
+  offline/standalone)*
 
 ---
 
@@ -96,7 +112,7 @@ Everything electronic rides the door, so **only power crosses the hinge.**
   server (systemd unit, Python `http.server` or `busybox httpd`) serves the
   **content from the USB mount** (A2.5, e.g. `/media/kiosk`) at
   `http://localhost:8080`; if the mount is absent it serves the core fallback
-  (A2.6). A real origin makes `localStorage`/`fetch` behave and avoids `file://`
+  (A2.7). A real origin makes `localStorage`/`fetch` behave and avoids `file://`
   quirks; loopback-only keeps it offline. *(FR1)*
 - **A3.3 — No idle chrome.** Disable screen blanking/DPMS and hide the cursor
   (compositor config; `unclutter`/`--kiosk` and `wlr`/`xset` equivalents). No
@@ -158,20 +174,19 @@ The decision that ties electronics to software.
 
 ## 6. Usage counts (local, offline, anonymous)
 
-- **A6.1 — The GPIO service owns the log, written to the USB drive.** Every button
-  event is appended (with a monotonic timestamp) to a `usage/` directory on the
-  **USB content drive** (A2.5) — the one writable medium, and the same stick you
-  pull to update content, so **content goes in and logs come out in one swap**.
+- **A6.1 — The GPIO service owns the log, written to the SD `/data` partition.**
+  Every button event is appended (with a monotonic timestamp) to `/data/usage/`
+  on the dedicated writable partition (A2.6) — kept off the read-only content USB.
   Append-only, line-based, `fsync`'d, and tolerant of a truncated last line from a
-  yank/power-cut. If the USB is absent/read-only, buffer to tmpfs and drop rather
-  than block. Button counts ≈ screen transitions; sessions by idle-gap. *(FR4, P1)*
+  power-cut. Button counts ≈ screen transitions; sessions by idle-gap. *(FR4, P1)*
 - **A6.2 — Optional per-screen views.** If we want true per-screen counts, the app
   POSTs `screen_view` to a **loopback-only** endpoint the service exposes; still
   offline, still anonymous. Enhancement, not v1-blocking. *(FR4, P1)*
 - **A6.3 — Review path.** A small summary script turns the logs into counts; the
-  maintainer just **takes the USB stick** (or copies its `usage/` dir) during a
-  service visit — the same visit that drops in refreshed content. No network, no
-  personal data, no cameras. *(P1, P2)*
+  maintainer copies `/data/usage/` off during a service visit — over the
+  development Wi-Fi (A2.8) if enabled, else by reading the card. Content is
+  refreshed separately by swapping the USB. No cloud, no personal data, no cameras.
+  *(P1, P2)*
 
 ---
 
@@ -254,8 +269,10 @@ Rule: adaptable, standards-based parts so a salvaged substitute drops in.
 
 ## 11. Security & privacy
 
-- **Offline by construction** — no inbound network service beyond loopback; no
-  cloud, no remote management. *(PRD non-goals)*
+- **Offline in production** — the app serves only over loopback; no cloud, no
+  remote management, no dependence on the network. **Wi-Fi is a development/
+  maintenance convenience (A2.8), off for exhibit operation.** If left on for
+  maintenance, keep it inbound-locked (SSH only, no listening services). *(PRD non-goals)*
 - **No personal data, no cameras.** Only anonymous local counts (§6). *(P1)*
 - **Physical:** enclosed door (MR18) means no exposed wiring/electronics to a
   visitor's hand; reversible mount protects the artifact (MR2).
@@ -268,8 +285,9 @@ Rule: adaptable, standards-based parts so a salvaged substitute drops in.
 src/kiosk-app/     app + build-app.py + content.{js,json}; build output is
                    deployed to the USB drive, not the SD image (A5, A2.5)
 src/controller/    GPIO service, uinput mapping, systemd units, provisioning
-                   scripts (overlay-FS core, USB mount-by-label, autostart,
-                   watchdog, content-drive fallback) (A2,A3,A4,A6,A7)
+                   scripts (overlay-FS core, /data logs partition, USB
+                   mount-by-label, autostart, watchdog, content-drive fallback,
+                   dev/prod Wi-Fi toggle) (A2,A3,A4,A6,A7)
 electronics/       BOM, button wiring/pinout, PSU + hinge cabling notes (§9, A7)
 mechanical/        CAD/drawings for frame, door, shroud, mount; mounting.md (§8)
 docs/              this doc, PRD, and downstream UX/dev-plan
