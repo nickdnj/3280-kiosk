@@ -174,3 +174,63 @@ Useful now, costs nothing:
       beats buying, and an aluminum box on a shelf changes the maths
 
 Then on Wednesday, C1 decides it. Take the §4 table with you.
+
+---
+
+## 8. Where to browse
+
+### What to filter on
+
+> **Aluminium** · **14–16″ W × 24–30″ H** · **depth ≤ 4″** · hinged door ·
+> removable back panel · NEMA 1 or 12 (indoor — no need to pay for 4/4X)
+
+Depth is the filter that kills most results. Sort by it first. And **check the
+material on every hit** — the catalogues are overwhelmingly steel, and steel is
+disqualified on weight (§4).
+
+### Best for filtering by actual dimensions
+
+| Site | Why |
+|---|---|
+| [digikey.com](https://www.digikey.com) | Parametric search on **exact L × W × H and material** — the fastest way to find out whether a shallow aluminium box in our size even exists. Carries Hammond and Bud. |
+| [mouser.com](https://www.mouser.com) | Same parametric approach, different stock |
+| [mcmaster.com](https://www.mcmaster.com) | Browse by dimension, dimensioned drawings on every page, CAD downloads, ships next day |
+
+### General industrial suppliers
+
+| Site | Why |
+|---|---|
+| [automationdirect.com](https://www.automationdirect.com) | Clear specs, good prices, honest photos |
+| [zoro.com](https://www.zoro.com) | Consumer-friendly front end on industrial stock |
+| [grainger.com](https://www.grainger.com) | Widest catalogue, priced accordingly |
+
+### Manufacturer catalogues — best drawings
+
+| Site | Why |
+|---|---|
+| [hammfg.com](https://www.hammfg.com) | Hammond. Deep range of small/shallow boxes, aluminium options, excellent drawings |
+| [hoffman.nvent.com](https://hoffman.nvent.com) | Hoffman. The industry default |
+| [saginawcontrol.com](https://www.saginawcontrol.com) | Often cheaper than Hoffman for the same box |
+| [budind.com](https://www.budind.com) | Bud Industries |
+| [polycase.com](https://www.polycase.com) | Sells direct **and offers CNC modification of what they sell** — they could cut our window |
+
+### A third path — custom one-off enclosure houses
+
+Worth pricing, because budget is not a constraint (PRD §15) and these remove the
+hard cut entirely:
+
+| Site | Why |
+|---|---|
+| [protocase.com](https://www.protocase.com) | **Custom enclosures, quantity of one, ~2–3 day turnaround, finished and painted.** Send our drawings and get back the actual box. Removes the window-cut problem completely. |
+| [frontpanelexpress.com](https://www.frontpanelexpress.com) | Machined aluminium **front panels** with cutouts and engraving, one-offs, free design software. A direct fit for the §5 hybrid — buy a box, get P1 made here. |
+
+### Laser cutting (already in the fab package)
+
+[sendcutsend.com](https://www.sendcutsend.com) ·
+[oshcut.com](https://www.oshcut.com) · [ponoko.com](https://www.ponoko.com)
+
+### Secondary market
+
+eBay and industrial surplus dealers — search *"aluminum electrical enclosure
+hinged"*. Industrial enclosures turn up cheap and undamaged, and it beats buying
+new on the salvage-first rule. **And check the warehouse first.**
