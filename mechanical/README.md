@@ -37,6 +37,9 @@ it**.
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
   shareable version for a shop or makerspace. **Not for order until the release
   gate clears.**
+- **[`display-approach-options.md`](display-approach-options.md)** — **the
+  top-level open decision.** Custom door vs. bought enclosure vs. a cased monitor
+  VESA-mounted to a hinged carrier panel. Read this first.
 - **[`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md)** — is there an
   off-the-shelf enclosure we could buy and modify instead? Open decision, gated
   on the measured clearance.
