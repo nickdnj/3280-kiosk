@@ -252,22 +252,16 @@ docs/              this doc, PRD, and downstream UX/dev-plan
 
 ---
 
-## 13. Decisions to confirm
+## 13. Decisions (confirmed 2026-08-22)
 
-1. **Chromium kiosk + loopback static server** as the runtime stack (A3) — OK, or
-   do you prefer a different browser/kiosk approach?
-2. **Synthetic keys via `uinput`** for buttons (A4.2) vs a WebSocket — OK to start
-   simple with keys?
-3. **Overlay read-only root + `/data` partition** for power-safety (A2.3) — accept?
-4. **De-case the salvaged monitor** for low profile (A8.4) — acceptable to strip a
-   salvaged unit to the bare panel?
-5. **Low-voltage (USB-C 5 V) across the hinge**, PSU in the fixed cabinet (A7.2) —
-   accept?
-6. **Split content into a data file** (A5.1) — do it now, or keep the single build
-   file as-is for v1?
+All six branch points accepted as recommended:
 
-*(These are the branch points; everything else follows the PRD. Defaults above are
-my recommendation if you'd rather not decide each.)*
+1. ✅ **Chromium kiosk + loopback static server** as the runtime stack (A3).
+2. ✅ **Synthetic keys via `uinput`** for buttons (A4.2); WebSocket deferred.
+3. ✅ **Overlay read-only root + `/data` partition** for power-safety (A2.3).
+4. ✅ **De-case the salvaged monitor** for low profile (A8.4).
+5. ✅ **Low-voltage (USB-C 5 V) across the hinge**, PSU in the fixed cabinet (A7.2).
+6. ✅ **Split content into a data file** now (A5.1).
 
 ---
 
