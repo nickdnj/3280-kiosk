@@ -177,6 +177,73 @@ Then on Wednesday, C1 decides it. Take the §4 table with you.
 
 ---
 
+## 8. Lead candidate — Leviton STRUCTURED MEDIA enclosure
+
+Verified against the manufacturer spec sheet (Leviton B26 SS1431, rev. Feb 2026).
+This is a **low-voltage structured-wiring can**, not a breaker panel — which
+removes the weight, finish and identity problems of a load center in one move.
+
+### The parts
+
+| Part No. | Description | Size |
+|---|---|---|
+| **47605-28N** | 28″ **enclosure only** ← the one we want | **28.0″ H × 14.30″ W × 3.85″ D** |
+| 47605-28W | Same can + flush-mount cover | 29.32 × 15.62 × 3.85 |
+| **47605-28S** | 28″ **Premium Vented Hinged Door** | 29.32 × 15.62 × 0.25 |
+| 47605-28D | 28″ Economy Hinged Door | 29.32 × 15.62 × 0.25 |
+| 47605-F28 | 28″ Flush-Mount Cover (flat panel) | 29.32 × 15.62 × 0.20 |
+| 47612-28B | **2″ depth extender bracket** | — |
+| 5L000-L0K | Lock & key | — |
+
+42″ versions exist (47605-42x) — too tall for us.
+
+### Why it fits
+
+| | Our design | 47605-28N | |
+|---|---|---|---|
+| Width | 14.50″ | **14.30″** | ✅ essentially exact |
+| Height | 30.00″ | **28.00″** | ✅ 2″ short — absorbs into the layout |
+| Depth | 2.50″ | 3.85″ | ⚠️ needs **C1 ≥ 4.35″** |
+| Material | 0.080″ alu | **20-ga white powder-coated steel** | ✅ paints normally |
+| Weight | ~14.5 lb | ~13.6 lb can + vented door | ✅ **on budget** |
+
+**The face layout fits the 28″ can almost exactly.** Window 20.86 + reveal 0.60 +
+button plate 4.00 = 25.46, leaving ~1.3″ top and ~1.2″ bottom margin in 28.0″.
+Width: an 11.71″ window in 14.30″ leaves 1.30″ each side against the 1.40″ we drew.
+
+### What it solves for free
+
+- **Ventilated hinged door** (47605-28S) — MR14 + MR16 off the shelf. Leviton
+  explicitly recommends it "when using active equipment inside enclosure," so
+  powered gear in this box is an anticipated use, not a hack.
+- **20-gauge, not breaker-panel gauge** — this is why the weight works. A load
+  center of the same footprint runs ~26 lb because it has to carry bus bars.
+- **White powder-coat**, not galvanised — ordinary primer adheres.
+- **No electrical identity problem.** A structured-media can is a data enclosure.
+  Nobody mistakes it for a live panel.
+- Knockouts and self-healing grommets on top/bottom/sides for the hinge cable.
+- **2″ extender bracket** if we ever need more depth; **lock and key** if the
+  museum wants the rear secured.
+
+### The catch, and the fix
+
+The can's back panel carries a **grid of module-mounting holes**. Running the box
+backwards puts that grid on the visitor-facing surface.
+
+**Fix — and it is the §5 hybrid exactly:** laser-cut **P1 only**, resized to
+14.30 × 28.0, and fasten it over the can's back. It hides the hole grid, carries
+the exact window and button holes, and takes the tan finish. The fab package
+drops from four parts to **one flat plate**, and P2/P4 disappear entirely.
+
+### ⚠️ Reject the plastic ones
+
+Legrand/On-Q's 30″ enclosures (ENP3050 and similar) are **plastic**. No thermal
+conduction path for the Pi (§5 of the build spec), and they won't read right next
+to painted sheet metal. Leviton's 47605/49605 series is steel — check the
+material on every listing.
+
+---
+
 ## 8. Where to browse
 
 ### What to filter on
