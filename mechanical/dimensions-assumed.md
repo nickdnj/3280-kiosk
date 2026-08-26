@@ -1,5 +1,11 @@
 # Assumed Dimensions — v0 (pre-measurement)
 
+> ## ⚠️ SUPERSEDED IN PART — see [`me1-findings.md`](me1-findings.md)
+> Site visit 2026-08-26 found the cabinet has **two doors (louvered outer +
+> perforated inner)**, not the open card-cage opening every drawing here assumes.
+> Height reads ≈67-7/8″ (not 69.5″); opening width ≈18.5–19″ (as assumed).
+> **The door geometry mostly survives; the thing it mounts to does not.**
+>
 > **Status: CONCEPT / ASSUMED.** Nothing on this page has been measured. Every
 > number is derived from the AI concept render plus standard 19″ rack practice,
 > published so the design can be discussed, shopped for, and sanity-checked

@@ -38,6 +38,9 @@ it**.
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
   shareable version for a shop or makerspace. **Not for order until the release
   gate clears.**
+- **[`me1-findings.md`](me1-findings.md)** — ⚠️ **read this first.** Site visit
+  2026-08-26: the machine has two doors, not an open card cage. Changes the
+  mounting design and part of the concept.
 - **[`display-approach-options.md`](display-approach-options.md)** — **the
   top-level open decision.** Custom door vs. bought enclosure vs. a cased monitor
   VESA-mounted to a hinged carrier panel. Read this first.
