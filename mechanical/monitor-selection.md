@@ -26,10 +26,35 @@ either side. It reads as a small screen bolted to a big panel, not as a kiosk.
 
 ---
 
-## 2. Fit table
+## 2. Door and aperture geometry — derived
 
-Cabinet: **24″ W × 71″ H overall**, 3-1/8″ base, ~19.75″ clear opening,
-34″ deep. Carrier panel ≈ 24.3″ wide.
+Working assumption (yours, 2026-08-27): **the frame offset is uniform on all four
+sides.** The measured clear opening gives that offset, and everything else falls
+out of it.
+
+```
+frame offset   = (24.00 cabinet − 19.75 opening) / 2  =  2.125"
+aperture       = 19.75" W × 63.625" H      (5.25" – 68.88" AFF)
+door           = 24.30" W × 68.175" H      (2.98" AFF)
+door overhang  = 0.15" on every edge
+```
+
+**It checks out.** Door height 68.175″ = box 67.875″ + 2 × 0.15″ — *the same
+overhang the door already has in width* (24.30 on a 24.00 cabinet, from the 3230
+drawing). Two independently-sourced numbers agreeing that way is good evidence
+the uniform-offset assumption is right.
+
+**Consequence: the door is far taller than anything we had drawn** — 68″, not 30″.
+The monitor and buttons occupy roughly the upper half, and **the lower third is
+free**. Putting a viewing cutout there restores the "see the machine" value the
+concept lost when we found there was no open card cage (MR3).
+
+Buttons are placed at **34″ AFF** — mid-band for the 15″–48″ ADA reach — which
+puts the screen centre near **49″ AFF**, close to the museum standard eye line.
+
+## 3. Fit table
+
+Cabinet: **24″ W × 71″ H overall**, 3-1/8″ base, 34″ deep.
 
 | | **24″** | **27″** ✅ | **32″** |
 |---|---|---|---|
@@ -37,7 +62,8 @@ Cabinet: **24″ W × 71″ H overall**, 3-1/8″ base, ~19.75″ clear opening,
 | Outline with bezel | 12.5 × 22.1 | **13.9 × 24.7** | 16.4 × 29.0 |
 | Tan margin each side | 5.9″ | **5.2″** | 4.0″ |
 | Screen / door width | 51% | **57%** | 67% |
-| Fits the 19.75″ opening | yes | **yes** | yes, 1.7″/side |
+| Fits the 19.75″ aperture | yes | **yes** | yes, 1.7″/side |
+| Screen centre height | 48″ AFF | **49″ AFF** | 52″ AFF |
 | Weight, cased | ~8–10 lb | **~11–13 lb** | ~15–18 lb |
 | Panel tech at this size | IPS everywhere | **IPS everywhere** | often VA |
 | Verdict | undersized | **best balance** | viable, watch angles + weight |
@@ -47,7 +73,7 @@ proportion, viewing angle and weight.
 
 ---
 
-## 3. Why 27″
+## 4. Why 27″
 
 **Proportion.** 57% of the door width reads as a display *set into* a tan frame,
 which is the concept. 51% reads as undersized; 67% leaves only 4″ of tan and
@@ -75,7 +101,7 @@ point is the whole argument for the cased-monitor approach
 
 ---
 
-## 4. Two selection criteria that are easy to miss
+## 5. Two selection criteria that are easy to miss
 
 ### ⚠️ It must power on by itself when mains returns
 
@@ -98,7 +124,7 @@ A museum floor has overhead lights and often daylight. Glossy panels mirror them
 
 ---
 
-## 5. What to shop for
+## 6. What to shop for
 
 > **27″ · 16:9 · IPS · 2560×1440 · matte · HDMI or DisplayPort · VESA 100×100 ·
 > comes back on after a power cut**
@@ -115,14 +141,14 @@ mandatory** whatever the source.
 
 ---
 
-## 6. Still gated
+## 7. Still gated
 
-The one dimension this analysis rests on that is **not yet confirmed** is the
-**door aperture height** (assumed 48″, at 7″ AFF). It doesn't change the *width*
-maths at all — width is what decides the monitor size — but it sets whether the
-27″ block (24.7″ screen + 1″ + 4″ buttons ≈ 30″) sits comfortably with margin.
-At 48″ it has 18″ to spare, so the recommendation is robust unless the real
-aperture is under ~34″.
+The aperture is now **derived, not measured** — from the uniform-offset
+assumption plus the measured 19.75″ opening. It is self-consistent (§2), but one
+tape reading of the door height would confirm it outright.
+
+It doesn't affect the monitor choice either way: **width decides the size**, and
+width is measured. The 27″ block needs ~30″ of aperture and we have 63.6″.
 
 **C1 still unmeasured**, and it decides recessed vs. proud mounting — not
 monitor size.
