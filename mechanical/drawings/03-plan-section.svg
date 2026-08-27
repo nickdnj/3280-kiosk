@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="930" viewBox="0 0 1140 930" font-family="Helvetica,Arial,sans-serif"><rect width="1140" height="930" fill="#ffffff"/>
+<text x="40.0" y="42.0" font-size="21" fill="#1b1b1b" text-anchor="start" font-weight="700">Plan Section — Door Swing &amp; Closing Clearance</text>
+<text x="40.0" y="64.0" font-size="12.5" fill="#555" text-anchor="start" font-weight="400">Looking down. Cabinet front at the bottom. Scale 10 px = 1 in.</text>
+<rect x="40" y="78" width="547" height="21" fill="#FBE7E1" stroke="#B3401A"/>
+<text x="50.0" y="93.0" font-size="11.5" fill="#B3401A" text-anchor="start" font-weight="700">C1 STILL UNMEASURED — need >= 2.48" from door plane to the inner perforated panel</text>
+<rect x="300.0" y="309.2" width="240.0" height="210.8" fill="#F4F0E7" stroke="#2b2b2b" stroke-width="1.4"/>
+<rect x="300.0" y="309.2" width="21.2" height="210.8" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1"/>
+<rect x="518.8" y="309.2" width="21.2" height="210.8" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1"/>
+<text x="420.0" y="327.2" font-size="10.5" fill="#999" text-anchor="middle" font-weight="400">(cabinet continues rearward, 34" deep)</text>
+<line x1="321.2" y1="495.2" x2="518.8" y2="495.2" stroke="#7a8494" stroke-width="3.5" stroke-dasharray="5 3"/>
+<text x="420.0" y="485.2" font-size="10" fill="#5a6473" text-anchor="middle" font-weight="600">inner perforated panel</text>
+<line x1="331.2" y1="471.2" x2="331.2" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="343.1" y1="471.2" x2="343.1" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="354.9" y1="471.2" x2="354.9" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="366.8" y1="471.2" x2="366.8" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="378.6" y1="471.2" x2="378.6" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="390.4" y1="471.2" x2="390.4" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="402.2" y1="471.2" x2="402.2" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="414.1" y1="471.2" x2="414.1" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="425.9" y1="471.2" x2="425.9" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="437.8" y1="471.2" x2="437.8" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="449.6" y1="471.2" x2="449.6" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="461.4" y1="471.2" x2="461.4" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="473.2" y1="471.2" x2="473.2" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="485.1" y1="471.2" x2="485.1" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="496.9" y1="471.2" x2="496.9" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<line x1="508.8" y1="471.2" x2="508.8" y2="343.2" stroke="#5a6473" stroke-width="2"/>
+<text x="420.0" y="422.2" font-size="11" fill="#3f4a58" text-anchor="middle" font-weight="700">CARD CAGE</text>
+<rect x="298.5" y="518.8" width="243.0" height="1.2" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.5"/>
+<rect x="350.3" y="500.2" width="139.4" height="18.5" fill="#141414" stroke="#000" stroke-width="1"/>
+<text x="420.0" y="516.2" font-size="9.5" fill="#cfc6b4" text-anchor="middle" font-weight="400">monitor body</text>
+<text x="420.0" y="536.0" font-size="10" fill="#333" text-anchor="middle" font-weight="600">CARRIER PANEL (closed)</text>
+<g transform="translate(298.5,520.0) rotate(100)" opacity="0.45"><rect x="0" y="-19.8" width="243.0" height="19.8" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.4" stroke-dasharray="5 3"/></g>
+<path d="M 541.5 520.0 A 243.0 243.0 0 0 1 256.3 759.3" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="298.5" cy="520.0" r="6.0" fill="#9a9a9a" stroke="#333" stroke-width="1.5"/>
+<text x="272.5" y="540.0" font-size="10.5" fill="#333" text-anchor="middle" font-weight="400">HINGE</text>
+<text x="258.5" y="670.0" font-size="11" fill="#333" text-anchor="middle" font-weight="700">OPEN ~100&#176;</text>
+<text x="548.5" y="710.0" font-size="11" fill="#666" text-anchor="start" font-weight="400">swing arc R 24.3"</text>
+<line x1="300.0" y1="281.2" x2="540.0" y2="281.2" stroke="#B3401A" stroke-width="1"/>
+<line x1="300.0" y1="276.2" x2="300.0" y2="286.2" stroke="#B3401A" stroke-width="1"/>
+<line x1="540.0" y1="276.2" x2="540.0" y2="286.2" stroke="#B3401A" stroke-width="1"/>
+<rect x="403.3" y="273.2" width="33.3" height="15" fill="#fff"/>
+<text x="420.0" y="285.2" font-size="11.5" fill="#B3401A" text-anchor="middle" font-weight="600">24.0"</text>
+<line x1="321.2" y1="303.2" x2="518.8" y2="303.2" stroke="#B3401A" stroke-width="1"/>
+<line x1="321.2" y1="298.2" x2="321.2" y2="308.2" stroke="#B3401A" stroke-width="1"/>
+<line x1="518.8" y1="298.2" x2="518.8" y2="308.2" stroke="#B3401A" stroke-width="1"/>
+<rect x="370.0" y="295.2" width="100.0" height="15" fill="#fff"/>
+<text x="420.0" y="307.2" font-size="11.5" fill="#B3401A" text-anchor="middle" font-weight="600">19.75" aperture</text>
+<line x1="556.0" y1="520.0" x2="556.0" y2="495.2" stroke="#B3401A" stroke-width="1"/>
+<line x1="551.0" y1="520.0" x2="561.0" y2="520.0" stroke="#B3401A" stroke-width="1"/>
+<line x1="551.0" y1="495.2" x2="561.0" y2="495.2" stroke="#B3401A" stroke-width="1"/>
+<text x="566.0" y="511.6" font-size="11" fill="#B3401A" text-anchor="start" font-weight="700">C1 >= 2.48" required</text>
+<text x="790.0" y="150.0" font-size="12" fill="#1b1b1b" text-anchor="start" font-weight="700">DEPTH BUDGET</text>
+<line x1="790.0" y1="156.0" x2="1090.0" y2="156.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="790.0" y="176.0" font-size="11" fill="#333" text-anchor="start" font-weight="400">0.125"</text>
+<text x="848.0" y="176.0" font-size="11" fill="#555" text-anchor="start" font-weight="400">carrier panel</text>
+<text x="790.0" y="195.0" font-size="11" fill="#333" text-anchor="start" font-weight="400">1.85"</text>
+<text x="848.0" y="195.0" font-size="11" fill="#555" text-anchor="start" font-weight="400">monitor body behind bezel</text>
+<text x="790.0" y="214.0" font-size="11" fill="#333" text-anchor="start" font-weight="400">0.50"</text>
+<text x="848.0" y="214.0" font-size="11" fill="#555" text-anchor="start" font-weight="400">clearance to inner panel</text>
+<text x="790.0" y="233.0" font-size="11" fill="#1b1b1b" text-anchor="start" font-weight="700">2.48"</text>
+<text x="848.0" y="233.0" font-size="11" fill="#555" text-anchor="start" font-weight="400">= C1 required</text>
+<text x="790.0" y="272.0" font-size="12" fill="#1b1b1b" text-anchor="start" font-weight="700">IF C1 COMES IN SHORT</text>
+<line x1="790.0" y1="278.0" x2="1090.0" y2="278.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="790.0" y="298.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">1. Mount the monitor PROUD — nothing</text>
+<text x="790.0" y="315.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">   intrudes behind the door plane</text>
+<text x="790.0" y="332.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">2. Thinner monitor (check the hump,</text>
+<text x="790.0" y="349.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">   not the bezel)</text>
+<text x="790.0" y="366.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">3. Remove the inner perforated panel</text>
+<text x="790.0" y="383.0" font-size="10.5" fill="#333" text-anchor="start" font-weight="400">   if VCF permits, and store it</text>
+<text x="40.0" y="894.0" font-size="11.5" fill="#2F5D3A" text-anchor="start" font-weight="600">The proud-mount variant needs almost no clearance at all — which is the strongest practical argument for it if C1 measures tight.</text>
+<text x="40.0" y="912.0" font-size="11.5" fill="#B3401A" text-anchor="start" font-weight="600">Verify ~26" of clear approach to the hinge side so a fully open door does not foul a neighbouring exhibit.</text>
+</svg>

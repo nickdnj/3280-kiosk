@@ -80,7 +80,7 @@ R12 ASCII, inches, `CUT` and `BEND` layers, closed contours.
 
 ## 5. How it goes together
 
-![Exploded](../drawings/05-door-exploded.svg)
+![Exploded](../drawings/05-assembly-stack.svg)
 
 Front to back: **P1 face** (tan, with the screen window and a painted satin-black
 bezel field) → foam gasket → **de-cased LCD panel**, clamped at its chassis edges
@@ -99,8 +99,8 @@ Three things drove the design:
 - **No fasteners on the visible face.** P1 has no hinge holes — the hinge lands
   on P2's left wall.
 
-Context drawings: [swing & clearance](../drawings/03-plan-section-clearance.svg) ·
-[front elevation](../drawings/01-cabinet-front-elevation.svg) ·
+Context drawings: [swing & clearance](../drawings/03-plan-section.svg) ·
+[front elevation](../drawings/01-front-elevation.svg) ·
 [build spec](../door-construction.md)
 
 ---

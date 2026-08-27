@@ -37,13 +37,13 @@ by ~40%. **Treat 23.0 × 69.5 as a claim to verify, not a measurement.**
 
 | | Drawing | What it settles |
 |---|---|---|
-| 01 | [Cabinet front elevation](drawings/01-cabinet-front-elevation.svg) | Door size and where it sits; ADA button height |
-| 02 | [Door front layout](drawings/02-door-assembly.svg) | Every face dimension of the door; weight budget |
-| 03 | [Plan section — swing & clearance](drawings/03-plan-section-clearance.svg) | Depth budget; **the C1 clearance risk**; swing envelope |
-| 04 | [Reversible mount candidates](drawings/04-mount-candidates.svg) | Three no-drill options and what to check for each |
-| 05 | [Door assembly — exploded](drawings/05-door-exploded.svg) | The build stack, depth budget, thermal path — see [`door-construction.md`](door-construction.md) |
+| 01 | [Cabinet front elevation](drawings/01-front-elevation.svg) | Door size and where it sits; ADA button height |
+| 02 | [Door front layout](drawings/02-carrier-panel.svg) | Every face dimension of the door; weight budget |
+| 03 | [Plan section — swing & clearance](drawings/03-plan-section.svg) | Depth budget; **the C1 clearance risk**; swing envelope |
+| 04 | [Reversible mount candidates](drawings/04-door-replacement.svg) | Three no-drill options and what to check for each |
+| 05 | [Door assembly — exploded](drawings/05-assembly-stack.svg) | The build stack, depth budget, thermal path — see [`door-construction.md`](door-construction.md) |
 
-![Cabinet front elevation](drawings/01-cabinet-front-elevation.svg)
+![Cabinet front elevation](drawings/01-front-elevation.svg)
 
 ---
 
@@ -163,7 +163,7 @@ over forty years.
 
 ## 6. Mounting — three candidates, decided on site
 
-See [drawing 04](drawings/04-mount-candidates.svg). Ranked:
+See [drawing 04](drawings/04-door-replacement.svg). Ranked:
 
 **A — 19″ rack rail (preferred).** If the 3280 has EIA-310 rails with a free run,
 the fixed frame becomes a **19″ rack panel (~32U)** bolted on with cage nuts and

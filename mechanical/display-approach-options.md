@@ -12,7 +12,7 @@
 
 ## At a glance
 
-![Option comparison](drawings/06-option-comparison.svg)
+![Option comparison](drawings/06-recessed-vs-proud.svg)
 
 Drawn to the assumed cabinet geometry — proportions are real, unlike the AI
 concept art elsewhere in the repo. Regenerate with

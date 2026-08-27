@@ -117,5 +117,5 @@ Change only the kiosk paragraph:
   "make the tan match the cabinet exactly," "show more card cage below."
 - **The model will get the cabinet proportions wrong.** It's illustration. The
   honest geometry lives in
-  [`06-option-comparison.svg`](06-option-comparison.svg).
+  [`06-recessed-vs-proud.svg`](06-option-comparison.svg).
 - Save what you use to `src/kiosk-app/assets/renders/` and flag it as concept art.

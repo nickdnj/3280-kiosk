@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1010" viewBox="0 0 1000 1010" font-family="Helvetica,Arial,sans-serif"><rect width="1000" height="1010" fill="#ffffff"/>
+<text x="40.0" y="42.0" font-size="21" fill="#1b1b1b" text-anchor="start" font-weight="700">Carrier Panel — Dimensioned Layout</text>
+<text x="40.0" y="64.0" font-size="12.5" fill="#555" text-anchor="start" font-weight="400">Replacement for the outer louvered door. 27" monitor recessed. Datum X0 Y0 at lower-left. Scale 11 px = 1 in.</text>
+<rect x="40" y="78" width="391" height="21" fill="#E4EFDF" stroke="#2F5D3A"/>
+<text x="50.0" y="93.0" font-size="11.5" fill="#2F5D3A" text-anchor="start" font-weight="700">GEOMETRY DERIVED — confirm the door height before cutting</text>
+<rect x="300.0" y="190.1" width="267.3" height="749.9" fill="#E5DDCB" stroke="#2b2b2b" stroke-width="1.8"/>
+<rect x="360.3" y="297.5" width="146.7" height="264.9" fill="#20211f" stroke="#B3401A" stroke-width="1.4"/>
+<text x="433.6" y="434.0" font-size="10.5" fill="#cfc6b4" text-anchor="middle" font-weight="700">MONITOR WINDOW</text>
+<text x="433.6" y="448.0" font-size="10" fill="#a89f8e" text-anchor="middle" font-weight="400">13.34" x 24.08"</text>
+<circle cx="412.0" cy="451.6" r="1.8" fill="none" stroke="#2F5D3A" stroke-width="1.6"/>
+<circle cx="412.0" cy="408.3" r="1.8" fill="none" stroke="#2F5D3A" stroke-width="1.6"/>
+<circle cx="455.3" cy="451.6" r="1.8" fill="none" stroke="#2F5D3A" stroke-width="1.6"/>
+<circle cx="455.3" cy="408.3" r="1.8" fill="none" stroke="#2F5D3A" stroke-width="1.6"/>
+<text x="433.6" y="473.6" font-size="9.5" fill="#2F5D3A" text-anchor="middle" font-weight="600">VESA 100 x 100 (3.94")</text>
+<rect x="357.0" y="576.7" width="153.3" height="44.0" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1"/>
+<circle cx="367.6" cy="598.7" r="6.2" fill="none" stroke="#6a6a6a" stroke-width="1.2"/>
+<circle cx="400.6" cy="598.7" r="6.2" fill="#3d3d3d" stroke="#9a9a9a" stroke-width="1.2"/>
+<circle cx="433.6" cy="598.7" r="6.2" fill="#3d3d3d" stroke="#9a9a9a" stroke-width="1.2"/>
+<circle cx="466.7" cy="598.7" r="6.2" fill="#3d3d3d" stroke="#9a9a9a" stroke-width="1.2"/>
+<circle cx="499.7" cy="598.7" r="6.2" fill="none" stroke="#6a6a6a" stroke-width="1.2"/>
+<rect x="351.1" y="664.7" width="165.0" height="220.0" fill="#20211f" stroke="#B3401A" stroke-width="1.3" stroke-dasharray="6 4" opacity="0.32"/>
+<text x="433.6" y="778.7" font-size="10" fill="#B3401A" text-anchor="middle" font-weight="700">VIEWING CUTOUT</text>
+<rect x="311.0" y="200.0" width="55.0" height="12.1" fill="#1b1b1b" stroke="#1b1b1b" stroke-width="1"/>
+<text x="338.5" y="209.0" font-size="7" fill="#f0ebe0" text-anchor="middle" font-weight="400">CONCURRENT</text>
+<line x1="304.9" y1="940.0" x2="304.9" y2="190.1" stroke="#9a9a9a" stroke-width="2.5" stroke-dasharray="10 5"/>
+<text x="290.9" y="565.0" font-size="9.5" fill="#555" text-anchor="middle" font-weight="400" transform="rotate(-90 290.9 565.0)">HINGE EDGE — reuse original points</text>
+<line x1="300.0" y1="164.1" x2="567.3" y2="164.1" stroke="#B3401A" stroke-width="1"/>
+<line x1="300.0" y1="159.1" x2="300.0" y2="169.1" stroke="#B3401A" stroke-width="1"/>
+<line x1="567.3" y1="159.1" x2="567.3" y2="169.1" stroke="#B3401A" stroke-width="1"/>
+<rect x="413.6" y="156.1" width="40.0" height="15" fill="#fff"/>
+<text x="433.6" y="168.1" font-size="11.5" fill="#B3401A" text-anchor="middle" font-weight="600">24.30"</text>
+<line x1="609.3" y1="190.1" x2="609.3" y2="940.0" stroke="#B3401A" stroke-width="1"/>
+<line x1="604.3" y1="190.1" x2="614.3" y2="190.1" stroke="#B3401A" stroke-width="1"/>
+<line x1="604.3" y1="940.0" x2="614.3" y2="940.0" stroke="#B3401A" stroke-width="1"/>
+<rect x="600.3" y="540.9" width="18" height="48.3" fill="#fff"/>
+<text x="609.3" y="565.0" font-size="11.5" fill="#B3401A" text-anchor="middle" font-weight="600" transform="rotate(-90 609.3 565.0)">68.175"</text>
+<line x1="367.6" y1="650.7" x2="400.6" y2="650.7" stroke="#B3401A" stroke-width="1"/>
+<line x1="367.6" y1="645.7" x2="367.6" y2="655.7" stroke="#B3401A" stroke-width="1"/>
+<line x1="400.6" y1="645.7" x2="400.6" y2="655.7" stroke="#B3401A" stroke-width="1"/>
+<rect x="350.8" y="642.7" width="66.7" height="15" fill="#fff"/>
+<text x="384.1" y="654.7" font-size="11.5" fill="#B3401A" text-anchor="middle" font-weight="600">3.003" c-c</text>
+<text x="690.0" y="148.0" font-size="11.5" fill="#1b1b1b" text-anchor="start" font-weight="700">PANEL</text>
+<line x1="690.0" y1="153.0" x2="960.0" y2="153.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="690.0" y="168.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Outline</text>
+<text x="960.0" y="168.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">24.30" x 68.175"</text>
+<text x="690.0" y="185.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Thickness</text>
+<text x="960.0" y="185.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">0.125"</text>
+<text x="690.0" y="202.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Overhang on the aperture</text>
+<text x="960.0" y="202.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">2.275" all round</text>
+<text x="690.0" y="227.0" font-size="11.5" fill="#1b1b1b" text-anchor="start" font-weight="700">MONITOR WINDOW</text>
+<line x1="690.0" y1="232.0" x2="960.0" y2="232.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="690.0" y="247.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Size</text>
+<text x="960.0" y="247.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">13.34" x 24.08"</text>
+<text x="690.0" y="264.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Origin (X,Y)</text>
+<text x="960.0" y="264.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">5.48, 34.32</text>
+<text x="690.0" y="281.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Lip over bezel</text>
+<text x="960.0" y="281.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">0.30" all round</text>
+<text x="690.0" y="298.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">VESA</text>
+<text x="960.0" y="298.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">100 x 100 mm (3.937")</text>
+<text x="690.0" y="323.0" font-size="11.5" fill="#1b1b1b" text-anchor="start" font-weight="700">BUTTONS</text>
+<line x1="690.0" y1="328.0" x2="960.0" y2="328.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="690.0" y="343.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Hole dia</text>
+<text x="960.0" y="343.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">1.125" (30 mm arcade)</text>
+<text x="690.0" y="360.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Count / pitch</text>
+<text x="960.0" y="360.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">5 @ 3.003"</text>
+<text x="690.0" y="377.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Centre height</text>
+<text x="960.0" y="377.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">34" AFF</text>
+<text x="690.0" y="394.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Plate</text>
+<text x="960.0" y="394.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">13.94" x 4.00"</text>
+<text x="690.0" y="419.0" font-size="11.5" fill="#1b1b1b" text-anchor="start" font-weight="700">VIEWING CUTOUT</text>
+<line x1="690.0" y1="424.0" x2="960.0" y2="424.0" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="690.0" y="439.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Size</text>
+<text x="960.0" y="439.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">15" x 20"</text>
+<text x="690.0" y="456.0" font-size="10" fill="#888" text-anchor="start" font-weight="400">Height range</text>
+<text x="960.0" y="456.0" font-size="10.5" fill="#333" text-anchor="end" font-weight="600">8"-28" AFF</text>
+<text x="40.0" y="974.0" font-size="11.5" fill="#2F5D3A" text-anchor="start" font-weight="600">Proud variant: delete the monitor window, keep the VESA holes — the monitor then bolts to the face and nothing precision needs cutting.</text>
+<text x="40.0" y="992.0" font-size="11.5" fill="#B3401A" text-anchor="start" font-weight="600">Window is cut 0.30" inside the bezel outline so the monitor's own bezel overlaps the cut — far more forgiving than a bare panel.</text>
+</svg>

@@ -19,50 +19,43 @@ it**.
 
 ## What's here now
 
-> **Everything below is drawn against *assumed* dimensions.** The cabinet has not
-> been measured yet. Do not cut material against these numbers.
+> **Measured 2026-08-26.** Cabinet dimensions are real; the door aperture is
+> derived from a uniform frame offset. **C1 — the closing clearance — is still
+> unmeasured**, and it is the last gate before anything gets built.
 
-- **[`dimensions-assumed.md`](dimensions-assumed.md)** — the v0 dimension set,
-  where each number came from, and how confident we are in it.
-- **[`measurement-checklist.md`](measurement-checklist.md)** — the ME-1 field
-  sheet. Print it or open it on a phone at the museum; fill the blanks in place.
-- **[`monitor-selection.md`](monitor-selection.md)** — **27″ IPS 1440p recommended**,
-  validated against the measured cabinet. 24″ is undersized.
-- **[`drawings/`](drawings/)** — dimensioned SVGs (render inline on GitHub).
-  ⚠️ **01–06 are drawn to the pre-measurement premise** (a 14.5″ door inside a 19″
-  opening, open card cage) and are superseded in geometry. **07 is the current
-  one.** The rest get rebuilt once the door aperture is confirmed — rebuilding
-  them now would mean rebuilding them twice.
-  - [`07-monitor-fit.svg`](drawings/07-monitor-fit.svg) — ✅ **current.** Real
-    cabinet geometry, three monitor sizes compared
-  - [`01-cabinet-front-elevation.svg`](drawings/01-cabinet-front-elevation.svg) — door size and placement, ADA button height
-  - [`02-door-assembly.svg`](drawings/02-door-assembly.svg) — every door face dimension, weight budget
-  - [`03-plan-section-clearance.svg`](drawings/03-plan-section-clearance.svg) — depth budget, swing envelope, **the C1 clearance risk**
-  - [`04-mount-candidates.svg`](drawings/04-mount-candidates.svg) — three no-drill mounting options
-  - [`05-door-exploded.svg`](drawings/05-door-exploded.svg) — door assembly stack, depth budget, thermal path
-  - [`06-option-comparison.svg`](drawings/06-option-comparison.svg) — **all four display approaches side by side**
-- **[`fab/`](fab/)** — the fabrication package: order sheet, laser-cut DXFs,
-  review previews, and the parametric generator that rebuilds them all from one
-  PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
-  shareable version for a shop or makerspace. **Not for order until the release
-  gate clears.**
+### Start here
+- **[`me1-findings.md`](me1-findings.md)** — the site visit. **The machine has two
+  doors, not an open card cage.** This changed the design.
+- **[`monitor-selection.md`](monitor-selection.md)** — **27″ IPS 1440p**, validated
+  against the measured cabinet. 24″ is undersized.
+- **[`drawings/`](drawings/)** — the full set, all rebuilt to measured geometry
+  from one shared block in [`make-drawings.py`](drawings/make-drawings.py).
+
+### Reference — what the machine actually is
+- **[`cabinet-spec-oem.md`](cabinet-spec-oem.md)** — Concurrent's published spec:
+  **71″ × 24″ × 34″**, and the internal stack.
 - **[`cabinet-drawings-3230.md`](cabinet-drawings-3230.md)** — Perkin-Elmer's
   mechanical drawings for the sibling 3230: **19″ EIA rack confirmed**, door part
-  numbers and dimensions, and the factory paint spec (P.E. #464 textured).
-- **[`cabinet-spec-oem.md`](cabinet-spec-oem.md)** — Concurrent's own published
-  cabinet spec (71″ × 24″ × 34″) from the 1989 product overview on bitsavers.
-- **[`me1-findings.md`](me1-findings.md)** — ⚠️ **read this first.** Site visit
-  2026-08-26: the machine has two doors, not an open card cage. Changes the
-  mounting design and part of the concept.
-- **[`display-approach-options.md`](display-approach-options.md)** — **the
-  top-level open decision.** Custom door vs. bought enclosure vs. a cased monitor
-  VESA-mounted to a hinged carrier panel. Read this first.
-- **[`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md)** — is there an
-  off-the-shelf enclosure we could buy and modify instead? Open decision, gated
-  on the measured clearance.
-- **[`door-construction.md`](door-construction.md)** — ME-4 build spec: laser-cut
-  5052 aluminium (outsourced), parts P1–P4, assembly stack, thermal, finish, and
-  what's still blocked before anything can be ordered.
+  numbers, and the factory paint spec (**P.E. #464 textured**).
+- **[`photos/`](photos/)** — site photographs.
+
+### Open decisions
+- **[`display-approach-options.md`](display-approach-options.md)** — cased monitor
+  on a hinged carrier panel (Option C) is the recommendation.
+- Recessed vs. proud — see [drawing 06](drawings/06-recessed-vs-proud.svg). This
+  one is for the docents, not the engineers.
+
+### Field materials
+- **[`measurement-checklist.md`](measurement-checklist.md)** — the ME-1 field
+  sheet. **C1 and the door height are what's left.**
+
+### Superseded — kept for provenance, don't build from these
+- [`dimensions-assumed.md`](dimensions-assumed.md) — the pre-measurement guesses.
+- [`door-construction.md`](door-construction.md), [`fab/`](fab/) — the de-cased-panel
+  fabrication route, obsolete now that we're keeping the monitor whole.
+- [`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md) — moot: the cabinet
+  supplies the enclosure.
+- [`drawings/superseded/`](drawings/superseded/).
 
 ## Still to produce
 
