@@ -38,6 +38,8 @@ it**.
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
   shareable version for a shop or makerspace. **Not for order until the release
   gate clears.**
+- **[`cabinet-spec-oem.md`](cabinet-spec-oem.md)** — Concurrent's own published
+  cabinet spec (71″ × 24″ × 34″) from the 1989 product overview on bitsavers.
 - **[`me1-findings.md`](me1-findings.md)** — ⚠️ **read this first.** Site visit
   2026-08-26: the machine has two doors, not an open card cage. Changes the
   mounting design and part of the concept.

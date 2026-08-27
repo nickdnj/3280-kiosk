@@ -66,9 +66,15 @@ back to the docents** — it changes what Rick approved.
 |---|---|---|---|---|
 | A2 | Cabinet overall height | 69.5″ | **≈ 67-7/8″** | Good — clear tape read |
 | A6 | Front opening clear width | 19.0″ | **≈ 18.5–19″** | Good — clear tape read |
-| A1 | Cabinet / outer door width | 23.0″ | **≈ 23–24″** ⚠️ | Poor — can't see both tape ends |
+| A1 | Cabinet / outer door width | 23.0″ | **≈ 23–24″** ⚠️ | Poor — but **OEM spec says 24″**, see below |
 | ? | A vertical run | — | **≈ 48″** ⚠️ | Read is clear; **what it spans is not** |
 | ? | A second vertical run | — | **≈ 32″** ⚠️ | Read is clear; **what it spans is not** |
+
+> **Manufacturer data now available.** Concurrent's own 1989 product overview
+> gives the 3280MPS cabinet as **71″ H × 24″ W × 34″ D** — see
+> [`cabinet-spec-oem.md`](cabinet-spec-oem.md). Width and depth are settled.
+> The height does **not** reconcile with the photo read (71″ vs ~67-7/8″) and
+> needs re-measuring.
 
 **The two assumptions that mattered most held up.** 19″ opening width and a
 ~68″ cabinet are close enough to what we drew that the door geometry
