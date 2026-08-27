@@ -105,6 +105,13 @@ Two consequences for us:
 
 ---
 
+## 3.5 Follow-up: the 3230 manual was pulled
+
+Done — see [`cabinet-drawings-3230.md`](cabinet-drawings-3230.md). It yielded
+the **19″ EIA rack panel space**, door part numbers and dimensions, latch and
+gasket detail, and the **factory paint spec (P.E. #464 textured)**. It did not
+yield C1.
+
 ## 4. Other documents worth pulling
 
 From [`bitsavers.org/pdf/interdata/32bit/`](https://bitsavers.org/pdf/interdata/32bit/):
@@ -113,7 +120,7 @@ From [`bitsavers.org/pdf/interdata/32bit/`](https://bitsavers.org/pdf/interdata/
 |---|---|
 | `3280/50-045R00_3280_ProdOverview_1989.pdf` | This document — 110 pp |
 | `3280/63-002_SystemBusTheory_1987.pdf` | S-bus theory; unlikely to have mechanicals |
-| `3230/47-004R21_3230_Maint_1982.pdf` | **45 MB maintenance manual.** Maintenance manuals usually *do* carry cabinet drawings, door removal, and dimensioned service clearances. Best remaining lead for real cabinet geometry |
+| `3230/47-004R21_3230_Maint_1982.pdf` | ✅ **Pulled.** Chapter 3 is a full mechanical configuration section — see [`cabinet-drawings-3230.md`](cabinet-drawings-3230.md) |
 | `3203/`, `3205/`, `3210/`, `3220/`, `3250/` | Sibling models — may share the cabinet |
 
 A **site-planning or installation manual** would give C1-class detail directly.

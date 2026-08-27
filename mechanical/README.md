@@ -38,6 +38,9 @@ it**.
   PARAMS block, plus [`DRAWING-PACKAGE.md`](fab/DRAWING-PACKAGE.md) — the
   shareable version for a shop or makerspace. **Not for order until the release
   gate clears.**
+- **[`cabinet-drawings-3230.md`](cabinet-drawings-3230.md)** — Perkin-Elmer's
+  mechanical drawings for the sibling 3230: **19″ EIA rack confirmed**, door part
+  numbers and dimensions, and the factory paint spec (P.E. #464 textured).
 - **[`cabinet-spec-oem.md`](cabinet-spec-oem.md)** — Concurrent's own published
   cabinet spec (71″ × 24″ × 34″) from the 1989 product overview on bitsavers.
 - **[`me1-findings.md`](me1-findings.md)** — ⚠️ **read this first.** Site visit
