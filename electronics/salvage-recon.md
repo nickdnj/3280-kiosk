@@ -33,16 +33,23 @@ model number costs two seconds now and saves an hour later.
 
 ### Target
 
-**~24″ 16:9 LCD, run in portrait.** Active area 20.9″ × 11.8″ → 11.8″ W × 20.9″ H
-portrait. This is the size the whole design is drawn against (MR12).
+> ⚠️ **Retargeted 2026-08-27 — see [`../mechanical/monitor-selection.md`](../mechanical/monitor-selection.md).**
+> The carrier panel replaces the cabinet's 24.3″-wide outer door, not a 14.5″
+> door in a 19″ opening. A 24″ panel is now **undersized**.
+
+**~27″ 16:9 IPS, 2560×1440, matte, run in portrait.** Active area 23.5″ × 13.2″
+→ 13.2″ W × 23.5″ H portrait. 24″ is an acceptable fallback; 32″ a stretch.
 
 ### Acceptance criteria — in order of importance
 
 | # | Criterion | Accept | Reject |
 |---|---|---|---|
-| 1 | **Screen diagonal** | 21.5″–24″ | < 20″; 27″ only as a stretch (see below) |
+| 1 | **Screen diagonal** | **27″ preferred**; 24″ acceptable | < 21.5″; 32″ only if IPS |
 | 2 | **Digital input** | HDMI, DisplayPort, or DVI | **VGA-only** — no |
-| 3 | **Native resolution** | 1920×1080 or better | 1366×768 — text will look cheap |
+| 3 | **Native resolution** | **2560×1440** preferred, 1920×1080 min | 1366×768; 4K (Pi 4 rotates it poorly) |
+| 3b | **Panel type** | **IPS** — visitors approach off-axis | VA, TN |
+| 3c | **Surface** | **Matte / anti-glare** | Glossy — mirrors museum lighting |
+| 3d | **Powers on after a mains cut** | **Comes back by itself** | Wakes into standby — ✖ go/no-go, exhibit is on an AC timer |
 | 4 | **Backlight type** | LED edge-lit (post ~2012), thin | **CCFL** — thick, dim, needs an inverter |
 | 5 | **Panel condition** | Clean, even backlight | Cracks, dead columns/lines, dark corners, yellowing |
 | 6 | **Controller board** | Separate small PCB on a ribbon | Board bonded into a big chassis — hard to relocate |

@@ -26,7 +26,15 @@ it**.
   where each number came from, and how confident we are in it.
 - **[`measurement-checklist.md`](measurement-checklist.md)** — the ME-1 field
   sheet. Print it or open it on a phone at the museum; fill the blanks in place.
-- **[`drawings/`](drawings/)** — dimensioned SVGs (render inline on GitHub):
+- **[`monitor-selection.md`](monitor-selection.md)** — **27″ IPS 1440p recommended**,
+  validated against the measured cabinet. 24″ is undersized.
+- **[`drawings/`](drawings/)** — dimensioned SVGs (render inline on GitHub).
+  ⚠️ **01–06 are drawn to the pre-measurement premise** (a 14.5″ door inside a 19″
+  opening, open card cage) and are superseded in geometry. **07 is the current
+  one.** The rest get rebuilt once the door aperture is confirmed — rebuilding
+  them now would mean rebuilding them twice.
+  - [`07-monitor-fit.svg`](drawings/07-monitor-fit.svg) — ✅ **current.** Real
+    cabinet geometry, three monitor sizes compared
   - [`01-cabinet-front-elevation.svg`](drawings/01-cabinet-front-elevation.svg) — door size and placement, ADA button height
   - [`02-door-assembly.svg`](drawings/02-door-assembly.svg) — every door face dimension, weight budget
   - [`03-plan-section-clearance.svg`](drawings/03-plan-section-clearance.svg) — depth budget, swing envelope, **the C1 clearance risk**
