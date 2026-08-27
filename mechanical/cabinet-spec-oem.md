@@ -19,31 +19,41 @@ in the warehouse. Where they disagree, the machine wins.
 
 > *"Each of these cabinets is 71″ tall."* (of the expansion cabinets) — p.74
 
-| Dimension | OEM spec | Our assumption | ME-1 photo read |
+| Dimension | OEM spec | Our assumption | ME-1 measured |
 |---|---|---|---|
-| **Height** | **71″** | 69.5″ | ≈ 67-7/8″ ⚠️ |
-| **Width** | **24″** (61 cm) | 23.0″ | ≈ 23–24″ |
+| **Height, overall (floor → top)** | **71″** | 69.5″ | ✅ reconciles — see §1.1 |
+| **Height, cabinet box only** | — | — | **67-7/8″** |
+| **Base / feet height** | — | 8.0″ ❌ | **≈ 3-1/8″** (derived) |
+| **Width** | **24″** (61 cm) | 23.0″ | ≈ 23–24″ ✅ |
 | **Depth** | **34″** (86.4 cm) | 26–36″ (unknown) | not measured |
 | Footprint | ≈ 5.7 ft² / 0.53 m² | — | — |
+
+### 1.1 Height discrepancy — RESOLVED
+
+**There was never a conflict.** Confirmed 2026-08-27: the 67-7/8″ tape reading is
+the **cabinet box alone**. The machine sits on feet below that.
+
+```
+      71″     OEM overall height (floor → top of cabinet)
+  −  67-7/8″  measured cabinet box
+  ─────────
+  =   3-1/8″  feet / base
+```
+
+3-1/8″ is a wholly plausible foot height, and the two independent figures — a
+1989 catalogue and a tape measure in a warehouse — closing to an exact eighth is
+strong mutual confirmation. **Both numbers are good.** Use 71″ for floor-relative
+work (ADA, sightlines, install) and 67-7/8″ for anything referenced to the box.
+
+⚠️ The 3-1/8″ is *derived*, not measured. Put a tape on the feet to confirm, and
+note whether they're fixed feet, levellers or casters — levellers would make the
+overall height adjustable by an inch or so.
 
 The figure on p.74 labels the primary cabinet **"71″ CABINET OPTION / STANDARD OR
 PERIPHERAL PRIMARY CABINET"** — the word *option* implies other heights existed.
 Concurrent definitely shipped multiple cabinet heights in this era; the 1986
 Datapro report notes the XF/600 was offered in *"either a 30-inch or 56-inch high
 cabinet."*
-
-### ⚠️ The height doesn't reconcile — and that matters
-
-**71″ (OEM) vs ≈67-7/8″ (my read of your tape).** A 3-1/8″ gap is too large to be
-rounding and too small to be a different cabinet family. Most likely one of:
-
-1. **I misread the photo** — the tape is at an angle in a rotated frame. Most likely.
-2. **The tape wasn't hooked at the floor** — e.g. measured from the top of a
-   plinth or levelling base. A ~3″ base reconciles it almost exactly.
-3. **A genuinely different cabinet option.**
-
-**Re-measure floor → top, and this closes.** Until then, treat 71″ as the
-catalogue value and ~68″ as unverified.
 
 ---
 
@@ -90,8 +100,8 @@ Two consequences for us:
 **Does not settle — still needs the tape:**
 - **C1**, the outer-door-plane to inner-door clearance. No catalogue gives this.
 - Door aperture height and width.
-- Floor → aperture bottom (ADA).
-- The 71″ / 68″ discrepancy.
+- Floor → aperture bottom (ADA) — though the base height now gives us a datum.
+- Foot height, measured rather than derived; fixed / levelling / casters.
 
 ---
 

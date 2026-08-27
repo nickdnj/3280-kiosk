@@ -70,11 +70,16 @@ back to the docents** — it changes what Rick approved.
 | ? | A vertical run | — | **≈ 48″** ⚠️ | Read is clear; **what it spans is not** |
 | ? | A second vertical run | — | **≈ 32″** ⚠️ | Read is clear; **what it spans is not** |
 
-> **Manufacturer data now available.** Concurrent's own 1989 product overview
-> gives the 3280MPS cabinet as **71″ H × 24″ W × 34″ D** — see
-> [`cabinet-spec-oem.md`](cabinet-spec-oem.md). Width and depth are settled.
-> The height does **not** reconcile with the photo read (71″ vs ~67-7/8″) and
-> needs re-measuring.
+> **Manufacturer data now available, and it agrees.** Concurrent's 1989 product
+> overview gives the 3280MPS cabinet as **71″ H × 24″ W × 34″ D**
+> ([`cabinet-spec-oem.md`](cabinet-spec-oem.md)). The 67-7/8″ tape reading is the
+> **cabinet box alone** — the machine stands on feet below it, so
+> 67-7/8 + 3-1/8 = 71″ overall. Catalogue and tape confirm each other.
+>
+> **This corrects an assumption that mattered:** we had the base at 8.0″; it is
+> ~3-1/8″. Everything sits about 5″ lower than drawn — which *helps* ADA reach
+> (buttons move down, further from the 48″ ceiling) but should be re-checked
+> against the 15″ floor once the aperture position is measured.
 
 **The two assumptions that mattered most held up.** 19″ opening width and a
 ~68″ cabinet are close enough to what we drew that the door geometry
@@ -99,7 +104,7 @@ Three numbers, and the mechanical design keys off all of them.
 |---|---|---|
 | **C1** | **Closing clearance** — door plane to the frontmost thing inside | **The gate on everything.** Not measurable from any photo here |
 | A3 | Cabinet overall depth | Sanity check |
-| A5/A8 | Floor → bottom of the door aperture (AFF) | ADA button height (A1) |
+| A5/A8 | Floor → bottom of the door aperture (AFF) | ADA button height (A1). Base is ~3-1/8″, not the 8.0″ assumed |
 | B1–B8 | Rack rails — present? free run? hole type? | The photos *suggest* rails beside the card cage; unconfirmed |
 | D1–D6 | Left-side swing clearance, hinge details | Door travel |
 | F1 | A tan scrap for paint matching | MR13 |
