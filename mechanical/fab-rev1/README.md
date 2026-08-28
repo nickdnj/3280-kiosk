@@ -75,6 +75,30 @@ by designing around not knowing it.
   visitor pushes a button. It sits above the switch bodies, which protrude about
   an inch behind the plate.
 
+## Cardboard mock-up — print it 1:1 first
+
+**[`stencil-letter.html`](stencil-letter.html)** tiles this part across **six US
+Letter pages at full size**. Print it, tape the sheets on the registration marks,
+cut the voids, and trace the shape onto cardboard.
+
+1. Print at **Scale 100%** — *not* "Fit to page" — and **Margins: None**.
+2. **Measure the red bar on sheet 1. It must be exactly 4.000 inches.** If it
+   isn't, the printer scaled the page; nothing downstream will line up.
+3. Tape on the registration crosses in the shaded overlap bands (0.43″
+   horizontal, 0.51″ vertical). The 1″ grid is the real check — lines must run
+   straight across every joint and the printed `x,y` coordinates must agree on
+   both sides of the tape.
+4. Cut the heavy dashed outlines (window and buttons). The small circles are
+   mounting holes — **mark only**. Cut the outside profile **last**.
+
+Hold the cardboard against the 3280 with its **bottom edge 34.750″ above the
+floor**; that puts the button centres at 38.000″ AFF. Proportion is the argument
+this design turns on, and a photograph of cardboard on the real machine settles
+it in a way no drawing can. Take one straight on from six feet and one from
+about 45°.
+
+Regenerate with `python3 make-stencil.py`.
+
 ## Labels
 
 There is no text in the DXF. BACK / HOME / NEXT is a separate step, and the
