@@ -143,6 +143,22 @@ li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:1px;
 .spec .k{display:block;font-family:"Archivo",sans-serif;font-size:10px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px;font-weight:600}
 
+.mats{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:24px 0}
+.mat{background:var(--card);padding:18px 20px}
+.mat h4{font-family:"Archivo",sans-serif;font-size:15.5px;font-weight:700;margin:0 0 2px}
+.mat .alias{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted);
+  display:block;margin-bottom:10px;letter-spacing:.02em}
+.mat p{font-size:14.5px;margin:0;line-height:1.55}
+.buy{list-style:none;padding:0;margin:15px 0 0;font-size:13.5px}
+.buy li{padding-left:0;margin-bottom:7px;line-height:1.45}
+.buy li::before{display:none}
+.buy a{text-decoration:none;font-weight:500;
+  border-bottom:1px solid color-mix(in srgb, var(--accent) 45%, transparent)}
+.buy a:hover{border-bottom-color:var(--accent)}
+.buy .note{color:var(--muted);font-family:"Space Mono",monospace;font-size:11.5px}
+.buy .hd{font-family:"Archivo",sans-serif;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px}
 .opt{background:var(--card);border:1px solid var(--line);padding:20px}
 .opt.win{border-color:var(--ok);border-width:2px}
 .opt h4{font-family:"Archivo",sans-serif;margin:0 0 3px;font-size:17px;font-weight:700}
@@ -244,7 +260,7 @@ footer .mono{font-size:12px}
       <p>Buttons at 38″ put the 24″ screen centre at <b>51.5″</b>. Adult seated eye height is roughly 47–51″, so the screen is very nearly centred on a seated visitor, while a standing adult looks down about 11° — normal reading posture. <b>The ADA-driven placement is better for everyone than the 40″ this study first drew.</b></p>
     </div>
     <h3>What it costs the mount</h3>
-    <p>With the buttons at 38″ the kiosk's bottom edge sits at <b>34.75″ AFF</b> — above the 27″ threshold, so §307.2 caps the projection into a circulation path at <b>4″</b>. The enclosure is 3.5″ deep. <b>That leaves half an inch for the mounting adapter.</b></p>
+    <p>With the buttons at 38″ the kiosk's bottom edge sits at <b>34.75″ AFF</b> — above the 27″ threshold, so §307.2 caps the projection into a circulation path at <b>4″</b>. With the recommended 3 mm ACM face (§06) the enclosure is 3.25″ deep, <b>leaving 0.75″ for the mounting adapter</b> — and a plywood face instead would cut that to 0.5″.</p>
     <div class="callout warn">
       <span class="lbl">Worth asking, not worth assuming</span>
       <p>§307.2 exists to stop someone with a cane walking into an object their sweep misses. The 3280 is floor-standing and cane-detectable, and a visitor is stopped by the cabinet before the kiosk is in reach — so the hazard the rule targets may not apply here. <b>That is the museum's accessibility coordinator's call, not ours.</b> Design the adapter to 4″ total, and ask.</p>
@@ -302,7 +318,7 @@ footer .mono{font-size:12px}
 
 <section>
   <h2><span class="num">04</span>Side section</h2>
-  <p class="sub">Depth is the number that decides how much the kiosk stands off the machine. Every eighth of an inch here is visible.</p>
+  <p class="sub">Depth decides how far the kiosk stands off the machine — every eighth of an inch here is visible, and ADA §307.2 caps the whole projection at 4″. Drawn with the recommended 3 mm ACM face (§06); a plywood face costs another 3/8″.</p>
   <div class="plate tall">
     <svg id="sv-side" viewBox="0 0 100 100" role="img" aria-label="Side section through the kiosk showing the internal component stack"></svg>
     <div class="cap">Sheet R1-04 · side section · depth to 3.5″ target · mounting interface left blank by intent</div>
@@ -313,7 +329,7 @@ footer .mono{font-size:12px}
       <ul>
         <li><b>The monitor's thickest point — 1.6″ to 2.3″.</b> The only hard number in the stack, and the reason depth grows with screen size even though the panel doesn't.</li>
         <li><b>Cable bend at the connectors — 0.75″ to 1.75″.</b> The one you can design away, and the difference between 3.5″ and 4.5″. Route HDMI and DC <i>downward into the button bay</i> with right-angle plugs.</li>
-        <li><b>Face plate + rear panel — 1.0″ combined.</b> Down to ~0.4″ with composite panel, at the cost of stiffness.</li>
+        <li><b>Face plate + rear panel.</b> A 3 mm ACM face and a 1/2″ ply rear come to 0.62″ together. A plywood face instead makes it 1.0″ — <b>and that 3/8″ comes straight out of the mounting adapter's budget.</b></li>
       </ul>
     </div>
     <div>
@@ -333,8 +349,9 @@ footer .mono{font-size:12px}
       <tbody>
         <tr><td class="n">2.50″</td><td><b style="color:var(--flag)">No.</b> Requires a sub-1.4″ monitor, a 1/8″ face and zero service gap.</td></tr>
         <tr><td class="n">3.00″</td><td>Achievable at 22–24″ with a slim monitor, right-angle cables and down-routing. No margin.</td></tr>
-        <tr><td class="n"><b>3.50″</b></td><td><b>The design target.</b> Works at 22 / 24 / 27 with a normal monitor and 0.6″ of service air.</td></tr>
-        <tr><td class="n">4.00″</td><td>Needed for 32″, or any monitor with a rear-facing connector cluster and straight cables.</td></tr>
+        <tr><td class="n"><b>3.25″</b></td><td><b>The design target</b>, with a 3 mm ACM face. Works at 22 / 24 / 27 with 0.7″ of service air, and leaves <b>0.75″ for the mounting adapter</b> under the 4″ cap.</td></tr>
+        <tr><td class="n">3.50″</td><td>What a plywood face costs you. Still fine — the mount's budget drops to 0.50″.</td></tr>
+        <tr><td class="n">4.00″</td><td>Needed for 32″, or any monitor with a rear-facing connector cluster and straight cables. <b>Leaves nothing for the mount.</b></td></tr>
       </tbody>
     </table>
   </div>
@@ -359,7 +376,7 @@ footer .mono{font-size:12px}
         <tr><td class="rowlbl">Screen centre height</td><td class="n" data-size="22" data-row="ctr"></td><td class="n" data-size="24" data-row="ctr"></td><td class="n" data-size="27" data-row="ctr"></td><td class="n" data-size="32" data-row="ctr"></td></tr>
         <tr><td class="rowlbl">Highest button the geometry allows</td><td class="n" data-size="22">47.7″</td><td class="n" data-size="24">45.7″</td><td class="n" data-size="27">42.9″</td><td class="n fail" data-size="32">39.0″</td></tr>
         <tr><td class="rowlbl">Estimated total weight</td><td class="n" data-size="22">~20 lb</td><td class="n" data-size="24">~23 lb</td><td class="n" data-size="27">~27 lb</td><td class="n" data-size="32">~34 lb</td></tr>
-        <tr><td class="rowlbl">Minimum enclosure depth</td><td class="n" data-size="22">2.7″</td><td class="n" data-size="24">2.9″</td><td class="n" data-size="27">3.1″</td><td class="n" data-size="32">3.4″</td></tr>
+        <tr><td class="rowlbl">Minimum enclosure depth</td><td class="n" data-size="22">2.4″</td><td class="n" data-size="24">2.6″</td><td class="n" data-size="27">2.8″</td><td class="n" data-size="32">3.1″</td></tr>
         <tr><td class="rowlbl">Density, 1080 px across</td><td class="n" data-size="22">102 ppi</td><td class="n" data-size="24">93 ppi</td><td class="n" data-size="27">82 ppi</td><td class="n" data-size="32">70 ppi</td></tr>
         <tr><td class="rowlbl">Panel technology</td><td class="n" data-size="22">IPS</td><td class="n" data-size="24">IPS</td><td class="n" data-size="27">IPS</td><td class="n fail" data-size="32">often VA</td></tr>
       </tbody>
@@ -373,54 +390,155 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">06</span>Construction</h2>
-  <p class="sub">Three routes a museum volunteer crew could actually execute. The differentiator is not strength or cost — it's which one survives contact with a finish.</p>
-  <div class="three">
-    <div class="opt">
-      <h4>A · CNC Baltic birch</h4>
-      <span class="kicker">cut, rabbet, spray</span>
-      <dl>
-        <dt>Build</dt><dd>1/2″ Baltic birch, CNC-cut, rabbeted, sprayed satin graphite</dd>
-        <dt>Difficulty</dt><dd>Moderate. Needs CNC plus a spray setup — <b>the finish is the hard part</b></dd>
-        <dt>Material</dt><dd>$80–140</dd>
-        <dt>Weight</dt><dd>~13 lb enclosure at 24″</dd>
-        <dt>Finish</dt><dd>Good sprayed, poor brushed. Ply edges telegraph</dd>
-        <dt>Service</dt><dd>Excellent — but threaded inserts, never screws into ply edge</dd>
-        <dt>Museum read</dt><dd>Honest, repairable, slightly craft</dd>
-      </dl>
+  <h2><span class="num">06</span>What it's made of, and where to buy it</h2>
+  <p class="sub">Three ways to build the box. What separates them isn't strength and it isn't cost — it's whether the finished thing looks bought or looks homemade.</p>
+
+  <h3>First: what these materials actually are</h3>
+  <div class="mats">
+    <div class="mat">
+      <h4>ACM</h4>
+      <span class="alias">aluminium composite · “Dibond”</span>
+      <p>Two thin sheets of aluminium glued either side of a plastic core — a metal sandwich about <b>1/8″ thick</b>. Stiff, dead flat, and the colour is baked onto the aluminium at the factory. <b>Nothing to sand, nothing to paint.</b> Almost every storefront sign and road sign you've ever looked at is this stuff.</p>
     </div>
-    <div class="opt win">
-      <h4>B · Ply box, applied face</h4>
-      <span class="kicker">recommended</span>
-      <dl>
-        <dt>Build</dt><dd>3/8–1/2″ ply structural box; face plate in composite panel or high-pressure laminate, bonded</dd>
-        <dt>Difficulty</dt><dd>Moderate, two stages — but each stage is easy and forgiving</dd>
-        <dt>Material</dt><dd>$120–200</dd>
-        <dt>Weight</dt><dd>~15 lb enclosure at 24″</dd>
-        <dt>Finish</dt><dd><b>Best.</b> Factory-flat, no spray booth, no grain to fill</dd>
-        <dt>Service</dt><dd>Excellent. Face is bonded, so button work goes through the back</dd>
-        <dt>Museum read</dt><dd>Purpose-built exhibit component</dd>
-      </dl>
+    <div class="mat">
+      <h4>HPL</h4>
+      <span class="alias">high-pressure laminate · “Formica”</span>
+      <p>The material on a kitchen counter. Here's the catch: <b>it is not a board.</b> It's a 1/32″ skin with no stiffness of its own, so it has to be glued down onto plywood or MDF first. That gluing step is the word “bonded” doing a lot of quiet work.</p>
     </div>
-    <div class="opt">
-      <h4>C · Modified commercial</h4>
-      <span class="kicker">fails on aspect ratio</span>
-      <dl>
-        <dt>Build</dt><dd>Digital-signage or instrument enclosure, cut for the panel</dd>
-        <dt>Difficulty</dt><dd>Low <i>if</i> something fits. High if not</dd>
-        <dt>Material</dt><dd>$150–400</dd>
-        <dt>Weight</dt><dd>30 lb+ in steel; light in ABS</dd>
-        <dt>Finish</dt><dd>Factory</dd>
-        <dt>Service</dt><dd>Usually good</dd>
-        <dt>Museum read</dt><dd>Risks reading as generic industrial kit</dd>
-      </dl>
+    <div class="mat">
+      <h4>Compact laminate</h4>
+      <span class="alias">solid phenolic · Trespa, Fundermax</span>
+      <p>The same material as Formica, but pressed thick enough to stand on its own — 1/4″ to 1/2″. Restroom partitions and school lab benches. Beautiful and effectively permanent, but heavy and mostly sold in architectural quantities.</p>
+    </div>
+    <div class="mat">
+      <h4>Baltic birch</h4>
+      <span class="alias">void-free plywood</span>
+      <p>Very good plywood — many thin layers, no hidden gaps inside. Strong, and it machines beautifully. But it is wood: to look finished it wants sanding, sealing and spraying, and <b>that is where volunteer builds usually come unstuck.</b></p>
     </div>
   </div>
+
+  <h3>The three routes</h3>
+  <div class="three">
+    <div class="opt">
+      <h4>A · Plywood, cut and sprayed</h4>
+      <span class="kicker">the traditional way</span>
+      <dl>
+        <dt>What you do</dt><dd>CNC-cut 1/2″ Baltic birch, rabbet the corners, spray satin graphite.</dd>
+        <dt>The hard part</dt><dd><b>The finish.</b> Ply edges telegraph through paint and a brushed coat reads homemade from ten feet away.</dd>
+        <dt>Needs</dt><dd>CNC access <i>and</i> somewhere to spray.</dd>
+        <dt>Material</dt><dd>~$80–140</dd>
+        <dt>Weight</dt><dd>~13 lb enclosure</dd>
+      </dl>
+      <ul class="buy">
+        <li class="hd">Where to buy the plywood</li>
+        <li><a href="https://makerstock.com/collections/baltic-birch-plywood">MakerStock — 1/2″ Baltic birch, custom cuts</a> <span class="note">up to 24 × 48</span></li>
+        <li><a href="https://www.cherokeewood.com/store/1-2-baltic-birch-plywood-cut-to-size/">Cherokee Wood Products — cut to size</a></li>
+        <li><a href="https://www.woodworkerssource.com/plywood/12-baltic-birch-plywood-pack-choose-your-size.html">Woodworkers Source — pre-cut packs</a></li>
+        <li><a href="https://jeffmacksupply.com/en-us/products/1-2-thick-baltic-birch-select-a-size">Jeff Mack Supply — pick a size</a></li>
+      </ul>
+    </div>
+
+    <div class="opt win">
+      <h4>B · Plywood box, ACM front</h4>
+      <span class="kicker">recommended</span>
+      <dl>
+        <dt>What you do</dt><dd>The same plywood box — but the <b>visible front is 3 mm black ACM</b>, cut to shape and screwed to cleats inside.</dd>
+        <dt>Why it wins</dt><dd><b>The face arrives already finished.</b> No spray booth, no grain to fill, no sanding, nothing to get wrong on the one surface everybody looks at.</dd>
+        <dt>Needs</dt><dd>Ordinary woodworking. The front gets cut by someone else — see below.</dd>
+        <dt>Material</dt><dd>~$120–200</dd>
+        <dt>Weight</dt><dd>~12 lb — <b>about a pound lighter than A</b>, since ACM replaces the plywood front</dd>
+      </dl>
+      <ul class="buy">
+        <li class="hd">Where to buy the ACM</li>
+        <li><a href="https://sendcutsend.com/materials/acm/">SendCutSend — cut to our shape</a> <span class="note">best option, see below</span></li>
+        <li><a href="https://www.curbellplastics.com/product-category/material/aluminum-composite-material-acm/dibond-panels/">Curbell Plastics — Dibond sheet</a></li>
+        <li><a href="https://www.onlinemetals.com/en/buy/3mm-aluminum-composite-panel-black/pid/mp-00040256">OnlineMetals — 3 mm black ACM</a></li>
+        <li><a href="https://www.midwestairbrush.com/collections/acm-aluminum-panels-black">Midwest Airbrush — small black pieces</a></li>
+        <li class="hd" style="margin-top:12px">If you'd rather use Formica</li>
+        <li><a href="https://www.amazon.com/Wilsonart-Sheet-Laminate-Vertical-Grade/dp/B01FV20Z6A">Wilsonart vertical grade, black matte</a></li>
+        <li><a href="https://ledgeband.com/collections/laminate-sheets">Ledgeband — Formica / Wilsonart, no minimum</a></li>
+      </ul>
+    </div>
+
+    <div class="opt">
+      <h4>C · Modify a bought enclosure</h4>
+      <span class="kicker">doesn't fit</span>
+      <dl>
+        <dt>What you do</dt><dd>Buy a digital-signage or instrument housing and cut it for the panel.</dd>
+        <dt>Why it fails</dt><dd><b>Nothing off the shelf is 15″ × 29″ × 3-1/4″ portrait.</b> Everything close is a landscape signage box or a deep electrical enclosure.</dd>
+        <dt>Worth</dt><dd>Ten minutes of searching. Not worth designing around.</dd>
+        <dt>Material</dt><dd>$150–400</dd>
+        <dt>Weight</dt><dd>30 lb+ in steel</dd>
+      </dl>
+      <ul class="buy">
+        <li class="hd">If you want to look anyway</li>
+        <li><a href="https://fundermax.us/product/interior-thin-laminate-panels/">Fundermax — compact phenolic panels</a></li>
+        <li><a href="https://www.wilsonart.com/laminate/specialty-laminate/compact">Wilsonart Compact laminate</a></li>
+      </ul>
+    </div>
+  </div>
+
   <div class="col">
     <div class="callout rec">
-      <span class="lbl">Recommendation — B</span>
-      <p>The single biggest risk in a volunteer-built enclosure is the <b>finish</b>. A well-built box with a brushed-lacquer face still looks homemade, and that is exactly the failure mode this design is trying to avoid. Approach B takes the finish off the critical path: the visible surface arrives already flat and already durable, and the volunteers build a plywood box behind it — a thing any woodworker gets right on the first try.</p>
-      <p><b>A is the fallback</b> if nobody can source or bond sheet facing. It's a good enclosure; it just puts the project's appearance on the line at the spray stage. <b>C</b> is worth ten minutes of searching and not worth designing around — nothing off the shelf is 15″ × 29″ × 3.5″ portrait.</p>
+      <span class="lbl">The move that actually makes this easy</span>
+      <p style="font-size:19px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35;margin-bottom:12px">Don't buy a sheet. Send the file.</p>
+      <p><b><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a> will CNC-route the face plate and the button plate out of 3 mm matte black ACM and mail them to you.</b> You upload a drawing file, they cut it to <b>±0.005″</b>, and it ships in 2–4 days.</p>
+      <p>Their maximum part is <b>30″ × 44″</b>. Our face plate is 15.4 × 28.7 and the button plate is 12.9 × 4.0 — both fit comfortably, and they'd nest on a single order.</p>
+      <p>This takes the hardest job away from the volunteer crew entirely: <b>no CNC access needed at CDL, no 4 × 8 sheet to buy and mostly throw away, no jig for the big screen window, and the three button holes arrive already cut to size.</b> What's left is building a plywood box — which is the part any woodworker gets right the first time.</p>
+    </div>
+    <h3>One small thing that decides the material</h3>
+    <p>Panel-mount buttons have a <b>maximum panel thickness</b> — how thick a face they can clamp through. It's model-specific, commonly somewhere between 6 and 11 mm.</p>
+    <p><b>3 mm ACM clears every one of them.</b> A 1/2″ plywood-and-Formica face is 12.7 mm — at or over the limit for most switches, which means counterboring the back of all three holes by hand. Small detail, real annoyance, and it points the same way as everything else.</p>
+    <div class="callout warn">
+      <span class="lbl">Two limits on ACM worth knowing</span>
+      <p><b>It can't be tapped or bent.</b> Fastening goes through clearance holes into threaded inserts in the plywood cleats — which was already the plan.</p>
+      <p><b>Cut edges show the black plastic core.</b> On a black panel that's invisible. On white it's a visible dark line — one more reason to order it black on both sides.</p>
+    </div>
+  </div>
+
+  <h3>Shopping list</h3>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Part</th><th>What to order</th><th>Where</th><th>Rough cost</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="rowlbl">Face plate<br>+ button plate</td>
+          <td>3 mm ACM, <b>matte black both sides</b>, cut from our drawing file</td>
+          <td><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a></td>
+          <td class="n">quote on upload</td>
+        </tr>
+        <tr>
+          <td class="rowlbl">Box — sides, top,<br>bottom, rear panel</td>
+          <td>1/2″ Baltic birch, about 8 sq ft</td>
+          <td><a href="https://makerstock.com/collections/baltic-birch-plywood">MakerStock</a> · <a href="https://www.cherokeewood.com/store/1-2-baltic-birch-plywood-cut-to-size/">Cherokee</a></td>
+          <td class="n">$40–90</td>
+        </tr>
+        <tr>
+          <td class="rowlbl">Buttons × 3</td>
+          <td>30 mm anti-vandal, momentary, stainless. <b>Check two things on the datasheet: panel range includes 3 mm, and actuation force ≤ 5 lbf</b> (§309.4)</td>
+          <td><a href="https://www.apem.com/panel-switches/pushbutton-switches/av-anti-vandal-pushbutton-switches">APEM AV series</a> · <a href="https://www.rjselectronics.com/category/panel-mount/pushbutton-metal-switches/metal-pushbutton-switches-anti-vandal/">RJS</a> · <a href="https://www.adafruit.com/category/235">Adafruit</a> <span class="note">(arcade alt)</span></td>
+          <td class="n">$25–40</td>
+        </tr>
+        <tr>
+          <td class="rowlbl">Threaded inserts</td>
+          <td>1/4-20 for plywood, ×12 — <b>never screw into a plywood edge</b></td>
+          <td>McMaster-Carr, or any hardware store</td>
+          <td class="n">~$12</td>
+        </tr>
+        <tr>
+          <td class="rowlbl">Rear-panel fasteners</td>
+          <td>Quarter-turn fasteners or captive thumbscrews, ×6. Captive so nothing drops inside a museum artifact</td>
+          <td>McMaster-Carr</td>
+          <td class="n">$20–30</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <p class="mono" style="font-size:12.5px;color:var(--muted);margin-top:14px">Costs are estimates — confirm at the link before you budget. Every link here was checked; Curbell and OnlineMetals block automated requests, so they load in a browser but not from a script.</p>
+    <div class="callout warn">
+      <span class="lbl">You can't order the face plate today</span>
+      <p><b>The cut file doesn't exist yet.</b> Every dimension it needs is settled — face plate 15.37 × 28.69, screen window 11.67 × 20.74, three 30.5 mm holes at 3.50″ centres — but nobody has turned those into a DXF. That is the next piece of work, and it is the thing standing between this page and a real parcel arriving at InfoAge.</p>
     </div>
     <h3>Serviceability</h3>
     <p>The rule: <b>nothing that fails routinely should require touching the face plate or the mount.</b> The kiosk should never have to come off the 3280 for service.</p>
@@ -450,7 +568,8 @@ footer .mono{font-size:12px}
     <h3>Constraints recorded now, so the enclosure doesn't foreclose them</h3>
     <ul>
       <li><b>Reversible, non-destructive, removable, visually discreet.</b> No holes, no cuts, no permanent modification to the door or the cabinet. This is a hard requirement, not a preference — the 3280 is a museum artifact.</li>
-      <li>Must carry the kiosk in shear <i>plus</i> the moment from a centre-of-mass roughly 1.75″ off the door, with a safety factor for someone leaning on it.</li>
+      <li>Must carry the kiosk in shear <i>plus</i> the moment from a centre-of-mass roughly 1.6″ off the door, with a safety factor for someone leaning on it.</li>
+      <li><b>Total projection from the door face should stay at or under 4″</b> (§307.2 — the kiosk's leading edge is at 34.75″ AFF, above the 27″ threshold). The enclosure is 3.25″, so <b>the adapter's budget is 0.75″.</b></li>
       <li>Candidates, unevaluated: edge brackets hooking the door's return flange; compression straps around the cabinet; a full-door backing plate captured top and bottom; clamps on existing door hardware.</li>
       <li>Anything that loads the <b>original hinges</b> has to be checked against them.</li>
     </ul>
@@ -466,8 +585,8 @@ footer .mono{font-size:12px}
   <div class="col">
     <div class="callout rec">
       <span class="lbl">Rev 1</span>
-      <p style="font-size:20px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35">24″-class display, 23.8″ actual. Finished kiosk 15-3/8″ W × 28-11/16″ H × 3-1/2″ D, about 23 lb.</p>
-      <p class="mono" style="font-size:13.5px;margin-bottom:0">Buttons 38″ AFF · kiosk bottom 34.75″ · kiosk top 63.44″ · screen centre 51.5″ · 7.71″ headroom</p>
+      <p style="font-size:20px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35">24″-class display, 23.8″ actual. Finished kiosk 15-3/8″ W × 28-11/16″ H × 3-1/4″ D, about 23 lb.</p>
+      <p class="mono" style="font-size:13.5px;margin-bottom:0">Buttons 38″ AFF · kiosk bottom 34.75″ · kiosk top 63.44″ · screen centre 51.5″ · 7.71″ headroom · 3 mm ACM face on a Baltic birch box</p>
     </div>
     <p><b>Proportion is the deciding argument.</b> At 15.4″ wide the kiosk is 63% of the door — clearly an added object, clearly not trying to be the machine. At 70% and 79% the 27″ and 32″ start to read as a monitor wearing a cabinet, which is precisely the impression a museum exhibit should not give.</p>
     <p><b>Weight is the second argument, and it may be the more important one</b> — see section 06. The mount has to carry this off a hollow door without a single fastener into the artifact.</p>
@@ -514,7 +633,7 @@ const G = {
   SIDE:1.25, TOP:1.25, GAP:0.75, BAND:4.00, BOT:1.25,
   BTN_AFF:38, BTN_CC:3.50, BTN_D:30/25.4,
   ADA_LO:15, ADA_HI:48,                 // 2010 ADA §308 unobstructed reach range
-  DEPTH:3.5, FACE:0.50, CLR:0.10, REAR:0.50
+  DEPTH:3.25, FACE:0.118, CLR:0.10, REAR:0.50
 };
 // button centreline sits this far above the bottom of the enclosure
 const BTN_RISE = G.BOT + G.BAND/2;
@@ -750,7 +869,7 @@ function drawSide(g){
   o += dimV(x0-2.6,y0,y0+g.kh,inch(g.kh),'l');
   const L=X(D)+2.9;
   const items=[
-    [G.FACE/2, mTop+2.5, 'face plate 0.50″'],
+    [G.FACE/2, mTop+2.5, 'ACM face, 3 mm'],
     [front+.3, mTop+mH*.24, 'LCD panel, cased'],
     [front+g.thick*.7, hTop+hump*.4, 'driver hump '+f(g.thick)+'″'],
     [front+g.thick+.09, hTop+hump/2, 'VESA 100 plate'],

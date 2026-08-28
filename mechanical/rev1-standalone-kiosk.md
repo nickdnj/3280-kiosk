@@ -12,7 +12,7 @@ The 3280 is not modified. It is not opened. It is not part of the build.
 > and the comparison tables below.
 
 **Recommendation up front: 24″-class display (23.8″ actual), finished kiosk
-≈ 15-3/8″ W × 28-11/16″ H × 3-1/2″ D, ≈ 23 lb.**
+≈ 15-3/8″ W × 28-11/16″ H × 3-1/4″ D, ≈ 23 lb.**
 
 **Placement: buttons at 38″ AFF — and the buttons are the datum.** ADA reach sets
 the button height; the button height sets where the kiosk sits; everything else
@@ -229,8 +229,9 @@ kiosk top    = B + KH − 3.25″  ≤  71.15″
 
 With the buttons at 38″ the kiosk's bottom edge sits at **34.75″ AFF** — above
 the 27″ threshold — so **§307.2 caps the projection into a circulation path at
-4″**. The enclosure is 3.5″ deep. **That leaves half an inch for the mounting
-adapter.**
+4″**. With the recommended 3 mm ACM face (§7) the enclosure is 3.25″ deep,
+**leaving 0.75″ for the mounting adapter** — a plywood face instead would cut
+that to 0.5″.
 
 **Worth asking, not worth assuming.** §307.2 exists to stop someone with a cane
 walking into an object their sweep misses. The 3280 is floor-standing and
@@ -280,18 +281,19 @@ turn.
 
 ## 6. Enclosure depth
 
-**Target: 3.5″. Floor: 3.0″. 2.5″ is not realistic.**
+**Target: 3.25″ with the recommended 3 mm ACM face (§7). Floor: 3.0″.
+2.5″ is not realistic.** A plywood face instead makes it 3.5″.
 
 Side-section stack, front to back:
 
 ```
-  0.50"   face plate (1/2" ply, or 1/8" ACM on a 3/8" sub-frame)
+  0.118"  face plate — 3 mm ACM on internal cleats
   0.10"   bezel clearance
   1.80"   monitor body at its thickest (VESA boss / driver hump)
-  0.60"   air + service gap
+  0.73"   air + service gap
   0.50"   rear panel
  ───────
-  3.50"   finished depth
+  3.25"   finished depth      (3.50" if the face is 1/2" plywood)
 ```
 
 ### What actually forces the depth
@@ -304,8 +306,9 @@ Side-section stack, front to back:
    HDMI and DC leads **downward into the button bay** instead of straight back,
    and use right-angle plugs. The button bay has 4″ of free depth in a 5″-tall
    band and nothing in it but the Pi.
-3. **Face plate + rear panel — 1.0″ combined.** Reducible to ~0.4″ with ACM, at
-   the cost of stiffness.
+3. **Face plate + rear panel.** A 3 mm ACM face and a 1/2″ ply rear come to 0.62″
+   together; a plywood face makes it 1.0″ — **and that 3/8″ comes straight out of
+   the mounting adapter's budget.**
 4. **The mounting adapter**, TBD, adds to the *stand-off*, not the enclosure.
 
 ### What does NOT force the depth
@@ -324,39 +327,90 @@ de-cased-panel route in [`door-construction.md`](door-construction.md).
 |---|---|
 | 2.5″ | **No.** Requires a sub-1.4″ monitor, a 1/8″ face, and zero service gap. |
 | 3.0″ | Achievable at 22–24″ with a slim monitor, right-angle cables, down-routing. No margin. |
-| **3.5″** | **The design target.** Works at 22/24/27 with a normal monitor and 0.6″ of service air. |
-| 4.0″ | Needed for 32″, or for any monitor with a rear-facing connector cluster and straight cables. |
+| **3.25″** | **The design target**, with a 3 mm ACM face. Works at 22/24/27 with 0.7″ of service air, and leaves **0.75″ for the mount** under the 4″ cap. |
+| 3.5″ | What a plywood face costs you. Still fine — the mount's budget drops to 0.5″. |
+| 4.0″ | Needed for 32″, or any monitor with a rear-facing connector cluster and straight cables. **Leaves nothing for the mount.** |
 
 ---
 
-## 7. Construction approaches
+## 7. What it's made of, and where to buy it
 
-| | **A — CNC Baltic birch** | **B — Ply box + applied face** ✅ | **C — Modified commercial** |
+### First — what these materials actually are
+
+| | | |
+|---|---|---|
+| **ACM** | *aluminium composite · "Dibond"* | Two thin sheets of aluminium glued either side of a plastic core — a metal sandwich about **1/8″ thick**. Stiff, dead flat, colour baked on at the factory. **Nothing to sand, nothing to paint.** Every storefront and road sign is this stuff. |
+| **HPL** | *high-pressure laminate · "Formica"* | The material on a kitchen counter. **It is not a board** — it's a 1/32″ skin with no stiffness of its own, so it has to be glued onto plywood or MDF first. That is the word "bonded" doing a lot of quiet work. |
+| **Compact laminate** | *solid phenolic · Trespa, Fundermax* | The same material as Formica, pressed thick enough to stand on its own (1/4″–1/2″). Restroom partitions, lab benches. Beautiful and permanent, but heavy and sold in architectural quantities. |
+| **Baltic birch** | *void-free plywood* | Very good plywood — many thin layers, no hidden gaps. Machines beautifully. But it's wood: to look finished it wants sanding, sealing and spraying, and **that is where volunteer builds come unstuck.** |
+
+### The three routes
+
+| | **A — Plywood, cut and sprayed** | **B — Plywood box, ACM front** ✅ | **C — Modify a bought enclosure** |
 |---|---|---|---|
-| What it is | 1/2″ Baltic birch, CNC-cut, rabbeted, sprayed satin graphite | 3/8–1/2″ ply structural box, face plate in ACM or HPL, bonded | Digital-signage / instrument enclosure, cut for the panel |
-| Fabrication | Moderate — CNC + a spray setup. **The finish is the hard part.** | Moderate — two stages, but each is easy. Face plate CNC's flat, box is simple joinery | Low *if* something fits; high if not |
-| Material cost | $80–140 | $120–200 | $150–400 |
-| Weight (24″) | ~13 lb enclosure | ~15 lb enclosure | 30 lb+ in steel; light in ABS |
-| Finish quality | Good sprayed, poor brushed. Ply edges telegraph | **Best.** Factory-flat laminate, no spray booth, no grain to fill | Factory |
-| Serviceability | Excellent — but **use threaded inserts**, not screws into ply edge | Excellent, same caveat. Face is bonded, so button work goes through the back | Usually good |
-| Museum read | Honest, repairable, slightly craft | **Purpose-built exhibit component** | Risks reading as generic industrial kit |
+| What you do | CNC-cut 1/2″ Baltic birch, rabbet corners, spray satin graphite | Same plywood box, but the **visible front is 3 mm black ACM**, cut to shape, screwed to internal cleats | Buy a signage or instrument housing and cut it for the panel |
+| The hard part | **The finish.** Ply edges telegraph; a brushed coat reads homemade from ten feet | **There isn't one.** The face arrives already finished | **Nothing off the shelf is 15″ × 29″ × 3-1/4″ portrait** |
+| Needs | CNC access *and* somewhere to spray | Ordinary woodworking — the front is cut by someone else | Luck |
+| Material | ~$80–140 | ~$120–200 | $150–400 |
+| Weight | ~13 lb enclosure | **~12 lb** — ACM is lighter than the ply front it replaces | 30 lb+ in steel |
 
 **Recommend B.** The single biggest risk in a volunteer-built enclosure is the
-**finish** — a well-built box with a brushed-lacquer face still looks homemade,
-and that is the exact failure mode the brief names. Approach B removes the finish
-from the critical path entirely: the visible surface arrives already flat and
-already durable, and the volunteers build a plywood box behind it, which is a
-thing any woodworker can do well on the first try.
+**finish**, and B removes it from the critical path entirely: the visible surface
+arrives flat and durable, and the crew builds a plywood box behind it — a thing
+any woodworker gets right on the first try.
 
-**A is the fallback** if nobody at CDL can source or bond sheet facing. It's a
-good enclosure — it just puts the project's appearance on the line at the spray
-stage.
+### The move that actually makes this easy — don't buy a sheet, send the file
 
-**C fails on aspect ratio.** Nothing off the shelf is 15″ × 29″ × 3.5″ portrait.
-Everything close is either a landscape signage housing or a deep NEMA box. Worth
-ten minutes of searching, not worth designing around.
+**[SendCutSend](https://sendcutsend.com/materials/acm/) will CNC-route the face
+plate and the button plate out of 3 mm matte black ACM and mail them to you.**
+Upload a drawing file, they cut to **±0.005″**, ships in 2–4 days. Maximum part
+is **30″ × 44″** — our face plate is 15.4 × 28.7 and the button plate 12.9 × 4.0,
+so both fit and would nest on one order.
 
----
+This takes the hardest job away from the volunteer crew: **no CNC access needed
+at CDL, no 4 × 8 sheet to buy and mostly throw away, no jig for the screen
+window, and the three button holes arrive cut to size.**
+
+### One small thing that decides the material
+
+Panel-mount buttons have a **maximum panel thickness** — model-specific, commonly
+6–11 mm. **3 mm ACM clears every one of them.** A 1/2″ plywood-and-Formica face
+is 12.7 mm, at or over the limit for most switches, meaning counterboring the
+back of all three holes by hand.
+
+**Two limits on ACM worth knowing:** it can't be tapped or bent, so fastening goes
+through clearance holes into threaded inserts in the plywood cleats (already the
+plan); and cut edges show the black plastic core — invisible on black, a visible
+dark line on white, so order it **black both sides**.
+
+### Shopping list
+
+| Part | What to order | Where | Rough cost |
+|---|---|---|---|
+| Face plate + button plate | 3 mm ACM, **matte black both sides**, cut from our drawing file | [SendCutSend](https://sendcutsend.com/materials/acm/) | quote on upload |
+| Box — sides, top, bottom, rear | 1/2″ Baltic birch, ~8 sq ft | [MakerStock](https://makerstock.com/collections/baltic-birch-plywood) · [Cherokee](https://www.cherokeewood.com/store/1-2-baltic-birch-plywood-cut-to-size/) · [Jeff Mack](https://jeffmacksupply.com/en-us/products/1-2-thick-baltic-birch-select-a-size) | $40–90 |
+| Buttons × 3 | 30 mm anti-vandal, momentary, stainless. **Check the datasheet for panel range including 3 mm and actuation force ≤ 5 lbf** (§309.4) | [APEM AV](https://www.apem.com/panel-switches/pushbutton-switches/av-anti-vandal-pushbutton-switches) · [RJS](https://www.rjselectronics.com/category/panel-mount/pushbutton-metal-switches/metal-pushbutton-switches-anti-vandal/) · [Adafruit](https://www.adafruit.com/category/235) | $25–40 |
+| Threaded inserts | 1/4-20 for plywood, ×12 — **never screw into a plywood edge** | McMaster-Carr | ~$12 |
+| Rear-panel fasteners | Quarter-turn or captive thumbscrews, ×6 | McMaster-Carr | $20–30 |
+
+**Other ACM sources:** [Curbell Plastics](https://www.curbellplastics.com/product-category/material/aluminum-composite-material-acm/dibond-panels/) ·
+[OnlineMetals](https://www.onlinemetals.com/en/buy/3mm-aluminum-composite-panel-black/pid/mp-00040256) ·
+[Midwest Airbrush](https://www.midwestairbrush.com/collections/acm-aluminum-panels-black) (small pieces).
+**HPL:** [Wilsonart vertical grade, black matte](https://www.amazon.com/Wilsonart-Sheet-Laminate-Vertical-Grade/dp/B01FV20Z6A) ·
+[Ledgeband](https://ledgeband.com/collections/laminate-sheets).
+**Compact:** [Fundermax](https://fundermax.us/product/interior-thin-laminate-panels/) ·
+[Wilsonart Compact](https://www.wilsonart.com/laminate/specialty-laminate/compact).
+
+Costs are estimates — confirm at the link. Curbell and OnlineMetals block
+automated requests; they load fine in a browser.
+
+### ⚠ You can't order the face plate today
+
+**The cut file doesn't exist yet.** Every dimension it needs is settled — face
+plate 15.37 × 28.69, screen window 11.67 × 20.74, three 30.5 mm holes at 3.50″
+centres — but nobody has turned those into a DXF. **That is the next piece of
+work**, and it is what stands between this document and a parcel arriving at
+InfoAge.
 
 ## 8. Serviceability
 
@@ -390,8 +444,8 @@ foreclose them:
 - Must carry ~23 lb in shear plus the moment from a ~1.75″ centre-of-mass
   stand-off, with a safety factor for someone leaning on it.
 - **Total projection from the door face should be ≤ 4″** (ADA §307.2 — the kiosk's
-  leading edge is at 34.75″ AFF, above the 27″ threshold). The enclosure is 3.5″,
-  so **the adapter's budget is 0.5″**. See §5 — whether the rule binds here is a
+  leading edge is at 34.75″ AFF, above the 27″ threshold). With the recommended
+  3 mm ACM face the enclosure is 3.25″, so **the adapter's budget is 0.75″**. See §5 — whether the rule binds here is a
   question for the museum's accessibility coordinator, but design to it and ask.
 - Candidates, unevaluated: edge brackets hooking the door's return flange;
   compression straps around the cabinet; a full-door backing plate captured at

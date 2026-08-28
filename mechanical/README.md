@@ -18,15 +18,17 @@ The 3280 is not opened, not drilled, not modified.
   (`open mechanical/rev1-design-study.html`) or use the published link in the
   project README.
 
-**Recommendation: 24″-class display. Kiosk ≈ 15-3/8″ W × 28-11/16″ H × 3-1/2″ D,
-≈ 23 lb.**
+**Recommendation: 24″-class display, buttons at 38″ AFF. Kiosk ≈ 15-3/8″ W ×
+28-11/16″ H × 3-1/4″ D, ≈ 23 lb — a 3 mm black ACM face on a Baltic birch box,
+with the face plate CNC-cut to order rather than fabricated on site.**
 
 ## Scope
 
 - **The enclosure.** Face plate, structural box, removable rear panel, internal
   frame, VESA mount, ventilation, service access.
 - **The button plate.** BACK / HOME / NEXT on a separate removable plate,
-  centreline 38″ AFF, 30 mm anti-vandal switches at 3.50″ centres.
+  centreline **38″ AFF — set by the ADA §308 reach range, and the datum the whole
+  kiosk is placed from.** 30 mm anti-vandal switches at 3.50″ centres.
 - **The mounting adapter.** *Deliberately deferred.* The enclosure carries a flat
   rear interface zone and a known weight; that's all the adapter needs to inherit.
   It must be **reversible, non-destructive, removable and visually discreet** —
