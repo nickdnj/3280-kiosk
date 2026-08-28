@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<path d="M 2.5222 2.4361 L 2.9500 2.1891 L 4.9732 3.3572 L 4.9732 7.7181 L 4.5454 7.9651 L 2.5222 6.7970 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.5454" y1="3.6042" x2="2.5222" y2="2.4361" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.5454" y1="3.6042" x2="4.5454" y2="7.9651" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.5454" y1="3.6042" x2="4.9732" y2="3.3572" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.7328 5.9914 L 4.3348 6.9163 L 4.3348 3.6878 L 2.7328 2.7629 Z" fill="#EDEFF1" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 3.1521 6.6667 L 3.1501 6.6452 L 3.1443 6.6226 L 3.1349 6.5998 L 3.1224 6.5782 L 3.1074 6.5586 L 3.0907 6.5422 L 3.0731 6.5298 L 3.0555 6.5219 L 3.0388 6.5190 L 3.0238 6.5213 L 3.0113 6.5285 L 3.0019 6.5404 L 2.9960 6.5563 L 2.9940 6.5754 L 2.9960 6.5969 L 3.0019 6.6195 L 3.0113 6.6423 L 3.0238 6.6640 L 3.0388 6.6835 L 3.0555 6.6999 L 3.0731 6.7123 L 3.0907 6.7202 L 3.1074 6.7231 L 3.1224 6.7209 L 3.1349 6.7136 L 3.1443 6.7018 L 3.1501 6.6859 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 3.6128 6.9327 L 3.6109 6.9112 L 3.6050 6.8886 L 3.5956 6.8658 L 3.5831 6.8442 L 3.5681 6.8246 L 3.5514 6.8082 L 3.5338 6.7958 L 3.5162 6.7879 L 3.4995 6.7850 L 3.4845 6.7873 L 3.4720 6.7945 L 3.4626 6.8064 L 3.4568 6.8223 L 3.4548 6.8414 L 3.4568 6.8629 L 3.4626 6.8855 L 3.4720 6.9083 L 3.4845 6.9300 L 3.4995 6.9495 L 3.5162 6.9659 L 3.5338 6.9783 L 3.5514 6.9862 L 3.5681 6.9891 L 3.5831 6.9869 L 3.5956 6.9796 L 3.6050 6.9678 L 3.6109 6.9519 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 4.0736 7.1987 L 4.0716 7.1772 L 4.0657 7.1546 L 4.0563 7.1318 L 4.0438 7.1102 L 4.0288 7.0906 L 4.0121 7.0742 L 3.9945 7.0618 L 3.9769 7.0539 L 3.9602 7.0510 L 3.9453 7.0533 L 3.9327 7.0605 L 3.9233 7.0724 L 3.9175 7.0883 L 3.9155 7.1074 L 3.9175 7.1289 L 3.9233 7.1515 L 3.9327 7.1743 L 3.9453 7.1960 L 3.9602 7.2155 L 3.9769 7.2319 L 3.9945 7.2443 L 4.0121 7.2522 L 4.0288 7.2551 L 4.0438 7.2529 L 4.0563 7.2456 L 4.0657 7.2338 L 4.0716 7.2179 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="6.8500" cy="2.2000" r="0.4200" fill="none" stroke="#111111" stroke-width="0.03"/>
+<path d="M 6.688 2.250 L 6.814 2.380 L 7.030 2.099" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1.3500" y="8.2000" width="5.9500" height="2.1500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="1.4500" y1="10.2500" x2="7.2000" y2="8.3000" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="5.4500" y="8.4200" width="0.6360" height="1.8815" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="5.4500" y1="10.2187" x2="6.0860" y2="10.2187" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<rect x="3.1500" y="8.6203" width="0.4073" height="0.7603" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<rect x="3.1924" y="8.6561" width="0.3225" height="0.5629" rx="0" fill="#EDEFF1" stroke="#111111" stroke-width="0.007"/>
+<line x1="3.8573" y1="9.0005" x2="5.3943" y2="9.0005" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<path d="M 5.5043 9.0005 L 5.3943 9.0467 L 5.3943 8.9543 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="6.8500" cy="9.9000" r="0.2600" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="6.6654" y1="10.0846" x2="7.0346" y2="9.7154" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">15</text>
+</svg>

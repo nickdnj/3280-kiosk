@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<text x="0.8000" y="1.1500" font-family="Helvetica,Arial,sans-serif" font-size="0.6" font-weight="bold" text-anchor="start" fill="#111111">3280-K</text>
+<text x="0.8000" y="1.4600" font-family="Helvetica,Arial,sans-serif" font-size="0.175" font-weight="normal" text-anchor="start" fill="#111111">KIOSK ENCLOSURE</text>
+<line x1="0.8000" y1="1.6200" x2="3.0500" y2="1.6200" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<text x="0.8200" y="1.8600" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#6B7075">CONCEPT — NOT A SHIPPED PRODUCT</text>
+<path d="M 2.3871 2.5370 L 2.9500 2.2120 L 5.6122 3.7490 L 5.6122 9.4870 L 5.0492 9.8120 L 2.3871 8.2750 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="5.0492" y1="4.0740" x2="2.3871" y2="2.5370" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.0492" y1="4.0740" x2="5.0492" y2="9.8120" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.0492" y1="4.0740" x2="5.6122" y2="3.7490" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.6642 7.2150 L 4.7721 8.4320 L 4.7721 4.1840 L 2.6642 2.9670 Z" fill="#EDEFF1" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 3.2159 8.1035 L 3.2133 8.0753 L 3.2056 8.0455 L 3.1933 8.0156 L 3.1768 7.9871 L 3.1571 7.9614 L 3.1351 7.9398 L 3.1119 7.9234 L 3.0888 7.9131 L 3.0668 7.9093 L 3.0471 7.9122 L 3.0306 7.9217 L 3.0183 7.9373 L 3.0106 7.9582 L 3.0080 7.9835 L 3.0106 8.0117 L 3.0183 8.0415 L 3.0306 8.0714 L 3.0471 8.0999 L 3.0668 8.1256 L 3.0888 8.1472 L 3.1119 8.1636 L 3.1351 8.1739 L 3.1571 8.1777 L 3.1768 8.1748 L 3.1933 8.1653 L 3.2056 8.1497 L 3.2133 8.1288 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 3.8222 8.4535 L 3.8195 8.4253 L 3.8119 8.3955 L 3.7995 8.3656 L 3.7830 8.3371 L 3.7633 8.3114 L 3.7413 8.2898 L 3.7182 8.2734 L 3.6950 8.2631 L 3.6730 8.2593 L 3.6533 8.2622 L 3.6369 8.2717 L 3.6245 8.2873 L 3.6168 8.3082 L 3.6142 8.3335 L 3.6168 8.3617 L 3.6245 8.3915 L 3.6369 8.4214 L 3.6533 8.4499 L 3.6730 8.4756 L 3.6950 8.4972 L 3.7182 8.5136 L 3.7413 8.5239 L 3.7633 8.5277 L 3.7830 8.5248 L 3.7995 8.5153 L 3.8119 8.4997 L 3.8195 8.4788 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 4.4284 8.8035 L 4.4258 8.7753 L 4.4181 8.7455 L 4.4057 8.7156 L 4.3892 8.6871 L 4.3695 8.6614 L 4.3475 8.6398 L 4.3244 8.6234 L 4.3012 8.6131 L 4.2793 8.6093 L 4.2595 8.6122 L 4.2431 8.6217 L 4.2307 8.6373 L 4.2230 8.6582 L 4.2204 8.6835 L 4.2230 8.7117 L 4.2307 8.7415 L 4.2431 8.7714 L 4.2595 8.7999 L 4.2793 8.8256 L 4.3012 8.8472 L 4.3244 8.8636 L 4.3475 8.8739 L 4.3695 8.8777 L 4.3892 8.8748 L 4.4057 8.8653 L 4.4181 8.8497 L 4.4258 8.8288 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 6.3344 7.6460 L 7.1000 7.2040 L 7.6404 7.5160 L 7.6404 9.3620 L 6.8748 9.8040 L 6.3344 9.4920 Z" fill="none" stroke="#111111" stroke-width="0.011" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="6.8748" y1="7.9580" x2="6.3344" y2="7.6460" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="6.8748" y1="7.9580" x2="6.8748" y2="9.8040" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="6.8748" y1="7.9580" x2="7.6404" y2="7.5160" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="6.3570" y1="9.1930" x2="6.8523" y2="9.4790" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="6.3570" y1="8.8810" x2="6.8523" y2="9.1670" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="6.3570" y1="8.5690" x2="6.8523" y2="8.8550" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="6.3570" y1="8.2570" x2="6.8523" y2="8.5430" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="6.3570" y1="7.9450" x2="6.8523" y2="8.2310" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<path d="M 6.3584 7.9409 L 6.4316 7.8987 L 6.7777 8.0985 L 6.7777 8.8444 L 6.7045 8.8867 L 6.3584 8.6868 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="6.7045" y1="8.1407" x2="6.3584" y2="7.9409" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="6.7045" y1="8.1407" x2="6.7045" y2="8.8867" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="6.7045" y1="8.1407" x2="6.7777" y2="8.0985" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<text x="0.8000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="normal" text-anchor="start" fill="#111111">15.37" × 28.69" × 3.25"</text>
+<text x="0.8000" y="10.2800" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="normal" text-anchor="start" fill="#111111">24 lb</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">1</text>
+</svg>

@@ -26,7 +26,7 @@ with the face plate CNC-cut to order rather than fabricated on site.**
 
 - **The enclosure.** Face plate, structural box, removable rear panel, internal
   frame, VESA mount, ventilation, service access.
-- **The button plate.** BACK / HOME / NEXT on a separate removable plate,
+- **The buttons.** BACK / HOME / NEXT cut straight into the face plate,
   centreline **38″ AFF — set by the ADA §308 reach range, and the datum the whole
   kiosk is placed from.** 30 mm anti-vandal switches at 3.50″ centres.
 - **The mounting adapter.** *Deliberately deferred.* The enclosure carries a flat
@@ -72,10 +72,19 @@ nothing in Rev 1 should be built from it.
 
 ## Cut files — ready to order
 
-**[`fab-rev1/`](fab-rev1/)** holds the two ACM parts as DXF, generated and
-self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py): **P1 face plate**
-15.37 × 28.69″ and **P2 button plate** 13.37 × 4.50″. Order notes and the one
-number to verify first are in [`fab-rev1/README.md`](fab-rev1/README.md).
+**[`fab-rev1/`](fab-rev1/)** holds the face plate as DXF, generated and
+self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py): **P1**, one
+piece, 15.37 × 28.69″, with the switch cutouts routed straight in. Order notes
+and the one number to verify first are in [`fab-rev1/README.md`](fab-rev1/README.md).
+
+## Building the box out of IKEA
+
+**[`ikea-build/`](ikea-build/)** — variant K. No IKEA product can *be* the
+enclosure (their shallowest wall cabinet is 6¾″ deep and ADA §307.2 allows us
+4.000″ total), but **$39 of IVAR solid pine supplies every part except the face
+plate**, and one $12 shelf makes the whole box. Comes with a 15-page IKEA-style
+[assembly manual](ikea-build/3280-K-assembly-manual.pdf). The envelope is
+unchanged, so the released drawing package still governs.
 
 ## Still to produce
 

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">E</text>
+<circle cx="1.1500" cy="2.1700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="2.2258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H1</text>
+<rect x="1.7000" y="1.9500" width="0.1700" height="0.4400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.7000" y1="2.0100" x2="1.8700" y2="1.9700" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7000" y1="2.1200" x2="1.8700" y2="2.0800" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7000" y1="2.2300" x2="1.8700" y2="2.1900" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7000" y1="2.3400" x2="1.8700" y2="2.3000" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.4500" y="2.2500" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">INSERT, THREADED, #8-32, FOR WOOD</text>
+<text x="7.3500" y="2.2500" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×21</text>
+<line x1="1.1500" y1="2.7500" x2="7.3500" y2="2.7500" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="3.1200" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="3.1758" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H2</text>
+<rect x="1.7000" y="2.9000" width="0.2600" height="0.0900" rx="0.04" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="1.7850" y="2.9900" width="0.0900" height="0.4200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.7850" y1="3.0300" x2="1.8750" y2="3.0000" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="3.1100" x2="1.8750" y2="3.0800" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="3.1900" x2="1.8750" y2="3.1600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="3.2700" x2="1.8750" y2="3.2400" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="3.3500" x2="1.8750" y2="3.3200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.4500" y="3.2000" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">SCREW, #8-32 x 1/2, BUTTON HEAD, BLACK</text>
+<text x="7.3500" y="3.2000" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×15</text>
+<line x1="1.1500" y1="3.7000" x2="7.3500" y2="3.7000" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="4.0700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="4.1258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H3</text>
+<circle cx="1.8300" cy="3.9600" r="0.1300" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.9400" y1="3.9600" x2="1.9800" y2="3.9600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.9078" y1="4.0378" x2="1.9361" y2="4.0661" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.8300" y1="4.0700" x2="1.8300" y2="4.1100" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7522" y1="4.0378" x2="1.7239" y2="4.0661" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7200" y1="3.9600" x2="1.6800" y2="3.9600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7522" y1="3.8822" x2="1.7239" y2="3.8539" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.8300" y1="3.8500" x2="1.8300" y2="3.8100" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.9078" y1="3.8822" x2="1.9361" y2="3.8539" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<rect x="1.7850" y="4.0700" width="0.0900" height="0.3400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<text x="2.4500" y="4.1500" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">THUMBSCREW / QUARTER-TURN, #8-32</text>
+<text x="7.3500" y="4.1500" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×6</text>
+<line x1="1.1500" y1="4.6500" x2="7.3500" y2="4.6500" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="5.0200" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="5.0758" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H4</text>
+<path d="M 1.9339 4.9700 L 1.8300 5.0300 L 1.7261 4.9700 L 1.7261 4.8500 L 1.8300 4.7900 L 1.9339 4.8500 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1.7950" y="5.0200" width="0.0700" height="0.3400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<text x="2.4500" y="5.1000" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">BOLT, M4 x 12 + WASHER</text>
+<text x="7.3500" y="5.1000" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×4</text>
+<line x1="1.1500" y1="5.6000" x2="7.3500" y2="5.6000" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="5.9700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="6.0258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H5</text>
+<rect x="1.7500" y="5.7500" width="0.1600" height="0.4700" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="1.7950" y="6.2200" width="0.0700" height="0.1700" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.7500" y1="5.8400" x2="1.9100" y2="5.8400" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.4500" y="6.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">STANDOFF, M4 M-F, 12 mm, NYLON</text>
+<text x="7.3500" y="6.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×4</text>
+<line x1="1.1500" y1="6.5500" x2="7.3500" y2="6.5500" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="6.9200" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="6.9758" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H6</text>
+<circle cx="1.9000" cy="6.9000" r="0.2000" fill="none" stroke="#111111" stroke-width="0.018"/>
+<circle cx="1.9000" cy="6.9000" r="0.1200" fill="none" stroke="#111111" stroke-width="0.007"/>
+<rect x="1.8100" y="7.1000" width="0.1800" height="0.2600" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<text x="2.4500" y="7.0000" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">SWITCH, 30 mm ANTI-VANDAL, MOM. SPST-NO</text>
+<text x="7.3500" y="7.0000" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×3</text>
+<line x1="1.1500" y1="7.5000" x2="7.3500" y2="7.5000" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="7.8700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="7.9258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H7</text>
+<rect x="1.7000" y="7.7100" width="0.4600" height="0.3400" rx="0.05" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.8300" y1="7.8100" x2="1.8300" y2="7.9500" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="1.9300" y1="7.8100" x2="1.9300" y2="7.9500" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="2.0300" y1="7.8100" x2="2.0300" y2="7.9500" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<text x="2.4500" y="7.9500" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">INLET, IEC C14, PANEL MOUNT, FUSED</text>
+<text x="7.3500" y="7.9500" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×1</text>
+<line x1="1.1500" y1="8.4500" x2="7.3500" y2="8.4500" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="8.8200" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="8.8758" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H8</text>
+<rect x="1.7000" y="8.6000" width="0.2600" height="0.0900" rx="0.04" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="1.7850" y="8.6900" width="0.0900" height="0.4200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="1.7850" y1="8.7300" x2="1.8750" y2="8.7000" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="8.8100" x2="1.8750" y2="8.7800" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="8.8900" x2="1.8750" y2="8.8600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="8.9700" x2="1.8750" y2="8.9400" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.7850" y1="9.0500" x2="1.8750" y2="9.0200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.4500" y="8.9000" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">SCREW, WOOD, #6 x 1-1/4</text>
+<text x="7.3500" y="8.9000" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×40</text>
+<line x1="1.1500" y1="9.4000" x2="7.3500" y2="9.4000" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="1.1500" cy="9.7700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1500" y="9.8258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">H9</text>
+<rect x="1.7400" y="9.6900" width="0.2400" height="0.5000" rx="0.05" fill="none" stroke="#111111" stroke-width="0.018"/>
+<path d="M 1.8200 9.6900 L 1.8600 9.5500 L 1.9000 9.6900 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="2.4500" y="9.8500" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">GLUE, PVA, YELLOW</text>
+<text x="7.3500" y="9.8500" font-family="Helvetica,Arial,sans-serif" font-size="0.165" font-weight="bold" text-anchor="end" fill="#111111">×1</text>
+<line x1="1.1500" y1="10.3500" x2="7.3500" y2="10.3500" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">7</text>
+</svg>

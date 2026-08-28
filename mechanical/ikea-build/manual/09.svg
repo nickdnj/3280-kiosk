@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">1</text>
+<path d="M 2.8931 3.9814 L 3.3000 3.7465 L 3.3974 3.8028 L 3.3974 8.1062 L 2.9906 8.3412 L 2.8931 8.2849 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="2.9906" y1="4.0377" x2="2.8931" y2="3.9814" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.9906" y1="4.0377" x2="2.9906" y2="8.3412" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.9906" y1="4.0377" x2="3.3974" y2="3.8028" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 4.7923 5.0779 L 5.1992 4.8430 L 5.2966 4.8993 L 5.2966 9.2027 L 4.8898 9.4376 L 4.7923 9.3814 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.8898" y1="5.1341" x2="4.7923" y2="5.0779" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.8898" y1="5.1341" x2="4.8898" y2="9.4376" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.8898" y1="5.1341" x2="5.2966" y2="4.8993" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.9906 4.0377 L 3.3974 3.8028 L 5.1992 4.8430 L 5.1992 4.9555 L 4.7923 5.1904 L 2.9906 4.1502 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.7923" y1="5.0779" x2="2.9906" y2="4.0377" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.7923" y1="5.0779" x2="4.7923" y2="5.1904" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.7923" y1="5.0779" x2="5.1992" y2="4.8430" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.9906 8.2287 L 3.3974 7.9938 L 5.1992 9.0340 L 5.1992 9.1465 L 4.7923 9.3814 L 2.9906 8.3412 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.7923" y1="9.2689" x2="2.9906" y2="8.2287" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.7923" y1="9.2689" x2="4.7923" y2="9.3814" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.7923" y1="9.2689" x2="5.1992" y2="9.0340" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<circle cx="2.9419" cy="5.6449" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="2.9419" y="5.7007" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
+<circle cx="5.3010" cy="8.1185" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="5.3010" y="8.1743" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
+<line x1="4.8410" y1="8.1185" x2="5.1410" y2="8.1185" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<circle cx="3.8915" cy="4.6140" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.8915" y="4.6698" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<circle cx="3.8915" cy="8.8050" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.8915" y="8.8608" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<line x1="2.5253" y1="4.3083" x2="2.9275" y2="4.0737" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 3.0053 4.0283 L 2.9466 4.1063 L 2.9085 4.0410 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4245" y1="5.4048" x2="4.8267" y2="5.1702" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 4.9045 5.1248 L 4.8458 5.2028 L 4.8077 5.1375 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="2.5253" y1="8.4993" x2="2.9275" y2="8.2647" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 3.0053 8.2193 L 2.9466 8.2973 L 2.9085 8.2320 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4245" y1="9.5958" x2="4.8267" y2="9.3612" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 4.9045 9.3158 L 4.8458 9.3938 L 4.8077 9.3285 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="5.0445" cy="5.0448" r="0.3000" fill="none" stroke="#111111" stroke-width="0.011" stroke-dasharray="0.05 0.04"/>
+<line x1="5.2164" y1="4.7990" x2="5.7268" y2="4.0694" stroke="#111111" stroke-width="0.011" stroke-linecap="round" stroke-dasharray="0.05 0.04"/>
+<circle cx="6.3000" cy="3.2500" r="1.0000" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<rect x="5.8500" y="2.7500" width="0.3600" height="1.1000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="6.2100" y="2.7500" width="0.8000" height="0.3600" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="6.2100" y1="3.1100" x2="7.0100" y2="3.1100" stroke="#111111" stroke-width="0.007" stroke-linecap="round" stroke-dasharray="0.04 0.03"/>
+<line x1="5.6800" y1="2.9300" x2="6.5800" y2="2.9300" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<rect x="5.6200" y="2.8700" width="0.0700" height="0.1200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<circle cx="6.2000" cy="3.9700" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="6.2000" y="4.0258" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">8</text>
+<line x1="6.1000" y1="2.9300" x2="6.1700" y2="3.8200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">9</text>
+</svg>

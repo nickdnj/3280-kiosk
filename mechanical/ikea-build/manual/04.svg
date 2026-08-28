@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">B</text>
+<path d="M 1.6833 2.7869 L 2.6500 2.2287 L 5.3341 3.7784 L 5.3341 3.8497 L 4.3674 4.4078 L 1.6833 2.8581 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.3674" y1="4.3366" x2="1.6833" y2="2.7869" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.3674" y1="4.3366" x2="4.3674" y2="4.4078" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.3674" y1="4.3366" x2="5.3341" y2="3.7784" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.4567" y1="2.3404" x2="5.1408" y2="3.8901" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.2633" y1="2.4520" x2="4.9475" y2="4.0017" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.0700" y1="2.5636" x2="4.7541" y2="4.1133" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.8766" y1="2.6752" x2="4.5608" y2="4.2249" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.7000" y="2.9200" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">IVAR 83×30</text>
+<text x="2.7000" y="3.1400" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#6B7075">303.181.63</text>
+<text x="2.7000" y="3.3600" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">$12.00   ×2</text>
+<path d="M 1.6833 5.2369 L 2.6500 4.6787 L 5.3341 6.2284 L 5.3341 6.2997 L 4.3674 6.8578 L 1.6833 5.3081 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.3674" y1="6.7866" x2="1.6833" y2="5.2369" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.3674" y1="6.7866" x2="4.3674" y2="6.8578" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.3674" y1="6.7866" x2="5.3341" y2="6.2284" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.4567" y1="4.7904" x2="5.1408" y2="6.3401" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.2633" y1="4.9020" x2="4.9475" y2="6.4517" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.0700" y1="5.0136" x2="4.7541" y2="6.5633" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.8766" y1="5.1253" x2="4.5608" y2="6.6749" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.7000" y="5.3700" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">IVAR 83×30</text>
+<text x="2.7000" y="5.5900" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#6B7075">303.181.63</text>
+<text x="2.7000" y="5.8100" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">$12.00   ×2</text>
+<path d="M 1.0354 8.0609 L 2.6500 7.1288 L 5.3341 8.6784 L 5.3341 8.7497 L 3.7195 9.6819 L 1.0354 8.1322 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="3.7195" y1="9.6106" x2="1.0354" y2="8.0609" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="3.7195" y1="9.6106" x2="3.7195" y2="9.6819" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="3.7195" y1="9.6106" x2="5.3341" y2="8.6784" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.3271" y1="7.3152" x2="5.0112" y2="8.8649" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.0042" y1="7.5016" x2="4.6883" y2="9.0513" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.6812" y1="7.6881" x2="4.3654" y2="9.2378" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="1.3583" y1="7.8745" x2="4.0425" y2="9.4242" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<text x="2.7000" y="7.8200" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">IVAR 83×50</text>
+<text x="2.7000" y="8.0400" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#6B7075">803.181.65</text>
+<text x="2.7000" y="8.2600" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="normal" text-anchor="start" fill="#111111">$15.00   ×1</text>
+<path d="M 6.7400 8.7000 L 6.6450 8.8645 L 6.4550 8.8645 L 6.3600 8.7000 L 6.4550 8.5355 L 6.6450 8.5355 Z" fill="#F1F2F3" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 7.1600 8.8000 L 7.0650 8.9645 L 6.8750 8.9645 L 6.7800 8.8000 L 6.8750 8.6355 L 7.0650 8.6355 Z" fill="#F1F2F3" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 6.9400 9.1600 L 6.8450 9.3245 L 6.6550 9.3245 L 6.5600 9.1600 L 6.6550 8.9955 L 6.8450 8.9955 Z" fill="#F1F2F3" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="6.4000" y="9.6200" font-family="Helvetica,Arial,sans-serif" font-size="0.135" font-weight="bold" text-anchor="start" fill="#111111">FIXA / TRIXIG</text>
+<text x="6.4000" y="9.8200" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">felt pads, ×20</text>
+<line x1="1.1000" y1="10.1200" x2="7.3500" y2="10.1200" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<text x="7.3500" y="10.4200" font-family="Helvetica,Arial,sans-serif" font-size="0.3" font-weight="bold" text-anchor="end" fill="#111111">$39.00</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">4</text>
+</svg>

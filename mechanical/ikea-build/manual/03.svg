@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">A</text>
+<rect x="1.1000" y="1.8500" width="0.3915" height="3.5863" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="2.0500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="2.1058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
+<text x="1.1000" y="5.6713" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">3.132 x 28.690 x 0.750   ×2</text>
+<text x="0.7600" y="2.4700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(A)</text>
+<rect x="2.5500" y="1.8500" width="0.3915" height="1.7337" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="2.2100" cy="2.0500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="2.2100" y="2.1058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<text x="2.5500" y="3.8188" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">3.132 x 13.870 x 0.750   ×2</text>
+<text x="2.2100" y="2.4700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(A)</text>
+<rect x="4.3500" y="1.8500" width="1.7087" height="3.3862" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="4.0100" cy="2.0500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="4.0100" y="2.1058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">4</text>
+<text x="4.3500" y="5.4713" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">13.670 x 27.090 x 0.750   ×1</text>
+<text x="4.0100" y="2.4700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(C)</text>
+<rect x="1.1000" y="6.7000" width="3.3988" height="0.0938" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="6.9000" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="6.9558" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">5</text>
+<text x="1.1000" y="7.0288" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">0.750 sq x 27.190   ×2</text>
+<text x="0.7600" y="7.3200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<rect x="1.1000" y="7.4500" width="1.5462" height="0.0938" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="7.6500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="7.7058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">6</text>
+<text x="1.1000" y="7.7788" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">0.750 sq x 12.370   ×2</text>
+<text x="0.7600" y="8.0700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<rect x="1.1000" y="8.0500" width="1.5462" height="0.0938" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="8.2500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="8.3058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">7</text>
+<text x="1.1000" y="8.3788" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">0.750 sq x 12.370   ×1</text>
+<text x="0.7600" y="8.6700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<rect x="1.1000" y="8.6500" width="3.3988" height="0.0938" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="8.8500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="8.9058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">8</text>
+<text x="1.1000" y="8.9787" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">0.750 sq x 27.190   ×2</text>
+<text x="0.7600" y="9.2700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<rect x="1.1000" y="9.2500" width="1.5462" height="0.0938" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="0.7600" cy="9.4500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="0.7600" y="9.5058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">9</text>
+<text x="1.1000" y="9.5787" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">0.750 sq x 12.370   ×2</text>
+<text x="0.7600" y="9.8700" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<rect x="5.8000" y="6.7000" width="0.5000" height="0.3625" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="5.4600" cy="6.9000" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="5.4600" y="6.9558" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">10</text>
+<text x="5.8000" y="7.2975" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">4.000 x 2.900 x 0.750   ×1</text>
+<text x="5.4600" y="7.3200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="middle" fill="#6B7075">(B)</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">3</text>
+</svg>
