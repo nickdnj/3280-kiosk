@@ -1,5 +1,13 @@
 # Display Approach — Three Live Options
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`rev1-standalone-kiosk.md`](rev1-standalone-kiosk.md) and the
+> [interactive design study](rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> Don't build from it.
+
 > **Decision status: OPEN.** This is now the top-level mechanical decision, above
 > the enclosure question. All three options still need C1 (ME-1 §C), but they
 > differ enormously in risk, cost and who can maintain the thing in five years.

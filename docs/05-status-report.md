@@ -3,6 +3,21 @@
 **As of 2026-08-28** · repo [nickdnj/3280-kiosk](https://github.com/nickdnj/3280-kiosk)
 · written as a **handoff for a team joining in parallel**
 
+
+> ## ▲ Rev 1 pivot — 2026-08-28
+> **The mechanical design changed after this report was written.** The kiosk is
+> no longer a replacement door integrated into the cabinet; it is a
+> **self-contained enclosure surface-mounted on the closed factory door**, built
+> and bench-tested standalone, with the reversible mount deferred to its own
+> subsystem. Read
+> [`../mechanical/rev1-standalone-kiosk.md`](../mechanical/rev1-standalone-kiosk.md)
+> **before** acting on anything mechanical below.
+>
+> What this changes: **C1 no longer gates anything.** The 27″ recommendation
+> becomes **24″**. The aperture, inner panel and hinge reuse are all out of scope.
+> Everything below about the software track, the measured external dimensions,
+> the provenance levels and the traps is unaffected.
+
 ---
 
 ## 0. Read this first

@@ -1,9 +1,15 @@
 # 3280 Kiosk
 
-An interactive exhibit kiosk built into the Vintage Computer Federation museum's
-**Concurrent 3280**. A portrait display mounted on a hinge over the card cage —
-swing it open and the real hardware is behind it. Driven by **three physical
+An interactive exhibit kiosk for the Vintage Computer Federation museum's
+**Concurrent 3280**. A portrait display in a self-contained enclosure, mounted on
+the front of the machine's closed factory door. Driven by **three physical
 buttons only: BACK / HOME / NEXT. No touchscreen.**
+
+**Rev 1 is a standalone product.** The kiosk is built, wired and bench-tested on
+a table before it ever touches the 3280; the reversible mounting adapter is a
+separate subsystem designed after that. The machine is not opened, not drilled,
+not modified. → **[Rev 1 design study](mechanical/rev1-standalone-kiosk.md)** ·
+**[interactive version](mechanical/rev1-design-study.html)**
 
 > ⚠️ **This is a concept — our guiding light, not a shipped product.** Everything
 > here describes where we're driving to. The on-screen app is a *concept-review
@@ -18,7 +24,7 @@ This repo spans three disciplines:
 | On-screen app | `src/kiosk-app/` | Concept build — clickable, imagery is concept art |
 | Button/kiosk controller | `src/controller/` | Concept / placeholder |
 | Electronics | `electronics/` | v0 BOM + salvage recon list |
-| Mechanical | `mechanical/` | v0 assumed dimensions + drawings + ME-1 field sheet |
+| Mechanical | `mechanical/` | **Rev 1 standalone-kiosk design study** (24″ display, ~15.4 × 28.7 × 3.5″) |
 
 Team: **Software Project Team**, provisioned by AgentArchitect (2026-08-22).
 
@@ -30,11 +36,13 @@ Field materials, all phone-readable:
   checklist. Fill the blanks on site.
 - **[Salvage shopping list](electronics/salvage-recon.md)** — what to scavenge,
   with monitor acceptance criteria and the powered test to run before de-casing.
-- **[Assumed dimensions + drawings](mechanical/dimensions-assumed.md)** — the
-  design as currently drawn, and exactly which numbers are guesses.
+- **[Rev 1 design study](mechanical/rev1-standalone-kiosk.md)** — the current
+  mechanical design, drawn against measured cabinet dimensions.
 
-> Everything mechanical is drawn against **assumed** dimensions taken from the
-> concept render. Nothing has been measured. Don't cut material against it.
+> The cabinet is measured (71 × 24 × 34, box 67-7/8″). Monitor outlines, weights
+> and thicknesses in the design study are **estimates from typical current
+> product**, not measured units — confirm against the actual monitor before
+> cutting anything.
 
 ## Planning docs
 

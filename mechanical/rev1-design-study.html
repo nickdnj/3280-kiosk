@@ -1,0 +1,725 @@
+<meta charset="utf-8">
+<title>Rev 1 Standalone Kiosk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#E8EAEC; --card:#F7F8F9; --sunk:#DFE2E5;
+  --ink:#171A1C; --muted:#697077; --line:#C7CCD0; --hair:#D9DDE0;
+  --accent:#0E5A6B; --accent-soft:#D6E5E8;
+  --tan:#C8B89B; --tan-line:#9E8F72;
+  --graphite:#2A2D30; --graphite-line:#15181A; --bezel:#15181A;
+  --glass:#3E5560;
+  --flag:#93331F; --flag-soft:#F0DED8;
+  --ok:#2F6B4F;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141618; --card:#1D2023; --sunk:#0E1012;
+    --ink:#E4E7E9; --muted:#8D959C; --line:#2F3438; --hair:#262B2E;
+    --accent:#6FC0D0; --accent-soft:#17383F;
+    --tan:#8E8168; --tan-line:#B3A184;
+    --graphite:#3C4145; --graphite-line:#7E868C; --bezel:#0B0D0E;
+    --glass:#22333C;
+    --flag:#D9765A; --flag-soft:#3A211B;
+    --ok:#6FB893;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141618; --card:#1D2023; --sunk:#0E1012;
+  --ink:#E4E7E9; --muted:#8D959C; --line:#2F3438; --hair:#262B2E;
+  --accent:#6FC0D0; --accent-soft:#17383F;
+  --tan:#8E8168; --tan-line:#B3A184;
+  --graphite:#3C4145; --graphite-line:#7E868C; --bezel:#0B0D0E;
+  --glass:#22333C;
+  --flag:#D9765A; --flag-soft:#3A211B;
+  --ok:#6FB893;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.col{max-width:70ch}
+h1,h2,h3,.lbl,th,.btnbar,.pill{font-family:"Archivo",system-ui,sans-serif}
+.mono,.dimtxt,td.n,.spec{font-family:"Space Mono",ui-monospace,monospace}
+
+/* masthead */
+header{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:"Archivo",sans-serif;font-weight:600;font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.eyebrow .tag{background:var(--flag-soft);color:var(--flag);padding:3px 8px;letter-spacing:.16em}
+h1{font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(32px,5.2vw,52px);
+  line-height:1.04;letter-spacing:-.022em;margin:16px 0 0;text-wrap:balance}
+header p{color:var(--muted);font-size:19px;margin:14px 0 0;max-width:62ch}
+
+/* sticky instrument bar */
+.btnbar{position:sticky;top:0;z-index:20;background:var(--paper);
+  border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:0}
+.btnbar .wrap{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.btnbar .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;color:var(--muted)}
+.seg{display:flex;border:1px solid var(--line);background:var(--card)}
+.seg button{appearance:none;border:0;border-right:1px solid var(--line);background:transparent;
+  color:var(--muted);font-family:"Archivo",sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.06em;padding:9px 17px;cursor:pointer;transition:background .12s,color .12s}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:var(--sunk);color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--card)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.readout{margin-left:auto;font-family:"Space Mono",monospace;font-size:12.5px;color:var(--muted)}
+.readout b{color:var(--ink);font-weight:700}
+
+section{padding:52px 0;border-bottom:1px solid var(--hair)}
+h2{font-size:clamp(21px,2.6vw,29px);font-weight:700;letter-spacing:-.014em;
+  margin:0 0 6px;text-wrap:balance}
+h2 .num{color:var(--accent);font-family:"Space Mono",monospace;font-weight:700;
+  font-size:.62em;margin-right:12px;vertical-align:.12em}
+.sub{color:var(--muted);font-size:16px;margin:0 0 26px;max-width:66ch}
+h3{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:34px 0 10px}
+p{margin:0 0 15px}
+a{color:var(--accent)}
+
+.plate{background:var(--card);border:1px solid var(--line);padding:22px}
+.plate svg{display:block;width:100%;height:auto}
+.plate.tall svg{width:auto;height:min(900px,88vh);max-width:100%;margin:0 auto}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:860px){.two,.three{grid-template-columns:1fr}}
+
+.cap{font-family:"Archivo",sans-serif;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);font-weight:600;
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--hair)}
+
+.tblwrap{overflow-x:auto;border:1px solid var(--line);background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--hair);
+  vertical-align:top}
+th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--muted);background:var(--sunk);border-bottom:1px solid var(--line);
+  white-space:nowrap}
+td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+th[data-size],td[data-size]{transition:background .15s,color .15s}
+th.on,td.on{background:var(--accent-soft)}
+td.on{color:var(--ink);font-weight:700}
+th.on{color:var(--accent)}
+td.rowlbl{color:var(--muted);font-family:"Archivo",sans-serif;font-size:13px}
+td.fail{color:var(--flag);font-weight:700}
+
+ul{margin:0 0 15px;padding-left:0;list-style:none}
+li{position:relative;padding-left:22px;margin-bottom:9px}
+li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:1px;
+  background:var(--accent)}
+
+.callout{border-left:3px solid var(--accent);background:var(--card);
+  padding:16px 20px;margin:22px 0}
+.callout.warn{border-left-color:var(--flag)}
+.callout.rec{border-left-color:var(--ok)}
+.callout p:last-child{margin-bottom:0}
+.callout .lbl{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:600;color:var(--accent);margin-bottom:7px}
+.callout.warn .lbl{color:var(--flag)}
+.callout.rec .lbl{color:var(--ok)}
+
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+.spec{background:var(--card);padding:15px 16px}
+.spec .v{display:block;font-size:23px;font-weight:700;color:var(--accent);
+  letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.spec .k{display:block;font-family:"Archivo",sans-serif;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:5px;font-weight:600}
+
+.opt{background:var(--card);border:1px solid var(--line);padding:20px}
+.opt.win{border-color:var(--ok);border-width:2px}
+.opt h4{font-family:"Archivo",sans-serif;margin:0 0 3px;font-size:17px;font-weight:700}
+.opt .kicker{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted);
+  letter-spacing:.06em;display:block;margin-bottom:12px}
+.opt.win .kicker{color:var(--ok);font-weight:700}
+.opt dl{margin:0;font-size:13.5px}
+.opt dt{font-family:"Archivo",sans-serif;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:11px}
+.opt dd{margin:1px 0 0}
+
+ol.seq{counter-reset:s;list-style:none;padding:0;margin:22px 0 0}
+ol.seq li{counter-increment:s;padding-left:46px;margin-bottom:15px;min-height:28px}
+ol.seq li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:0;
+  width:30px;height:auto;background:none;font-family:"Space Mono",monospace;
+  font-weight:700;font-size:13px;color:var(--accent);
+  border-bottom:1px solid var(--accent);padding-bottom:1px;text-align:center}
+ol.seq li.gate::before{color:var(--flag);border-bottom-color:var(--flag)}
+
+footer{padding:38px 0 60px;color:var(--muted);font-size:13.5px}
+footer .mono{font-size:12px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow"><span class="tag">Concept</span><span>Concurrent 3280 Exhibit Kiosk</span><span>Rev 1</span><span>2026-08-28</span></div>
+  <h1>The kiosk is its own product</h1>
+  <p>A self-contained enclosure — display, Pi, power, three buttons — built and bench-tested on a table, then hung on the front of the 3280's closed factory door. The machine is not opened, not drilled, not modified. The mount is a separate subsystem, designed later.</p>
+</header>
+</div>
+
+<div class="btnbar">
+  <div class="wrap">
+    <span class="lbl">Display size</span>
+    <div class="seg" id="seg" role="group" aria-label="Monitor size">
+      <button data-s="22" aria-pressed="false">22″</button>
+      <button data-s="24" aria-pressed="true">24″</button>
+      <button data-s="27" aria-pressed="false">27″</button>
+      <button data-s="32" aria-pressed="false">32″</button>
+    </div>
+    <span class="readout" id="readout"></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <h2><span class="num">01</span>Front elevation</h2>
+  <p class="sub">The kiosk on the closed factory door, drawn to scale against the 71″ cabinet with a 5′8″ figure for reference. Switch sizes above — this is the view that decides the question.</p>
+  <div class="plate tall">
+    <svg id="sv-elev" viewBox="-27 -6 74 91" role="img" aria-label="Front elevation of the Concurrent 3280 cabinet with the kiosk overlaid on its door"></svg>
+    <div class="cap">Sheet R1-01 · front elevation · cabinet 24 × 71 OEM, door 24.3 wide derived · buttons at 40″ AFF</div>
+  </div>
+  <div class="col">
+    <p style="margin-top:26px">The 3280 stays visually dominant. That is the whole design constraint of this view: a visitor should read a historic minicomputer with an interpretation device added to it, not a monitor wearing a cabinet.</p>
+    <p><b>Watch what happens at 32″.</b> Its top clears the door line, and it takes up half the machine's face. The geometry technically resolves if the buttons drop to about 38″ — the proportion does not.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">02</span>Kiosk, standalone</h2>
+  <p class="sub">The enclosure by itself. Everything in this drawing is buildable and testable before the 3280 is involved at all.</p>
+  <div class="two">
+    <div class="plate">
+      <svg id="sv-front" viewBox="0 0 100 100" role="img" aria-label="Front view of the kiosk enclosure with dimensions"></svg>
+      <div class="cap">Sheet R1-02 · kiosk front elevation</div>
+    </div>
+    <div class="plate">
+      <svg id="sv-btn" viewBox="0 0 100 100" role="img" aria-label="Detail of the three-button control plate"></svg>
+      <div class="cap">Sheet R1-03 · button plate detail</div>
+    </div>
+  </div>
+  <div class="specs" id="specs"></div>
+  <div class="col">
+    <h3>Why a separate button plate</h3>
+    <p>The buttons are the highest-wear part of the exhibit and the only part a visitor touches. Splitting them onto their own plate decouples switch-hole tolerance from the big face plate, lets the whole control assembly be built and tested on the bench with a jumper to the Pi, and means a change of switch style recuts a $15 plate instead of the face.</p>
+    <p><b>30 mm anti-vandal stainless, momentary, 30.5 mm hole.</b> A big public target, industrial life, about $10 each, and a hole size so standard that any replacement in 2033 will fit. Labels engraved into the plate — stickers peel.</p>
+    <p><b>Flat, not angled.</b> An angled lower surface adds a bevelled joint, adds depth at the bottom, and complicates the mount's load path. At 40″ AFF a flat face is comfortable for a standing adult. Revisit only if observation says otherwise.</p>
+    <p><b>No fasteners on the visitor-facing surface.</b> The plate is captured from behind — nothing on the front is a screw a bored twelve-year-old can turn.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Side section</h2>
+  <p class="sub">Depth is the number that decides how much the kiosk stands off the machine. Every eighth of an inch here is visible.</p>
+  <div class="plate tall">
+    <svg id="sv-side" viewBox="0 0 100 100" role="img" aria-label="Side section through the kiosk showing the internal component stack"></svg>
+    <div class="cap">Sheet R1-04 · side section · depth to 3.5″ target · mounting interface left blank by intent</div>
+  </div>
+  <div class="two" style="margin-top:26px">
+    <div>
+      <h3 style="margin-top:0">What forces the depth</h3>
+      <ul>
+        <li><b>The monitor's thickest point — 1.6″ to 2.3″.</b> The only hard number in the stack, and the reason depth grows with screen size even though the panel doesn't.</li>
+        <li><b>Cable bend at the connectors — 0.75″ to 1.75″.</b> The one you can design away, and the difference between 3.5″ and 4.5″. Route HDMI and DC <i>downward into the button bay</i> with right-angle plugs.</li>
+        <li><b>Face plate + rear panel — 1.0″ combined.</b> Down to ~0.4″ with composite panel, at the cost of stiffness.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-top:0">What does not</h3>
+      <ul>
+        <li><b>The Raspberry Pi.</b> 0.65″ tall, and it does not go behind the monitor. It goes in the button bay on a slide-out tray, where 4″ of depth is otherwise doing nothing. Design the enclosure around fitting a Pi behind the panel and you will build it an inch too deep.</li>
+      </ul>
+      <div class="callout warn" style="margin-top:18px">
+        <span class="lbl">Reversed from earlier work</span>
+        <p><b>The monitor stays cased.</b> De-casing buys about 1.2″ and costs the EMI shielding, the thermal design, the power board's own enclosure, and any hope of a volunteer replacing it. Not worth it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="tblwrap" style="margin-top:26px">
+    <table>
+      <thead><tr><th>Depth target</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="n">2.50″</td><td><b style="color:var(--flag)">No.</b> Requires a sub-1.4″ monitor, a 1/8″ face and zero service gap.</td></tr>
+        <tr><td class="n">3.00″</td><td>Achievable at 22–24″ with a slim monitor, right-angle cables and down-routing. No margin.</td></tr>
+        <tr><td class="n"><b>3.50″</b></td><td><b>The design target.</b> Works at 22 / 24 / 27 with a normal monitor and 0.6″ of service air.</td></tr>
+        <tr><td class="n">4.00″</td><td>Needed for 32″, or any monitor with a rear-facing connector cluster and straight cables.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">04</span>Monitor comparison</h2>
+  <p class="sub">Nominal sizes are marketing. These use actual diagonals — a “24-inch” panel is 23.8″. Bezel allowance +0.35″ on three sides and +0.85″ chin; face reveal 1.25″ all round; button band 6.00″ overall.</p>
+  <div class="tblwrap">
+    <table id="cmp">
+      <thead><tr><th>&nbsp;</th><th data-size="22">22″</th><th data-size="24">24″</th><th data-size="27">27″</th><th data-size="32">32″</th></tr></thead>
+      <tbody>
+        <tr><td class="rowlbl">Actual diagonal</td><td class="n" data-size="22">21.5″</td><td class="n" data-size="24">23.8″</td><td class="n" data-size="27">27.0″</td><td class="n" data-size="32">31.5″</td></tr>
+        <tr><td class="rowlbl">Landscape active area</td><td class="n" data-size="22">18.74 × 10.54</td><td class="n" data-size="24">20.74 × 11.67</td><td class="n" data-size="27">23.53 × 13.24</td><td class="n" data-size="32">27.45 × 15.44</td></tr>
+        <tr><td class="rowlbl">Portrait active, W × H</td><td class="n" data-size="22">10.54 × 18.74</td><td class="n" data-size="24">11.67 × 20.74</td><td class="n" data-size="27">13.24 × 23.53</td><td class="n" data-size="32">15.44 × 27.45</td></tr>
+        <tr><td class="rowlbl">Portrait outline, cased</td><td class="n" data-size="22">11.74 × 19.44</td><td class="n" data-size="24">12.87 × 21.44</td><td class="n" data-size="27">14.44 × 24.23</td><td class="n" data-size="32">16.64 × 28.15</td></tr>
+        <tr><td class="rowlbl">Finished kiosk W × H</td><td class="n" data-size="22">14.24 × 26.69</td><td class="n" data-size="24">15.37 × 28.69</td><td class="n" data-size="27">16.94 × 31.48</td><td class="n" data-size="32">19.14 × 35.40</td></tr>
+        <tr><td class="rowlbl">Share of 24.3″ door width</td><td class="n" data-size="22">59%</td><td class="n" data-size="24">63%</td><td class="n" data-size="27">70%</td><td class="n" data-size="32">79%</td></tr>
+        <tr><td class="rowlbl">Share of 71″ cabinet height</td><td class="n" data-size="22">38%</td><td class="n" data-size="24">40%</td><td class="n" data-size="27">44%</td><td class="n" data-size="32">50%</td></tr>
+        <tr><td class="rowlbl">Kiosk top, buttons at 40″ AFF</td><td class="n" data-size="22">63.4″</td><td class="n" data-size="24">65.4″</td><td class="n" data-size="27">68.2″</td><td class="n fail" data-size="32">72.2″ over</td></tr>
+        <tr><td class="rowlbl">Screen centre height</td><td class="n" data-size="22">52.5″ AFF</td><td class="n" data-size="24">53.5″ AFF</td><td class="n" data-size="27">54.9″ AFF</td><td class="n" data-size="32">56.8″ AFF</td></tr>
+        <tr><td class="rowlbl">Estimated total weight</td><td class="n" data-size="22">~20 lb</td><td class="n" data-size="24">~23 lb</td><td class="n" data-size="27">~27 lb</td><td class="n" data-size="32">~34 lb</td></tr>
+        <tr><td class="rowlbl">Minimum enclosure depth</td><td class="n" data-size="22">2.7″</td><td class="n" data-size="24">2.9″</td><td class="n" data-size="27">3.1″</td><td class="n" data-size="32">3.4″</td></tr>
+        <tr><td class="rowlbl">Density, 1080 px across</td><td class="n" data-size="22">102 ppi</td><td class="n" data-size="24">93 ppi</td><td class="n" data-size="27">82 ppi</td><td class="n" data-size="32">70 ppi</td></tr>
+        <tr><td class="rowlbl">Panel technology</td><td class="n" data-size="22">IPS</td><td class="n" data-size="24">IPS</td><td class="n" data-size="27">IPS</td><td class="n fail" data-size="32">often VA</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <h3>Readability governs, resolution doesn't</h3>
+    <p>The real constraint is cap height. Comfortable reading at 6 ft wants roughly <b>0.35″ of cap height</b> — about a half-inch em. On the 24″, 20.74″ tall across 1920 px, that is a <b>46 px</b> body size, giving about 47 characters per line. A good measure for the 3–5 bullets per screen the content bar allows.</p>
+    <p>The 22″ lands at ~42 characters. Workable, but it starts to constrain the writing. All four are legible at 3–6 ft; a 1080p 24″ at 93 ppi is crisp at arm's length and dead sharp at exhibit distance. <b>Don't pay for 1440p unless the salvage pile hands it to you.</b></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">05</span>Construction</h2>
+  <p class="sub">Three routes a museum volunteer crew could actually execute. The differentiator is not strength or cost — it's which one survives contact with a finish.</p>
+  <div class="three">
+    <div class="opt">
+      <h4>A · CNC Baltic birch</h4>
+      <span class="kicker">cut, rabbet, spray</span>
+      <dl>
+        <dt>Build</dt><dd>1/2″ Baltic birch, CNC-cut, rabbeted, sprayed satin graphite</dd>
+        <dt>Difficulty</dt><dd>Moderate. Needs CNC plus a spray setup — <b>the finish is the hard part</b></dd>
+        <dt>Material</dt><dd>$80–140</dd>
+        <dt>Weight</dt><dd>~13 lb enclosure at 24″</dd>
+        <dt>Finish</dt><dd>Good sprayed, poor brushed. Ply edges telegraph</dd>
+        <dt>Service</dt><dd>Excellent — but threaded inserts, never screws into ply edge</dd>
+        <dt>Museum read</dt><dd>Honest, repairable, slightly craft</dd>
+      </dl>
+    </div>
+    <div class="opt win">
+      <h4>B · Ply box, applied face</h4>
+      <span class="kicker">recommended</span>
+      <dl>
+        <dt>Build</dt><dd>3/8–1/2″ ply structural box; face plate in composite panel or high-pressure laminate, bonded</dd>
+        <dt>Difficulty</dt><dd>Moderate, two stages — but each stage is easy and forgiving</dd>
+        <dt>Material</dt><dd>$120–200</dd>
+        <dt>Weight</dt><dd>~15 lb enclosure at 24″</dd>
+        <dt>Finish</dt><dd><b>Best.</b> Factory-flat, no spray booth, no grain to fill</dd>
+        <dt>Service</dt><dd>Excellent. Face is bonded, so button work goes through the back</dd>
+        <dt>Museum read</dt><dd>Purpose-built exhibit component</dd>
+      </dl>
+    </div>
+    <div class="opt">
+      <h4>C · Modified commercial</h4>
+      <span class="kicker">fails on aspect ratio</span>
+      <dl>
+        <dt>Build</dt><dd>Digital-signage or instrument enclosure, cut for the panel</dd>
+        <dt>Difficulty</dt><dd>Low <i>if</i> something fits. High if not</dd>
+        <dt>Material</dt><dd>$150–400</dd>
+        <dt>Weight</dt><dd>30 lb+ in steel; light in ABS</dd>
+        <dt>Finish</dt><dd>Factory</dd>
+        <dt>Service</dt><dd>Usually good</dd>
+        <dt>Museum read</dt><dd>Risks reading as generic industrial kit</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="col">
+    <div class="callout rec">
+      <span class="lbl">Recommendation — B</span>
+      <p>The single biggest risk in a volunteer-built enclosure is the <b>finish</b>. A well-built box with a brushed-lacquer face still looks homemade, and that is exactly the failure mode this design is trying to avoid. Approach B takes the finish off the critical path: the visible surface arrives already flat and already durable, and the volunteers build a plywood box behind it — a thing any woodworker gets right on the first try.</p>
+      <p><b>A is the fallback</b> if nobody can source or bond sheet facing. It's a good enclosure; it just puts the project's appearance on the line at the spray stage. <b>C</b> is worth ten minutes of searching and not worth designing around — nothing off the shelf is 15″ × 29″ × 3.5″ portrait.</p>
+    </div>
+    <h3>Serviceability</h3>
+    <p>The rule: <b>nothing that fails routinely should require touching the face plate or the mount.</b> The kiosk should never have to come off the 3280 for service.</p>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Part</th><th>How it comes out</th></tr></thead>
+      <tbody>
+        <tr><td class="rowlbl">Rear panel</td><td>Captive thumbscrews or quarter-turn fasteners into threaded inserts. No loose hardware to drop inside a museum artifact.</td></tr>
+        <tr><td class="rowlbl">Monitor</td><td>On a VESA 100 plate bolted to the internal frame. Rear panel off, four bolts, monitor out backwards. <b>The face plate never comes off.</b></td></tr>
+        <tr><td class="rowlbl">Raspberry Pi</td><td>Slide-out tray in the button bay. Unplug two, slide out.</td></tr>
+        <tr><td class="rowlbl">Buttons</td><td>Plate captured from behind. Rear panel off, plate drops in. Standard 30.5 mm hole.</td></tr>
+        <tr><td class="rowlbl">Power</td><td>One appliance inlet at the bottom rear. One cord leaves the kiosk.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">06</span>Attachment interface</h2>
+  <p class="sub">Deliberately not designed. The enclosure's job here is to have a flat back and a known weight — that is enough for an adapter to be designed against later, and designing it now would be guessing.</p>
+  <div class="plate tall">
+    <svg id="sv-mount" viewBox="0 0 100 100" role="img" aria-label="Rear view showing the blank mounting interface zone"></svg>
+    <div class="cap">Sheet R1-05 · rear · mounting interface zone, design TBD</div>
+  </div>
+  <div class="col" style="margin-top:26px">
+    <h3>Constraints recorded now, so the enclosure doesn't foreclose them</h3>
+    <ul>
+      <li><b>Reversible, non-destructive, removable, visually discreet.</b> No holes, no cuts, no permanent modification to the door or the cabinet. This is a hard requirement, not a preference — the 3280 is a museum artifact.</li>
+      <li>Must carry the kiosk in shear <i>plus</i> the moment from a centre-of-mass roughly 1.75″ off the door, with a safety factor for someone leaning on it.</li>
+      <li>Candidates, unevaluated: edge brackets hooking the door's return flange; compression straps around the cabinet; a full-door backing plate captured top and bottom; clamps on existing door hardware.</li>
+      <li>Anything that loads the <b>original hinges</b> has to be checked against them.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="lbl">This is why weight matters</span>
+      <p>The mount is undesigned and unconstrained. <b>23 lb of strap-and-bracket load on a hollow sheet-metal door is a solvable problem. 34 lb is where you start having to transfer load to the cabinet frame</b> — and the mount stops being simple. That, more than proportion, is the argument against the 32″.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">07</span>Recommendation</h2>
+  <div class="col">
+    <div class="callout rec">
+      <span class="lbl">Rev 1</span>
+      <p style="font-size:20px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35">24″-class display, 23.8″ actual. Finished kiosk 15-3/8″ W × 28-11/16″ H × 3-1/2″ D, about 23 lb.</p>
+    </div>
+    <p><b>Proportion is the deciding argument.</b> At 15.4″ wide the kiosk is 63% of the door — clearly an added object, clearly not trying to be the machine. At 70% and 79% the 27″ and 32″ start to read as a monitor wearing a cabinet, which is precisely the impression a museum exhibit should not give.</p>
+    <p><b>Weight is the second argument, and it may be the more important one</b> — see section 06. The mount has to carry this off a hollow door without a single fastener into the artifact.</p>
+    <p><b>Availability closes it.</b> 24″ 1080p IPS is the highest-volume monitor ever made. It is the most likely thing in the warehouse, the cheapest thing to buy, and the easiest thing for a docent to replace in 2033 without calling anyone.</p>
+    <h3>If a 27″ falls out of the salvage pile</h3>
+    <p>Take it. It isn't a bad answer — it's a <i>slightly worse</i> answer, and the enclosure is parametric enough that switching costs one face plate. Budget the extra 4 lb into the mount. <b>22″ is the fallback</b> if the mount turns out harder than expected; 20 lb is genuinely easy to hang. <b>32″ is out</b> — height failure at a comfortable button position, the weight, and the VA-panel risk, since visitors approach an exhibit from the side and a VA panel at 45° looks bad in exactly that situation.</p>
+    <div class="callout warn">
+      <span class="lbl">Two go/no-go criteria on any candidate monitor</span>
+      <p><b>1 · It must power itself back on after a mains cut.</b> The exhibit runs on an AC timer. Many monitors return to standby and need a button press — that's a black screen every morning until a docent notices. Test before committing: switched strip, kill power, restore, confirm it comes back with no input.</p>
+      <p><b>2 · Matte only.</b> Overhead lights and daylight. Glossy panels mirror them.</p>
+    </div>
+    <h3>Sequence</h3>
+    <ol class="seq">
+      <li class="gate"><b>Choose the monitor.</b> Buy or salvage; run the power-cut test. <i>Gate — everything downstream is dimensioned off this.</i></li>
+      <li><b>Build the enclosure.</b> Bench, no 3280 involved.</li>
+      <li><b>Install</b> monitor, Pi, buttons, wiring, software.</li>
+      <li><b>Bench-test as a complete kiosk.</b> Run it for a week on a table.</li>
+      <li><b>Then</b> design and build the reversible mounting adapter.</li>
+      <li><b>Rev 2</b>, if desired, revisits the replacement-door concept.</li>
+    </ol>
+    <p style="margin-top:22px">Steps 1–4 have no dependency on the 3280 at all. <b>C1 — the closing clearance that gated the entire previous design — no longer gates anything</b>, and neither does the door height, the aperture, or the inner perforated panel.</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>Superseded for Rev 1</b>, kept for provenance and live for Rev 2: the 27″ call in <span class="mono">monitor-selection.md</span>, the hinged-carrier route in <span class="mono">display-approach-options.md</span>, the de-cased-panel route in <span class="mono">door-construction.md</span> and <span class="mono">fab/</span>, and drawings 01–06 in <span class="mono">drawings/</span>.</p>
+  <p class="mono">Cabinet 71 × 24 × 34 from Concurrent 50-045R00 · box height 67-7/8″ measured ME-1 · door 24.3″ from Perkin-Elmer 47-004 R21 · factory paint P.E. #464 textured. Monitor outlines, weights and thicknesses are estimates from typical current product, not measured units.</p>
+  <p class="mono">3280-kiosk · mechanical/rev1-design-study.html · concept, not a shipped product</p>
+</footer>
+
+</div>
+
+<script>
+const K = Math.hypot(16,9);
+const SIZES = {
+  22:{diag:21.5, thick:1.60, wt:20},
+  24:{diag:23.8, thick:1.80, wt:23},
+  27:{diag:27.0, thick:2.00, wt:27},
+  32:{diag:31.5, thick:2.30, wt:34}
+};
+const G = {
+  CAB_W:24, CAB_H:71, BASE:3.125,
+  DOOR_W:24.30, DOOR_TOP:71.15, DOOR_BOT:2.975,
+  SIDE:1.25, TOP:1.25, GAP:0.75, BAND:4.00, BOT:1.25,
+  BTN_AFF:40, BTN_CC:3.50, BTN_D:30/25.4,
+  DEPTH:3.5, FACE:0.50, CLR:0.10, REAR:0.50
+};
+
+function geo(s){
+  const d = SIZES[s].diag;
+  const aw = d*16/K, ah = d*9/K;            // landscape active
+  const pw = ah + 1.20, ph = aw + 0.70;      // portrait outline (chin+bezel)
+  const paw = ah, pah = aw;                  // portrait active
+  const kw = pw + 2*G.SIDE;
+  const kh = ph + G.TOP + G.GAP + G.BAND + G.BOT;
+  const bot = G.BTN_AFF - (G.BOT + G.BAND/2);
+  return {s, diag:d, pw, ph, paw, pah, kw, kh, bot, top:bot+kh,
+          monBot: bot + G.BOT + G.BAND + G.GAP,
+          ctr: bot + G.BOT + G.BAND + G.GAP + ph/2,
+          thick: SIZES[s].thick, wt: SIZES[s].wt};
+}
+
+/* ---- svg helpers ----
+   Geometry is in inches. Type and line weight are specified in CSS pixels and
+   converted to user units by TS, which each draw function derives from the
+   element's real rendered width. That keeps a 12 px label 12 px on every sheet,
+   whatever the drawing's scale.                                             */
+let TS = 0.1;
+const f=(n,p=2)=>Number(n).toFixed(p).replace(/\.?0+$/,'')||'0';
+const inch=n=>f(n)+'″';
+const FS=px=>Math.round(px*TS*1000)/1000;
+const SW=px=>Math.round(px*TS*1000)/1000;
+const MONO='"Space Mono",ui-monospace,monospace';
+const SANS='"Archivo",system-ui,sans-serif';
+function fit(sv,vbW,vbH){
+  sv.setAttribute('viewBox',`0 0 ${f(vbW)} ${f(vbH)}`);
+  const w=sv.getBoundingClientRect().width;
+  TS = vbW / (w>40 ? w : 800);
+}
+function el(tag,at,txt){
+  let s='<'+tag;
+  for(const k in at) if(at[k]!==undefined&&at[k]!==null) s+=` ${k}="${at[k]}"`;
+  return txt===undefined ? s+'/>' : s+'>'+txt+'</'+tag+'>';
+}
+const DIM='var(--accent)';
+function txt(x,y,s,o){
+  o=o||{};
+  return el('text',{x:f(x,3),y:f(y,3),fill:o.fill||'var(--muted)','font-size':FS(o.px||11.5),
+    'font-family':o.sans?SANS:MONO,'font-weight':o.w,'letter-spacing':o.ls?FS(o.ls):null,
+    'text-anchor':o.anchor,'dominant-baseline':o.mid?'central':null,
+    transform:o.rot},s);
+}
+function dimV(x,y1,y2,label,side){
+  const t=Math.min(y1,y2),b=Math.max(y1,y2),m=(t+b)/2,o=side==='l'?-1:1;
+  const tick=FS(4), off=x+o*FS(7);
+  return el('path',{d:`M${f(x,3)} ${f(t,3)}L${f(x,3)} ${f(b,3)}`,stroke:DIM,'stroke-width':SW(1.1),fill:'none'})
+   + el('path',{d:`M${x-tick} ${f(t,3)}L${x+tick} ${f(t,3)}M${x-tick} ${f(b,3)}L${x+tick} ${f(b,3)}`,
+       stroke:DIM,'stroke-width':SW(1.1)})
+   + txt(off,m,label,{fill:DIM,px:12,anchor:'middle',mid:1,rot:`rotate(-90 ${f(off,3)} ${f(m,3)})`});
+}
+function dimH(y,x1,x2,label,below){
+  const l=Math.min(x1,x2),r=Math.max(x1,x2),m=(l+r)/2,tick=FS(4);
+  return el('path',{d:`M${f(l,3)} ${f(y,3)}L${f(r,3)} ${f(y,3)}`,stroke:DIM,'stroke-width':SW(1.1),fill:'none'})
+   + el('path',{d:`M${f(l,3)} ${y-tick}L${f(l,3)} ${y+tick}M${f(r,3)} ${y-tick}L${f(r,3)} ${y+tick}`,
+       stroke:DIM,'stroke-width':SW(1.1)})
+   + txt(m,y+(below?FS(15):-FS(6)),label,{fill:DIM,px:12,anchor:'middle'});
+}
+function lead(x1,y1,x2,y2,label,anchor){
+  const gap = (anchor==='end'?-1:1)*FS(5);
+  return el('path',{d:`M${f(x1,3)} ${f(y1,3)}L${f(x2,3)} ${f(y2,3)}`,stroke:'var(--muted)',
+       'stroke-width':SW(1),fill:'none'})
+   + el('circle',{cx:f(x1,3),cy:f(y1,3),r:FS(2.4),fill:'var(--muted)'})
+   + txt(x2+gap,y2,label,{px:11,anchor:anchor,mid:1});
+}
+
+/* ---- 01 front elevation ---- */
+function drawElev(g){
+  const sv=document.getElementById('sv-elev');
+  fit(sv,82,91);
+  const Y=a=>G.CAB_H-a+6, X=x=>x+27;          // aff -> y ; cabinet x -> svg x
+  let o='';
+  o += el('path',{d:`M${X(-26)} ${Y(0)}L${X(44)} ${Y(0)}`,stroke:'var(--line)','stroke-width':SW(2)});
+  o += el('path',{d:`M${X(-26)} ${Y(-1)}L${X(44)} ${Y(-1)}`,stroke:'var(--hair)','stroke-width':SW(3),opacity:.7,
+        'stroke-dasharray':`${FS(9)} ${FS(9)}`});
+  // 5'8" scale figure
+  const px=X(-14);
+  o += el('g',{fill:'var(--line)'},
+      el('ellipse',{cx:px,cy:Y(63.8),rx:3.5,ry:4.4})
+    + el('rect',{x:px-1,y:Y(61.4),width:2,height:2.6})
+    + el('rect',{x:px-8,y:Y(57),width:16,height:20,rx:3})
+    + el('rect',{x:px-9.6,y:Y(56),width:2.6,height:21,rx:1.3})
+    + el('rect',{x:px+7,y:Y(56),width:2.6,height:21,rx:1.3})
+    + el('rect',{x:px-6.5,y:Y(37),width:5,height:37,rx:2})
+    + el('rect',{x:px+1.5,y:Y(37),width:5,height:37,rx:2}));
+  o += txt(px,Y(0)+FS(15),'5′ 8″ visitor',{anchor:'middle',px:11.5});
+  // eye level
+  o += el('path',{d:`M${px} ${Y(63)}L${X(28)} ${Y(63)}`,stroke:'var(--muted)','stroke-width':SW(1),
+        'stroke-dasharray':`${FS(7)} ${FS(6)}`,fill:'none'});
+  o += txt(X(28)+FS(5),Y(63),'eye 63″',{mid:1,px:11});
+  // cabinet
+  o += el('rect',{x:X(1.2),y:Y(G.BASE),width:21.6,height:G.BASE,fill:'var(--graphite)',opacity:.45});
+  o += el('rect',{x:X(0),y:Y(G.CAB_H),width:G.CAB_W,height:G.CAB_H-G.BASE,
+      fill:'var(--tan)',stroke:'var(--tan-line)','stroke-width':SW(1.6)});
+  const dx=X((G.CAB_W-G.DOOR_W)/2);
+  o += el('rect',{x:dx,y:Y(G.DOOR_TOP),width:G.DOOR_W,height:G.DOOR_TOP-G.DOOR_BOT,
+      fill:'none',stroke:'var(--tan-line)','stroke-width':SW(1.3),
+      'stroke-dasharray':`${FS(6)} ${FS(5)}`});
+  let lv='';
+  for(let a=G.DOOR_BOT+3;a<G.DOOR_TOP-2;a+=2.6) lv+=`M${f(dx+1.6,2)} ${f(Y(a),2)}L${f(dx+G.DOOR_W-1.6,2)} ${f(Y(a),2)}`;
+  o += el('path',{d:lv,stroke:'var(--tan-line)','stroke-width':SW(.8),opacity:.5,fill:'none'});
+  // kiosk
+  const kx=X(G.CAB_W/2-g.kw/2), cxx=X(G.CAB_W/2);
+  o += el('rect',{x:kx,y:Y(g.top),width:g.kw,height:g.kh,
+      fill:'var(--graphite)',stroke:'var(--graphite-line)','stroke-width':SW(1.8)});
+  o += el('rect',{x:cxx-g.pw/2,y:Y(g.monBot+g.ph),width:g.pw,height:g.ph,fill:'var(--bezel)'});
+  o += el('rect',{x:cxx-g.paw/2,y:Y(g.monBot+g.pah),width:g.paw,height:g.pah,fill:'var(--glass)'});
+  for(let i=-1;i<=1;i++)
+    o += el('circle',{cx:cxx+i*G.BTN_CC,cy:Y(G.BTN_AFF),r:G.BTN_D/2,
+        fill:'var(--paper)',stroke:'var(--graphite-line)','stroke-width':SW(1.2)});
+  // dimensions
+  o += dimV(X(26.5),Y(G.CAB_H),Y(0),'71″ cabinet','r');
+  o += dimV(X(31.5),Y(g.top),Y(g.bot),inch(g.kh)+' kiosk','r');
+  o += dimH(Y(-5),X(0),X(G.CAB_W),'24″ cabinet',true);
+  o += dimH(Y(-10),kx,kx+g.kw,inch(g.kw)+' kiosk',true);
+  o += lead(cxx+G.BTN_CC+G.BTN_D/2,Y(G.BTN_AFF),X(35),Y(G.BTN_AFF),'buttons 40″ AFF');
+  o += lead(cxx+g.paw/2,Y(g.ctr),X(35),Y(g.ctr),'screen ctr '+f(g.ctr,1)+'″');
+  // flag an overshoot past the top of the door
+  if(g.top>G.DOOR_TOP){
+    o += el('path',{d:`M${X(-2)} ${Y(G.DOOR_TOP)}L${X(26)} ${Y(G.DOOR_TOP)}`,stroke:'var(--flag)',
+        'stroke-width':SW(1.4),'stroke-dasharray':`${FS(6)} ${FS(4)}`,fill:'none'});
+    o += txt(X(-2.6),Y(G.DOOR_TOP)-FS(5),
+        'kiosk clears the door top by '+f(g.top-G.DOOR_TOP,1)+'″',
+        {fill:'var(--flag)',px:11,w:700,anchor:'end'});
+  }
+  o += txt(X(-26),Y(69),'CONCURRENT 3280',{sans:1,w:700,px:13,ls:1.6,fill:'var(--muted)'});
+  o += txt(X(-26),Y(66.4),'unmodified · door closed',{px:11});
+  sv.innerHTML=o;
+}
+
+/* ---- 02 kiosk front ---- */
+function drawFront(g){
+  const sv=document.getElementById('sv-front');
+  const P=5.5, W=g.kw+2*P+6, H=g.kh+2*P+5;
+  fit(sv,W,H);
+  const x0=P, y0=P+1;
+  let o='';
+  o += el('rect',{x:x0,y:y0,width:g.kw,height:g.kh,fill:'var(--graphite)',
+      stroke:'var(--graphite-line)','stroke-width':SW(2)});
+  const mx=x0+G.SIDE, my=y0+G.TOP;
+  o += el('rect',{x:mx,y:my,width:g.pw,height:g.ph,fill:'var(--bezel)'});
+  o += el('rect',{x:mx+(g.pw-g.paw)/2,y:my+(g.ph-g.pah)/2,width:g.paw,height:g.pah,fill:'var(--glass)'});
+  const by=y0+G.TOP+g.ph+G.GAP, cx=x0+g.kw/2, cy=by+G.BAND/2;
+  o += el('rect',{x:x0+G.SIDE,y:by,width:g.kw-2*G.SIDE,height:G.BAND,fill:'none',
+      stroke:'var(--accent)','stroke-width':SW(1.2),'stroke-dasharray':`${FS(5)} ${FS(4)}`});
+  ['BACK','HOME','NEXT'].forEach((t,i)=>{
+    const bx=cx+(i-1)*G.BTN_CC;
+    o += el('circle',{cx:bx,cy:cy-.4,r:G.BTN_D/2,fill:'var(--paper)',
+        stroke:'var(--graphite-line)','stroke-width':SW(1.3)});
+    o += txt(bx,cy+1.5,t,{sans:1,w:700,px:9,ls:.9,anchor:'middle',fill:'var(--paper)'});
+  });
+  o += dimH(y0-1.9,x0,x0+g.kw,inch(g.kw));
+  o += dimV(x0+g.kw+2.2,y0,y0+g.kh,inch(g.kh),'r');
+  o += dimV(x0-2.2,my,my+g.ph,inch(g.ph),'l');
+  o += dimH(y0+g.kh+2.6,mx,mx+g.pw,inch(g.pw)+' monitor outline',true);
+  o += txt(x0+g.kw/2,y0+G.TOP+g.ph/2,'active '+f(g.paw)+' × '+f(g.pah),
+      {anchor:'middle',mid:1,px:11,fill:'var(--paper)'});
+  sv.innerHTML=o;
+}
+
+/* ---- 03 button plate ---- */
+function drawBtn(g){
+  const sv=document.getElementById('sv-btn');
+  const pw=g.kw-2*G.SIDE, ph=G.BAND, P=4.0;
+  fit(sv,pw+2*P,ph+2*P+3.5);
+  const x0=P, y0=P+1, cx=x0+pw/2, cy=y0+ph/2-.35;
+  let o='';
+  o += el('rect',{x:x0,y:y0,width:pw,height:ph,fill:'var(--graphite)',
+      stroke:'var(--graphite-line)','stroke-width':SW(2)});
+  ['BACK','HOME','NEXT'].forEach((t,i)=>{
+    const bx=cx+(i-1)*G.BTN_CC;
+    o += el('circle',{cx:bx,cy:cy,r:G.BTN_D/2,fill:'var(--paper)',
+        stroke:'var(--graphite-line)','stroke-width':SW(1.6)});
+    o += el('circle',{cx:bx,cy:cy,r:G.BTN_D/2-.2,fill:'none',stroke:'var(--line)','stroke-width':SW(1)});
+    o += txt(bx,cy+1.75,t,{sans:1,w:700,px:10,ls:1.1,anchor:'middle',fill:'var(--paper)'});
+  });
+  [[x0+.55,y0+.55],[x0+pw-.55,y0+.55],[x0+.55,y0+ph-.55],[x0+pw-.55,y0+ph-.55]].forEach(p=>
+    o+=el('circle',{cx:p[0],cy:p[1],r:.22,fill:'none',stroke:'var(--muted)',
+        'stroke-width':SW(.9),'stroke-dasharray':`${FS(1.6)} ${FS(1.4)}`}));
+  o += dimH(y0-1.6,cx-G.BTN_CC,cx,f(G.BTN_CC)+'″ c-c');
+  o += dimH(y0+ph+2.0,cx-G.BTN_CC-G.BTN_D/2,cx+G.BTN_CC+G.BTN_D/2,'7.18″ span',true);
+  o += dimV(x0-1.7,y0,y0+ph,'4.00″','l');
+  o += lead(cx+G.BTN_CC,cy-G.BTN_D/2,x0+pw-.3,y0-.7,'ø 30 mm · 30.5 mm hole','end');
+  o += txt(x0,y0+ph+P+1.4,'fasteners captured from behind — nothing on the face a visitor can turn',{px:10.5});
+  sv.innerHTML=o;
+}
+
+/* ---- 04 side section ---- */
+function drawSide(g){
+  const sv=document.getElementById('sv-side');
+  const D=G.DEPTH, S=2.4;
+  fit(sv,D*S+24,g.kh+11);
+  const x0=6.0, y0=5.5, X=d=>x0+d*S;
+  let o='';
+  o += el('rect',{x:X(0),y:y0,width:D*S,height:g.kh,fill:'none',
+      stroke:'var(--graphite-line)','stroke-width':SW(1.3),'stroke-dasharray':`${FS(6)} ${FS(5)}`});
+  o += el('rect',{x:X(0),y:y0,width:G.FACE*S,height:g.kh,fill:'var(--graphite)'});
+  o += el('rect',{x:X(D-G.REAR),y:y0,width:G.REAR*S,height:g.kh,fill:'var(--graphite)'});
+  const mTop=y0+G.TOP, mH=g.ph, front=G.FACE+G.CLR;
+  const hump=mH*.62, hTop=mTop+(mH-hump)/2;
+  o += el('rect',{x:X(front),y:mTop,width:.55*S,height:mH,fill:'var(--glass)',
+      stroke:'var(--graphite-line)','stroke-width':SW(1)});
+  o += el('rect',{x:X(front+.55),y:hTop,width:(g.thick-.55)*S,height:hump,
+      fill:'var(--graphite)',stroke:'var(--graphite-line)','stroke-width':SW(1)});
+  o += el('rect',{x:X(front+g.thick),y:hTop+hump/2-2,width:.18*S,height:4,fill:'var(--accent)'});
+  const bayTop=y0+G.TOP+mH+G.GAP;
+  o += el('rect',{x:X(0),y:bayTop,width:D*S,height:G.BAND,fill:'var(--accent-soft)',opacity:.6});
+  o += el('rect',{x:X(0),y:bayTop,width:G.FACE*S,height:G.BAND,fill:'var(--graphite)'});
+  o += el('rect',{x:X(1.05),y:bayTop+1.1,width:1.4*S,height:.65*S,fill:'var(--accent)'});
+  o += el('path',{d:`M${f(X(front+g.thick*.6),2)} ${f(mTop+mH-1,2)}L${f(X(front+g.thick*.6),2)} ${f(bayTop+2.4,2)}L${f(X(1.9),2)} ${f(bayTop+2.4,2)}`,
+      stroke:'var(--flag)','stroke-width':SW(2),fill:'none','stroke-linecap':'round'});
+  o += dimH(y0-1.8,X(0),X(D),f(D)+'″ depth');
+  o += dimV(x0-2.6,y0,y0+g.kh,inch(g.kh),'l');
+  const L=X(D)+2.9;
+  const items=[
+    [G.FACE/2, mTop+2.5, 'face plate 0.50″'],
+    [front+.3, mTop+mH*.24, 'LCD panel, cased'],
+    [front+g.thick*.7, hTop+hump*.4, 'driver hump '+f(g.thick)+'″'],
+    [front+g.thick+.09, hTop+hump/2, 'VESA 100 plate'],
+    [D-G.REAR/2, y0+g.kh*.46, 'rear panel, removable'],
+    [1.75, bayTop+1.4, 'Raspberry Pi on slide-out tray'],
+    [2.6, bayTop+2.4, 'cables exit down to the bay']
+  ];
+  items.forEach((it,i)=>{
+    const ty=y0+2.4+i*(g.kh-5)/(items.length-1);
+    o += lead(X(it[0]),it[1],L-.9,ty,it[2]);
+  });
+  const zx=X(D), zw=1.15, zy=y0+g.kh*.26, zh=g.kh*.48;
+  o += el('rect',{x:zx,y:zy,width:zw,height:zh,fill:'var(--card)',stroke:'var(--flag)',
+      'stroke-width':SW(1.5),'stroke-dasharray':`${FS(5)} ${FS(4)}`});
+  o += txt(zx+zw/2,zy+zh/2,'MOUNT ADAPTER — TBD',{fill:'var(--flag)',w:700,px:10,anchor:'middle',
+      rot:`rotate(-90 ${f(zx+zw/2,3)} ${f(zy+zh/2,3)})`});
+  o += txt(X(0),y0+g.kh+3.6,'depth axis exaggerated ×'+S+' for legibility · heights true',{px:10.5});
+  sv.innerHTML=o;
+}
+
+/* ---- 06 rear / mounting zone ---- */
+function drawMount(g){
+  const sv=document.getElementById('sv-mount');
+  const P=6, W=g.kw+P+11, H=g.kh+2*P;
+  fit(sv,W,H);
+  const x0=P, y0=P;
+  let o='';
+  o += el('rect',{x:x0,y:y0,width:g.kw,height:g.kh,fill:'var(--sunk)',
+      stroke:'var(--graphite-line)','stroke-width':SW(2)});
+  const zw=g.kw-4, zh=g.kh*.46, zx=x0+2, zy=y0+g.kh*.22;
+  let hatch='';
+  for(let i=-zh;i<zw;i+=1.7) hatch+=`M${f(zx+i,2)} ${f(zy+zh,2)}L${f(zx+i+zh,2)} ${f(zy,2)}`;
+  o += el('clipPath',{id:'cz'},el('rect',{x:zx,y:zy,width:zw,height:zh}));
+  o += el('path',{d:hatch,stroke:'var(--flag)','stroke-width':SW(1),opacity:.3,
+      'clip-path':'url(#cz)',fill:'none'});
+  o += el('rect',{x:zx,y:zy,width:zw,height:zh,fill:'none',stroke:'var(--flag)',
+      'stroke-width':SW(2.2),'stroke-dasharray':`${FS(8)} ${FS(6)}`});
+  o += txt(zx+zw/2,zy+zh/2-FS(9),'REVERSIBLE 3280',{sans:1,w:700,px:11.5,ls:1.2,anchor:'middle',fill:'var(--flag)'});
+  o += txt(zx+zw/2,zy+zh/2+FS(6),'MOUNTING ADAPTER',{sans:1,w:700,px:11.5,ls:1.2,anchor:'middle',fill:'var(--flag)'});
+  o += txt(zx+zw/2,zy+zh/2+FS(24),'DESIGN TBD',{px:11.5,anchor:'middle',fill:'var(--flag)'});
+  const fx=[x0+1,x0+g.kw/2,x0+g.kw-1], fy=[y0+1,y0+g.kh/2,y0+g.kh-1];
+  fx.forEach(a=>fy.forEach(b=>{ if(!(b>zy&&b<zy+zh&&a>zx&&a<zx+zw))
+    o+=el('circle',{cx:a,cy:b,r:.32,fill:'none',stroke:'var(--muted)','stroke-width':SW(1.2)}); }));
+  o += el('rect',{x:x0+g.kw-5.4,y:y0+g.kh-3.4,width:2.4,height:1.6,fill:'none',
+      stroke:'var(--muted)','stroke-width':SW(1.2)});
+  o += lead(x0+g.kw-4.2,y0+g.kh-2.6,x0+g.kw+1.6,y0+g.kh-2.6,'appliance inlet · one cord out');
+  o += lead(x0+g.kw-1,y0+1,x0+g.kw+1.6,y0+1,'quarter-turn fasteners');
+  o += dimH(y0-2,x0,x0+g.kw,inch(g.kw));
+  o += txt(x0,y0+g.kh+3.6,'rear view · a flat back is the only requirement the adapter inherits',{px:11});
+  sv.innerHTML=o;
+}
+
+function drawSpecs(g){
+  const rows=[[inch(g.kw),'kiosk width'],[inch(g.kh),'kiosk height'],
+    [f(G.DEPTH)+'″','depth target'],['~'+g.wt+' lb','est. weight'],
+    [f(g.ctr,1)+'″','screen centre AFF'],[Math.round(100*g.kw/G.DOOR_W)+'%','of door width']];
+  document.getElementById('specs').innerHTML =
+    rows.map(r=>`<div class="spec"><span class="v">${r[0]}</span><span class="k">${r[1]}</span></div>`).join('');
+}
+
+let cur=24;
+function render(s){
+  cur=s;
+  const g=geo(s);
+  drawElev(g); drawFront(g); drawBtn(g); drawSide(g); drawMount(g); drawSpecs(g);
+  document.querySelectorAll('#seg button').forEach(b=>
+    b.setAttribute('aria-pressed', b.dataset.s==String(s)));
+  document.querySelectorAll('[data-size]').forEach(c=>
+    c.classList.toggle('on', c.dataset.size==String(s)));
+  document.getElementById('readout').innerHTML =
+    `<b>${inch(g.kw)} × ${inch(g.kh)} × ${f(G.DEPTH)}″</b> · ~${g.wt} lb · ${Math.round(100*g.kw/G.DOOR_W)}% of door width`;
+}
+document.getElementById('seg').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(b) render(+b.dataset.s);
+});
+render(24);
+let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>render(cur),150)});
+</script>

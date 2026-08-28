@@ -1,5 +1,13 @@
 # Assumed Dimensions — v0 (pre-measurement)
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`rev1-standalone-kiosk.md`](rev1-standalone-kiosk.md) and the
+> [interactive design study](rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> Don't build from it.
+
 > ## ⚠️ SUPERSEDED IN PART — see [`me1-findings.md`](me1-findings.md)
 > Site visit 2026-08-26 found the cabinet has **two doors (louvered outer +
 > perforated inner)**, not the open card-cage opening every drawing here assumes.

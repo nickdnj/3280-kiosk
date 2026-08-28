@@ -1,5 +1,13 @@
 # Buy-and-Modify vs. Fabricate — Door Enclosure
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`rev1-standalone-kiosk.md`](rev1-standalone-kiosk.md) and the
+> [interactive design study](rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> Don't build from it.
+
 > **Decision status: OPEN, gated on C1.** Both paths are live. The measurement
 > that picks between them is the same one that gates everything else — the
 > closing clearance behind the cabinet's front face (ME-1 §C).

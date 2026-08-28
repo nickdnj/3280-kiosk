@@ -1,5 +1,13 @@
 # Fabrication Package — Door Assembly (ME-4)
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`../rev1-standalone-kiosk.md`](../rev1-standalone-kiosk.md) and the
+> [interactive design study](../rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> Don't build from it.
+
 > ## ⚠ NOT FOR ORDER YET
 > Every dimension here derives from **assumed** numbers
 > ([`../dimensions-assumed.md`](../dimensions-assumed.md)). The cabinet has not

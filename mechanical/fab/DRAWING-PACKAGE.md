@@ -1,5 +1,13 @@
 # Drawing Package — Kiosk Door Assembly
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`../rev1-standalone-kiosk.md`](../rev1-standalone-kiosk.md) and the
+> [interactive design study](../rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> Don't build from it.
+
 ### An ask for the makers at CDL
 
 > **What this is:** a four-part sheet-metal assembly for an interactive exhibit

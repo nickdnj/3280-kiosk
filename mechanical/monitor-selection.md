@@ -1,5 +1,15 @@
 # Monitor Selection — Validated Against the Measured Cabinet
 
+> ## ⛔ SUPERSEDED FOR REV 1
+> The kiosk is no longer a replacement door integrated into the cabinet. It is a
+> **self-contained enclosure surface-mounted on the closed factory door** — see
+> [`rev1-standalone-kiosk.md`](rev1-standalone-kiosk.md) and the
+> [interactive design study](rev1-design-study.html).
+> This document describes the **Rev 2** concept and is kept for provenance.
+> **Two things here still stand:** the go/no-go criteria in §5 — the monitor must
+> power itself back on after a mains cut, and it must be matte — apply to Rev 1
+> unchanged. The **27″ recommendation does not**; Rev 1 calls 24″.
+
 **Recommendation: 27″ 16:9 IPS, 2560×1440, matte, run portrait.**
 24″ is now undersized. 32″ is viable but carries real risks.
 
