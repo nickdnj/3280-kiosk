@@ -13,13 +13,23 @@
   .art { display:block; }
   .instr { background:#fff; max-width:8.5in; margin:0 auto .25in; padding:.45in .5in;
             font:12pt/1.5 -apple-system,system-ui,sans-serif; page-break-after:always; }
+  .instr ol, .instr ul { margin:.05in 0; padding-left:.26in; }
   .instr h1 { font-size:19pt; margin:0 0 .12in; }
   .instr h2 { font-size:11pt; margin:.26in 0 .07in; text-transform:uppercase;
                letter-spacing:.09em; color:#555; }
   .instr li { margin-bottom:.09in; }
   .instr code { font-family:ui-monospace,monospace; background:#EEF1F2; padding:1px 4px; }
   .warn { border-left:3px solid #B03A1F; padding:.10in .18in; margin:.18in 0; background:#FBF4F2; }
-  @media print { html,body { background:#fff; } .page { margin:0; } }
+  @media print {
+    html,body { background:#fff; }
+    .page { margin:0; }
+    .instr { margin:0; padding:.34in .42in; font-size:10.2pt; line-height:1.38;
+              height:11.0in; box-sizing:border-box; overflow:hidden; }
+    .instr h1 { font-size:16pt; }
+    .instr h2 { margin:.17in 0 .05in; font-size:9.5pt; }
+    .instr li { margin-bottom:.05in; }
+    .warn { margin:.12in 0; padding:.08in .14in; }
+  }
 </style>
 <div class="instr">
 <h1>P1 Face Plate — 1:1 cardboard stencil</h1>
@@ -29,7 +39,7 @@ Finished size <b>15.370 &times; 28.690 inches</b>.</p>
 <ol>
 <li>Print this file on US Letter. In the print dialog set <b>Scale: 100%</b>
     (not &ldquo;Fit to page&rdquo;) and <b>Margins: None</b>.</li>
-<li><b>Check the red bar on sheet 1 with a ruler. It must measure exactly 5.000 inches.</b>
+<li><b>Check the red bar on sheet 1 with a ruler. It must measure exactly 4.000 inches.</b>
     If it doesn&rsquo;t, the printer scaled the page — fix the setting and print again.
     Everything downstream depends on this.</li>
 </ol>

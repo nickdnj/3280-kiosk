@@ -77,11 +77,15 @@ by designing around not knowing it.
 
 ## Cardboard mock-up — print it 1:1 first
 
-**[`stencil-letter.html`](stencil-letter.html)** tiles this part across **six US
-Letter pages at full size**. Print it, tape the sheets on the registration marks,
-cut the voids, and trace the shape onto cardboard.
+**[`P1-face-plate-stencil.pdf`](P1-face-plate-stencil.pdf)** tiles this part
+across **six US Letter pages at full size**. Print it, tape the sheets on the
+registration marks, cut the voids, and trace the shape onto cardboard.
 
-1. Print at **Scale 100%** — *not* "Fit to page" — and **Margins: None**.
+**Print the PDF, not the HTML.** The page box is embedded at exactly 8.5 × 11,
+so "Actual size" prints true 1:1. Printing HTML from a browser is where scale
+errors come from. [`stencil-letter.html`](stencil-letter.html) is the source.
+
+1. Print at **Actual size / 100%** — *not* "Fit to page" — and **Margins: None**.
 2. **Measure the red bar on sheet 1. It must be exactly 4.000 inches.** If it
    isn't, the printer scaled the page; nothing downstream will line up.
 3. Tape on the registration crosses in the shaded overlap bands (0.43″

@@ -1,7 +1,13 @@
 # Rev 1 manufacturing drawing package
 
 Twelve B-size (17 × 11) sheets, third-angle projection, ANSI-style title blocks.
-**[Open `index.html`](index.html)** to page through them.
+
+**[`3280-kiosk-rev1-drawing-package.pdf`](3280-kiosk-rev1-drawing-package.pdf)** —
+the whole package as one file. This is what you send to a shop. Fonts are
+embedded, so it looks the same everywhere.
+
+**[`index.html`](index.html)** — the same sheets in the browser, with a print
+stylesheet (one sheet per page, Letter landscape, *Fit to page*).
 
 | Sheet | | |
 |---|---|---|
@@ -23,7 +29,12 @@ Twelve B-size (17 × 11) sheets, third-angle projection, ANSI-style title blocks
 ```bash
 python3 make-package.py     # writes 000.svg … 700.svg
 python3 check-sheets.py     # nothing outside the printable area
+../make-pdfs.sh             # rebuild the PDF deliverables
 ```
+
+The SVGs are the reviewable artifact — they diff cleanly in git, so a revision
+shows up as changed geometry rather than a changed blob. **The PDF is the
+handoff.** Rebuild it when you issue a revision, not on every commit.
 
 All geometry lives in [`_geom.py`](_geom.py), which mirrors
 [`../fab-rev1/make-cutfiles.py`](../fab-rev1/make-cutfiles.py). Change a
