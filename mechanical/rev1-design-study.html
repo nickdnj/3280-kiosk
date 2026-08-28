@@ -503,9 +503,9 @@ footer .mono{font-size:12px}
       <tbody>
         <tr>
           <td class="rowlbl">Face plate<br>+ button plate</td>
-          <td>3 mm ACM, <b>matte black both sides</b>, cut from our drawing file</td>
+          <td>3 mm ACM, <b>matte black both sides</b>. Files ready: <span class="mono">P1-face-plate.dxf</span>, <span class="mono">P2-button-plate.dxf</span></td>
           <td><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a></td>
-          <td class="n">quote on upload</td>
+          <td class="n">quote on upload<br>P1 ×1 · P2 ×2</td>
         </tr>
         <tr>
           <td class="rowlbl">Box — sides, top,<br>bottom, rear panel</td>
@@ -536,10 +536,21 @@ footer .mono{font-size:12px}
   </div>
   <div class="col">
     <p class="mono" style="font-size:12.5px;color:var(--muted);margin-top:14px">Costs are estimates — confirm at the link before you budget. Every link here was checked; Curbell and OnlineMetals block automated requests, so they load in a browser but not from a script.</p>
-    <div class="callout warn">
-      <span class="lbl">You can't order the face plate today</span>
-      <p><b>The cut file doesn't exist yet.</b> Every dimension it needs is settled — face plate 15.37 × 28.69, screen window 11.67 × 20.74, three 30.5 mm holes at 3.50″ centres — but nobody has turned those into a DXF. That is the next piece of work, and it is the thing standing between this page and a real parcel arriving at InfoAge.</p>
+    <div class="callout rec">
+      <span class="lbl">The cut files exist — you can order today</span>
+      <p><b><span class="mono">mechanical/fab-rev1/</span> in the repo holds both DXFs</b>, generated from the geometry on this page and checked for closed contours, feature spacing against 3 mm material, and minimum hole size.</p>
+      <p><b>P1 face plate</b> — 15.37 × 28.69″, screen window 12.17 × 21.24, button aperture 11.87 × 3.00, twelve ⌀0.1875 mounting holes.<br>
+      <b>P2 button plate</b> — 13.37 × 4.50″, three ⌀30.5 mm at 3.50″ centres, six ⌀0.1875 mounting holes.</p>
+      <p>Upload both, choose <b>ACM → 0.118″ (3 mm) → matte black</b>, quantity P1 × 1 and <b>P2 × 2</b> (the spare is the wear part). No secondary services — ACM can't be bent, tapped or countersunk, and none of it is needed.</p>
+      <p><b>Check one number before you press order:</b> ⌀30.5 mm is the cutout for a “30 mm” anti-vandal switch, and most want 30.2–30.5 mm. Cutting the larger size is the safe direction, but confirm it against the datasheet of the switch you actually buy — it's the only dimension here tied to a part nobody owns yet.</p>
     </div>
+    <div class="callout">
+      <span class="lbl">Why the face plate is safe to cut before the monitor arrives</span>
+      <p>The screen window is <b>0.25″ oversize per side, on purpose</b>. “24 inch” covers 23.6″–24.0″ diagonals and this window clears every one of them without cropping a pixel — and the margin falls on the monitor's own black bezel, so behind a black face plate nothing shows.</p>
+      <p>The monitor is aligned <i>to the window</i>, not the other way round: it hangs on a VESA plate on an internal frame, so whatever offset a particular model has between its panel and its VESA pattern gets taken up there.</p>
+    </div>
+    <h3>Labels</h3>
+    <p>There's no text in the cut files. BACK / HOME / NEXT is a separate step, and the native answer for ACM is <b>cut vinyl from a sign shop</b> — this is sign material, and it's how every road sign in the country is lettered. Durable, cheap, replaceable. Ask SendCutSend whether they'll engrave ACM first; if they will, that's better still.</p>
     <h3>Serviceability</h3>
     <p>The rule: <b>nothing that fails routinely should require touching the face plate or the mount.</b> The kiosk should never have to come off the 3280 for service.</p>
   </div>

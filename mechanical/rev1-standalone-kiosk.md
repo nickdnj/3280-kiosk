@@ -404,13 +404,25 @@ dark line on white, so order it **black both sides**.
 Costs are estimates — confirm at the link. Curbell and OnlineMetals block
 automated requests; they load fine in a browser.
 
-### ⚠ You can't order the face plate today
+### ✅ The cut files exist — [`../fab-rev1/`](../fab-rev1/)
 
-**The cut file doesn't exist yet.** Every dimension it needs is settled — face
-plate 15.37 × 28.69, screen window 11.67 × 20.74, three 30.5 mm holes at 3.50″
-centres — but nobody has turned those into a DXF. **That is the next piece of
-work**, and it is what stands between this document and a parcel arriving at
-InfoAge.
+| | Part | Size | Features |
+|---|---|---|---|
+| **P1** | `P1-face-plate.dxf` | 15.37 × 28.69″ | window 12.17 × 21.24, button aperture 11.87 × 3.00, 12 × ⌀0.1875 |
+| **P2** | `P2-button-plate.dxf` | 13.37 × 4.50″ | 3 × ⌀30.5 mm at 3.50″ cc, 6 × ⌀0.1875 |
+
+Upload both, pick **ACM → 0.118″ (3 mm) → matte black**, quantity **P1 × 1,
+P2 × 2**. No secondary services. Full ordering notes in
+[`../fab-rev1/README.md`](../fab-rev1/README.md).
+
+**The window is 0.25″ oversize per side on purpose** — "24 inch" covers
+23.6″–24.0″ diagonals and this clears all of them without cropping, with the
+margin falling on the monitor's own black bezel. The monitor is aligned *to the
+window* on an internal VESA frame, which is why P1 is safe to cut before the
+monitor arrives.
+
+**⚠ Confirm ⌀30.5 mm against your switch's datasheet before ordering** — it's the
+only dimension here tied to a part nobody owns yet.
 
 ## 8. Serviceability
 

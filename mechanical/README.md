@@ -70,10 +70,17 @@ nothing in Rev 1 should be built from it.
   [`enclosure-buy-vs-build.md`](enclosure-buy-vs-build.md).
 - [`drawings/`](drawings/) sheets 01–06, and [`drawings/superseded/`](drawings/superseded/).
 
+## Cut files — ready to order
+
+**[`fab-rev1/`](fab-rev1/)** holds the two ACM parts as DXF, generated and
+self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py): **P1 face plate**
+15.37 × 28.69″ and **P2 button plate** 13.37 × 4.50″. Order notes and the one
+number to verify first are in [`fab-rev1/README.md`](fab-rev1/README.md).
+
 ## Still to produce
 
-- `cad/` — enclosure, internal frame and button-plate models (source + STEP).
-- Cut files for the chosen construction route, once a monitor is in hand.
+- `cad/` — enclosure and internal frame models (source + STEP).
+
 - `mounting.md` — the reversible adapter, after the kiosk bench-tests clean.
 
 ## The sequence

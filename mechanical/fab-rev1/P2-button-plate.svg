@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="398" height="211" viewBox="0 0 16.570 8.800">
+<rect width="100%" height="100%" fill="#F7F8F9"/>
+<g transform="translate(1.600,1.600) scale(1,-1) translate(0,-4.500)">
+<rect x="0.0000" y="0.0000" width="13.3700" height="4.5000" rx="0.25" fill="none" stroke="#0E5A6B" stroke-width="0.03"/>
+<circle cx="3.1850" cy="2.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="6.6850" cy="2.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="10.1850" cy="2.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.3750" cy="0.3750" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="6.6850" cy="0.3750" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="12.9950" cy="0.3750" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.3750" cy="4.1250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="6.6850" cy="4.1250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="12.9950" cy="4.1250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+</g>
+<text x="1.600" y="8.050" font-family="monospace" font-size="0.30" fill="#171A1C">P2 BUTTON PLATE  13.37" x 4.5"  x 3mm ACM</text>
+<text x="1.600" y="8.550" font-family="monospace" font-size="0.22" fill="#697077">3 x 1.2008 dia (30.5mm) at 3.5" cc  |  6 x 0.1875 dia mount</text>
+</svg>
