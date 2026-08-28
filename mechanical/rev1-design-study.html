@@ -69,7 +69,17 @@ header p{color:var(--muted);font-size:19px;margin:14px 0 0;max-width:62ch}
 .seg button:hover{background:var(--sunk);color:var(--ink)}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--card)}
 .seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.slider{display:flex;align-items:center;gap:9px}
+.slider input[type=range]{width:132px;accent-color:var(--accent);cursor:pointer}
+.slider input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.slider output{font-family:"Space Mono",monospace;font-size:12.5px;font-weight:700;
+  color:var(--ink);min-width:66px;font-variant-numeric:tabular-nums}
+.pill{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  padding:5px 9px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.ok{color:var(--ok);border-color:var(--ok)}
+.pill.bad{color:var(--flag);border-color:var(--flag);background:var(--flag-soft)}
 .readout{margin-left:auto;font-family:"Space Mono",monospace;font-size:12.5px;color:var(--muted)}
+@media (max-width:1080px){.readout{margin-left:0;width:100%}}
 .readout b{color:var(--ink);font-weight:700}
 
 section{padding:52px 0;border-bottom:1px solid var(--hair)}
@@ -160,7 +170,7 @@ footer .mono{font-size:12px}
 <header>
   <div class="eyebrow"><span class="tag">Concept</span><span>Concurrent 3280 Exhibit Kiosk</span><span>Rev 1</span><span>2026-08-28</span></div>
   <h1>The kiosk is its own product</h1>
-  <p>A self-contained enclosure — display, Pi, power, three buttons — built and bench-tested on a table, then hung on the front of the 3280's closed factory door. The machine is not opened, not drilled, not modified. The mount is a separate subsystem, designed later.</p>
+  <p>A self-contained enclosure — display, Pi, power, three buttons — built and bench-tested on a table, then hung on the front of the 3280's closed factory door. The machine is not opened, not drilled, not modified. <b>The buttons are the datum:</b> ADA reach sets their height, and the height sets where everything else goes.</p>
 </header>
 </div>
 
@@ -173,6 +183,13 @@ footer .mono{font-size:12px}
       <button data-s="27" aria-pressed="false">27″</button>
       <button data-s="32" aria-pressed="false">32″</button>
     </div>
+    <span class="lbl">Button height</span>
+    <div class="slider">
+      <input id="btnh" type="range" min="30" max="48" step="1" value="38"
+             aria-label="Button centreline height above finished floor, inches">
+      <output id="btnout" for="btnh">38″ AFF</output>
+    </div>
+    <span class="pill" id="status"></span>
     <span class="readout" id="readout"></span>
   </div>
 </div>
@@ -184,16 +201,84 @@ footer .mono{font-size:12px}
   <p class="sub">The kiosk on the closed factory door, drawn to scale against the 71″ cabinet with a 5′8″ figure for reference. Switch sizes above — this is the view that decides the question.</p>
   <div class="plate tall">
     <svg id="sv-elev" viewBox="-27 -6 74 91" role="img" aria-label="Front elevation of the Concurrent 3280 cabinet with the kiosk overlaid on its door"></svg>
-    <div class="cap">Sheet R1-01 · front elevation · cabinet 24 × 71 OEM, door 24.3 wide derived · buttons at 40″ AFF</div>
+    <div class="cap">Sheet R1-01 · front elevation · cabinet 24 × 71 OEM, door 24.3 wide derived · buttons are the placement datum</div>
   </div>
   <div class="col">
     <p style="margin-top:26px">The 3280 stays visually dominant. That is the whole design constraint of this view: a visitor should read a historic minicomputer with an interpretation device added to it, not a monitor wearing a cabinet.</p>
-    <p><b>Watch what happens at 32″.</b> Its top clears the door line, and it takes up half the machine's face. The geometry technically resolves if the buttons drop to about 38″ — the proportion does not.</p>
+    <p><b>The button line is the datum.</b> The kiosk is placed from the bottom up: the buttons go where a hand can reach them, and the screen goes wherever that leaves it. Section 02 sets that height from the ADA reach range; the shaded band on the drawing is the legal 15″–48″ window.</p>
+    <p>Push the button slider up and the 32″ runs out of door before the others do — that constraint, not screen area, is what separates the sizes.</p>
   </div>
 </section>
 
 <section>
-  <h2><span class="num">02</span>Kiosk, standalone</h2>
+  <h2><span class="num">02</span>Button height drives placement</h2>
+  <p class="sub">The buttons are the datum. Where a visitor's hand goes decides where the kiosk sits, and everything above it follows. Move the slider — the elevation, the fit check and the table all follow the button line.</p>
+  <div class="col">
+    <h3 style="margin-top:0">The rule</h3>
+    <p><b>ADA 2010 §308 puts operable parts between 15″ and 48″ above the finished floor.</b> Unobstructed forward reach and unobstructed side reach give the same 48″ maximum, so the approach doesn't change the number. The 3280's face is flat and floor-standing with no knee clearance underneath, so a visitor in a wheelchair makes a parallel approach and reaches sideways — still 48″.</p>
+    <div class="callout">
+      <span class="lbl">48″ is a ceiling, not a target</span>
+      <p>Designing at the maximum satisfies the letter of the standard and serves tall standing adults. It fails seated visitors and children, who are exactly the people the reach range exists for.</p>
+    </div>
+  </div>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Provision</th><th>Requirement</th><th>Where it lands on this design</th></tr></thead>
+      <tbody>
+        <tr><td class="rowlbl">§308.2.1 / §308.3.1<br>unobstructed reach</td><td class="n">15″ min · 48″ max AFF</td><td>Sets the legal window for the button centreline. Binding at the top for the 32″.</td></tr>
+        <tr><td class="rowlbl">§309.4<br>operable parts</td><td class="n">one hand · no tight grasping,<br>pinching or twisting · ≤ 5 lbf</td><td>A 30 mm anti-vandal momentary switch is typically well under 1 lbf. <b>Check the actuation force on the spec sheet</b> — some heavy industrial switches are stiff.</td></tr>
+        <tr><td class="rowlbl">§305<br>clear floor space</td><td class="n">30″ × 48″ at the control</td><td><b>A museum floor requirement, not an enclosure one.</b> Confirm the approach to the cabinet is kept clear when the exhibit is sited.</td></tr>
+        <tr><td class="rowlbl">§307.2<br>protruding objects</td><td class="n">leading edge above 27″<br>→ 4″ max projection</td><td class="fail">Constrains the mount. See below.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <h3>Rev 1 target — 38″ AFF</h3>
+    <ul>
+      <li><b>10″ below the ADA maximum.</b> That margin absorbs mount tolerance, floor variation and the fact that nobody has built this yet.</li>
+      <li><b>At or just above elbow height for a shorter standing adult</b>, and a natural reach-down for a taller one.</li>
+      <li><b>Comfortably inside a seated visitor's reach</b>, and reachable by a child of about eight.</li>
+    </ul>
+    <div class="callout rec">
+      <span class="lbl">It improves the screen too</span>
+      <p>Buttons at 38″ put the 24″ screen centre at <b>51.5″</b>. Adult seated eye height is roughly 47–51″, so the screen is very nearly centred on a seated visitor, while a standing adult looks down about 11° — normal reading posture. <b>The ADA-driven placement is better for everyone than the 40″ this study first drew.</b></p>
+    </div>
+    <h3>What it costs the mount</h3>
+    <p>With the buttons at 38″ the kiosk's bottom edge sits at <b>34.75″ AFF</b> — above the 27″ threshold, so §307.2 caps the projection into a circulation path at <b>4″</b>. The enclosure is 3.5″ deep. <b>That leaves half an inch for the mounting adapter.</b></p>
+    <div class="callout warn">
+      <span class="lbl">Worth asking, not worth assuming</span>
+      <p>§307.2 exists to stop someone with a cane walking into an object their sweep misses. The 3280 is floor-standing and cane-detectable, and a visitor is stopped by the cabinet before the kiosk is in reach — so the hazard the rule targets may not apply here. <b>That is the museum's accessibility coordinator's call, not ours.</b> Design the adapter to 4″ total, and ask.</p>
+    </div>
+    <h3>Placement math</h3>
+    <p>The button centreline sits 3.25″ above the bottom of the enclosure, and the door face runs from about 3″ to 71.15″ AFF. So for a button height <span class="mono">B</span> and a kiosk height <span class="mono">KH</span>:</p>
+    <div class="callout">
+      <p class="mono" style="font-size:14px"><b>kiosk bottom = B − 3.25″</b><br><b>kiosk top = B + KH − 3.25″ ≤ 71.15″</b><br>→ <b>B ≤ 74.40″ − KH</b></p>
+    </div>
+  </div>
+  <h3>The window each display size leaves you</h3>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>&nbsp;</th><th data-size="22">22″</th><th data-size="24">24″</th><th data-size="27">27″</th><th data-size="32">32″</th></tr></thead>
+      <tbody>
+        <tr><td class="rowlbl">Kiosk height</td><td class="n" data-size="22">26.69″</td><td class="n" data-size="24">28.69″</td><td class="n" data-size="27">31.48″</td><td class="n" data-size="32">35.40″</td></tr>
+        <tr><td class="rowlbl">Highest button the geometry allows</td><td class="n" data-size="22">47.7″</td><td class="n" data-size="24">45.7″</td><td class="n" data-size="27">42.9″</td><td class="n" data-size="32">39.0″</td></tr>
+        <tr><td class="rowlbl">Legal button window</td><td class="n" data-size="22">15 – 47.7″</td><td class="n" data-size="24">15 – 45.7″</td><td class="n" data-size="27">15 – 42.9″</td><td class="n" data-size="32">15 – 39.0″</td></tr>
+        <tr><td class="rowlbl">Of the 34–44″ comfort band</td><td class="n" data-size="22">all of it</td><td class="n" data-size="24">all of it</td><td class="n" data-size="27">34 – 42.9″</td><td class="n fail" data-size="32">34 – 39.0″</td></tr>
+        <tr><td class="rowlbl">Headroom below the door top</td><td class="n" data-size="22" data-row="head"></td><td class="n" data-size="24" data-row="head"></td><td class="n" data-size="27" data-row="head"></td><td class="n" data-size="32" data-row="head"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col">
+    <div class="callout warn">
+      <span class="lbl">Correction to the earlier study</span>
+      <p>With the buttons at a properly-chosen 38″ rather than the 40″ first drawn, <b>the 32″ fits</b> — its top lands at 70.15″, an inch under the door. <b>It is not a geometric failure and this study should not have called it one.</b></p>
+      <p>What the 32″ actually costs is <i>freedom</i>. It clips half the comfort band away, and the remaining inch of headroom is inside normal build tolerance. The case against it now rests on weight and proportion alone — §08.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Kiosk, standalone</h2>
   <p class="sub">The enclosure by itself. Everything in this drawing is buildable and testable before the 3280 is involved at all.</p>
   <div class="two">
     <div class="plate">
@@ -216,7 +301,7 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">03</span>Side section</h2>
+  <h2><span class="num">04</span>Side section</h2>
   <p class="sub">Depth is the number that decides how much the kiosk stands off the machine. Every eighth of an inch here is visible.</p>
   <div class="plate tall">
     <svg id="sv-side" viewBox="0 0 100 100" role="img" aria-label="Side section through the kiosk showing the internal component stack"></svg>
@@ -256,7 +341,7 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">04</span>Monitor comparison</h2>
+  <h2><span class="num">05</span>Monitor comparison</h2>
   <p class="sub">Nominal sizes are marketing. These use actual diagonals — a “24-inch” panel is 23.8″. Bezel allowance +0.35″ on three sides and +0.85″ chin; face reveal 1.25″ all round; button band 6.00″ overall.</p>
   <div class="tblwrap">
     <table id="cmp">
@@ -269,8 +354,10 @@ footer .mono{font-size:12px}
         <tr><td class="rowlbl">Finished kiosk W × H</td><td class="n" data-size="22">14.24 × 26.69</td><td class="n" data-size="24">15.37 × 28.69</td><td class="n" data-size="27">16.94 × 31.48</td><td class="n" data-size="32">19.14 × 35.40</td></tr>
         <tr><td class="rowlbl">Share of 24.3″ door width</td><td class="n" data-size="22">59%</td><td class="n" data-size="24">63%</td><td class="n" data-size="27">70%</td><td class="n" data-size="32">79%</td></tr>
         <tr><td class="rowlbl">Share of 71″ cabinet height</td><td class="n" data-size="22">38%</td><td class="n" data-size="24">40%</td><td class="n" data-size="27">44%</td><td class="n" data-size="32">50%</td></tr>
-        <tr><td class="rowlbl">Kiosk top, buttons at 40″ AFF</td><td class="n" data-size="22">63.4″</td><td class="n" data-size="24">65.4″</td><td class="n" data-size="27">68.2″</td><td class="n fail" data-size="32">72.2″ over</td></tr>
-        <tr><td class="rowlbl">Screen centre height</td><td class="n" data-size="22">52.5″ AFF</td><td class="n" data-size="24">53.5″ AFF</td><td class="n" data-size="27">54.9″ AFF</td><td class="n" data-size="32">56.8″ AFF</td></tr>
+        <tr><td class="rowlbl">Kiosk top <span class="mono" style="font-size:11px">(follows the button datum)</span></td><td class="n" data-size="22" data-row="top"></td><td class="n" data-size="24" data-row="top"></td><td class="n" data-size="27" data-row="top"></td><td class="n" data-size="32" data-row="top"></td></tr>
+        <tr><td class="rowlbl">Headroom below the 71.15″ door top</td><td class="n" data-size="22" data-row="head"></td><td class="n" data-size="24" data-row="head"></td><td class="n" data-size="27" data-row="head"></td><td class="n" data-size="32" data-row="head"></td></tr>
+        <tr><td class="rowlbl">Screen centre height</td><td class="n" data-size="22" data-row="ctr"></td><td class="n" data-size="24" data-row="ctr"></td><td class="n" data-size="27" data-row="ctr"></td><td class="n" data-size="32" data-row="ctr"></td></tr>
+        <tr><td class="rowlbl">Highest button the geometry allows</td><td class="n" data-size="22">47.7″</td><td class="n" data-size="24">45.7″</td><td class="n" data-size="27">42.9″</td><td class="n fail" data-size="32">39.0″</td></tr>
         <tr><td class="rowlbl">Estimated total weight</td><td class="n" data-size="22">~20 lb</td><td class="n" data-size="24">~23 lb</td><td class="n" data-size="27">~27 lb</td><td class="n" data-size="32">~34 lb</td></tr>
         <tr><td class="rowlbl">Minimum enclosure depth</td><td class="n" data-size="22">2.7″</td><td class="n" data-size="24">2.9″</td><td class="n" data-size="27">3.1″</td><td class="n" data-size="32">3.4″</td></tr>
         <tr><td class="rowlbl">Density, 1080 px across</td><td class="n" data-size="22">102 ppi</td><td class="n" data-size="24">93 ppi</td><td class="n" data-size="27">82 ppi</td><td class="n" data-size="32">70 ppi</td></tr>
@@ -286,7 +373,7 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">05</span>Construction</h2>
+  <h2><span class="num">06</span>Construction</h2>
   <p class="sub">Three routes a museum volunteer crew could actually execute. The differentiator is not strength or cost — it's which one survives contact with a finish.</p>
   <div class="three">
     <div class="opt">
@@ -353,7 +440,7 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">06</span>Attachment interface</h2>
+  <h2><span class="num">07</span>Attachment interface</h2>
   <p class="sub">Deliberately not designed. The enclosure's job here is to have a flat back and a known weight — that is enough for an adapter to be designed against later, and designing it now would be guessing.</p>
   <div class="plate tall">
     <svg id="sv-mount" viewBox="0 0 100 100" role="img" aria-label="Rear view showing the blank mounting interface zone"></svg>
@@ -375,17 +462,18 @@ footer .mono{font-size:12px}
 </section>
 
 <section>
-  <h2><span class="num">07</span>Recommendation</h2>
+  <h2><span class="num">08</span>Recommendation</h2>
   <div class="col">
     <div class="callout rec">
       <span class="lbl">Rev 1</span>
       <p style="font-size:20px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35">24″-class display, 23.8″ actual. Finished kiosk 15-3/8″ W × 28-11/16″ H × 3-1/2″ D, about 23 lb.</p>
+      <p class="mono" style="font-size:13.5px;margin-bottom:0">Buttons 38″ AFF · kiosk bottom 34.75″ · kiosk top 63.44″ · screen centre 51.5″ · 7.71″ headroom</p>
     </div>
     <p><b>Proportion is the deciding argument.</b> At 15.4″ wide the kiosk is 63% of the door — clearly an added object, clearly not trying to be the machine. At 70% and 79% the 27″ and 32″ start to read as a monitor wearing a cabinet, which is precisely the impression a museum exhibit should not give.</p>
     <p><b>Weight is the second argument, and it may be the more important one</b> — see section 06. The mount has to carry this off a hollow door without a single fastener into the artifact.</p>
     <p><b>Availability closes it.</b> 24″ 1080p IPS is the highest-volume monitor ever made. It is the most likely thing in the warehouse, the cheapest thing to buy, and the easiest thing for a docent to replace in 2033 without calling anyone.</p>
     <h3>If a 27″ falls out of the salvage pile</h3>
-    <p>Take it. It isn't a bad answer — it's a <i>slightly worse</i> answer, and the enclosure is parametric enough that switching costs one face plate. Budget the extra 4 lb into the mount. <b>22″ is the fallback</b> if the mount turns out harder than expected; 20 lb is genuinely easy to hang. <b>32″ is out</b> — height failure at a comfortable button position, the weight, and the VA-panel risk, since visitors approach an exhibit from the side and a VA panel at 45° looks bad in exactly that situation.</p>
+    <p>Take it. It isn't a bad answer — it's a <i>slightly worse</i> answer, and the enclosure is parametric enough that switching costs one face plate. Budget the extra 4 lb into the mount. <b>22″ is the fallback</b> if the mount turns out harder than expected; 20 lb is genuinely easy to hang. <b>32″ is out — but not for the reason this study first gave.</b> With the buttons properly placed at 38″ it fits the door with an inch to spare (§02). It goes because of the weight, the proportion, and the VA-panel risk: visitors approach an exhibit from the side, and a VA panel at 45° looks bad in exactly that situation. It also leaves an inch of headroom against build tolerance and clips half the comfortable button band away.</p>
     <div class="callout warn">
       <span class="lbl">Two go/no-go criteria on any candidate monitor</span>
       <p><b>1 · It must power itself back on after a mains cut.</b> The exhibit runs on an AC timer. Many monitors return to standby and need a button press — that's a black screen every morning until a docent notices. Test before committing: switched strip, kill power, restore, confirm it comes back with no input.</p>
@@ -424,21 +512,27 @@ const G = {
   CAB_W:24, CAB_H:71, BASE:3.125,
   DOOR_W:24.30, DOOR_TOP:71.15, DOOR_BOT:2.975,
   SIDE:1.25, TOP:1.25, GAP:0.75, BAND:4.00, BOT:1.25,
-  BTN_AFF:40, BTN_CC:3.50, BTN_D:30/25.4,
+  BTN_AFF:38, BTN_CC:3.50, BTN_D:30/25.4,
+  ADA_LO:15, ADA_HI:48,                 // 2010 ADA §308 unobstructed reach range
   DEPTH:3.5, FACE:0.50, CLR:0.10, REAR:0.50
 };
+// button centreline sits this far above the bottom of the enclosure
+const BTN_RISE = G.BOT + G.BAND/2;
 
-function geo(s){
+function geo(s,B){
+  B = (B===undefined) ? G.BTN_AFF : B;
   const d = SIZES[s].diag;
   const aw = d*16/K, ah = d*9/K;            // landscape active
   const pw = ah + 1.20, ph = aw + 0.70;      // portrait outline (chin+bezel)
   const paw = ah, pah = aw;                  // portrait active
   const kw = pw + 2*G.SIDE;
   const kh = ph + G.TOP + G.GAP + G.BAND + G.BOT;
-  const bot = G.BTN_AFF - (G.BOT + G.BAND/2);
-  return {s, diag:d, pw, ph, paw, pah, kw, kh, bot, top:bot+kh,
+  const bot = B - BTN_RISE;
+  return {s, diag:d, B, pw, ph, paw, pah, kw, kh, bot, top:bot+kh,
           monBot: bot + G.BOT + G.BAND + G.GAP,
           ctr: bot + G.BOT + G.BAND + G.GAP + ph/2,
+          bMax: G.DOOR_TOP - kh + BTN_RISE,        // highest button the door allows
+          head: G.DOOR_TOP - (bot+kh),             // headroom under the door top
           thick: SIZES[s].thick, wt: SIZES[s].wt};
 }
 
@@ -516,9 +610,9 @@ function drawElev(g){
     + el('rect',{x:px+1.5,y:Y(37),width:5,height:37,rx:2}));
   o += txt(px,Y(0)+FS(15),'5′ 8″ visitor',{anchor:'middle',px:11.5});
   // eye level
-  o += el('path',{d:`M${px} ${Y(63)}L${X(28)} ${Y(63)}`,stroke:'var(--muted)','stroke-width':SW(1),
+  o += el('path',{d:`M${X(-26)} ${Y(63)}L${X(-1.2)} ${Y(63)}`,stroke:'var(--muted)','stroke-width':SW(1),
         'stroke-dasharray':`${FS(7)} ${FS(6)}`,fill:'none'});
-  o += txt(X(28)+FS(5),Y(63),'eye 63″',{mid:1,px:11});
+  o += txt(X(-26),Y(63)-FS(4),'standing eye 63″',{px:10.5});
   // cabinet
   o += el('rect',{x:X(1.2),y:Y(G.BASE),width:21.6,height:G.BASE,fill:'var(--graphite)',opacity:.45});
   o += el('rect',{x:X(0),y:Y(G.CAB_H),width:G.CAB_W,height:G.CAB_H-G.BASE,
@@ -537,25 +631,36 @@ function drawElev(g){
   o += el('rect',{x:cxx-g.pw/2,y:Y(g.monBot+g.ph),width:g.pw,height:g.ph,fill:'var(--bezel)'});
   o += el('rect',{x:cxx-g.paw/2,y:Y(g.monBot+g.pah),width:g.paw,height:g.pah,fill:'var(--glass)'});
   for(let i=-1;i<=1;i++)
-    o += el('circle',{cx:cxx+i*G.BTN_CC,cy:Y(G.BTN_AFF),r:G.BTN_D/2,
+    o += el('circle',{cx:cxx+i*G.BTN_CC,cy:Y(g.B),r:G.BTN_D/2,
         fill:'var(--paper)',stroke:'var(--graphite-line)','stroke-width':SW(1.2)});
   // dimensions
   o += dimV(X(26.5),Y(G.CAB_H),Y(0),'71″ cabinet','r');
   o += dimV(X(31.5),Y(g.top),Y(g.bot),inch(g.kh)+' kiosk','r');
   o += dimH(Y(-5),X(0),X(G.CAB_W),'24″ cabinet',true);
   o += dimH(Y(-10),kx,kx+g.kw,inch(g.kw)+' kiosk',true);
-  o += lead(cxx+G.BTN_CC+G.BTN_D/2,Y(G.BTN_AFF),X(35),Y(G.BTN_AFF),'buttons 40″ AFF');
-  o += lead(cxx+g.paw/2,Y(g.ctr),X(35),Y(g.ctr),'screen ctr '+f(g.ctr,1)+'″');
+  o += lead(cxx+g.paw/2,Y(g.ctr),X(33),Y(g.ctr),'screen ctr '+f(g.ctr,1)+'″');
+  // reach limits, on the open left side of the sheet
+  [[G.ADA_HI,'ADA max 48″'],[G.ADA_LO,'ADA min 15″']].forEach(lim=>{
+    o += el('path',{d:`M${X(-26)} ${Y(lim[0])}L${X(-1.2)} ${Y(lim[0])}`,stroke:'var(--accent)',
+        'stroke-width':SW(1.1),'stroke-dasharray':`${FS(5)} ${FS(4)}`,fill:'none'});
+    o += txt(X(-26),Y(lim[0])-FS(4),lim[1],{px:10.5,w:700,fill:'var(--accent)'});
+  });
+  // the button datum — this is the line everything else is placed from
+  const okB = g.B<=G.ADA_HI && g.B>=G.ADA_LO && g.top<=G.DOOR_TOP;
+  const bc = okB ? 'var(--ok)' : 'var(--flag)';
+  o += el('path',{d:`M${X(-26)} ${Y(g.B)}L${cxx-g.kw/2} ${Y(g.B)}`,stroke:bc,
+      'stroke-width':SW(1.6),fill:'none'});
+  o += txt(X(-26),Y(g.B)+FS(12),'buttons '+f(g.B,0)+'″ AFF — datum',{px:11,w:700,fill:bc});
   // flag an overshoot past the top of the door
   if(g.top>G.DOOR_TOP){
-    o += el('path',{d:`M${X(-2)} ${Y(G.DOOR_TOP)}L${X(26)} ${Y(G.DOOR_TOP)}`,stroke:'var(--flag)',
+    o += el('path',{d:`M${X(-26)} ${Y(G.DOOR_TOP)}L${X(26)} ${Y(G.DOOR_TOP)}`,stroke:'var(--flag)',
         'stroke-width':SW(1.4),'stroke-dasharray':`${FS(6)} ${FS(4)}`,fill:'none'});
-    o += txt(X(-2.6),Y(G.DOOR_TOP)-FS(5),
+    o += txt(X(-26),Y(G.DOOR_TOP)-FS(5),
         'kiosk clears the door top by '+f(g.top-G.DOOR_TOP,1)+'″',
-        {fill:'var(--flag)',px:11,w:700,anchor:'end'});
+        {fill:'var(--flag)',px:11,w:700});
   }
-  o += txt(X(-26),Y(69),'CONCURRENT 3280',{sans:1,w:700,px:13,ls:1.6,fill:'var(--muted)'});
-  o += txt(X(-26),Y(66.4),'unmodified · door closed',{px:11});
+  o += txt(X(-26),Y(67.8),'CONCURRENT 3280',{sans:1,w:700,px:13,ls:1.6,fill:'var(--muted)'});
+  o += txt(X(-26),Y(65.4),'unmodified · door closed',{px:11});
   sv.innerHTML=o;
 }
 
@@ -612,7 +717,8 @@ function drawBtn(g){
   o += dimH(y0+ph+2.0,cx-G.BTN_CC-G.BTN_D/2,cx+G.BTN_CC+G.BTN_D/2,'7.18″ span',true);
   o += dimV(x0-1.7,y0,y0+ph,'4.00″','l');
   o += lead(cx+G.BTN_CC,cy-G.BTN_D/2,x0+pw-.3,y0-.7,'ø 30 mm · 30.5 mm hole','end');
-  o += txt(x0,y0+ph+P+1.4,'fasteners captured from behind — nothing on the face a visitor can turn',{px:10.5});
+  o += txt(x0,y0+ph+P+1.4,'centreline '+f(g.B,0)+'″ AFF · ADA §308 reach range 15″–48″',{px:10.5});
+  o += txt(x0,y0+ph+P+2.9,'fasteners captured from behind — nothing on the face a visitor can turn',{px:10.5});
   sv.innerHTML=o;
 }
 
@@ -700,15 +806,18 @@ function drawMount(g){
 function drawSpecs(g){
   const rows=[[inch(g.kw),'kiosk width'],[inch(g.kh),'kiosk height'],
     [f(G.DEPTH)+'″','depth target'],['~'+g.wt+' lb','est. weight'],
-    [f(g.ctr,1)+'″','screen centre AFF'],[Math.round(100*g.kw/G.DOOR_W)+'%','of door width']];
+    [f(g.bot,1)+'″','kiosk bottom AFF'],[f(g.ctr,1)+'″','screen centre AFF'],
+    [f(g.head,1)+'″','headroom'],[Math.round(100*g.kw/G.DOOR_W)+'%','of door width']];
   document.getElementById('specs').innerHTML =
     rows.map(r=>`<div class="spec"><span class="v">${r[0]}</span><span class="k">${r[1]}</span></div>`).join('');
 }
 
-let cur=24;
-function render(s){
-  cur=s;
-  const g=geo(s);
+let cur=24, curB=G.BTN_AFF;
+function render(s,B){
+  cur = s===undefined ? cur : s;
+  curB = B===undefined ? curB : B;
+  s=cur; B=curB;
+  const g=geo(s,B);
   drawElev(g); drawFront(g); drawBtn(g); drawSide(g); drawMount(g); drawSpecs(g);
   document.querySelectorAll('#seg button').forEach(b=>
     b.setAttribute('aria-pressed', b.dataset.s==String(s)));
@@ -716,10 +825,29 @@ function render(s){
     c.classList.toggle('on', c.dataset.size==String(s)));
   document.getElementById('readout').innerHTML =
     `<b>${inch(g.kw)} × ${inch(g.kh)} × ${f(G.DEPTH)}″</b> · ~${g.wt} lb · ${Math.round(100*g.kw/G.DOOR_W)}% of door width`;
+
+  // live compliance + fit check driven by the button datum
+  document.getElementById('btnout').textContent = f(B,0)+'″ AFF';
+  const overADA = B>G.ADA_HI, overDoor = g.top>G.DOOR_TOP;
+  const pill = document.getElementById('status');
+  pill.className = 'pill ' + ((overADA||overDoor) ? 'bad' : 'ok');
+  pill.textContent = overADA ? 'over ADA max by '+f(B-G.ADA_HI,1)+'″'
+                   : overDoor ? 'over door top by '+f(g.top-G.DOOR_TOP,1)+'″'
+                   : 'ADA ok · '+f(g.head,1)+'″ headroom';
+
+  // the two placement-dependent table rows follow the datum
+  document.querySelectorAll('[data-row]').forEach(c=>{
+    const gg=geo(+c.dataset.size,B);
+    c.textContent = c.dataset.row==='top' ? f(gg.top,2)+'″'
+                  : c.dataset.row==='ctr' ? f(gg.ctr,1)+'″ AFF'
+                  : f(gg.head,2)+'″';
+    c.classList.toggle('fail', gg.top>G.DOOR_TOP);
+  });
 }
 document.getElementById('seg').addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(b) render(+b.dataset.s);
+  const b=e.target.closest('button'); if(b) render(+b.dataset.s,undefined);
 });
-render(24);
+document.getElementById('btnh').addEventListener('input',e=>render(undefined,+e.target.value));
+render(24,G.BTN_AFF);
 let rt; addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>render(cur),150)});
 </script>

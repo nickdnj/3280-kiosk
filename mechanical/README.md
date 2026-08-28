@@ -26,7 +26,7 @@ The 3280 is not opened, not drilled, not modified.
 - **The enclosure.** Face plate, structural box, removable rear panel, internal
   frame, VESA mount, ventilation, service access.
 - **The button plate.** BACK / HOME / NEXT on a separate removable plate,
-  centreline 40″ AFF, 30 mm anti-vandal switches at 3.50″ centres.
+  centreline 38″ AFF, 30 mm anti-vandal switches at 3.50″ centres.
 - **The mounting adapter.** *Deliberately deferred.* The enclosure carries a flat
   rear interface zone and a known weight; that's all the adapter needs to inherit.
   It must be **reversible, non-destructive, removable and visually discreet** —
