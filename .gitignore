@@ -11,3 +11,6 @@ build/
 .claude/agents/*.md
 .claude/skills/*/SKILL.md
 .claude/settings.local.json
+
+__pycache__/
+*.pyc
