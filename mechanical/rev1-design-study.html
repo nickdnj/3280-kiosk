@@ -302,17 +302,21 @@ footer .mono{font-size:12px}
       <div class="cap">Sheet R1-02 · kiosk front elevation</div>
     </div>
     <div class="plate">
-      <svg id="sv-btn" viewBox="0 0 100 100" role="img" aria-label="Detail of the three-button control plate"></svg>
-      <div class="cap">Sheet R1-03 · button plate detail</div>
+      <svg id="sv-btn" viewBox="0 0 100 100" role="img" aria-label="Detail of the three-button row cut into the face plate"></svg>
+      <div class="cap">Sheet R1-03 · button row detail · cut into the face plate</div>
     </div>
   </div>
   <div class="specs" id="specs"></div>
   <div class="col">
-    <h3>Why a separate button plate</h3>
-    <p>The buttons are the highest-wear part of the exhibit and the only part a visitor touches. Splitting them onto their own plate decouples switch-hole tolerance from the big face plate, lets the whole control assembly be built and tested on the bench with a jumper to the Pi, and means a change of switch style recuts a $15 plate instead of the face.</p>
+    <h3>Why the buttons are cut straight into the face plate</h3>
+    <p>An earlier version of this design put them on a separate plate behind an aperture, to insure against getting the switch cutout wrong. <b>That was over-engineered.</b> It bought one thing and charged three for it.</p>
+    <p><b>Stiffness was the real cost.</b> Cutting both a 12.17 × 21.24 window <i>and</i> an 11.87 × 3.00 aperture out of one 3 mm sheet left a <b>1.35″ web</b> as the only material joining the side rails below the screen. One piece leaves <b>2.25″ above the buttons and 2.65″ below</b>. It also meant a second part on the invoice, six more holes, a second set of cleats, and a plate to align square in an aperture.</p>
+    <p><b>And the wear argument didn't hold.</b> Anti-vandal switches are rated for millions of cycles, and when one fails you replace <i>the switch</i>, through the same hole. The plate only needs replacing if the hole itself is damaged, which essentially doesn't happen.</p>
+    <p>The insurance is better bought by <b>confirming the cutout before ordering</b> than by designing around not knowing it.</p>
     <p><b>30 mm anti-vandal stainless, momentary, 30.5 mm hole.</b> A big public target, industrial life, about $10 each, and a hole size so standard that any replacement in 2033 will fit. Labels engraved into the plate — stickers peel.</p>
-    <p><b>Flat, not angled.</b> An angled lower surface adds a bevelled joint, adds depth at the bottom, and complicates the mount's load path. At 40″ AFF a flat face is comfortable for a standing adult. Revisit only if observation says otherwise.</p>
-    <p><b>No fasteners on the visitor-facing surface.</b> The plate is captured from behind — nothing on the front is a screw a bored twelve-year-old can turn.</p>
+    <p><b>Flat, not angled.</b> An angled lower surface adds a bevelled joint, adds depth at the bottom, and complicates the mount's load path. At 38″ AFF a flat face is comfortable for a standing adult. Revisit only if observation says otherwise.</p>
+    <p><b>No fasteners on the visitor-facing surface.</b> The face plate is captured from behind — nothing on the front is a screw a bored twelve-year-old can turn.</p>
+    <p><b>A cleat row sits between the window and the buttons.</b> Three fixings onto a plywood rail, so the panel takes the press load instead of flexing every time somebody pushes a button. It clears the switch bodies, which stand about an inch proud behind the plate.</p>
   </div>
 </section>
 
@@ -482,13 +486,13 @@ footer .mono{font-size:12px}
     <div class="callout rec">
       <span class="lbl">The move that actually makes this easy</span>
       <p style="font-size:19px;font-family:'Archivo',sans-serif;font-weight:600;line-height:1.35;margin-bottom:12px">Don't buy a sheet. Send the file.</p>
-      <p><b><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a> will CNC-route the face plate and the button plate out of 3 mm matte black ACM and mail them to you.</b> You upload a drawing file, they cut it to <b>±0.005″</b>, and it ships in 2–4 days.</p>
-      <p>Their maximum part is <b>30″ × 44″</b>. Our face plate is 15.4 × 28.7 and the button plate is 12.9 × 4.0 — both fit comfortably, and they'd nest on a single order.</p>
+      <p><b><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a> will CNC-route the face plate out of 3 mm matte black ACM and mail it to you.</b> You upload a drawing file, they cut it to <b>±0.005″</b>, and it ships in 2–4 days.</p>
+      <p>Their maximum part is <b>30″ × 44″</b>. Our face plate is 15.4 × 28.7 — well inside it.</p>
       <p>This takes the hardest job away from the volunteer crew entirely: <b>no CNC access needed at CDL, no 4 × 8 sheet to buy and mostly throw away, no jig for the big screen window, and the three button holes arrive already cut to size.</b> What's left is building a plywood box — which is the part any woodworker gets right the first time.</p>
     </div>
     <h3>One small thing that decides the material</h3>
     <p>Panel-mount buttons have a <b>maximum panel thickness</b> — how thick a face they can clamp through. It's model-specific, commonly somewhere between 6 and 11 mm.</p>
-    <p><b>3 mm ACM clears every one of them.</b> A 1/2″ plywood-and-Formica face is 12.7 mm — at or over the limit for most switches, which means counterboring the back of all three holes by hand. Small detail, real annoyance, and it points the same way as everything else.</p>
+    <p><b>3 mm ACM clears every one of them.</b> A 1/2″ plywood-and-Formica face is 12.7 mm — at or over the limit for most switches, which means counterboring the back of all three holes by hand. Small detail, real annoyance, and it points the same way as everything else. <b>It matters more now that the buttons are cut straight into the face plate</b> (§03) — there is no thin sub-plate to fall back on.</p>
     <div class="callout warn">
       <span class="lbl">Two limits on ACM worth knowing</span>
       <p><b>It can't be tapped or bent.</b> Fastening goes through clearance holes into threaded inserts in the plywood cleats — which was already the plan.</p>
@@ -502,10 +506,10 @@ footer .mono{font-size:12px}
       <thead><tr><th>Part</th><th>What to order</th><th>Where</th><th>Rough cost</th></tr></thead>
       <tbody>
         <tr>
-          <td class="rowlbl">Face plate<br>+ button plate</td>
-          <td>3 mm ACM, <b>matte black both sides</b>. Files ready: <span class="mono">P1-face-plate.dxf</span>, <span class="mono">P2-button-plate.dxf</span></td>
+          <td class="rowlbl">Face plate</td>
+          <td>3 mm ACM, <b>matte black both sides</b>. File ready: <span class="mono">P1-face-plate.dxf</span> — buttons cut in, one piece</td>
           <td><a href="https://sendcutsend.com/materials/acm/">SendCutSend</a></td>
-          <td class="n">quote on upload<br>P1 ×1 · P2 ×2</td>
+          <td class="n">quote on upload<br>qty 1</td>
         </tr>
         <tr>
           <td class="rowlbl">Box — sides, top,<br>bottom, rear panel</td>
@@ -521,7 +525,7 @@ footer .mono{font-size:12px}
         </tr>
         <tr>
           <td class="rowlbl">Threaded inserts</td>
-          <td>1/4-20 for plywood, ×12 — <b>never screw into a plywood edge</b></td>
+          <td>#8 for plywood, ×15 — <b>never screw into a plywood edge</b></td>
           <td>McMaster-Carr, or any hardware store</td>
           <td class="n">~$12</td>
         </tr>
@@ -538,11 +542,10 @@ footer .mono{font-size:12px}
     <p class="mono" style="font-size:12.5px;color:var(--muted);margin-top:14px">Costs are estimates — confirm at the link before you budget. Every link here was checked; Curbell and OnlineMetals block automated requests, so they load in a browser but not from a script.</p>
     <div class="callout rec">
       <span class="lbl">The cut files exist — you can order today</span>
-      <p><b><span class="mono">mechanical/fab-rev1/</span> in the repo holds both DXFs</b>, generated from the geometry on this page and checked for closed contours, feature spacing against 3 mm material, and minimum hole size.</p>
-      <p><b>P1 face plate</b> — 15.37 × 28.69″, screen window 12.17 × 21.24, button aperture 11.87 × 3.00, twelve ⌀0.1875 mounting holes.<br>
-      <b>P2 button plate</b> — 13.37 × 4.50″, three ⌀30.5 mm at 3.50″ centres, six ⌀0.1875 mounting holes.</p>
-      <p>Upload both, choose <b>ACM → 0.118″ (3 mm) → matte black</b>, quantity P1 × 1 and <b>P2 × 2</b> (the spare is the wear part). No secondary services — ACM can't be bent, tapped or countersunk, and none of it is needed.</p>
-      <p><b>Check one number before you press order:</b> ⌀30.5 mm is the cutout for a “30 mm” anti-vandal switch, and most want 30.2–30.5 mm. Cutting the larger size is the safe direction, but confirm it against the datasheet of the switch you actually buy — it's the only dimension here tied to a part nobody owns yet.</p>
+      <p><b><span class="mono">mechanical/fab-rev1/P1-face-plate.dxf</span></b> — one part, generated from the geometry on this page and self-checked for closed contours, holes clear of the window, feature spacing and minimum hole size against 3 mm material, and that the button datum still lands at 25.440″.</p>
+      <p><b>15.37 × 28.69″</b> · screen window 12.17 × 21.24 · three ⌀30.5 mm at 3.50″ centres · fifteen ⌀0.1875 mounting holes around the perimeter and on a cleat row above the buttons.</p>
+      <p>Upload it, choose <b>ACM → 0.118″ (3 mm) → matte black</b>, quantity <b>1</b>. No secondary services — ACM can't be bent, tapped or countersunk, and none of it is needed.</p>
+      <p><b>⚠ Confirm one number before you press order.</b> ⌀30.5 mm is the cutout for a “30 mm” anti-vandal switch, and most want 30.2–30.5 mm. Cutting the larger size is the safe direction — the nut and washer cover slack — but <b>this is a one-piece part, so a wrong cutout means recutting the whole face.</b> Check it against the datasheet of the switch you actually buy, along with panel range including 3 mm and actuation force ≤ 5 lbf.</p>
     </div>
     <div class="callout">
       <span class="lbl">Why the face plate is safe to cut before the monitor arrives</span>
@@ -824,31 +827,39 @@ function drawFront(g){
   sv.innerHTML=o;
 }
 
-/* ---- 03 button plate ---- */
+/* ---- 03 button row, cut straight into the face plate ---- */
 function drawBtn(g){
   const sv=document.getElementById('sv-btn');
-  const pw=g.kw-2*G.SIDE, ph=G.BAND, P=4.0;
-  fit(sv,pw+2*P,ph+2*P+3.5);
-  const x0=P, y0=P+1, cx=x0+pw/2, cy=y0+ph/2-.35;
+  const RW=g.kw, RH=G.GAP+G.BAND+G.BOT, P=3.0;
+  fit(sv,RW+P+14,RH+2*P+3.6);
+  const x0=P, y0=P+1.4, cx=x0+RW/2;
+  const cy=y0+G.GAP+G.BAND/2;                       // the 38″ datum
+  const rail=y0+1.05, botrow=y0+RH-0.625;
   let o='';
-  o += el('rect',{x:x0,y:y0,width:pw,height:ph,fill:'var(--graphite)',
+  // this is the lower part of the face plate, not a separate part
+  o += el('rect',{x:x0,y:y0,width:RW,height:RH,fill:'var(--graphite)',
       stroke:'var(--graphite-line)','stroke-width':SW(2)});
-  ['BACK','HOME','NEXT'].forEach((t,i)=>{
-    const bx=cx+(i-1)*G.BTN_CC;
+  o += el('path',{d:`M${x0} ${f(y0,3)}L${f(x0+RW,3)} ${f(y0,3)}`,stroke:'var(--accent)',
+      'stroke-width':SW(1.2),'stroke-dasharray':`${FS(6)} ${FS(5)}`});
+  o += txt(x0,y0-FS(5),'bottom of the screen window',{px:10.5,fill:'var(--accent)'});
+  ['BACK','HOME','NEXT'].forEach((tt,k)=>{
+    const bx=cx+(k-1)*G.BTN_CC;
     o += el('circle',{cx:bx,cy:cy,r:G.BTN_D/2,fill:'var(--paper)',
         stroke:'var(--graphite-line)','stroke-width':SW(1.6)});
     o += el('circle',{cx:bx,cy:cy,r:G.BTN_D/2-.2,fill:'none',stroke:'var(--line)','stroke-width':SW(1)});
-    o += txt(bx,cy+1.75,t,{sans:1,w:700,px:10,ls:1.1,anchor:'middle',fill:'var(--paper)'});
+    o += txt(bx,cy+1.75,tt,{sans:1,w:700,px:10,ls:1.1,anchor:'middle',fill:'var(--paper)'});
   });
-  [[x0+.55,y0+.55],[x0+pw-.55,y0+.55],[x0+.55,y0+ph-.55],[x0+pw-.55,y0+ph-.55]].forEach(p=>
-    o+=el('circle',{cx:p[0],cy:p[1],r:.22,fill:'none',stroke:'var(--muted)',
-        'stroke-width':SW(.9),'stroke-dasharray':`${FS(1.6)} ${FS(1.4)}`}));
-  o += dimH(y0-1.6,cx-G.BTN_CC,cx,f(G.BTN_CC)+'″ c-c');
-  o += dimH(y0+ph+2.0,cx-G.BTN_CC-G.BTN_D/2,cx+G.BTN_CC+G.BTN_D/2,'7.18″ span',true);
-  o += dimV(x0-1.7,y0,y0+ph,'4.00″','l');
-  o += lead(cx+G.BTN_CC,cy-G.BTN_D/2,x0+pw-.3,y0-.7,'ø 30 mm · 30.5 mm hole','end');
-  o += txt(x0,y0+ph+P+1.4,'centreline '+f(g.B,0)+'″ AFF · ADA §308 reach range 15″–48″',{px:10.5});
-  o += txt(x0,y0+ph+P+2.9,'fasteners captured from behind — nothing on the face a visitor can turn',{px:10.5});
+  // cleat row that takes the press load, and the bottom fixing row
+  [[3.50,rail],[RW/2,rail],[RW-3.50,rail]].forEach(h=>
+    o+=el('circle',{cx:x0+h[0],cy:h[1],r:.094,fill:'none',stroke:'var(--accent)','stroke-width':SW(1.1)}));
+  [0.625,RW/2,RW-0.625].forEach(hx=>
+    o+=el('circle',{cx:x0+hx,cy:botrow,r:.094,fill:'none',stroke:'var(--accent)','stroke-width':SW(1.1)}));
+  o += dimH(y0-1.5,cx-G.BTN_CC,cx,f(G.BTN_CC)+'″ c-c');
+  o += dimV(x0-1.6,y0,y0+RH,f(RH,2)+'″','l');
+  o += lead(cx+G.BTN_CC,cy+G.BTN_D/2,x0+RW+0.9,y0+RH-0.5,'ø 30.5 mm, cut straight in');
+  o += lead(x0+RW-3.50,rail,x0+RW+0.9,y0+0.5,'cleat row — press load');
+  o += txt(x0,y0+RH+FS(16),'button centreline '+f(g.B,0)+'″ AFF — ADA §308 reach range 15″–48″',{px:10.5});
+  o += txt(x0,y0+RH+FS(31),'cut in one piece with the face plate — no separate button plate',{px:10.5});
   sv.innerHTML=o;
 }
 

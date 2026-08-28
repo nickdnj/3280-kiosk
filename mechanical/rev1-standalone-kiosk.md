@@ -256,7 +256,7 @@ ask.
 | Switch | 30 mm anti-vandal stainless, momentary, 30.5 mm hole | Big public target, industrial durability, ~$10, standard hole means any replacement fits. **Verify ≤ 5 lbf** per §309.4 |
 | Spacing | 3.50″ centre-to-centre, 7.18″ overall span | Room for a legible engraved label under each; far enough apart that a mis-press is a mis-press, not a fat finger |
 | Height | Centreline **38″ AFF** | See above |
-| Location | **Separate removable button plate**, below the monitor | ↓ |
+| Location | **Cut straight into the face plate**, below the monitor | ↓ |
 | Surface | Flat, in the plane of the face — **not** angled | ↓ |
 | Labels | Engraved / cut into the plate, not stickers | Stickers peel; this is a 10-year exhibit |
 
@@ -264,18 +264,35 @@ ask.
 a tactile mark on HOME. Not required by §309, but it costs nothing at purchase
 time and it helps visitors with low vision far more than a label does.
 
-**Why a separate plate.** The buttons are the highest-wear part of the whole
-exhibit and the only part a visitor touches. A separate plate means: switch
-tolerance is decoupled from the big expensive face plate; the whole control
-assembly can be built and tested on the bench with a jumper to the Pi; and if
-the switch style changes you recut a $15 plate instead of the face.
+**Why they're in the face plate, not on their own plate.** An earlier version put
+them on a separate plate behind an aperture, as insurance against getting the
+switch cutout wrong. **That was over-engineered.**
+
+*Stiffness was the real cost.* Cutting both a 12.17 × 21.24 window **and** an
+11.87 × 3.00 aperture out of one 3 mm sheet left a **1.35″ web** as the only
+material joining the side rails below the screen. One piece leaves **2.25″ above
+the buttons and 2.65″ below**. It also meant a second part on the invoice, six
+more holes, a second set of cleats, and a plate to align square in an aperture.
+
+*And the wear argument didn't hold.* Anti-vandal switches are rated for millions
+of cycles, and when one fails you replace **the switch**, through the same hole.
+The plate only needs replacing if the hole itself is damaged, which essentially
+doesn't happen.
+
+The insurance is better bought by **confirming the cutout before ordering** than
+by designing around not knowing it.
+
+**A cleat row sits between the window and the buttons** — three fixings onto a
+plywood rail, so the panel takes the press load instead of flexing every time
+somebody pushes a button. It clears the switch bodies, which stand about an inch
+proud behind the plate.
 
 **Why not angled.** An angled lower surface adds a bevelled joint, adds depth at
 the bottom of the enclosure, and complicates the mount's load path. At 38″ AFF a
 flat vertical face is comfortable for a standing adult. Note it as a Rev 2
 option if observation says otherwise.
 
-**No visible fasteners on the front.** The button plate is captured from behind.
+**No visible fasteners on the front.** The face plate is captured from behind.
 Nothing on the visitor-facing surface is a screw a bored twelve-year-old can
 turn.
 
@@ -362,10 +379,9 @@ any woodworker gets right on the first try.
 ### The move that actually makes this easy — don't buy a sheet, send the file
 
 **[SendCutSend](https://sendcutsend.com/materials/acm/) will CNC-route the face
-plate and the button plate out of 3 mm matte black ACM and mail them to you.**
-Upload a drawing file, they cut to **±0.005″**, ships in 2–4 days. Maximum part
-is **30″ × 44″** — our face plate is 15.4 × 28.7 and the button plate 12.9 × 4.0,
-so both fit and would nest on one order.
+plate out of 3 mm matte black ACM and mail it to you.** Upload the drawing file,
+they cut to **±0.005″**, ships in 2–4 days. Maximum part is **30″ × 44″** — our
+face plate is 15.4 × 28.7, well inside.
 
 This takes the hardest job away from the volunteer crew: **no CNC access needed
 at CDL, no 4 × 8 sheet to buy and mostly throw away, no jig for the screen
@@ -387,10 +403,10 @@ dark line on white, so order it **black both sides**.
 
 | Part | What to order | Where | Rough cost |
 |---|---|---|---|
-| Face plate + button plate | 3 mm ACM, **matte black both sides**, cut from our drawing file | [SendCutSend](https://sendcutsend.com/materials/acm/) | quote on upload |
+| Face plate | 3 mm ACM, **matte black both sides**, one piece with the button holes cut in | [SendCutSend](https://sendcutsend.com/materials/acm/) | quote on upload, qty 1 |
 | Box — sides, top, bottom, rear | 1/2″ Baltic birch, ~8 sq ft | [MakerStock](https://makerstock.com/collections/baltic-birch-plywood) · [Cherokee](https://www.cherokeewood.com/store/1-2-baltic-birch-plywood-cut-to-size/) · [Jeff Mack](https://jeffmacksupply.com/en-us/products/1-2-thick-baltic-birch-select-a-size) | $40–90 |
 | Buttons × 3 | 30 mm anti-vandal, momentary, stainless. **Check the datasheet for panel range including 3 mm and actuation force ≤ 5 lbf** (§309.4) | [APEM AV](https://www.apem.com/panel-switches/pushbutton-switches/av-anti-vandal-pushbutton-switches) · [RJS](https://www.rjselectronics.com/category/panel-mount/pushbutton-metal-switches/metal-pushbutton-switches-anti-vandal/) · [Adafruit](https://www.adafruit.com/category/235) | $25–40 |
-| Threaded inserts | 1/4-20 for plywood, ×12 — **never screw into a plywood edge** | McMaster-Carr | ~$12 |
+| Threaded inserts | #8 for plywood, ×15 — **never screw into a plywood edge** | McMaster-Carr | ~$12 |
 | Rear-panel fasteners | Quarter-turn or captive thumbscrews, ×6 | McMaster-Carr | $20–30 |
 
 **Other ACM sources:** [Curbell Plastics](https://www.curbellplastics.com/product-category/material/aluminum-composite-material-acm/dibond-panels/) ·
@@ -406,13 +422,11 @@ automated requests; they load fine in a browser.
 
 ### ✅ The cut files exist — [`../fab-rev1/`](../fab-rev1/)
 
-| | Part | Size | Features |
-|---|---|---|---|
-| **P1** | `P1-face-plate.dxf` | 15.37 × 28.69″ | window 12.17 × 21.24, button aperture 11.87 × 3.00, 12 × ⌀0.1875 |
-| **P2** | `P2-button-plate.dxf` | 13.37 × 4.50″ | 3 × ⌀30.5 mm at 3.50″ cc, 6 × ⌀0.1875 |
+**One part.** `P1-face-plate.dxf` — 15.37 × 28.69″, screen window 12.17 × 21.24,
+three ⌀30.5 mm button holes at 3.50″ centres, fifteen ⌀0.1875 mounting holes.
 
-Upload both, pick **ACM → 0.118″ (3 mm) → matte black**, quantity **P1 × 1,
-P2 × 2**. No secondary services. Full ordering notes in
+Upload it, pick **ACM → 0.118″ (3 mm) → matte black**, quantity **1**. No
+secondary services. Full ordering notes in
 [`../fab-rev1/README.md`](../fab-rev1/README.md).
 
 **The window is 0.25″ oversize per side on purpose** — "24 inch" covers
@@ -421,8 +435,9 @@ margin falling on the monitor's own black bezel. The monitor is aligned *to the
 window* on an internal VESA frame, which is why P1 is safe to cut before the
 monitor arrives.
 
-**⚠ Confirm ⌀30.5 mm against your switch's datasheet before ordering** — it's the
-only dimension here tied to a part nobody owns yet.
+**⚠ Confirm ⌀30.5 mm against your switch's datasheet before ordering.** It's the
+only dimension here tied to a part nobody owns yet, and since this is now a
+one-piece part, getting it wrong means recutting the whole face.
 
 ## 8. Serviceability
 

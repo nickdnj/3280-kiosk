@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Rev 1 cut files — face plate (P1) and button plate (P2).
+Rev 1 cut file — face plate (P1), one piece.
 
 Emits R12 ASCII DXF (LINE / ARC / CIRCLE only — no polylines, no splines, no
 text) plus an SVG preview of each part. Written for SendCutSend's ACM service:
@@ -27,32 +27,27 @@ WIN_CLR       = 0.25              # window oversize per side. Generous on purpos
 
 BTN_CC        = 3.50              # button centre-to-centre
 BTN_HOLE      = 30.5 / 25.4       # 30.5 mm cutout for a 30 mm anti-vandal switch
-APER_W, APER_H = 11.87, 3.00      # button aperture in the FACE plate
-LIP           = 0.75              # button plate overlap behind that aperture
 
 R_OUT         = 0.25              # outside corner radius
 R_IN          = 0.25              # inside corner radius (clears any router bit)
-H_FACE        = 3/16              # #8 clearance, face plate
-H_BTN         = 3/16              # #8 clearance, button plate
-EDGE_FACE     = 0.625             # hole centres, in from the face plate edge
-EDGE_BTN      = 0.375             # hole centres, in from the button plate edge
+H_FACE        = 3/16              # #8 clearance
+EDGE_FACE     = 0.625             # hole centres, in from the edge
 
 MAT_T         = 0.118             # 3 mm ACM
 
 # ── derived ──────────────────────────────────────────────────────────────────
 WIN_W, WIN_H  = ACT_W + 2*WIN_CLR, ACT_H + 2*WIN_CLR
-BP_W, BP_H    = APER_W + 2*LIP, APER_H + 2*LIP     # button plate outside
 
 # distances measured DOWN from the top of the face plate
 d_mon_top     = TOP
 d_win_top     = d_mon_top + (MON_H - ACT_H)/2 - WIN_CLR
 d_band_top    = TOP + MON_H + GAP
 d_btn_ctr     = d_band_top + BAND/2                 # the ADA datum, 38" AFF
-d_aper_top    = d_btn_ctr - APER_H/2
 
-# DXF works Y-up from the bottom-left of each part
-WIN_X, WIN_Y   = (KW - WIN_W)/2,  KH - d_win_top  - WIN_H
-APER_X, APER_Y = (KW - APER_W)/2, KH - d_aper_top - APER_H
+# DXF works Y-up from the bottom-left of the part
+WIN_X, WIN_Y  = (KW - WIN_W)/2, KH - d_win_top - WIN_H
+BTN_Y         = KH - d_btn_ctr                      # button centreline, Y-up
+RAIL_Y        = (BTN_Y + BTN_HOLE/2 + WIN_Y) / 2    # cleat row between buttons and window
 
 # ── DXF writer ───────────────────────────────────────────────────────────────
 def g(code, val):
@@ -108,65 +103,68 @@ def svg(path, w, h, shapes, holes, title, notes):
     o.append('</svg>')
     open(path,'w').write('\n'.join(o))
 
-# ── P1 · face plate ──────────────────────────────────────────────────────────
+# ── P1 · face plate, one piece ───────────────────────────────────────────────
 d = Dxf()
-d.rrect(0, 0, KW, KH, R_OUT)                 # outside
-d.rrect(WIN_X,  WIN_Y,  WIN_W,  WIN_H,  R_IN)   # screen window
-d.rrect(APER_X, APER_Y, APER_W, APER_H, R_IN)   # button aperture
+d.rrect(0, 0, KW, KH, R_OUT)                    # outside
+d.rrect(WIN_X, WIN_Y, WIN_W, WIN_H, R_IN)       # screen window
 
-face_holes = []
+btn_holes = [(KW/2 + i*BTN_CC, BTN_Y) for i in (-1, 0, 1)]
+for (x, y) in btn_holes:
+    d.circle(x, y, BTN_HOLE/2)
+
+mount = []
 ys = [EDGE_FACE + i*(KH - 2*EDGE_FACE)/4 for i in range(5)]
 for y in ys:
-    face_holes += [(EDGE_FACE, y), (KW - EDGE_FACE, y)]
-face_holes += [(KW/2, EDGE_FACE), (KW/2, KH - EDGE_FACE)]
-for (x,y) in face_holes:
+    mount += [(EDGE_FACE, y), (KW - EDGE_FACE, y)]          # side rails
+mount += [(KW/2, EDGE_FACE), (KW/2, KH - EDGE_FACE)]        # top and bottom centre
+mount += [(3.50, RAIL_Y), (KW/2, RAIL_Y), (KW - 3.50, RAIL_Y)]   # cleat above the buttons
+for (x, y) in mount:
     d.circle(x, y, H_FACE/2)
 n1 = d.save('P1-face-plate.dxf')
 
 svg('P1-face-plate.svg', KW, KH,
-    [(0,0,KW,KH,R_OUT),(WIN_X,WIN_Y,WIN_W,WIN_H,R_IN),(APER_X,APER_Y,APER_W,APER_H,R_IN)],
-    [(x,y,H_FACE/2) for x,y in face_holes],
-    f'P1 FACE PLATE  {KW}" x {KH}"  x 3mm ACM',
-    f'window {WIN_W:.3f} x {WIN_H:.3f}  |  button aperture {APER_W} x {APER_H}  |  '
-    f'{len(face_holes)} x {H_FACE:.4f} dia')
-
-# ── P2 · button plate ────────────────────────────────────────────────────────
-d = Dxf()
-d.rrect(0, 0, BP_W, BP_H, R_OUT)
-btn_holes = [(BP_W/2 + i*BTN_CC, BP_H/2) for i in (-1,0,1)]
-for (x,y) in btn_holes:
-    d.circle(x, y, BTN_HOLE/2)
-bp_mount = [(EDGE_BTN, EDGE_BTN), (BP_W/2, EDGE_BTN), (BP_W-EDGE_BTN, EDGE_BTN),
-            (EDGE_BTN, BP_H-EDGE_BTN), (BP_W/2, BP_H-EDGE_BTN), (BP_W-EDGE_BTN, BP_H-EDGE_BTN)]
-for (x,y) in bp_mount:
-    d.circle(x, y, H_BTN/2)
-n2 = d.save('P2-button-plate.dxf')
-
-svg('P2-button-plate.svg', BP_W, BP_H, [(0,0,BP_W,BP_H,R_OUT)],
-    [(x,y,BTN_HOLE/2) for x,y in btn_holes] + [(x,y,H_BTN/2) for x,y in bp_mount],
-    f'P2 BUTTON PLATE  {BP_W}" x {BP_H}"  x 3mm ACM',
-    f'3 x {BTN_HOLE:.4f} dia (30.5mm) at {BTN_CC}" cc  |  {len(bp_mount)} x {H_BTN:.4f} dia mount')
+    [(0, 0, KW, KH, R_OUT), (WIN_X, WIN_Y, WIN_W, WIN_H, R_IN)],
+    [(x, y, BTN_HOLE/2) for x, y in btn_holes] + [(x, y, H_FACE/2) for x, y in mount],
+    f'P1 FACE PLATE  {KW}" x {KH}"  x 3mm ACM  -  ONE PIECE',
+    f'window {WIN_W:.3f} x {WIN_H:.3f}  |  3 x {BTN_HOLE:.4f} dia (30.5mm) at {BTN_CC}" cc  |  '
+    f'{len(mount)} x {H_FACE:.4f} dia mount')
 
 # ── checks ───────────────────────────────────────────────────────────────────
-print(f"P1 face plate    {KW} x {KH}      {n1:3d} entities")
-print(f"   window        {WIN_W:.3f} x {WIN_H:.3f}  at ({WIN_X:.3f}, {WIN_Y:.3f})")
-print(f"   btn aperture  {APER_W} x {APER_H}      at ({APER_X:.3f}, {APER_Y:.3f})")
-print(f"   mount holes   {len(face_holes)} x {H_FACE:.4f}")
-print(f"P2 button plate  {BP_W} x {BP_H}      {n2:3d} entities")
-print(f"   button holes  3 x {BTN_HOLE:.4f} at {BTN_CC}\" cc, y={BP_H/2}")
-print(f"   mount holes   {len(bp_mount)} x {H_BTN:.4f}")
+import itertools
+print(f"P1 face plate, one piece   {KW} x {KH}      {n1} entities")
+print(f"   screen window           {WIN_W:.3f} x {WIN_H:.3f}  at ({WIN_X:.3f}, {WIN_Y:.3f})")
+print(f"   button holes            3 x {BTN_HOLE:.4f} at {BTN_CC}\" cc, y={BTN_Y:.3f}")
+print(f"   mount holes             {len(mount)} x {H_FACE:.4f}")
 print()
-web = WIN_Y - (APER_Y + APER_H)
-print(f"check  web between window and aperture   {web:.3f}\"")
-print(f"check  button datum below face plate top {d_btn_ctr:.3f}\"  (must be 25.440)")
-print(f"check  min feature spacing vs 3mm ACM    {min(EDGE_BTN-H_BTN/2, EDGE_FACE-H_FACE/2):.3f}\" "
-      f"> {MAT_T:.3f}\"  {'OK' if min(EDGE_BTN-H_BTN/2, EDGE_FACE-H_FACE/2) > MAT_T else 'FAIL'}")
-print(f"check  min hole dia vs material thickness {min(H_FACE,H_BTN):.4f}\" > {MAT_T:.3f}\"  "
-      f"{'OK' if min(H_FACE,H_BTN) > MAT_T else 'FAIL'}")
-bx = BP_W/2 + BTN_CC + BTN_HOLE/2
-print(f"check  outer button edge inside aperture  {bx-LIP:.3f}\" < {APER_W:.3f}\"  "
-      f"{'OK' if bx-LIP < APER_W else 'FAIL'}")
-print(f"check  P2 fits enclosure cavity (14.37\")  {BP_W:.3f}\"  "
-      f"{'OK' if BP_W < 14.37 else 'FAIL'}")
-print(f"check  both parts inside SendCutSend 30x44  "
-      f"{'OK' if max(KW,KH,BP_W,BP_H) <= 44 and max(min(KW,KH),min(BP_W,BP_H)) <= 30 else 'FAIL'}")
+
+def ok(label, cond, detail):
+    print(f"check  {label:<40} {detail}  {'OK' if cond else '*** FAIL ***'}")
+
+web = WIN_Y - (BTN_Y + BTN_HOLE/2)
+ok("web, window to button holes", web > 1.0, f"{web:.3f}\"")
+below = BTN_Y - BTN_HOLE/2
+ok("material below the button holes", below > 1.0, f"{below:.3f}\"")
+ok("button datum below face plate top", abs(d_btn_ctr - 25.44) < 1e-9,
+   f"{d_btn_ctr:.3f}\" (must be 25.440)")
+edge = min(x - BTN_HOLE/2 for x, _ in btn_holes)
+ok("outer button to plate edge", edge > 1.0, f"{edge:.3f}\"")
+ok("min hole dia vs material thickness", min(H_FACE, BTN_HOLE) > MAT_T,
+   f"{H_FACE:.4f}\" > {MAT_T:.3f}\"")
+ok("mount hole to plate edge", EDGE_FACE - H_FACE/2 > MAT_T, f"{EDGE_FACE - H_FACE/2:.3f}\"")
+
+allh = [(x, y, BTN_HOLE/2) for x, y in btn_holes] + [(x, y, H_FACE/2) for x, y in mount]
+gap = min(math.hypot(a[0]-b[0], a[1]-b[1]) - a[2] - b[2] for a, b in itertools.combinations(allh, 2))
+ok("closest hole-to-hole gap", gap > MAT_T, f"{gap:.3f}\"")
+
+wl, wr, wb, wt = WIN_X, WIN_X+WIN_W, WIN_Y, WIN_Y+WIN_H
+clash = [h for h in allh
+         if wl-h[2] < h[0] < wr+h[2] and wb-h[2] < h[1] < wt+h[2]]
+ok("no hole intrudes on the window", not clash, f"{len(clash)} clash")
+ok("part inside SendCutSend 30 x 44", KW <= 30 and KH <= 44, f"{KW} x {KH}")
+
+K = math.hypot(16, 9)
+worst = [(d, d*9/K, d*16/K) for d in (23.6, 23.8, 24.0)]
+crop = [w for w in worst if w[1] >= WIN_W or w[2] >= WIN_H]
+ok("window clears every \"24 inch\" panel", not crop,
+   f"23.6-24.0\" diag, min margin {min(min((WIN_W-w[1])/2, (WIN_H-w[2])/2) for w in worst):.3f}\"/side")
+ok("that margin hides behind the monitor bezel", WIN_CLR < 0.35, f"{WIN_CLR:.3f}\" < 0.35\"")
