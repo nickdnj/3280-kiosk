@@ -17,10 +17,13 @@ import argparse, math
 ap = argparse.ArgumentParser()
 ap.add_argument('--ply',   type=float, default=0.469, help='MEASURED panel thickness')
 ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square')
+ap.add_argument('--rear', type=float, default=None,
+                help='rear panel thickness if it is a different sheet (e.g. 0.500 MDF)')
 ap.add_argument('--kerf',  type=float, default=0.125, help='table saw kerf')
 ap.add_argument('--panel', type=float, nargs=2, default=[48.0, 96.0],
                 metavar=('W', 'L'), help='sheet bought')
-ap.add_argument('--rip',   type=float, default=25.0, help='Home Depot rip line')
+ap.add_argument('--rip',   type=float, default=None,
+                help='Home Depot rip line (default: derived from the nest)')
 a = ap.parse_args()
 
 # ── fixed by the released package — do not derive these ─────────────────────
@@ -35,6 +38,7 @@ TRAY    = (4.000, 2.900)
 REAR_CL = 0.100                        # rear panel clearance, total across each axis
 
 T, C, K = a.ply, a.cleat, a.kerf
+T4 = a.rear if a.rear else T          # P4 need not match the box
 
 # ── everything else follows from T ──────────────────────────────────────────
 CAV_W, CAV_H = OA_W - 2*T, OA_H - 2*T
@@ -58,8 +62,9 @@ CLEATS = [
 # ── nesting: band 1 holds everything 27"+ long, band 2 the short parts ───────
 PW, PL = a.panel
 band1 = [('P2', TUBE_D, OA_H), ('P2', TUBE_D, OA_H),
-         ('P9', VESA_W, CAV_H), ('P9', VESA_W, CAV_H),
-         ('P4', REAR_W, REAR_H)]
+         ('P9', VESA_W, CAV_H), ('P9', VESA_W, CAV_H)]
+if not a.rear:
+    band1.append(('P4', REAR_W, REAR_H))
 band2 = [('P3', TUBE_D, CAV_W), ('P3', TUBE_D, CAV_W), ('P10', TRAY[0], TRAY[1])]
 
 b1_w = sum(p[1] for p in band1) + K*(len(band1) - 1)
@@ -67,13 +72,16 @@ b2_w = sum(p[1] for p in band2) + K*(len(band2) - 1)
 b1_l = max(p[2] for p in band1)
 b2_l = max(p[2] for p in band2)
 CROSS = math.ceil((b1_l + K + 0.4) * 2) / 2      # HD crosscut, rounded up to 1/2"
+if a.rip is None:                               # 0.9" of margin on the panel saw
+    a.rip = math.ceil((max(b1_w, b2_w) + 0.9) * 2) / 2
 
 # ── report ──────────────────────────────────────────────────────────────────
 print(f"""
 MEASURED PLY {T:.3f}"   CLEAT {C:.3f}" sq   KERF {K:.3f}"
 cavity {CAV_W:.3f} x {CAV_H:.3f}
 """)
-print("PLYWOOD                     width      length     qty")
+print(f"PLYWOOD  ({T:.3f}\")             width      length     qty"
+      + (f"        <- P4 is {T4:.3f}\" from a separate sheet" if a.rear else ""))
 for n, w, l, q in PLY:
     print(f"  {n:<24} {w:7.3f}    {l:7.3f}    x{q}")
 print(f"\nCLEATS  {C:.3f}\" square hardwood         length     qty")
@@ -99,6 +107,11 @@ print(f"""
   Nothing else. Their panel saw is +/- 1/8" and every cut above lands in waste.
   Every finished dimension is cut on a table saw, by you.
 """)
+if a.rear:
+    print(f"""  !! P4 IS A COVER, NOT A STRUCTURE -- the monitor hangs on the P9 VESA
+     rails, which is the ONLY reason a {T4:.3f}" MDF back is safe here. If anyone
+     ever deletes P9 and bolts the monitor through P4, this stops being true.
+""")
 
 fails = []
 def ok(label, cond, detail):
@@ -122,8 +135,12 @@ ok("P1 mount hole lands in wall + cleat", EDGE + INSERT/2 <= T + C,
 ok("insert sits mostly in the cleat, not the ply edge",
    (min(T + C, EDGE + INSERT/2) - max(T, EDGE - INSERT/2)) / INSERT > 0.5,
    f"{(min(T+C, EDGE+INSERT/2) - max(T, EDGE-INSERT/2))/INSERT*100:.0f}% in cleat")
-air = OA_D - T_ACM - 0.100 - MON_T - 2*T
-ok("depth chain still closes", air > 0.15, f"{air:.3f}\" air behind the monitor")
+rail_back = T_ACM + 0.100 + MON_T + T          # back face of the P9 VESA rail
+air = (OA_D - T4) - rail_back
+ok("depth chain still closes", air > 0.15,
+   f"{air:.3f}\" between the VESA rail and a {T4:.3f}\" back")
+ok("rear panel thickness is free to differ", T4 < OA_D - rail_back,
+   f"{T4:.3f}\" < {OA_D - rail_back:.3f}\" max")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")

@@ -8,17 +8,15 @@
 <text x="1.676" y="2.751" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
 <rect x="1.812" y="0.550" width="0.232" height="4.302" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
 <text x="1.928" y="2.751" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
-<rect x="2.063" y="0.550" width="2.221" height="4.286" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="3.174" y="2.743" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P4</text>
 <rect x="0.550" y="5.142" width="0.485" height="2.237" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
 <text x="0.793" y="6.310" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
 <rect x="1.055" y="5.142" width="0.485" height="2.237" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
 <text x="1.298" y="6.310" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
 <rect x="1.560" y="5.142" width="0.620" height="0.450" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
 <text x="1.870" y="5.417" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P10</text>
-<line x1="4.425" y1="0.550" x2="4.425" y2="7.990" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
-<text x="4.515" y="0.850" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD rip 25.0"</text>
-<line x1="0.550" y1="5.122" x2="4.425" y2="5.122" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
-<text x="4.515" y="5.052" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD crosscut 29.5"</text>
+<line x1="2.333" y1="0.550" x2="2.333" y2="7.990" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
+<text x="2.422" y="0.850" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD rip 11.5"</text>
+<line x1="0.550" y1="5.122" x2="2.333" y2="5.122" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
+<text x="2.422" y="5.052" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD crosscut 29.5"</text>
 <text x="0.550" y="8.860" font-size="0.145" font-family="Helvetica,Arial" fill="#111">working half: 48 x 48 x 0.469 PureBond birch  |  red = Home Depot  |  everything else on a table saw</text>
 </svg>

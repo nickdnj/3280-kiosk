@@ -89,7 +89,49 @@ measure the real cavity before committing the parts that have to fit it.
    printed number. The script's values are the prediction; the box is the truth.
 5. Rip cleats from the 1×4: **0.750 square**, 12.5 ft total.
 
-## 5. A change to record if you take it
+## 5. MDF for the rear panel
+
+**It works, and for a specific reason: P4 carries no load.** The monitor hangs on
+the P9 VESA rails, which land on the cavity top and bottom. P4 is a dust cover
+and a service hatch, held by six thumbscrews that pass *through* it into inserts
+in the cleats — no fastener ever goes into an MDF edge, which is the one thing
+MDF is genuinely bad at.
+
+What it buys: dead flat, zero voids, no seasonal movement across a 13.8″ width,
+the best paint surface of any sheet good, and an **actual 0.500″** thickness
+instead of plywood's nominal-but-not-really. The depth chain doesn't care —
+anything up to **0.763″** clears the VESA rail:
+
+```bash
+python3 make-cutlist.py --rear 0.500     # 0.263" clearance, all checks pass
+```
+
+> ⚠️ **Only true while P9 exists.** If anyone deletes the VESA rails and bolts
+> the monitor through the back — which is exactly what the shelved variant K
+> does — then ten pounds of glass hangs on four M4 bolts in MDF face, and MDF is
+> the wrong material for that. The script prints this warning whenever `--rear`
+> is used.
+
+**Whether to buy it is a different question from whether it works.** Taking P4
+out of the nest shrinks the birch requirement to ~11.5 × 48 — a 2×4 panel — but
+Home Depot's small panels are terrible value:
+
+| | | |
+|---|---|---|
+| **One 4×8 PureBond, everything** | **$59.98** | $1.87/sq ft, plus a complete spare half |
+| Birch 2×4 + MDF 2×4, both new | $67.34 | more money, no spare |
+| Birch 2×4 + **MDF you already have** | $39.86 | saves $20, no spare |
+
+So: **if there's ½″ MDF on the scrap rack at CDL, use it** — it's a better rear
+panel than plywood and it's free. If you'd have to buy it, the 4×8 birch sheet
+is cheaper per square foot than anything else in the aisle and does the whole
+job. MDF's best quality is its paint surface, and P4 is the one panel nobody
+ever sees.
+
+Seal MDF on all six faces regardless. Unsealed edges drink finish and swell if
+they ever meet water.
+
+## 6. A change to record if you take it
 
 Sheet 302 draws **P5 / P6 / P7 at 1.000″ square**. This plan uses **0.750″
 throughout**, which is what a 1×4 gives you when ripped — no glue-up, no 5/4
@@ -99,7 +141,7 @@ It costs nothing measurable: the insert still lands 92 % in the cleat, and 0.750
 is still 0.31″ deeper than the insert needs. It changes P6 and P7 to 12.932″
 long. Run `--cleat 1.000` to price the drawing exactly instead.
 
-## 6. What Home Depot will not have
+## 7. What Home Depot will not have
 
 - **#8-32 brass threaded inserts for wood** (21) — Rockler or McMaster
 - **#8-32 button-head pin-torx screws, black** (15) — McMaster
