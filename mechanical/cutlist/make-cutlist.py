@@ -17,6 +17,8 @@ import argparse, math
 ap = argparse.ArgumentParser()
 ap.add_argument('--ply',   type=float, default=0.469, help='MEASURED panel thickness')
 ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square')
+ap.add_argument('--solid', action='store_true',
+                help='box is solid 1x lumber, not plywood (changes the insert check)')
 ap.add_argument('--rear', type=float, default=None,
                 help='rear panel thickness if it is a different sheet (e.g. 0.500 MDF)')
 ap.add_argument('--kerf',  type=float, default=0.125, help='table saw kerf')
@@ -127,6 +129,19 @@ if a.rear:
      ever deletes P9 and bolts the monitor through P4, this stops being true.
 """)
 
+if a.solid:
+    BW, BL = 3.5, 96.0                       # 1x4 x 8 ft, actual
+    tube = 2*OA_H + 2*CAV_W
+    rails = 2*CAV_H
+    print(f"""1x4 BOARD PLAN   (actual {BW}\" x {BL:.0f}\", {T:.3f}\" thick)
+  BOARD A   rip once to {TUBE_D:.3f}\"
+            P2 {OA_H:.3f} x2  +  P3 {CAV_W:.3f} x2   = {tube:.1f}\" of {BL:.0f}\"
+  BOARD B   rip to {VESA_W:.3f} + {C:.3f} + {C:.3f}   ({VESA_W + 2*C + 2*K:.3f}\" of {BW}\")
+            {VESA_W:.3f} strip -> P9 x2                = {rails:.1f}\" of {BL:.0f}\"
+            {C:.3f} strips x2 -> P5 P6 P7 P8        = {cl_total:.1f}\" of {2*BL:.0f}\"
+  P10       off the MDF -- {TRAY[0]:.3f}\" will not come out of a {BW}\" board
+""")
+
 fails = []
 def ok(label, cond, detail):
     if not cond: fails.append(label)
@@ -146,20 +161,48 @@ ok("band 2 still fits after the crosscut", HALF - CROSS - K >= b2_l,
    f"{HALF - CROSS - K:.3f}\" >= {b2_l:.3f}\"")
 ok("P1 mount hole lands in wall + cleat", EDGE + INSERT/2 <= T + C,
    f"{EDGE + INSERT/2:.3f}\" in {T + C:.3f}\"")
-ok("insert sits mostly in the cleat, not the ply edge",
-   (min(T + C, EDGE + INSERT/2) - max(T, EDGE - INSERT/2)) / INSERT > 0.5,
-   f"{(min(T+C, EDGE+INSERT/2) - max(T, EDGE-INSERT/2))/INSERT*100:.0f}% in cleat")
+in_cleat = (min(T + C, EDGE + INSERT/2) - max(T, EDGE - INSERT/2)) / INSERT
+if a.solid:
+    # A 1x board's front edge is SIDE grain -- the drill axis crosses the grain,
+    # which holds an insert well. Plywood's edge is between plies and does not.
+    ok("insert lands in side grain, backed by the cleat",
+       EDGE - INSERT/2 > 0 and EDGE + INSERT/2 <= T + C,
+       f"{max(0.0, in_cleat)*100:.0f}% in cleat, rest in solid edge")
+else:
+    ok("insert sits mostly in the cleat, not the ply edge", in_cleat > 0.5,
+       f"{in_cleat*100:.0f}% in cleat")
 rail_back = T_ACM + 0.100 + MON_T + T          # back face of the P9 VESA rail
 air = (OA_D - T4) - rail_back
 ok("depth chain still closes", air > 0.15,
    f"{air:.3f}\" between the VESA rail and a {T4:.3f}\" back")
-ok("rear panel thickness is free to differ", T4 < OA_D - rail_back,
-   f"{T4:.3f}\" < {OA_D - rail_back:.3f}\" max")
+ok("rear panel thickness is free to differ", T4 <= OA_D - rail_back,
+   f"{T4:.3f}\" vs {OA_D - rail_back:.3f}\" available")
+if air < 0.15:
+    print(f"""
+  >> DEPTH CONFLICT, {abs(air):.3f}\"
+     {T_ACM:.3f} face + 0.100 gap + {MON_T:.3f} monitor + {T:.3f} rail + {T4:.3f} back
+     = {T_ACM + 0.100 + MON_T + T + T4:.3f}\" against a {OA_D:.3f}\" envelope.
+     Do NOT resolve this on paper. MON_T is an ESTIMATE until you own the
+     monitor, and it is the largest number in the stack. Cut the tube and the
+     cleats now; set the rear cleat position -- and therefore where the rails
+     land -- once you can measure the real panel. If it still overruns then,
+     the envelope may go to {T_ACM + 0.100 + MON_T + T + T4:.3f}\": ADA 307.2 caps total
+     projection at 4.000\", so the adapter budget goes 0.750 -> {4.0 - (T_ACM + 0.100 + MON_T + T + T4):.3f}\".
+""")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
-ok("one poplar 1x4 x 6ft yields every cleat", 4 * 72 >= cl_total,
-   f"288\" available, {cl_total:.0f}\" needed")
+if a.solid:
+    ok("board A yields the whole tube", 2*OA_H + 2*CAV_W + 3*K <= 96.0,
+       f"{2*OA_H + 2*CAV_W:.1f}\" of 96\"")
+    ok("board B rips to a rail strip plus two cleat strips",
+       VESA_W + 2*C + 2*K <= 3.5, f"{VESA_W + 2*C + 2*K:.3f}\" of 3.5\"")
+    ok("board B yields the rails and every cleat",
+       2*CAV_H <= 96.0 and cl_total <= 2*96.0,
+       f"rails {2*CAV_H:.0f}\"/96, cleats {cl_total:.0f}\"/192")
+else:
+    ok("one poplar 1x4 x 6ft yields every cleat", 4 * 72 >= cl_total,
+       f"288\" available, {cl_total:.0f}\" needed")
 
 nest = ([(x0, 0.0, w, l) for x0, (_, w, l) in
          zip([sum(p[1] for p in band1[:i]) + K*i for i in range(len(band1))], band1)]
@@ -170,6 +213,9 @@ ok("no part straddles a Home Depot cut", not crossed, f"{len(crossed)} straddlin
 if a.rear:
     ok("P4 fits the second panel", REAR_W <= PW and REAR_H <= PL,
        f"{REAR_W:.3f} x {REAR_H:.3f} in {PW:.0f} x {PL:.0f}")
+if a.solid:
+    ok("P10 is too wide for a 1x4 -- comes off the MDF", TRAY[0] <= PW,
+       f"{TRAY[0]:.3f}\" > 3.5\" board, {TRAY[0]:.3f}\" <= {PW:.0f}\" panel")
 ok("every part inside the sheet",
    all(p[0] + p[2] <= a.rip and p[1] + p[3] <= HALF for p in nest),
    f"{len(nest)} parts")
