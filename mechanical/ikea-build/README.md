@@ -1,7 +1,23 @@
 # Variant K — building the kiosk box out of IKEA
 
-> ⚠️ **Concept.** Nothing here has been cut or built yet. The numbers are
-> checked against each other, not against a finished object.
+> ## 🗄 SHELVED 2026-08-29
+> **Not the build route.** The kiosk box is built per the released package —
+> ½″ Baltic birch, sheets [300 / 301 / 302](../dwg/). Variant K is kept for the
+> finding in §1, which is the part that outlives it.
+>
+> **Why it was shelved:** the idea was only worth having if IKEA sold something
+> we could use *directly*. It doesn't — §1 below is the proof — and once it
+> reduced to "buy pine and cut it yourself," IKEA stopped being special. A
+> quarter sheet of Baltic birch is better material than knotty IVAR pine, and
+> §4 already conceded that. The $39 was never the point.
+>
+> **What to take from it:** §1 generalises past IKEA. *No* off-the-shelf shallow
+> cabinet can work, whoever makes it, because ADA §307.2 allows the kiosk
+> 4.000″ of total projection and the shallowest wall cabinets on the market are
+> 6¾″ deep. When someone suggests buying an enclosure — and someone will —
+> that is the number that settles it.
+>
+> ⚠️ **Concept.** Nothing here was cut or built.
 
 **The short answer: you cannot buy the kiosk at IKEA, but you can buy the wood
 there for $39, and one $12 shelf makes the entire box.**

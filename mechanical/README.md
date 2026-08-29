@@ -77,14 +77,18 @@ self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py): **P1**, one
 piece, 15.37 × 28.69″, with the switch cutouts routed straight in. Order notes
 and the one number to verify first are in [`fab-rev1/README.md`](fab-rev1/README.md).
 
-## Building the box out of IKEA
+## Can we just buy an enclosure? — no
 
-**[`ikea-build/`](ikea-build/)** — variant K. No IKEA product can *be* the
-enclosure (their shallowest wall cabinet is 6¾″ deep and ADA §307.2 allows us
-4.000″ total), but **$39 of IVAR solid pine supplies every part except the face
-plate**, and one $12 shelf makes the whole box. Comes with a 15-page IKEA-style
-[assembly manual](ikea-build/3280-K-assembly-manual.pdf). The envelope is
-unchanged, so the released drawing package still governs.
+**[`ikea-build/`](ikea-build/)** — *shelved 2026-08-29,* kept for one finding
+that keeps mattering: **no off-the-shelf shallow cabinet can work.** ADA §307.2
+allows the kiosk **4.000″ of total projection**; the shallowest wall cabinets
+made are 6¾″ deep, and picture frames shallow enough to pass are thin MDF that
+will not carry 24 lb or hold a panel-mount switch. Too deep or too flimsy, with
+nothing in between.
+
+The directory also holds a costed IKEA-pine variant and a 15-page illustrated
+assembly manual. Neither is the build route — **the box is ½″ Baltic birch per
+sheets 300 / 301 / 302**.
 
 ## Still to produce
 
