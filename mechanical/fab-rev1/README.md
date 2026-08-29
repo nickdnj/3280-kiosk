@@ -17,12 +17,28 @@ from the geometry in [`../rev1-standalone-kiosk.md`](../rev1-standalone-kiosk.md
 1. **Upload `P1-face-plate.dxf`.**
 2. **Material:** *Aluminum Composite (ACM)* → **0.118″ (3 mm)** → **matte black**.
 3. **Quantity:** 1.
-4. **Secondary services:** none. ACM can't be bent, tapped, countersunk or
-   powder-coated, and none of it is needed.
-5. Ask whether **engraving** is offered on ACM. If not, labels are a separate
-   step — see below.
+4. **Secondary services:** none. Confirmed with SendCutSend's material page —
+   ACM is *"not anodizable or powder coatable; the surface finish comes from the
+   manufacturer,"* and **CNC routing is the only service offered for it**. So
+   there is nothing to decline: the options simply aren't there.
+5. **Engraving is not available on ACM.** Labels are a separate step — see below.
 
-Well inside their 30 × 44″ maximum.
+Well inside their 44 × 31″ instant-quote maximum. CNC routed to ±0.005″.
+
+### Quoted 2026-08-29
+
+| | | |
+|---|---|---|
+| **ACM Black .118″, no services** | **$61.43** | ships in ~3 days |
+| 6061-T6 .125″, deburred, matte black powder | $214.72 | ships in ~2 weeks |
+
+The aluminium version was priced and rejected. It is not a bad part — solid 6061
+is stiffer and powder coat wraps the cut edges — but **the stiffness argument is
+already answered by the button rail**, which takes the press load so the panel
+can't flex under a thumb. Buying stiffness twice is not worth 3.5×, and the
+budget is better spent on the monitor and the mounting adapter, both still open.
+The extra 0.007″ of thickness was *not* the objection: it takes overall depth to
+3.257″, still inside the ADA §307.2 cap of 4.000″.
 
 ## ⚠ Confirm one number first
 
@@ -37,6 +53,11 @@ you are actually buying, along with:
 
 If your switch wants a different cutout, change `BTN_HOLE` in the script and
 re-run.
+
+**Do not order ahead of this check.** Nothing else gates the panel — the monitor
+is aligned to the window by the internal VESA frame, not the other way round, so
+the face plate is safe to cut before the monitor arrives. The switch cutout is
+the only number on this drawing that a supplier's datasheet can invalidate.
 
 ## Why one piece
 
@@ -105,10 +126,11 @@ Regenerate with `python3 make-stencil.py`.
 
 ## Labels
 
-There is no text in the DXF. BACK / HOME / NEXT is a separate step, and the
-native answer for ACM is **cut vinyl from a sign shop** — this is sign material,
-and it is how every road sign is lettered. Durable, cheap, replaceable. Ask
-SendCutSend about engraving first; if they will do it, better still.
+There is no text in the DXF, and **SendCutSend does not engrave ACM** — routing
+is the only service they offer on it. So lettering is a separate step, and the
+native answer is **cut vinyl from a sign shop**: this is sign material, and it is
+how every road sign is lettered. Durable, cheap, and replaceable when a docent
+decides BACK should have said PREVIOUS.
 
 ## Regenerating
 
