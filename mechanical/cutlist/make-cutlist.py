@@ -15,17 +15,17 @@ Emits the cut list, the checks, and nesting.svg.
 import argparse, math
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--ply',   type=float, default=0.469, help='MEASURED panel thickness')
-ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square')
-ap.add_argument('--back', choices=['inset', 'tacked'], default='inset',
+ap.add_argument('--ply',   type=float, default=0.719, help='MEASURED box stock thickness')
+ap.add_argument('--cleat', type=float, default=0.719, help='cleat stock, square')
+ap.add_argument('--back', choices=['inset', 'tacked'], default='tacked',
                 help='inset = P4 drops into the cavity on rear cleats; '
                      'tacked = P4 screws onto the back of the tube')
 ap.add_argument('--air', type=float, default=0.100, help='air behind the VESA rail')
-ap.add_argument('--board', type=float, default=3.5,
+ap.add_argument('--board', type=float, default=5.5,
                 help='ACTUAL width of the 1x stock: 3.5 for 1x4, 5.5 for 1x6')
-ap.add_argument('--solid', action='store_true',
-                help='box is solid 1x lumber, not plywood (changes the insert check)')
-ap.add_argument('--rear', type=float, default=None,
+ap.add_argument('--stock', choices=['solid', 'ply'], default='solid',
+                help='solid 1x lumber (the plan) or a plywood sheet (the alternative)')
+ap.add_argument('--rear', type=float, default=0.500,
                 help='rear panel thickness if it is a different sheet (e.g. 0.500 MDF)')
 ap.add_argument('--kerf',  type=float, default=0.125, help='table saw kerf')
 ap.add_argument('--panel', type=float, nargs=2, default=[24.0, 48.0],
@@ -69,7 +69,7 @@ BUY_SOLID = [
 ]
 
 BW = a.board                              # 1x4 = 3.5 actual, 1x6 = 5.5
-BUY = BUY_SOLID if a.solid else BUY_PLY
+BUY = BUY_SOLID if (a.stock == 'solid') else BUY_PLY
 T, C, K = a.ply, a.cleat, a.kerf
 T4 = a.rear if a.rear else T          # P4 need not match the box
 
@@ -157,7 +157,7 @@ if a.rear:
      ever deletes P9 and bolts the monitor through P4, this stops being true.
 """)
 
-if a.solid:
+if a.stock == 'solid':
     BL = 96.0                                # 8 ft
     tube = 2*OA_H + 2*CAV_W
     rails = 2*CAV_H
@@ -179,6 +179,16 @@ if a.solid:
   {'One 1x6 covers the tube, every cleat and the tray.' if solo else
    'Board A cannot carry the cleats -- take them off a second wide board.'}
 """)
+D_PINE, D_MDF, D_ACM = 0.0162, 0.0278, 0.0080     # lb/in^3, lb/in^2 for 3 mm ACM
+w_box  = (2*TUBE_D*OA_H + 2*TUBE_D*CAV_W)*T + cl_total*C*C + TRAY[0]*TRAY[1]*T
+w_box += 2*VESA_W*CAV_H*T
+W_PINE = w_box * D_PINE
+W_BACK = REAR_W*REAR_H*T4 * (D_MDF if a.rear else D_PINE)
+W_FACE = OA_W*OA_H*D_ACM
+W_ALL  = W_PINE + W_BACK + W_FACE + 9.0 + 1.0      # monitor + Pi/PSU/wiring
+print(f"WEIGHT   pine {W_PINE:.1f} + back {W_BACK:.1f} + face {W_FACE:.1f} "
+      f"+ monitor 9.0 + electronics 1.0 = {W_ALL:.1f} lb\n")
+
 fails = []
 def ok(label, cond, detail):
     if not cond: fails.append(label)
@@ -199,7 +209,7 @@ ok("band 2 still fits after the crosscut", HALF - CROSS - K >= b2_l,
 ok("P1 mount hole lands in wall + cleat", EDGE + INSERT/2 <= T + C,
    f"{EDGE + INSERT/2:.3f}\" in {T + C:.3f}\"")
 in_cleat = (min(T + C, EDGE + INSERT/2) - max(T, EDGE - INSERT/2)) / INSERT
-if a.solid:
+if a.stock == 'solid':
     # A 1x board's front edge is SIDE grain -- the drill axis crosses the grain,
     # which holds an insert well. Plywood's edge is between plies and does not.
     ok("insert lands in side grain, backed by the cleat",
@@ -229,10 +239,11 @@ if air < (a.air*0.99 if TACK else 0.15):
 """)
 ok("enclosure leaves the adapter a budget", ADAPTER > 0.35,
    f"{OA_D:.3f}\" deep, {ADAPTER:.3f}\" of the 4.000 ADA cap left")
+ok("a one-person lift onto the bench", W_ALL < 35, f"{W_ALL:.1f} lb")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
-if a.solid:
+if a.stock == 'solid':
     ok("board A yields tube + cleats + P10", 
        2*OA_H + 2*CAV_W + 3*K <= BL - P10CUT and nA*(BL - P10CUT) >= cl_total,
        f"tube {2*OA_H + 2*CAV_W:.0f}\", cleats {cl_total:.0f}\"/{nA*(BL-P10CUT):.0f}\", "
@@ -258,7 +269,7 @@ ok("no part straddles a Home Depot cut", not crossed, f"{len(crossed)} straddlin
 if a.rear:
     ok("P4 fits the second panel", REAR_W <= PW and REAR_H <= PL,
        f"{REAR_W:.3f} x {REAR_H:.3f} in {PW:.0f} x {PL:.0f}")
-if a.solid:
+if a.stock == 'solid':
     ok("P10 has a source", TRAY[0] <= BW or TRAY[0] <= PW,
        f"{TRAY[0]:.3f}\" -> {'board' if TRAY[0] <= BW else 'MDF panel'}")
 ok("every part inside the sheet",
