@@ -56,10 +56,12 @@ BUY_PLY = [
   'assembly'),
 ]
 BUY_SOLID = [
- ('Poplar 1x6 x 8 ft, hardwood rack -- SIGHT DOWN EVERY BOARD',  '--',      0.00, 1,
-  'P10 off the end, then rip: tube + every cleat'),
- ('Poplar 1x2 x 8 ft -- already 1.500 wide, no rip needed',      '--',      0.00, 1,
-  'P9 VESA rails x2'),
+ ('PrimeLinx 1 in. x 6 in. x 8 ft. Radiata Pine Finger-Joint PRIMED',
+                                                                 '280552', 16.37, 1,
+  'P10 off the end, then rip: the tube + every cleat'),
+ ('1 in. x 3 in. x 8 ft. Pine Finger-Joint PRIMED (actual .719 x 2.5)',
+                                                                 '424600',  8.52, 1,
+  'rip 2.5 -> 1.500 for the P9 VESA rails'),
  ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
   'P4 rear cover' ),
  ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
