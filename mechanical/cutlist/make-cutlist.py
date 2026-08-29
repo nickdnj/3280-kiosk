@@ -20,7 +20,7 @@ ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square'
 ap.add_argument('--rear', type=float, default=None,
                 help='rear panel thickness if it is a different sheet (e.g. 0.500 MDF)')
 ap.add_argument('--kerf',  type=float, default=0.125, help='table saw kerf')
-ap.add_argument('--panel', type=float, nargs=2, default=[48.0, 96.0],
+ap.add_argument('--panel', type=float, nargs=2, default=[24.0, 48.0],
                 metavar=('W', 'L'), help='sheet bought')
 ap.add_argument('--rip',   type=float, default=None,
                 help='Home Depot rip line (default: derived from the nest)')
@@ -36,6 +36,17 @@ MON_OW, MON_OH, MON_T = 12.870, 21.440, 1.800
 VESA_W  = 1.500
 TRAY    = (4.000, 2.900)
 REAR_CL = 0.100                        # rear panel clearance, total across each axis
+
+BUY = [
+ ('ProWood 1/2 in. x 2 ft. x 4 ft. Birch Plywood Project Panel', '154153', 39.86, 1,
+  'P2 P3 P9 P10 -- the box'),
+ ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
+  'P4 -- the rear cover'),
+ ('Poplar or red oak 1x4, 8 ft (hardwood rack)',                 '--',      0.00, 1,
+  'P5 P6 P7 P8 -- 12.5 ft of cleat'),
+ ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
+  'assembly'),
+]
 
 T, C, K = a.ply, a.cleat, a.kerf
 T4 = a.rear if a.rear else T          # P4 need not match the box
@@ -91,22 +102,25 @@ cl_total = sum(l*q for _, l, q in CLEATS)
 print(f"  {'':24}            {cl_total:7.1f}\"   total  ({cl_total/12:.1f} ft)")
 
 HALVE = PL/2 if PL > 60 else None
+PROJECT_PANEL = PW <= 24.5 and PL <= 48.5
 print("HOME DEPOT CUT DESK")
-n = 0
-if HALVE:
+if PROJECT_PANEL:
+    print("  None. Two 2x4 project panels fit in a car and on a table saw.")
+    print("  Every cut below is yours, which is the point -- their panel saw is +/- 1/8\"")
+    print("  and the face plate's hole pattern is already fixed.")
+else:
+    n = 0
+if HALVE and not PROJECT_PANEL:
+        n += 1
+        print(f"  {n}. CROSSCUT at {HALVE:.0f}\"  -> two {PW:.0f} x {HALVE:.0f} halves.")
+        print(f"     A 4x8 of 1/2\" is ~48 lb and fits nothing. This is the cut that")
+        print(f"     matters; the second half is a complete spare set of parts.")
+if not PROJECT_PANEL:
     n += 1
-    print(f"  {n}. CROSSCUT at {HALVE:.0f}\"  -> two {PW:.0f} x {HALVE:.0f} halves.")
-    print(f"     A 4x8 of 1/2\" is ~48 lb and fits nothing. This is the cut that")
-    print(f"     matters; the second half is a complete spare set of parts.")
-n += 1
-print(f"  {n}. RIP at {a.rip:.1f}\" down one half -> {a.rip:.1f} x {HALVE or PL:.0f} working piece")
-n += 1
-print(f"  {n}. CROSSCUT that piece at {CROSS:.1f}\"   (optional -- separates the long")
-print(f"     parts from the short ones, saves you wrestling 48\" on the saw)")
-print(f"""
-  Nothing else. Their panel saw is +/- 1/8" and every cut above lands in waste.
-  Every finished dimension is cut on a table saw, by you.
-""")
+    print(f"  {n}. RIP at {a.rip:.1f}\" down one half -> {a.rip:.1f} x {HALVE or PL:.0f} working piece")
+    n += 1
+    print(f"  {n}. CROSSCUT that piece at {CROSS:.1f}\"   (optional)")
+    print("\n  Every cut above lands in waste. Every finished dimension is yours.\n")
 if a.rear:
     print(f"""  !! P4 IS A COVER, NOT A STRUCTURE -- the monitor hangs on the P9 VESA
      rails, which is the ONLY reason a {T4:.3f}" MDF back is safe here. If anyone
@@ -153,47 +167,111 @@ nest = ([(x0, 0.0, w, l) for x0, (_, w, l) in
          zip([sum(p[1] for p in band2[:i]) + K*i for i in range(len(band2))], band2)])
 crossed = [p for p in nest if p[0] < a.rip < p[0] + p[2] or p[1] < CROSS < p[1] + p[3]]
 ok("no part straddles a Home Depot cut", not crossed, f"{len(crossed)} straddling")
+if a.rear:
+    ok("P4 fits the second panel", REAR_W <= PW and REAR_H <= PL,
+       f"{REAR_W:.3f} x {REAR_H:.3f} in {PW:.0f} x {PL:.0f}")
 ok("every part inside the sheet",
    all(p[0] + p[2] <= a.rip and p[1] + p[3] <= HALF for p in nest),
    f"{len(nest)} parts")
 
 # ── nesting diagram ─────────────────────────────────────────────────────────
-S, M = 0.155, 0.55
-DL = HALF
-W, H = PW*S + 2*M, DL*S + 2*M + 0.5
+S, M, GAP = 0.135, 0.50, 0.55
+sheets = 2 if a.rear else 1
+DL = HALF if HALVE else PL
+W = M*2 + sheets*PW*S + (GAP if sheets > 1 else 0)
+H = DL*S + 2*M + 0.45
 o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}in" height="{H}in" '
-     f'viewBox="0 0 {W:.3f} {H:.3f}"><rect width="100%" height="100%" fill="#FFFFFF"/>',
-     f'<rect x="{M}" y="{M}" width="{PW*S:.3f}" height="{DL*S:.3f}" '
-     f'fill="#F4F5F6" stroke="#111" stroke-width="0.022"/>']
+     f'viewBox="0 0 {W:.3f} {H:.3f}"><rect width="100%" height="100%" fill="#FFFFFF"/>']
 
-def put(x, y, w, l, lab):
-    o.append(f'<rect x="{M+x*S:.3f}" y="{M+y*S:.3f}" width="{w*S:.3f}" height="{l*S:.3f}" '
-             f'fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>')
-    o.append(f'<text x="{M+(x+w/2)*S:.3f}" y="{M+(y+l/2)*S+0.05:.3f}" font-size="0.13" '
+def sheet(ox, label):
+    o.append(f'<rect x="{ox:.3f}" y="{M:.3f}" width="{PW*S:.3f}" height="{DL*S:.3f}" '
+             f'fill="#F4F5F6" stroke="#111" stroke-width="0.020"/>')
+    o.append(f'<text x="{ox:.3f}" y="{M-0.12:.3f}" font-size="0.135" '
+             f'font-family="Helvetica,Arial" font-weight="bold" fill="#111">{label}</text>')
+
+def put(ox, x, y, w, l, lab):
+    o.append(f'<rect x="{ox+x*S:.3f}" y="{M+y*S:.3f}" width="{w*S:.3f}" height="{l*S:.3f}" '
+             f'fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>')
+    o.append(f'<text x="{ox+(x+w/2)*S:.3f}" y="{M+(y+l/2)*S+0.045:.3f}" font-size="0.115" '
              f'font-family="Helvetica,Arial" text-anchor="middle" fill="#111">{lab}</text>')
 
+o1 = M
+sheet(o1, f'BIRCH  {PW:.0f} x {DL:.0f} x {T:.3f}')
 x = 0.0
 for lab, w, l in band1:
-    put(x, 0.0, w, l, lab); x += w + K
+    put(o1, x, 0.0, w, l, lab); x += w + K
 x = 0.0
 for lab, w, l in band2:
-    put(x, CROSS + K, w, l, lab); x += w + K
-for pos, lbl in ((a.rip, f'HD rip {a.rip:.1f}"'), ):
-    o.append(f'<line x1="{M+pos*S:.3f}" y1="{M:.3f}" x2="{M+pos*S:.3f}" '
-             f'y2="{M+DL*S:.3f}" stroke="#B3261E" stroke-width="0.028" '
-             f'stroke-dasharray="0.14 0.08"/>')
-    o.append(f'<text x="{M+pos*S+0.09:.3f}" y="{M+0.30:.3f}" font-size="0.14" '
-             f'font-family="Helvetica,Arial" fill="#B3261E">{lbl}</text>')
-o.append(f'<line x1="{M:.3f}" y1="{M+CROSS*S:.3f}" x2="{M+a.rip*S:.3f}" '
-         f'y2="{M+CROSS*S:.3f}" stroke="#B3261E" stroke-width="0.028" '
-         f'stroke-dasharray="0.14 0.08"/>')
-o.append(f'<text x="{M+a.rip*S+0.09:.3f}" y="{M+CROSS*S-0.07:.3f}" font-size="0.14" '
-         f'font-family="Helvetica,Arial" fill="#B3261E">HD crosscut {CROSS:.1f}"</text>')
-o.append(f'<text x="{M:.3f}" y="{H-0.18:.3f}" font-size="0.145" '
+    put(o1, x, CROSS + K, w, l, lab); x += w + K
+if not PROJECT_PANEL:
+    o.append(f'<line x1="{o1+a.rip*S:.3f}" y1="{M:.3f}" x2="{o1+a.rip*S:.3f}" '
+             f'y2="{M+DL*S:.3f}" stroke="#B3261E" stroke-width="0.024" '
+             f'stroke-dasharray="0.12 0.07"/>')
+
+if a.rear:
+    o2 = M + PW*S + GAP
+    sheet(o2, f'MDF  {PW:.0f} x {DL:.0f} x {T4:.3f}')
+    put(o2, 0.0, 0.0, REAR_W, REAR_H, 'P4')
+
+o.append(f'<text x="{M:.3f}" y="{H-0.14:.3f}" font-size="0.125" '
          f'font-family="Helvetica,Arial" fill="#111">'
-         f'working half: {PW:.0f} x {DL:.0f} x {T:.3f} PureBond birch  |  red = Home Depot  |  '
-         f'everything else on a table saw</text>')
+         f'grain / face runs top-to-bottom  |  no Home Depot cuts  |  '
+         f'all dimensions on a table saw</text>')
 o.append('</svg>')
 open('nesting.svg', 'w').write('\n'.join(o))
-print(f"\n  nesting.svg written")
+
+# ── store card ──────────────────────────────────────────────────────────────
+tot = sum(p[2]*p[3] for p in BUY)
+md = [f"""# Shopping list — 3280 kiosk box
+
+> Generated by `make-cutlist.py`. Prices seen at West Long Branch 2026-08-29.
+> Assumes birch measures **{T:.3f}"** and MDF **{T4:.3f}"** — *measure before cutting.*
+
+## Buy
+""", "| Item | Model | Price |", "|---|---|---|"]
+for name, model, usd, qty, use in BUY:
+    price = f"${usd:.2f}" if usd else "~$20"
+    md.append(f"| {name}<br>*{use}* | {model} | {price} |")
+md += [f"| | **panels** | **${tot:.2f}** |", "",
+       "**No cut desk.** Both panels fit in a car. Their saw is ±1/8\" and the face",
+       "plate's hole pattern is already fixed, so every dimension below is yours.",
+       "",
+       f"The birch nest uses {max(b1_w, b2_w):.1f}\" of the panel's {PW:.0f}\", leaving a "
+       f"{PW - max(b1_w, b2_w) - K:.1f} x {PL:.0f}\" strip —",
+       "enough for a **complete second set of box parts** if you spoil one. There is no",
+       "spare P4; a second rear panel would need another MDF sheet.",
+       "",
+       "Check the birch panel's cut edges in the store and pick one without voids —",
+       "the box corners take edge screws.",
+       "", "## Measure first", "",
+       f'Calipers in four places on each panel. Re-run with what you find:', "",
+       "```bash", "python3 make-cutlist.py --panel 24 48 \\",
+       f"        --ply <birch> --rear <mdf>", "```", "",
+       "Only P2, P10 and the depth are thickness-independent. Everything else moves.",
+       "", f"## Cut list — birch panel ({T:.3f}\")", "",
+       "| Part | Width | Length | Qty |", "|---|---|---|---|"]
+for n, w, l, q in PLY:
+    if n.startswith('P4'): continue
+    md.append(f"| {n} | {w:.3f} | {l:.3f} | ×{q} |")
+md += ["", f"## Cut list — MDF panel ({T4:.3f}\")", "",
+       "| Part | Width | Length | Qty |", "|---|---|---|---|",
+       f"| P4  REAR PANEL | {REAR_W:.3f} | {REAR_H:.3f} | ×1 |", "",
+       f"## Cut list — cleats, {C:.3f}\" square, from the 1x4", "",
+       "| Part | Length | Qty |", "|---|---|---|"]
+for n, l, q in CLEATS:
+    md.append(f"| {n} | {l:.3f} | ×{q} |")
+md += [f"| | **{cl_total:.1f}\" total** | |", "",
+       "## Order of operations", "",
+       "1. Rip the birch: **3.132** ×3, **1.500** ×2, **4.000** ×1.",
+       "2. Crosscut **P2** ×2 to **28.690** — the only parts that never move.",
+       "3. Dry-assemble the tube. **Measure the real cavity.**",
+       "4. Cut P3, P9, P4 and the cleats to what you measured, not to this table.",
+       "5. Rip cleats from the 1x4 at 0.750 square.",
+       "", "## Not at Home Depot", "",
+       "- #8-32 brass threaded inserts for wood (21) — Rockler / McMaster",
+       "- #8-32 button-head pin-torx screws, black (15) — McMaster",
+       "- **30 mm anti-vandal switches (3)** — still the gate on the face plate order",
+       ""]
+open('SHOPPING.md', 'w').write('\n'.join(md))
+print(f"\n  nesting.svg + SHOPPING.md written   (panels ${tot:.2f})")
 print("\nALL CHECKS PASS\n" if not fails else f"\n{len(fails)} FAILED: {fails}\n")

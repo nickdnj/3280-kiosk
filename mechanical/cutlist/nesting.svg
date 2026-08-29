@@ -1,22 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="8.54in" height="9.04in" viewBox="0 0 8.540 9.040"><rect width="100%" height="100%" fill="#FFFFFF"/>
-<rect x="0.55" y="0.55" width="7.440" height="7.440" fill="#F4F5F6" stroke="#111" stroke-width="0.022"/>
-<rect x="0.550" y="0.550" width="0.485" height="4.447" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="0.793" y="2.823" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P2</text>
-<rect x="1.055" y="0.550" width="0.485" height="4.447" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="1.298" y="2.823" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P2</text>
-<rect x="1.560" y="0.550" width="0.232" height="4.302" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="1.676" y="2.751" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
-<rect x="1.812" y="0.550" width="0.232" height="4.302" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="1.928" y="2.751" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
-<rect x="0.550" y="5.142" width="0.485" height="2.237" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="0.793" y="6.310" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
-<rect x="1.055" y="5.142" width="0.485" height="2.237" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="1.298" y="6.310" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
-<rect x="1.560" y="5.142" width="0.620" height="0.450" fill="#FFFFFF" stroke="#111" stroke-width="0.014"/>
-<text x="1.870" y="5.417" font-size="0.13" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P10</text>
-<line x1="2.333" y1="0.550" x2="2.333" y2="7.990" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
-<text x="2.422" y="0.850" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD rip 11.5"</text>
-<line x1="0.550" y1="5.122" x2="2.333" y2="5.122" stroke="#B3261E" stroke-width="0.028" stroke-dasharray="0.14 0.08"/>
-<text x="2.422" y="5.052" font-size="0.14" font-family="Helvetica,Arial" fill="#B3261E">HD crosscut 29.5"</text>
-<text x="0.550" y="8.860" font-size="0.145" font-family="Helvetica,Arial" fill="#111">working half: 48 x 48 x 0.469 PureBond birch  |  red = Home Depot  |  everything else on a table saw</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="8.030000000000001in" height="7.930000000000001in" viewBox="0 0 8.030 7.930"><rect width="100%" height="100%" fill="#FFFFFF"/>
+<rect x="0.500" y="0.500" width="3.240" height="6.480" fill="#F4F5F6" stroke="#111" stroke-width="0.020"/>
+<text x="0.500" y="0.380" font-size="0.135" font-family="Helvetica,Arial" font-weight="bold" fill="#111">BIRCH  24 x 48 x 0.469</text>
+<rect x="0.500" y="0.500" width="0.423" height="3.873" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="0.711" y="2.482" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P2</text>
+<rect x="0.940" y="0.500" width="0.423" height="3.873" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="1.151" y="2.482" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P2</text>
+<rect x="1.379" y="0.500" width="0.203" height="3.747" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="1.481" y="2.418" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
+<rect x="1.599" y="0.500" width="0.203" height="3.747" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="1.700" y="2.418" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P9</text>
+<rect x="0.500" y="4.499" width="0.423" height="1.948" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="0.711" y="5.519" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
+<rect x="0.940" y="4.499" width="0.423" height="1.948" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="1.151" y="5.519" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P3</text>
+<rect x="1.379" y="4.499" width="0.540" height="0.392" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="1.649" y="4.740" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P10</text>
+<rect x="4.290" y="0.500" width="3.240" height="6.480" fill="#F4F5F6" stroke="#111" stroke-width="0.020"/>
+<text x="4.290" y="0.380" font-size="0.135" font-family="Helvetica,Arial" font-weight="bold" fill="#111">MDF  24 x 48 x 0.500</text>
+<rect x="4.290" y="0.500" width="1.935" height="3.733" fill="#FFFFFF" stroke="#111" stroke-width="0.013"/>
+<text x="5.257" y="2.412" font-size="0.115" font-family="Helvetica,Arial" text-anchor="middle" fill="#111">P4</text>
+<text x="0.500" y="7.790" font-size="0.125" font-family="Helvetica,Arial" fill="#111">grain / face runs top-to-bottom  |  no Home Depot cuts  |  all dimensions on a table saw</text>
 </svg>
