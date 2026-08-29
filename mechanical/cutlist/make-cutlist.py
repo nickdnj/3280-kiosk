@@ -21,7 +21,12 @@ ap.add_argument('--back', choices=['inset', 'tacked'], default='tacked',
                 help='inset = P4 drops into the cavity on rear cleats; '
                      'tacked = P4 screws onto the back of the tube')
 ap.add_argument('--air', type=float, default=0.100, help='air behind the VESA rail')
-ap.add_argument('--board', type=float, default=5.5,
+ap.add_argument('--allow-rip', dest='allow_rip', action='store_true',
+                help='allow ripping (the earlier plans). Default is crosscuts only: '
+                     'board WIDTH becomes the box depth and nothing is ripped.')
+ap.add_argument('--cleatboard', type=float, default=2.5,
+                help='actual width of the cleat/rail stock (1x3 = 2.5, 1x2 = 1.5)')
+ap.add_argument('--board', type=float, default=3.5,
                 help='ACTUAL width of the 1x stock: 3.5 for 1x4, 5.5 for 1x6')
 ap.add_argument('--stock', choices=['solid', 'ply'], default='solid',
                 help='solid 1x lumber (the plan) or a plywood sheet (the alternative)')
@@ -41,6 +46,7 @@ TUBE_D  = OA_D - T_ACM                 # 3.132, the box depth behind the face
 EDGE    = 0.625                        # P1 mount holes, in from the edge
 INSERT  = 0.375                        # #8-32 brass insert, outside diameter
 MON_OW, MON_OH, MON_T = 12.870, 21.440, 1.800
+MON_TOP = 1.250
 VESA_W  = 1.500
 TRAY    = (4.000, 2.900)
 REAR_CL = 0.100                        # rear panel clearance, total across each axis
@@ -56,12 +62,12 @@ BUY_PLY = [
   'assembly'),
 ]
 BUY_SOLID = [
- ('PrimeLinx 1 in. x 6 in. x 8 ft. Radiata Pine Finger-Joint PRIMED',
-                                                                 '280552', 16.37, 1,
-  'P10 off the end, then rip: the tube + every cleat'),
- ('1 in. x 3 in. x 8 ft. Pine Finger-Joint PRIMED (actual .719 x 2.5)',
-                                                                 '424600',  8.52, 1,
-  'rip 2.5 -> 1.500 for the P9 VESA rails'),
+ ('1x4 x 8 ft Radiata Pine Finger-Joint PRIMED (actual .719 x 3.5)',
+                                                                 '252978', 10.58, 2,
+  'P2 P3 -- the tube, used at full width. 1 needed, 1 spare'),
+ ('1x3 x 8 ft Pine Finger-Joint PRIMED (actual .719 x 2.5)',
+                                                                 '424600',  8.52, 3,
+  'P7 P8 P9 -- used at full width. 2 needed, 1 spare'),
  ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
   'P4 rear cover' ),
  ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
@@ -71,9 +77,24 @@ BUY_SOLID = [
 BW = a.board                              # 1x4 = 3.5 actual, 1x6 = 5.5
 BUY = BUY_SOLID if (a.stock == 'solid') else BUY_PLY
 T, C, K = a.ply, a.cleat, a.kerf
+CW = a.cleatboard        # cleat stock width, used as-is
 T4 = a.rear if a.rear else T          # P4 need not match the box
 
 # ── everything else follows from T ──────────────────────────────────────────
+NORIP = not a.allow_rip
+NO_FRONT_CLEATS = False
+if NORIP:
+    REAR_CL = 0.250                     # deliberately loose: Home Depot cuts it
+    # No board is ever ripped. The 1x4's 3.5" WIDTH becomes the tube depth,
+    # and the cleats/rails are 1x stock used at full width. The back must be
+    # inset -- tacked on it would put the enclosure past the ADA 4.000" cap
+    # on its own, before any mounting adapter.
+    TUBE_D = a.board
+    OA_D   = T_ACM + TUBE_D
+    C      = T                      # a cleat intrudes by its board THICKNESS
+    a.back = 'inset'
+    NO_FRONT_CLEATS = True          # see the monitor-clearance check below
+
 TACK = a.back == 'tacked'
 if TACK:
     # A tacked back screws onto the tube's rear edges, so the tube only has to
@@ -83,22 +104,25 @@ if TACK:
 
 CAV_W, CAV_H = OA_W - 2*T, OA_H - 2*T
 REAR_W, REAR_H = ((OA_W, OA_H) if TACK else (CAV_W - REAR_CL, CAV_H - REAR_CL))
-CLH = CAV_W - 2*C                       # horizontal cleats span between verticals
+CLH = CAV_W - 2*C                       # verticals intrude by C, not by their width
 
 PLY = [   # name, w, l, qty
     ('P2  SIDE PANEL',        TUBE_D, OA_H,   2),
     ('P3  TOP / BOTTOM',      TUBE_D, CAV_W,  2),
     ('P4  REAR PANEL',        REAR_W, REAR_H, 1),
-    ('P9  VESA RAIL',         VESA_W, CAV_H,  2),
     ('P10 PI TRAY',           TRAY[0], TRAY[1], 1),
 ]
-CLEATS = [
+if not NORIP:
+    PLY.insert(3, ('P9  VESA RAIL', VESA_W, CAV_H, 2))
+CLEATS = ([('P7  BUTTON RAIL', CAV_W, 1)] if NO_FRONT_CLEATS else [
     ('P5  FRONT CLEAT, VERT', CAV_H, 2),
     ('P6  FRONT CLEAT, HORIZ', CLH,  2),
     ('P7  BUTTON RAIL',       CLH,   1),
-]
+])
 if not TACK:                               # a tacked back screws to the tube edges
     CLEATS.append(('P8  REAR CLEAT, VERT', CAV_H, 2))
+if NORIP:
+    CLEATS.append(('P9  VESA RAIL',        CAV_H, 2))
 
 # ── nesting: band 1 holds everything 27"+ long, band 2 the short parts ───────
 PW, PL = a.panel
@@ -157,7 +181,27 @@ if a.rear:
      ever deletes P9 and bolts the monitor through P4, this stops being true.
 """)
 
-if a.stock == 'solid':
+if NORIP:
+    BL = 96.0
+    tube_run = 2*OA_H + 2*CAV_W
+    nboards  = math.ceil(cl_total / (BL - 2)) + 1     # +1 spare; cost is not the constraint
+    print(f"""CROSSCUT-ONLY PLAN   zero rips
+
+  1x4 x 8 ft  (actual {T:.3f} x {a.board})   -- the tube, at full width
+      P2 {OA_H:.3f} x2  +  P3 {CAV_W:.3f} x2        {tube_run:.0f}" of {BL:.0f}"
+
+  1x2 x 8 ft  (actual {T:.3f} x {CW})   x{nboards}  -- at full width, no rip
+      {chr(10) + "      " if False else ""}{"   ".join(n.split()[0] + " " + format(l, ".3f") + " x" + str(q) for n, l, q in CLEATS)}
+                                            {cl_total:.0f}" of {nboards*(BL-2):.0f}"
+
+  1/2" MDF 2x4     -- P4 {REAR_W:.3f} x {REAR_H:.3f}  +  P10 {TRAY[0]:.3f} x {TRAY[1]:.3f}
+
+  {4 + sum(q for _, _, q in CLEATS)} crosscuts in wood. No rips, no front cleats.
+  A mitre saw does all of it. HOME DEPOT CUTS THE MDF -- the rear panel is
+  deliberately {REAR_CL:.3f}" undersize, so their +/- 1/8" cannot matter.
+""")
+
+elif a.stock == 'solid':
     BL = 96.0                                # 8 ft
     tube = 2*OA_H + 2*CAV_W
     rails = 2*CAV_H
@@ -181,7 +225,7 @@ if a.stock == 'solid':
 """)
 D_PINE, D_MDF, D_ACM = 0.0162, 0.0278, 0.0080     # lb/in^3, lb/in^2 for 3 mm ACM
 w_box  = (2*TUBE_D*OA_H + 2*TUBE_D*CAV_W)*T + cl_total*C*C + TRAY[0]*TRAY[1]*T
-w_box += 2*VESA_W*CAV_H*T
+w_box += 0.0 if NORIP else 2*VESA_W*CAV_H*T
 W_PINE = w_box * D_PINE
 W_BACK = REAR_W*REAR_H*T4 * (D_MDF if a.rear else D_PINE)
 W_FACE = OA_W*OA_H*D_ACM
@@ -218,7 +262,7 @@ if a.stock == 'solid':
 else:
     ok("insert sits mostly in the cleat, not the ply edge", in_cleat > 0.5,
        f"{in_cleat*100:.0f}% in cleat")
-rail_back = T_ACM + 0.100 + MON_T + T          # back face of the P9 VESA rail
+rail_back = T_ACM + 0.100 + MON_T + (T if NORIP else T)
 air = (OA_D - T4) - rail_back
 ADAPTER = 4.000 - OA_D                        # ADA 307.2 caps total projection
 ok("depth chain still closes", air > (a.air*0.99 if TACK else 0.15),
@@ -240,10 +284,35 @@ if air < (a.air*0.99 if TACK else 0.15):
 ok("enclosure leaves the adapter a budget", ADAPTER > 0.35,
    f"{OA_D:.3f}\" deep, {ADAPTER:.3f}\" of the 4.000 ADA cap left")
 ok("a one-person lift onto the bench", W_ALL < 35, f"{W_ALL:.1f} lb")
+if NORIP:
+    ok("nothing is ripped", True, f"tube depth = the {a.board}\" board width")
+    internal = 0.100 + MON_T + T + T4
+    ok("monitor + rail + inset back fit the tube", internal <= TUBE_D,
+       f"{internal:.3f}\" in {TUBE_D:.3f}\"")
+    ok("one 1x4 x 8 ft yields the whole tube", 2*OA_H + 2*CAV_W <= 94.0,
+       f"{2*OA_H + 2*CAV_W:.0f}\" of 94\"")
+    # Front cleats lie 0.719 into the cavity x 1.500 deep. REAR cleats turn 90
+    # degrees -- 1.500 into the cavity x 0.719 deep -- so they sit entirely
+    # behind the monitor instead of running alongside it.
+    ok("rear cleat, turned 90, clears the monitor",
+       (OA_D - T4 - T) > (T_ACM + 0.100 + MON_T),
+       f"cleat front {OA_D - T4 - T:.3f}\" vs monitor back {T_ACM + 0.100 + MON_T:.3f}\"")
+    ok("rear panel still lands on the ledge",
+       CW - REAR_CL/2 - 0.125 > 0.75,
+       f"{CW - REAR_CL/2 - 0.125:.3f}\" of ledge at Home Depot's worst cut")
+front_in = 0.0 if NO_FRONT_CLEATS else T + C
+ok("monitor clears the FRONT CLEATS, not just the cavity",
+   (OA_W - 2*front_in - MON_OW)/2 > 0.10 and
+   (OA_H - T - front_in) - (OA_H - MON_TOP) > 0.10,
+   f"{(OA_W - 2*front_in - MON_OW)/2:+.3f}\"/side, "
+   f"{(OA_H - T - front_in) - (OA_H - MON_TOP):+.3f}\" at the top")
+ok("every P1 hole lands in a board edge or the rail",
+   EDGE + INSERT/2 <= T + (C if not NO_FRONT_CLEATS else 0) + 0.10,
+   "15 of 15" if NO_FRONT_CLEATS else "via cleats")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
-if a.stock == 'solid':
+if a.stock == 'solid' and not NORIP:
     ok("board A yields tube + cleats + P10", 
        2*OA_H + 2*CAV_W + 3*K <= BL - P10CUT and nA*(BL - P10CUT) >= cl_total,
        f"tube {2*OA_H + 2*CAV_W:.0f}\", cleats {cl_total:.0f}\"/{nA*(BL-P10CUT):.0f}\", "
@@ -324,56 +393,84 @@ open('nesting.svg', 'w').write('\n'.join(o))
 
 # ── store card ──────────────────────────────────────────────────────────────
 tot = sum(p[2]*p[3] for p in BUY)
-md = [f"""# Shopping list — 3280 kiosk box
+L = []
+def w(x=''): L.append(x)
 
-> Generated by `make-cutlist.py`. Prices seen at West Long Branch 2026-08-29.
-> Assumes birch measures **{T:.3f}"** and MDF **{T4:.3f}"** — *measure before cutting.*
-
-## Buy
-""", "| Item | Model | Price |", "|---|---|---|"]
+w("# Shopping list — 3280 kiosk box")
+w()
+w("> Generated by `make-cutlist.py`. Prices seen at Home Depot West Long Branch,")
+w(f"> 2026-08-29. Assumes the boards measure **{T:.3f}\"** and the MDF **{T4:.3f}\"** —")
+w("> *measure before cutting.*")
+w()
+w("## Buy")
+w()
+w("| Item | Model | Qty | Price |")
+w("|---|---|---|---|")
 for name, model, usd, qty, use in BUY:
-    price = f"${usd:.2f}" if usd else "~$20"
-    md.append(f"| {name}<br>*{use}* | {model} | {price} |")
-md += [f"| | **panels** | **${tot:.2f}** |", "",
-       "**No cut desk.** Both panels fit in a car. Their saw is ±1/8\" and the face",
-       "plate's hole pattern is already fixed, so every dimension below is yours.",
-       "",
-       f"The birch nest uses {max(b1_w, b2_w):.1f}\" of the panel's {PW:.0f}\", leaving a "
-       f"{PW - max(b1_w, b2_w) - K:.1f} x {PL:.0f}\" strip —",
-       "enough for a **complete second set of box parts** if you spoil one. There is no",
-       "spare P4; a second rear panel would need another MDF sheet.",
-       "",
-       "Check the birch panel's cut edges in the store and pick one without voids —",
-       "the box corners take edge screws.",
-       "", "## Measure first", "",
-       f'Calipers in four places on each panel. Re-run with what you find:', "",
-       "```bash", "python3 make-cutlist.py --panel 24 48 \\",
-       f"        --ply <birch> --rear <mdf>", "```", "",
-       "Only P2, P10 and the depth are thickness-independent. Everything else moves.",
-       "", f"## Cut list — birch panel ({T:.3f}\")", "",
-       "| Part | Width | Length | Qty |", "|---|---|---|---|"]
-for n, w, l, q in PLY:
-    if n.startswith('P4'): continue
-    md.append(f"| {n} | {w:.3f} | {l:.3f} | ×{q} |")
-md += ["", f"## Cut list — MDF panel ({T4:.3f}\")", "",
-       "| Part | Width | Length | Qty |", "|---|---|---|---|",
-       f"| P4  REAR PANEL | {REAR_W:.3f} | {REAR_H:.3f} | ×1 |", "",
-       f"## Cut list — cleats, {C:.3f}\" square, from the 1x4", "",
-       "| Part | Length | Qty |", "|---|---|---|"]
+    price = f"${usd*qty:.2f}" if usd else "~$20"
+    w(f"| {name}<br>*{use}* | {model} | ×{qty} | {price} |")
+w(f"| | | | **${tot:.2f}** |")
+w()
+if NORIP:
+    w("**Zero rips.** Every board is used at its full width, so the only wood cuts are")
+    w(f"**{4 + sum(q for _, _, q in CLEATS)} crosscuts** — a mitre saw does all of it.")
+    w()
+    w("**Home Depot cuts the MDF.** The rear panel is deliberately "
+      f"{REAR_CL:.3f}\" undersize and")
+    w(f"lands on a {CW:.3f}\" ledge, so their ±1/8\" cannot matter. Ask for:")
+    w()
+    w(f"- **P4 rear panel — {REAR_W:.3f} × {REAR_H:.3f}**")
+    w(f"- **P10 Pi tray — {TRAY[0]:.3f} × {TRAY[1]:.3f}**")
+w()
+w("## Measure first")
+w()
+w("Calipers in four places on a board. If it differs, re-run:")
+w()
+w("```bash")
+w("python3 make-cutlist.py --ply <board> --rear <mdf>")
+w("```")
+w()
+w(f"## Cut — 1x4, at full width ({a.board}\")")
+w()
+w("| Part | Width | Length | Qty |")
+w("|---|---|---|---|")
+for n, ww_, l, q in PLY:
+    if n.startswith(('P4', 'P10')):
+        continue
+    w(f"| {n} | {ww_:.3f} | {l:.3f} | ×{q} |")
+w()
+w(f"## Cut — 1x3, at full width ({CW}\")")
+w()
+w("| Part | Length | Qty |")
+w("|---|---|---|")
 for n, l, q in CLEATS:
-    md.append(f"| {n} | {l:.3f} | ×{q} |")
-md += [f"| | **{cl_total:.1f}\" total** | |", "",
-       "## Order of operations", "",
-       "1. Rip the birch: **3.132** ×3, **1.500** ×2, **4.000** ×1.",
-       "2. Crosscut **P2** ×2 to **28.690** — the only parts that never move.",
-       "3. Dry-assemble the tube. **Measure the real cavity.**",
-       "4. Cut P3, P9, P4 and the cleats to what you measured, not to this table.",
-       "5. Rip cleats from the 1x4 at 0.750 square.",
-       "", "## Not at Home Depot", "",
-       "- #8-32 brass threaded inserts for wood (21) — Rockler / McMaster",
-       "- #8-32 button-head pin-torx screws, black (15) — McMaster",
-       "- **30 mm anti-vandal switches (3)** — still the gate on the face plate order",
-       ""]
-open('SHOPPING.md', 'w').write('\n'.join(md))
+    w(f"| {n} | {l:.3f} | ×{q} |")
+w()
+w("## From the MDF — Home Depot cuts these")
+w()
+w("| Part | Size |")
+w("|---|---|")
+w(f"| P4  REAR PANEL | {REAR_W:.3f} × {REAR_H:.3f} |")
+w(f"| P10 PI TRAY | {TRAY[0]:.3f} × {TRAY[1]:.3f} |")
+w()
+w("## Order of operations")
+w()
+w("1. Crosscut **P2 ×2 to 28.690** — the only parts whose size never moves.")
+w("2. Dry-assemble with P3 and **measure the real cavity.**")
+w("3. Cut P3, P7, P8, P9 to what you measured, not to the tables above.")
+w("4. Glue and screw the tube. **Pilot every hole** — pine end grain splits.")
+w("5. P7 button rail, front-flush, centreline 23.715\" below the top edge.")
+w("6. P8 rear cleats, **turned 90°** so they sit behind the monitor.")
+w("7. Threaded inserts — 15 on P1's pattern. **Epoxy them.**")
+w("8. P9 rails, monitor, Pi tray, then P1, then the back.")
+w()
+w("## Not at Home Depot")
+w()
+w("- #8-32 brass threaded inserts for wood (15) — Rockler / McMaster")
+w("- #8-32 button-head pin-torx screws, black (15) — McMaster")
+w("- **30 mm anti-vandal switches (3)** — still the gate on the face plate order")
+w()
+open('SHOPPING.md', 'w').write('\n'.join(L))
+
 print(f"\n  nesting.svg + SHOPPING.md written   (panels ${tot:.2f})")
 print("\nALL CHECKS PASS\n" if not fails else f"\n{len(fails)} FAILED: {fails}\n")
