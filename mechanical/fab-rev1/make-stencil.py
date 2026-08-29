@@ -8,24 +8,20 @@ registration marks, cut the voids, and use it to transfer the shape to cardboard
     python3 make-stencil.py     ->  stencil-letter.html
 """
 import math
+import _p1 as P
 
-# ── plate geometry, mirrors make-cutfiles.py ────────────────────────────────
-PW, PH        = 15.370, 28.690
-WIN_X, WIN_Y  = 1.600, 1.350
-WIN_W, WIN_H  = 12.170, 21.240
-BTN_CC, BTN_D = 3.500, 30.5/25.4
-BTN_Y         = 25.440
-EDGE, HOLE    = 0.625, 0.1875
-RAIL_Y        = 23.715
-R_OUT = R_IN  = 0.250
+# ── plate geometry: the SAME module the DXF is cut from ─────────────────────
+PW, PH        = P.PW, P.PH
+WIN_X, WIN_Y  = P.WIN_X, P.WIN_Y
+WIN_W, WIN_H  = P.WIN_W, P.WIN_H
+BTN_CC, BTN_D = P.BTN_CC, P.BTN_D
+BTN_Y         = P.BTN_Y
+EDGE, HOLE    = P.EDGE, P.HOLE
+RAIL_Y        = P.RAIL_Y
+R_OUT = R_IN  = P.R_OUT
 
-mount = []
-for i in range(5):
-    y = EDGE + i*(PH - 2*EDGE)/4
-    mount += [(EDGE, y), (PW-EDGE, y)]
-mount += [(PW/2, EDGE), (PW/2, PH-EDGE),
-          (3.500, RAIL_Y), (PW/2, RAIL_Y), (PW-3.500, RAIL_Y)]
-btn = [(PW/2 + i*BTN_CC, BTN_Y) for i in (-1, 0, 1)]
+mount = list(P.MOUNT)
+btn   = list(P.BUTTONS)
 
 # ── page layout ─────────────────────────────────────────────────────────────
 PAGE_W, PAGE_H = 8.5, 11.0
@@ -89,8 +85,8 @@ def tile_svg(cx, cy):
                      f'font-family="monospace" font-weight="700" text-anchor="{anch}">{s}</text>')
     # left-anchored and kept inside column 1 so nothing is clipped at a tile edge
     lab(2.20, WIN_Y + WIN_H/2, 'CUT OUT — SCREEN WINDOW', .17, '#111', 'start')
-    lab(2.20, WIN_Y + WIN_H/2 + .28, '12.170 x 21.240', .13, '#555', 'start')
-    lab(2.20, BTN_Y + 1.15, 'CUT OUT — 3 BUTTONS ⌀1.2008', .15, '#111', 'start')
+    lab(2.20, WIN_Y + WIN_H/2 + .28, f'{WIN_W:g} x {WIN_H:g}', .13, '#555', 'start')
+    lab(2.20, BTN_Y + 1.15, f'CUT OUT — 3 BUTTONS ⌀{BTN_D:.4f}', .15, '#111', 'start')
     lab(2.20, PH - .42, 'CUT LAST — OUTSIDE PROFILE', .15, '#111', 'start')
     lab(2.4, .58, 'P1 FACE PLATE — 1:1 STENCIL', .17, '#111', 'start')
     lab(EDGE + 1.35, EDGE + .48, 'small circles = mount holes, MARK ONLY', .12, '#6C7A80', 'start')

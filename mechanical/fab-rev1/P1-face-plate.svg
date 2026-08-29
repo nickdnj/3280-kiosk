@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="446" height="792" viewBox="0 0 18.570 32.990">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="755" viewBox="0 0 18.200 34.300">
 <rect width="100%" height="100%" fill="#F7F8F9"/>
-<g transform="translate(1.600,1.600) scale(1,-1) translate(0,-28.690)">
-<rect x="0.0000" y="0.0000" width="15.3700" height="28.6900" rx="0.25" fill="none" stroke="#0E5A6B" stroke-width="0.03"/>
-<rect x="1.6000" y="6.1000" width="12.1700" height="21.2400" rx="0.25" fill="none" stroke="#0E5A6B" stroke-width="0.03"/>
-<circle cx="4.1850" cy="3.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="7.6850" cy="3.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="11.1850" cy="3.2500" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="0.6250" cy="0.6250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="14.7450" cy="0.6250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="0.6250" cy="7.4850" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="14.7450" cy="7.4850" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="0.6250" cy="14.3450" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="14.7450" cy="14.3450" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="0.6250" cy="21.2050" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="14.7450" cy="21.2050" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="0.6250" cy="28.0650" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="14.7450" cy="28.0650" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="7.6850" cy="0.6250" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="7.6850" cy="28.0650" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="3.5000" cy="4.9752" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="7.6850" cy="4.9752" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
-<circle cx="11.8700" cy="4.9752" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<g transform="translate(1.600,1.600) scale(1,-1) translate(0,-30.000)">
+<rect x="0.0000" y="0.0000" width="15.0000" height="30.0000" rx="0.25" fill="none" stroke="#0E5A6B" stroke-width="0.03"/>
+<rect x="1.3750" y="7.2500" width="12.2500" height="21.2500" rx="0.25" fill="none" stroke="#0E5A6B" stroke-width="0.03"/>
+<circle cx="4.0000" cy="4.0000" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="7.5000" cy="4.0000" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="11.0000" cy="4.0000" r="0.6004" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.5000" cy="29.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.5000" cy="22.2500" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.5000" cy="15.0000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.5000" cy="7.7500" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="0.5000" cy="0.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="14.5000" cy="29.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="14.5000" cy="22.2500" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="14.5000" cy="15.0000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="14.5000" cy="7.7500" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="14.5000" cy="0.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="7.5000" cy="29.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="7.5000" cy="0.5000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="3.5000" cy="6.0000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="7.5000" cy="6.0000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
+<circle cx="11.5000" cy="6.0000" r="0.0938" fill="none" stroke="#93331F" stroke-width="0.03"/>
 </g>
-<text x="1.600" y="32.240" font-family="monospace" font-size="0.30" fill="#171A1C">P1 FACE PLATE  15.37" x 28.69"  x 3mm ACM  -  ONE PIECE</text>
-<text x="1.600" y="32.740" font-family="monospace" font-size="0.22" fill="#697077">window 12.170 x 21.240  |  3 x 1.2008 dia (30.5mm) at 3.5" cc  |  15 x 0.1875 dia mount</text>
+<text x="1.600" y="33.550" font-family="monospace" font-size="0.30" fill="#171A1C">P1 FACE PLATE  15" x 30"  x 3mm ACM  -  ONE PIECE</text>
+<text x="1.600" y="34.050" font-family="monospace" font-size="0.22" fill="#697077">window 12.25 x 21.25  |  3 x 1.2008 dia at 3.5" cc  |  15 x 0.1875 dia mount</text>
 </svg>

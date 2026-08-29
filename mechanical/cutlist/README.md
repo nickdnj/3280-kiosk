@@ -1,130 +1,121 @@
-# The box — locked plan
+# The box — 15 × 30, whole numbers
 
-> ⚠️ **Concept.** Nothing has been cut. Prices seen at Home Depot **West Long
-> Branch, 2026-08-29**. Locked 2026-08-29.
+> ⚠️ **Concept.** Nothing cut. Prices seen at Home Depot **West Long Branch,
+> 2026-08-29**.
 
-**Zero rips. Nine crosscuts. Home Depot cuts the MDF.**
+**Zero rips. Nine crosscuts. Every dimension a multiple of ¼″.**
 
 ```bash
-python3 make-cutlist.py            # the plan. 21 checks, all passing.
+python3 make-cutlist.py            # 23 checks, all passing
 ```
 
-Read **[`SHOPPING.md`](SHOPPING.md)** in the store. Everything is generated from
-the same geometry as the drawings, so the shopping list cannot drift from the
-cut list.
+The box reads its geometry from **[`../fab-rev1/_p1.py`](../fab-rev1/_p1.py)** —
+the same module the DXF and the print stencil are generated from. There is one
+source of truth now; the box cannot disagree with the face plate.
 
 ---
 
-## 1. Buy — $74.20, spares included
+## 1. Buy — $68.86, spares included
 
 | | Model | Qty |
 |---|---|---|
-| **1×4 × 8 ft Radiata Pine Finger-Joint, PRIMED** (.719 × 3.5) | 252978 | ×2 |
-| **1×3 × 8 ft Pine Finger-Joint, PRIMED** (.719 × 2.5) | 424600 | ×3 |
+| **1×4 × 8 ft Kiln-Dried Whitewood** (actual .750 × 3.5) | 914681 | ×2 |
+| **1×3 × 8 ft Kiln-Dried Whitewood** (actual .750 × 2.5) | 914649 | ×3 |
 | **½″ × 2 × 4 MDF Project Panel** | 109097 | ×1 |
 | Titebond II · 120 + 180 grit · #6 × 1¼ screws | | |
 
-One of each board is spare. Cost is not the constraint; a second chance at any
-part is worth more than $19.
+**Whitewood, because it is a true ¾″.** That is what makes the cut list land on
+halves and quarters — a 0.719″ finger-jointed board gives a 13.562″ cavity
+instead of 13.500″. The trade is straightness: whitewood arrives knottier and
+more bowed, so **sight down every board in the rack** and reject the bent ones.
+If you would rather have the straighter stock, `--ply 0.719` re-derives
+everything for finger-jointed primed pine.
 
-**Finger-jointed, not common whitewood.** Whitewood comes bowed and knotty;
-finger-jointed stock is cut from selected short pieces, which relieves the
-stress that twists a board. A 28.690″ side that must sit flat against the face
-plate is exactly the case that cares. It arrives primed, which we want anyway.
+## 2. Cut — nothing is ripped
 
-**These are 0.719″, not 0.750″.** Home Depot states it on the 1×3 listing.
-Measure yours; `--ply` re-derives everything.
+The board's **width becomes the box depth**. A 1×4 is 3.5″ wide, so the tube is
+3.5″ deep by crosscut alone; the 1×3 gives the button rail, rear cleats and VESA
+rails at its full 2.5″ width.
 
-## 2. Why nothing is ripped
+```
+1x4, full 3.5" width     P2  3-1/2 x 30       x2
+                         P3  3-1/2 x 13-1/2   x2
+1x3, full 2.5" width     P7  13-1/2           x1
+                         P8  28-1/2           x2
+                         P9  28-1/2           x2
+MDF, cut by Home Depot   P4  13-1/4 x 28-1/4
+                         P10 4 x 3
+```
 
-**The board's width becomes the box depth.** A 1×4 is 3.5″ wide, so the tube is
-3.5″ deep and the sides need only crosscutting. The 1×3 supplies the button
-rail, rear cleats and VESA rails at its full 2.5″ width. Nine crosscuts, all on
-a mitre saw.
-
-The cost is depth: the enclosure is **3.618″**, so the mounting adapter's share
-of the ADA §307.2 4.000″ cap is **0.382″**. That is tight, and it is the one
-number this plan spends to buy simplicity.
-
-**Home Depot cuts the MDF.** The rear panel is deliberately 0.250″ undersize and
-lands on a 2.500″ ledge, so their ±1/8″ cannot matter. You never handle a sheet
+**Home Depot cuts the MDF.** The rear panel is deliberately ¼″ undersize and
+lands on a 2½″ ledge, so their ±1/8″ cannot matter. You never handle a sheet
 good.
 
-## 3. Cut
-
-```
-1x4 x 8 ft, full 3.5" width      P2 28.690 x2    P3 13.932 x2
-1x3 x 8 ft, full 2.5" width      P7 13.932 x1    P8 27.252 x2    P9 27.252 x2
-1/2" MDF, cut by Home Depot      P4 13.682 x 27.002    P10 4.000 x 2.900
-```
-
 **Crosscut P2 first, dry-assemble, and measure the real cavity** before cutting
-anything else. The tables are the prediction; the box is the truth.
+anything else.
 
-## 4. The front cleats are gone — and that is a bug fix
+## 3. The one number that got tighter
 
-Every earlier version of this design, **including the released drawing
-package**, put vertical and horizontal cleats behind the face plate to receive
-P1's mounting screws. Those cleats do not fit:
+Rounding the plate from 15.370″ to 15.000″ took **0.185″ per side** out of the
+monitor's clearance. The cavity is now 13.500″ against a 12.870″ monitor —
+**0.315″ per side**, and against the widest thing sold as "24 inch" (a true 24.0″
+diagonal) **0.267″ per side.** Both positive, both checked on every run.
 
-| | wall + cleat | clear width | vs monitor 12.870 |
-|---|---|---|---|
-| **Released ½″ birch + 1.000 cleat** | 1.500/side | 12.370 | **fouls by 0.250/side** |
-| 0.719 pine + 0.719 cleat | 1.438/side | 12.494 | **fouls by 0.188/side** |
-| **This plan, no front cleats** | 0.719/side | 13.932 | clears by 1.250/side |
+But `MON_OW` is an estimate until you own the monitor. **Measure the actual
+panel before cutting P3.** This is the margin the rounding spent.
 
-The monitor is 12.870″ wide in a 15.370″ box. There is 1.250″ of margin per
-side, and a wall-plus-cleat eats more than that. The top cleat fouls the
-monitor's top edge by the same amount. **It was never buildable as drawn.**
-
-The fix costs nothing: **all 15 of P1's mounting holes already land in solid
-material without cleats** — ten in the side boards' front edges, two in the top
-and bottom boards, three in the button rail. `make-cutlist.py` now checks this
-on every run, and the check fails the released configuration.
-
-The inserts sit 83% inside a 0.719″ edge and break out slightly on the inner
-face. That is cosmetic and inside the box. **Epoxy them**; pine threads are soft.
-
-## 5. Build
+## 4. Build
 
 1. **Tube** — P2 sides over P3 top and bottom. Glue and screw, **pilot every
    hole**; pine end grain splits.
-2. **Button rail** — P7, front-flush, centreline 23.715″ below the top edge. It
-   takes the press load so the face plate can't flex under a thumb.
-3. **Rear cleats** — P8 ×2, **turned 90°** so they lie 0.719″ deep and sit
-   entirely behind the monitor instead of alongside it.
-4. **Inserts** — 15 on P1's pattern. Epoxy.
-5. **Rails** — P9 ×2 on the VESA centres.
-6. Monitor, Pi tray, wiring. Switches into P1, then P1 on. Back panel last.
+2. **Button rail** — P7, front-flush, centreline **24″** below the top edge.
+   It takes the press load so the face plate can't flex under a thumb.
+3. **Rear cleats** — P8 ×2, **turned 90°** so they lie ¾″ deep and sit entirely
+   behind the monitor rather than alongside it.
+4. **Inserts** — 15 on P1's pattern, **½″ in from the edge**. At the old 5/8″
+   a 0.375″ insert broke out of a ¾″ board edge; at ½″ it spans 0.3125–0.6875
+   and sits entirely inside. **Epoxy them.**
+5. **Rails** — P9 ×2 on the VESA centres. Monitor, Pi tray, wiring.
+6. Switches into P1, then P1 on, then the back panel.
 
-**23.3 lb finished.**
+**23.8 lb.** Enclosure **3.618″** deep, leaving the mounting adapter **0.382″**
+of the ADA §307.2 4.000″ cap.
 
-> ⚠️ **MDF is safe here only because P9 exists.** The monitor hangs on the VESA
-> rails; P4 is a cover and no fastener enters an MDF edge.
+> ⚠️ **MDF is safe only because P9 exists.** The monitor hangs on the VESA rails;
+> P4 is a cover and no fastener enters an MDF edge.
 
-## 6. What this supersedes in the released package
+## 5. No front cleats — that was a bug fix
 
-**P1 is unaffected** — its outline, window, cutouts and 15 mount holes are
-independent of everything above, so the **$61.43 SendCutSend order stands.** ADA
-placement is unaffected: buttons at 38.000″ AFF, kiosk bottom at 34.750″.
+Every earlier version, **including the released drawing package**, put cleats
+behind the face plate to receive P1's screws. They never fitted: the released
+½″ wall plus 1.000″ cleat eats 1.500″ per side, and the monitor only has 1.250″
+of margin. It fouled by 0.250″ per side, and the top cleat fouled the monitor's
+top edge by the same.
 
-| Sheet | Now wrong |
-|---|---|
-| 102 · section | depth 3.250 → **3.618**; monitor–cleat conflict |
-| 300 / 301 | P2 P3 P4 P9 P10 all resized; P4 is MDF |
-| 302 · cleats | **P5 and P6 deleted**; P8 turned 90°; stock is 1× at full width |
-| 400 · holes | inserts go into board edges, not cleats |
-| 100 / 101 / 700 | envelope, BOM materials, inspection dimensions |
+All 15 of P1's holes already land in solid material without them — ten in the
+side boards' front edges, two in the top and bottom boards, three in the button
+rail. P5 and P6 are deleted. There is a permanent check that passes this plan
+and **fails the released configuration**.
 
-## 7. Alternatives, priced and rejected
+## 6. What this supersedes
 
-| | | Why not |
+The whole released drawing package is now stale — the envelope itself moved.
+
+| | was | now |
 |---|---|---|
-| 1×6 frame, ripped | $52.37 | one rip per board; this plan trades $22 for zero |
-| Birch ply + MDF | $67.34 | plywood edges hold screws worse than pine long grain |
-| One 4×8 PureBond | $59.98 | 32 sq ft for a 5.3 sq ft job |
-| Cellular PVC | $124 | ~⅓ the stiffness, 7× the thermal movement |
-| IKEA IVAR | $39 | [shelved](../ikea-build/) — nothing usable directly |
-| Off-the-shelf cabinet | — | shallowest is 6¾″ against a 4.000″ cap |
+| Plate | 15.370 × 28.690 | **15 × 30** |
+| Window | 12.170 × 21.240 | **12¼ × 21¼** |
+| Button datum below top | 25.440 | **26** |
+| Kiosk bottom AFF | 34.750 | **34** |
+| Mount holes in from edge | 0.625 | **0.500** |
+| Enclosure depth | 3.250 | **3.618** |
+| Front cleats P5 P6 | 1.000 sq | **deleted** |
 
-Explore any of them: `--allow-rip`, `--stock ply`, `--board 5.5`, `--back tacked`.
+Buttons stay at **38″ AFF** — that never moves, it is the ADA datum everything
+else is placed from.
+
+**The SendCutSend quote must be redone.** $61.43 was for 441 sq in; this is 450.
+
+## 7. Alternatives
+
+`--allow-rip`, `--stock ply`, `--board 5.5`, `--back tacked`, `--ply 0.719`.

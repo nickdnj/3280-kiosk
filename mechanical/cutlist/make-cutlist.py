@@ -12,11 +12,13 @@ from the thickness you actually measure, not from a drawing number.
 
 Emits the cut list, the checks, and nesting.svg.
 """
-import argparse, math
+import argparse, math, os, sys
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'fab-rev1'))
+import _p1 as P1                      # the face plate is the single source of truth
 
 ap = argparse.ArgumentParser()
-ap.add_argument('--ply',   type=float, default=0.719, help='MEASURED box stock thickness')
-ap.add_argument('--cleat', type=float, default=0.719, help='cleat stock, square')
+ap.add_argument('--ply',   type=float, default=0.750, help='MEASURED box stock thickness')
+ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square')
 ap.add_argument('--back', choices=['inset', 'tacked'], default='tacked',
                 help='inset = P4 drops into the cavity on rear cleats; '
                      'tacked = P4 screws onto the back of the tube')
@@ -39,17 +41,18 @@ ap.add_argument('--rip',   type=float, default=None,
                 help='Home Depot rip line (default: derived from the nest)')
 a = ap.parse_args()
 
-# ── fixed by the released package — do not derive these ─────────────────────
-OA_W, OA_H, OA_D = 15.370, 28.690, 3.250
-T_ACM   = 0.118
-TUBE_D  = OA_D - T_ACM                 # 3.132, the box depth behind the face
-EDGE    = 0.625                        # P1 mount holes, in from the edge
+# ── all of this comes from the face plate. Change ../fab-rev1/_p1.py. ───────
+OA_W, OA_H = P1.PW, P1.PH              # 15 x 30, whole
+OA_D    = 3.250                        # recomputed from the stock in --norip
+T_ACM   = P1.MAT_T
+TUBE_D  = OA_D - T_ACM
+EDGE    = P1.EDGE                      # P1 mount holes, 1/2 in from the edge
 INSERT  = 0.375                        # #8-32 brass insert, outside diameter
-MON_OW, MON_OH, MON_T = 12.870, 21.440, 1.800
-MON_TOP = 1.250
+MON_OW, MON_OH, MON_T = P1.MON_OW, P1.MON_OH, P1.MON_T
+MON_TOP = P1.MON_TOP
 VESA_W  = 1.500
-TRAY    = (4.000, 2.900)
-REAR_CL = 0.100                        # rear panel clearance, total across each axis
+TRAY    = (4.000, 3.000)               # rounded with the rest
+REAR_CL = 0.250                        # rear panel clearance; Home Depot cuts it
 
 BUY_PLY = [
  ('ProWood 1/2 in. x 2 ft. x 4 ft. Birch Plywood Project Panel', '154153', 39.86, 1,
@@ -62,12 +65,10 @@ BUY_PLY = [
   'assembly'),
 ]
 BUY_SOLID = [
- ('1x4 x 8 ft Radiata Pine Finger-Joint PRIMED (actual .719 x 3.5)',
-                                                                 '252978', 10.58, 2,
-  'P2 P3 -- the tube, used at full width. 1 needed, 1 spare'),
- ('1x3 x 8 ft Pine Finger-Joint PRIMED (actual .719 x 2.5)',
-                                                                 '424600',  8.52, 3,
-  'P7 P8 P9 -- used at full width. 2 needed, 1 spare'),
+ ('1x4 x 8 ft Kiln-Dried Whitewood Common (actual .750 x 3.5)',   '914681',  9.53, 2,
+  'P2 P3 -- the tube, at full width. 1 needed, 1 spare. SIGHT DOWN EACH BOARD'),
+ ('1x3 x 8 ft Kiln-Dried Whitewood Common (actual .750 x 2.5)',   '914649',  7.44, 3,
+  'P7 P8 P9 -- at full width. 2 needed, 1 spare'),
  ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
   'P4 rear cover' ),
  ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
@@ -309,6 +310,11 @@ ok("monitor clears the FRONT CLEATS, not just the cavity",
 ok("every P1 hole lands in a board edge or the rail",
    EDGE + INSERT/2 <= T + (C if not NO_FRONT_CLEATS else 0) + 0.10,
    "15 of 15" if NO_FRONT_CLEATS else "via cleats")
+# Rounding the plate 15.370 -> 15.000 took 0.185"/side out of this margin.
+# MON_OW is an ESTIMATE; a true 24.0" panel is wider than the 23.8" we drew.
+worst_ow = 24.0 * 9/math.hypot(16, 9) + (MON_OW - P1.ACT_W)     # widest active + our bezel
+ok("widest \"24 inch\" panel still clears the cavity",
+   (CAV_W - worst_ow)/2 > 0.15, f"{(CAV_W - worst_ow)/2:.3f}\"/side at 24.0\" diag")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
