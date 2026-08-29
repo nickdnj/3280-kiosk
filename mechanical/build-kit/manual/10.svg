@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<path d="M 2.7105 3.4537 L 3.1500 3.2000 L 3.2442 3.2544 L 3.2442 7.6044 L 2.8047 7.8581 L 2.7105 7.8037 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="2.7105" y2="3.4538" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="2.8047" y2="7.8581" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="3.2442" y2="3.2544" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 4.4999 4.4869 L 4.9394 4.2331 L 5.0336 4.2875 L 5.0336 8.6375 L 4.5941 8.8912 L 4.4999 8.8369 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="4.4999" y2="4.4869" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="4.5941" y2="8.8912" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="5.0336" y2="4.2875" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.8047 3.5081 L 3.2442 3.2544 L 4.9394 4.2331 L 4.9394 4.3419 L 4.4999 4.5956 L 2.8047 3.6169 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="2.8047" y2="3.5081" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="4.4999" y2="4.5956" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="4.9394" y2="4.2331" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.8047 7.7494 L 3.2442 7.4956 L 4.9394 8.4744 L 4.9394 8.5831 L 4.4999 8.8369 L 2.8047 7.8581 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="2.8047" y2="7.7494" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="4.4999" y2="8.8369" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="4.9394" y2="8.4744" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="2.8047" y1="5.6831" x2="4.4047" y2="6.6069" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<path d="M 4.4999 6.6619 L 4.3816 6.6469 L 4.4278 6.5669 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="6.6619" x2="2.8999" y2="5.7381" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<path d="M 2.8047 5.6831 L 2.9230 5.6981 L 2.8768 5.7781 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="3.6523" y="6.0125" font-family="Helvetica,Arial,sans-serif" font-size="0.3" font-weight="bold" text-anchor="middle" fill="#111111">?</text>
+<rect x="2.8173" y="7.1141" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="4.6068" y="8.1472" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="2.8173" y="3.3441" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="4.6068" y="4.3772" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">CLAMP · MEASURE · THEN CUT</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">10</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">!</text>
+<rect x="0.8500" y="1.7500" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<circle cx="2.0500" cy="2.7500" r="0.3400" fill="none" stroke="#111111" stroke-width="0.03"/>
+<path d="M 1.62 2.67 q 0.43 -0.34 0.86 0" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="1.7100" y1="2.7500" x2="2.3900" y2="2.7500" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<circle cx="3.0500" cy="2.8000" r="0.3000" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="2.8300" y1="2.7100" x2="3.2700" y2="2.7100" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.8300" y1="2.8000" x2="3.2700" y2="2.8000" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="2.8300" y1="2.8900" x2="3.2700" y2="2.8900" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<path d="M 2.433 3.610 L 2.524 3.704 L 2.680 3.501" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="4.5500" y="1.7500" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="4.8500" y1="3.4700" x2="7.4500" y2="3.4700" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 4.95 3.42 q 0.55 -0.26 1.20 -0.11 q 0.75 0.17 1.35 -0.09 l 0 0.21 q -0.60 0.26 -1.35 0.09 q -0.65 -0.15 -1.20 0.11 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 5.4500 3.2500 L 5.7500 2.5500 L 7.0000 2.5500 L 6.7000 3.2500 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 7.433 3.610 L 7.524 3.704 L 7.680 3.501" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="0.8500" y="4.3000" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="0.9500" y1="6.4500" x2="4.1000" y2="4.4000" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="2.3000" y="5.3600" width="0.2200" height="0.8200" rx="0.06" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="2.2800" y="4.9400" width="0.2600" height="0.4200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="2.0000" y="4.6200" width="0.8200" height="0.3200" rx="0.05" fill="none" stroke="#111111" stroke-width="0.018"/>
+<circle cx="3.5500" cy="4.7200" r="0.2400" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="3.3796" y1="4.8904" x2="3.7204" y2="4.5496" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="4.5500" y="4.3000" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<rect x="5.5500" y="5.1500" width="1.3000" height="0.5500" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<line x1="6.2000" y1="5.1500" x2="6.2000" y2="6.1500" stroke="#111111" stroke-width="0.018" stroke-linecap="round" stroke-dasharray="0.06 0.05"/>
+<line x1="6.2000" y1="6.2500" x2="6.2000" y2="5.8800" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 6.2000 5.7800 L 6.2420 5.8800 L 6.1580 5.8800 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="6.1300" y="4.7000" width="0.1400" height="0.4200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<path d="M 7.433 6.160 L 7.524 6.254 L 7.680 6.051" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="0.8500" y="6.8500" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="0.9500" y1="9.0000" x2="4.1000" y2="6.9500" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<circle cx="1.9500" cy="7.4000" r="0.0782" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="1.9500" y1="7.4782" x2="1.9500" y2="7.8216" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="1.9500" y1="7.5632" x2="1.7460" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="1.9500" y1="7.5632" x2="2.1540" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="1.9500" y1="7.8216" x2="1.8140" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="1.9500" y1="7.8216" x2="2.0860" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="2.4000" y="7.5100" width="0.9000" height="1.0500" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<circle cx="3.5500" cy="7.2700" r="0.2400" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="3.3796" y1="7.4404" x2="3.7204" y2="7.0996" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="4.5500" y="6.8500" width="3.3500" height="2.2500" rx="0.14" fill="none" stroke="#111111" stroke-width="0.03"/>
+<circle cx="5.3000" cy="7.4000" r="0.0782" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="5.3000" y1="7.4782" x2="5.3000" y2="7.8216" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.3000" y1="7.5632" x2="5.0960" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.3000" y1="7.5632" x2="5.5040" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.3000" y1="7.8216" x2="5.1640" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="5.3000" y1="7.8216" x2="5.4360" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<circle cx="6.9500" cy="7.4000" r="0.0782" fill="none" stroke="#111111" stroke-width="0.03"/>
+<line x1="6.9500" y1="7.4782" x2="6.9500" y2="7.8216" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="6.9500" y1="7.5632" x2="7.1540" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="6.9500" y1="7.5632" x2="6.7460" y2="7.5632" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="6.9500" y1="7.8216" x2="7.0860" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="6.9500" y1="7.8216" x2="6.8140" y2="8.0936" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<rect x="5.7800" y="7.5700" width="1.3000" height="0.9800" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<path d="M 7.433 8.710 L 7.524 8.804 L 7.680 8.601" fill="none" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">2</text>
+</svg>

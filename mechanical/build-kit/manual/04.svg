@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">B</text>
+<rect x="1.2000" y="1.9000" width="0.4025" height="3.4500" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
+<text x="1.2000" y="5.5700" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">3-1/2 x 30</text>
+<text x="1.2000" y="5.7600" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x4  ×2</text>
+<rect x="2.3500" y="1.9000" width="0.4025" height="1.5525" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="2.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="2.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<text x="2.3500" y="3.6725" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">3-1/2 x 13-1/2</text>
+<text x="2.3500" y="3.8625" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x4  ×2</text>
+<rect x="1.2000" y="6.1000" width="1.5525" height="0.2875" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="5.8800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="5.9358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">7</text>
+<text x="1.2000" y="6.6075" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 13-1/2</text>
+<text x="1.2000" y="6.7975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×1</text>
+<rect x="3.3500" y="1.9000" width="0.2875" height="3.2775" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="3.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">8</text>
+<text x="3.3500" y="5.3975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 28-1/2</text>
+<text x="3.3500" y="5.5875" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×2</text>
+<rect x="4.3500" y="1.9000" width="0.2875" height="3.2775" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="4.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="4.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">9</text>
+<text x="4.3500" y="5.3975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 28-1/2</text>
+<text x="4.3500" y="5.5875" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×2</text>
+<rect x="5.3500" y="1.9000" width="1.5238" height="3.2488" rx="0" fill="#F1F2F3" stroke="#111111" stroke-width="0.03"/>
+<circle cx="5.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="5.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">4</text>
+<text x="5.3500" y="5.3687" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">13-1/4 x 28-1/4</text>
+<text x="5.3500" y="5.5587" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">MDF  ×1</text>
+<rect x="1.2000" y="7.1500" width="0.4600" height="0.3450" rx="0" fill="#F1F2F3" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="6.9300" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="6.9858" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">10</text>
+<text x="1.2000" y="7.7150" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">4 x 3</text>
+<text x="1.2000" y="7.9050" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">MDF  ×1</text>
+<rect x="3.6000" y="6.1000" width="1.7250" height="3.4500" rx="0" fill="#E4E7E9" stroke="#111111" stroke-width="0.03"/>
+<circle cx="3.8000" cy="5.8800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.8000" y="5.9358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">1</text>
+<text x="3.6000" y="9.7700" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">15 x 30  (ordered)</text>
+<text x="3.6000" y="9.9600" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">ACM  ×1</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">4</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
+<rect width="8.5" height="11.0" fill="#FFFFFF"/>
+<circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">10</text>
+<path d="M 2.7105 3.4537 L 3.1500 3.2000 L 3.2442 3.2544 L 3.2442 7.6044 L 2.8047 7.8581 L 2.7105 7.8037 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.011" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="2.7105" y2="3.4538" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="2.8047" y2="7.8581" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="2.8047" y1="3.5081" x2="3.2442" y2="3.2544" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 4.4999 4.4869 L 4.9394 4.2331 L 5.0336 4.2875 L 5.0336 8.6375 L 4.5941 8.8912 L 4.4999 8.8369 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.011" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="4.4999" y2="4.4869" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="4.5941" y2="8.8912" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.5941" y1="4.5412" x2="5.0336" y2="4.2875" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 2.8047 3.5081 L 3.2442 3.2544 L 4.9394 4.2331 L 4.9394 4.3419 L 4.4999 4.5956 L 2.8047 3.6169 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.011" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="2.8047" y2="3.5081" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="4.4999" y2="4.5956" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.4999" y1="4.4869" x2="4.9394" y2="4.2331" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 2.8047 7.7494 L 3.2442 7.4956 L 4.9394 8.4744 L 4.9394 8.5831 L 4.4999 8.8369 L 2.8047 7.8581 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.011" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="2.8047" y2="7.7494" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="4.4999" y2="8.8369" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<line x1="4.4999" y1="8.7281" x2="4.9394" y2="8.4744" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 3.0012 3.6441 L 3.2272 3.5136 L 4.8434 4.4466 L 4.8434 7.5554 L 4.6173 7.6859 L 3.0012 6.7529 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.6173" y1="4.5771" x2="3.0012" y2="3.6441" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.6173" y1="4.5771" x2="4.6173" y2="7.6859" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.6173" y1="4.5771" x2="4.8434" y2="4.4466" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 2.9616 7.2237 L 3.0181 7.1911 L 3.5204 7.4811 L 3.5204 7.9161 L 3.4639 7.9488 L 2.9616 7.6588 Z" fill="#E8EAEC" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="3.4639" y1="7.5137" x2="2.9616" y2="7.2237" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="3.4639" y1="7.5137" x2="3.4639" y2="7.9487" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<line x1="3.4639" y1="7.5137" x2="3.5204" y2="7.4811" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<circle cx="3.0128" cy="8.4238" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.0128" y="8.4795" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">10</text>
+<circle cx="6.3500" cy="9.4500" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="6.3500" y="9.5058" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F5</text>
+<text x="6.7200" y="9.5300" font-family="Helvetica,Arial,sans-serif" font-size="0.26" font-weight="bold" text-anchor="start" fill="#111111">×4</text>
+<text x="1.1000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">MONITOR ONTO THE RAILS</text>
+<text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">17</text>
+</svg>
