@@ -7,16 +7,16 @@
 
 | Item | Model | Price |
 |---|---|---|
-| ProWood 1/2 in. x 2 ft. x 4 ft. Birch Plywood Project Panel<br>*P2 P3 P9 P10 -- the box* | 154153 | $39.86 |
-| ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel<br>*P4 -- the rear cover* | 109097 | $27.48 |
-| Poplar or red oak 1x4, 8 ft (hardwood rack)<br>*P5 P6 P7 P8 -- 12.5 ft of cleat* | -- | ~$20 |
+| Poplar 1x6 x 8 ft, hardwood rack -- SIGHT DOWN EVERY BOARD<br>*P10 off the end, then rip: tube + every cleat* | -- | ~$20 |
+| Poplar 1x2 x 8 ft -- already 1.500 wide, no rip needed<br>*P9 VESA rails x2* | -- | ~$20 |
+| ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel<br>*P4 rear cover* | 109097 | $27.48 |
 | Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)<br>*assembly* | -- | ~$20 |
-| | **panels** | **$67.34** |
+| | **panels** | **$27.48** |
 
 **No cut desk.** Both panels fit in a car. Their saw is ±1/8" and the face
 plate's hole pattern is already fixed, so every dimension below is yours.
 
-The birch nest uses 10.5" of the panel's 24", leaving a 13.4 x 48" strip —
+The birch nest uses 9.8" of the panel's 24", leaving a 14.1 x 48" strip —
 enough for a **complete second set of box parts** if you spoil one. There is no
 spare P4; a second rear panel would need another MDF sheet.
 
@@ -38,8 +38,8 @@ Only P2, P10 and the depth are thickness-independent. Everything else moves.
 
 | Part | Width | Length | Qty |
 |---|---|---|---|
-| P2  SIDE PANEL | 3.132 | 28.690 | ×2 |
-| P3  TOP / BOTTOM | 3.132 | 13.870 | ×2 |
+| P2  SIDE PANEL | 2.750 | 28.690 | ×2 |
+| P3  TOP / BOTTOM | 2.750 | 13.870 | ×2 |
 | P9  VESA RAIL | 1.500 | 27.190 | ×2 |
 | P10 PI TRAY | 4.000 | 2.900 | ×1 |
 
@@ -47,7 +47,7 @@ Only P2, P10 and the depth are thickness-independent. Everything else moves.
 
 | Part | Width | Length | Qty |
 |---|---|---|---|
-| P4  REAR PANEL | 13.770 | 27.090 | ×1 |
+| P4  REAR PANEL | 15.370 | 28.690 | ×1 |
 
 ## Cut list — cleats, 0.750" square, from the 1x4
 
@@ -56,8 +56,7 @@ Only P2, P10 and the depth are thickness-independent. Everything else moves.
 | P5  FRONT CLEAT, VERT | 27.190 | ×2 |
 | P6  FRONT CLEAT, HORIZ | 12.370 | ×2 |
 | P7  BUTTON RAIL | 12.370 | ×1 |
-| P8  REAR CLEAT, VERT | 27.190 | ×2 |
-| | **145.9" total** | |
+| | **91.5" total** | |
 
 ## Order of operations
 

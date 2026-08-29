@@ -17,6 +17,12 @@ import argparse, math
 ap = argparse.ArgumentParser()
 ap.add_argument('--ply',   type=float, default=0.469, help='MEASURED panel thickness')
 ap.add_argument('--cleat', type=float, default=0.750, help='cleat stock, square')
+ap.add_argument('--back', choices=['inset', 'tacked'], default='inset',
+                help='inset = P4 drops into the cavity on rear cleats; '
+                     'tacked = P4 screws onto the back of the tube')
+ap.add_argument('--air', type=float, default=0.100, help='air behind the VESA rail')
+ap.add_argument('--board', type=float, default=3.5,
+                help='ACTUAL width of the 1x stock: 3.5 for 1x4, 5.5 for 1x6')
 ap.add_argument('--solid', action='store_true',
                 help='box is solid 1x lumber, not plywood (changes the insert check)')
 ap.add_argument('--rear', type=float, default=None,
@@ -39,7 +45,7 @@ VESA_W  = 1.500
 TRAY    = (4.000, 2.900)
 REAR_CL = 0.100                        # rear panel clearance, total across each axis
 
-BUY = [
+BUY_PLY = [
  ('ProWood 1/2 in. x 2 ft. x 4 ft. Birch Plywood Project Panel', '154153', 39.86, 1,
   'P2 P3 P9 P10 -- the box'),
  ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
@@ -49,13 +55,32 @@ BUY = [
  ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
   'assembly'),
 ]
+BUY_SOLID = [
+ ('Poplar 1x6 x 8 ft, hardwood rack -- SIGHT DOWN EVERY BOARD',  '--',      0.00, 1,
+  'P10 off the end, then rip: tube + every cleat'),
+ ('Poplar 1x2 x 8 ft -- already 1.500 wide, no rip needed',      '--',      0.00, 1,
+  'P9 VESA rails x2'),
+ ('ProWood 1/2 in. x 2 ft. x 4 ft. MDF Project Panel',           '109097', 27.48, 1,
+  'P4 rear cover' ),
+ ('Titebond II, 120 + 180 grit, #6 x 1-1/4 wood screws (40)',     '--',      0.00, 1,
+  'assembly'),
+]
 
+BW = a.board                              # 1x4 = 3.5 actual, 1x6 = 5.5
+BUY = BUY_SOLID if a.solid else BUY_PLY
 T, C, K = a.ply, a.cleat, a.kerf
 T4 = a.rear if a.rear else T          # P4 need not match the box
 
 # ── everything else follows from T ──────────────────────────────────────────
+TACK = a.back == 'tacked'
+if TACK:
+    # A tacked back screws onto the tube's rear edges, so the tube only has to
+    # be as deep as what lives inside it, and the depth budget is recomputed.
+    TUBE_D = 0.100 + MON_T + T + a.air
+    OA_D   = T_ACM + TUBE_D + T4
+
 CAV_W, CAV_H = OA_W - 2*T, OA_H - 2*T
-REAR_W, REAR_H = CAV_W - REAR_CL, CAV_H - REAR_CL
+REAR_W, REAR_H = ((OA_W, OA_H) if TACK else (CAV_W - REAR_CL, CAV_H - REAR_CL))
 CLH = CAV_W - 2*C                       # horizontal cleats span between verticals
 
 PLY = [   # name, w, l, qty
@@ -69,8 +94,9 @@ CLEATS = [
     ('P5  FRONT CLEAT, VERT', CAV_H, 2),
     ('P6  FRONT CLEAT, HORIZ', CLH,  2),
     ('P7  BUTTON RAIL',       CLH,   1),
-    ('P8  REAR CLEAT, VERT',  CAV_H, 2),
 ]
+if not TACK:                               # a tacked back screws to the tube edges
+    CLEATS.append(('P8  REAR CLEAT, VERT', CAV_H, 2))
 
 # ── nesting: band 1 holds everything 27"+ long, band 2 the short parts ───────
 PW, PL = a.panel
@@ -130,18 +156,27 @@ if a.rear:
 """)
 
 if a.solid:
-    BW, BL = 3.5, 96.0                       # 1x4 x 8 ft, actual
+    BL = 96.0                                # 8 ft
     tube = 2*OA_H + 2*CAV_W
     rails = 2*CAV_H
-    print(f"""1x4 BOARD PLAN   (actual {BW}\" x {BL:.0f}\", {T:.3f}\" thick)
-  BOARD A   rip once to {TUBE_D:.3f}\"
-            P2 {OA_H:.3f} x2  +  P3 {CAV_W:.3f} x2   = {tube:.1f}\" of {BL:.0f}\"
-  BOARD B   rip to {VESA_W:.3f} + {C:.3f} + {C:.3f}   ({VESA_W + 2*C + 2*K:.3f}\" of {BW}\")
-            {VESA_W:.3f} strip -> P9 x2                = {rails:.1f}\" of {BL:.0f}\"
-            {C:.3f} strips x2 -> P5 P6 P7 P8        = {cl_total:.1f}\" of {2*BL:.0f}\"
-  P10       off the MDF -- {TRAY[0]:.3f}\" will not come out of a {BW}\" board
-""")
+    nA = int((BW - TUBE_D - K) // (C + K))      # cleat strips beside the tube strip
+    P10CUT = math.ceil(TRAY[1] + 0.2) if TRAY[0] <= BW else 0.0
+    solo = nA*(BL - P10CUT) >= cl_total and 2*OA_H + 2*CAV_W + 3*K <= BL - P10CUT
+    print(f"""BOARD PLAN   1x{4 if BW < 4.5 else 6}, actual {BW}" x {BL:.0f}", {T:.3f}" thick
 
+  BOARD A   1x{4 if BW < 4.5 else 6} x 8 ft
+    1. crosscut {P10CUT:.0f}" off one end   -> P10 tray {TRAY[0]:.3f} x {TRAY[1]:.3f}
+    2. rip the remaining {BL-P10CUT:.0f}" to {TUBE_D:.3f}"
+         -> P2 {OA_H:.3f} x2  +  P3 {CAV_W:.3f} x2      ({2*OA_H + 2*CAV_W:.0f}" of {BL-P10CUT:.0f}")
+    3. rip the {BW - TUBE_D - K:.3f}" offcut into {nA} x {C:.3f}" cleat strips
+         -> {' '.join(n.split()[0] for n, _, _ in CLEATS)}   ({cl_total:.0f}" of {nA*(BL-P10CUT):.0f}")
+
+  BOARD B   1x2 x 8 ft -- already {VESA_W:.3f}" wide, no rip
+         -> P9 x2   ({2*CAV_H:.0f}" of {BL:.0f}")
+
+  {'One 1x6 covers the tube, every cleat and the tray.' if solo else
+   'Board A cannot carry the cleats -- take them off a second wide board.'}
+""")
 fails = []
 def ok(label, cond, detail):
     if not cond: fails.append(label)
@@ -173,11 +208,12 @@ else:
        f"{in_cleat*100:.0f}% in cleat")
 rail_back = T_ACM + 0.100 + MON_T + T          # back face of the P9 VESA rail
 air = (OA_D - T4) - rail_back
-ok("depth chain still closes", air > 0.15,
+ADAPTER = 4.000 - OA_D                        # ADA 307.2 caps total projection
+ok("depth chain still closes", air > (a.air*0.99 if TACK else 0.15),
    f"{air:.3f}\" between the VESA rail and a {T4:.3f}\" back")
 ok("rear panel thickness is free to differ", T4 <= OA_D - rail_back,
    f"{T4:.3f}\" vs {OA_D - rail_back:.3f}\" available")
-if air < 0.15:
+if air < (a.air*0.99 if TACK else 0.15):
     print(f"""
   >> DEPTH CONFLICT, {abs(air):.3f}\"
      {T_ACM:.3f} face + 0.100 gap + {MON_T:.3f} monitor + {T:.3f} rail + {T4:.3f} back
@@ -189,17 +225,24 @@ if air < 0.15:
      the envelope may go to {T_ACM + 0.100 + MON_T + T + T4:.3f}\": ADA 307.2 caps total
      projection at 4.000\", so the adapter budget goes 0.750 -> {4.0 - (T_ACM + 0.100 + MON_T + T + T4):.3f}\".
 """)
+ok("enclosure leaves the adapter a budget", ADAPTER > 0.35,
+   f"{OA_D:.3f}\" deep, {ADAPTER:.3f}\" of the 4.000 ADA cap left")
 ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
 if a.solid:
-    ok("board A yields the whole tube", 2*OA_H + 2*CAV_W + 3*K <= 96.0,
-       f"{2*OA_H + 2*CAV_W:.1f}\" of 96\"")
-    ok("board B rips to a rail strip plus two cleat strips",
-       VESA_W + 2*C + 2*K <= 3.5, f"{VESA_W + 2*C + 2*K:.3f}\" of 3.5\"")
+    ok("board A yields tube + cleats + P10", 
+       2*OA_H + 2*CAV_W + 3*K <= BL - P10CUT and nA*(BL - P10CUT) >= cl_total,
+       f"tube {2*OA_H + 2*CAV_W:.0f}\", cleats {cl_total:.0f}\"/{nA*(BL-P10CUT):.0f}\", "
+       f"P10 off the first {P10CUT:.0f}\"")
+    nstrip = int((BW - VESA_W - K) // (C + K))
+    ok("board B rips to a rail strip plus cleat strips",
+       nstrip >= 2, f"1 x {VESA_W:.3f} + {nstrip} x {C:.3f} from {BW}\"")
+    print(f"  {'board A offcut -> cleats?':<46} "
+          f"{(str(nA) + ' strip(s), ' + str(int(nA*BL)) + chr(34)) if nA*BL >= cl_total else 'no, too narrow -- use board B'}")
     ok("board B yields the rails and every cleat",
-       2*CAV_H <= 96.0 and cl_total <= 2*96.0,
-       f"rails {2*CAV_H:.0f}\"/96, cleats {cl_total:.0f}\"/192")
+       2*CAV_H <= BL and cl_total <= nstrip*BL,
+       f"rails {2*CAV_H:.0f}\"/{BL:.0f}, cleats {cl_total:.0f}\"/{nstrip*BL:.0f}")
 else:
     ok("one poplar 1x4 x 6ft yields every cleat", 4 * 72 >= cl_total,
        f"288\" available, {cl_total:.0f}\" needed")
@@ -214,8 +257,8 @@ if a.rear:
     ok("P4 fits the second panel", REAR_W <= PW and REAR_H <= PL,
        f"{REAR_W:.3f} x {REAR_H:.3f} in {PW:.0f} x {PL:.0f}")
 if a.solid:
-    ok("P10 is too wide for a 1x4 -- comes off the MDF", TRAY[0] <= PW,
-       f"{TRAY[0]:.3f}\" > 3.5\" board, {TRAY[0]:.3f}\" <= {PW:.0f}\" panel")
+    ok("P10 has a source", TRAY[0] <= BW or TRAY[0] <= PW,
+       f"{TRAY[0]:.3f}\" -> {'board' if TRAY[0] <= BW else 'MDF panel'}")
 ok("every part inside the sheet",
    all(p[0] + p[2] <= a.rip and p[1] + p[3] <= HALF for p in nest),
    f"{len(nest)} parts")
