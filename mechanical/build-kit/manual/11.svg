@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
 <rect width="8.5" height="11.0" fill="#FFFFFF"/>
 <circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
-<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">4</text>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
 <path d="M 2.7105 3.4537 L 3.1500 3.2000 L 3.2442 3.2544 L 3.2442 7.6044 L 2.8047 7.8581 L 2.7105 7.8037 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="2.8047" y1="3.5081" x2="2.7105" y2="3.4538" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
 <line x1="2.8047" y1="3.5081" x2="2.8047" y2="7.8581" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
@@ -18,23 +18,15 @@
 <line x1="4.4999" y1="8.7281" x2="2.8047" y2="7.7494" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
 <line x1="4.4999" y1="8.7281" x2="4.4999" y2="8.8369" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
 <line x1="4.4999" y1="8.7281" x2="4.9394" y2="8.4744" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
-<circle cx="2.7576" cy="5.1339" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="2.7576" y="5.1897" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
-<circle cx="3.6523" cy="4.0519" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="3.6523" y="4.1077" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
-<circle cx="3.6523" cy="8.2931" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="3.6523" y="8.3489" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
-<circle cx="4.7668" cy="4.4416" r="0.3000" fill="none" stroke="#111111" stroke-width="0.011" stroke-dasharray="0.05 0.04"/>
-<line x1="5.0028" y1="4.2564" x2="5.5631" y2="3.8171" stroke="#111111" stroke-width="0.011" stroke-linecap="round" stroke-dasharray="0.05 0.04"/>
-<circle cx="6.3500" cy="3.2000" r="1.0000" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<rect x="5.8900" y="2.7000" width="0.3400" height="1.0800" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<rect x="6.2300" y="2.7000" width="0.7800" height="0.3400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<line x1="6.2300" y1="3.0400" x2="7.0100" y2="3.0400" stroke="#111111" stroke-width="0.007" stroke-linecap="round" stroke-dasharray="0.04 0.03"/>
-<line x1="5.7300" y1="2.8700" x2="6.6100" y2="2.8700" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<path d="M 5.6500 2.8000 L 5.7300 2.8700 L 5.6500 2.9400 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="6.2700" cy="3.9400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="6.2700" y="3.9958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F1</text>
-<line x1="6.1500" y1="2.8700" x2="6.2400" y2="3.7800" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<text x="1.1000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">PILOT 7/64  ·  GLUE  ·  SCREW</text>
+<line x1="2.8047" y1="5.6831" x2="4.4047" y2="6.6069" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<path d="M 4.4999 6.6619 L 4.3816 6.6469 L 4.4278 6.5669 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.4999" y1="6.6619" x2="2.8999" y2="5.7381" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
+<path d="M 2.8047 5.6831 L 2.9230 5.6981 L 2.8768 5.7781 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="3.6523" y="6.0125" font-family="Helvetica,Arial,sans-serif" font-size="0.3" font-weight="bold" text-anchor="middle" fill="#111111">?</text>
+<rect x="2.8173" y="7.1141" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="4.6068" y="8.1472" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="2.8173" y="3.3441" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<rect x="4.6068" y="4.3772" width="0.3200" height="0.6000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
+<text x="1.1000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">CLAMP · MEASURE · THEN CUT</text>
 <text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">11</text>
 </svg>

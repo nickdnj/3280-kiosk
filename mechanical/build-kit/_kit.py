@@ -32,7 +32,7 @@ PARTS = [
  ('P1',  'FACE PLATE',      'ACM', OA_W, OA_H, 1, '15 x 30  (ordered)'),
 ]
 
-# ── what holds it together ──────────────────────────────────────────────────
+# ── what holds it together, and what seals it ───────────────────────────────
 # code, name, qty, icon, note
 FASTENERS = [
  ('F1', 'WOOD SCREW, #6 x 1-1/4, FLAT HEAD',        40, 'screw',
@@ -49,6 +49,8 @@ FASTENERS = [
   'VERIFY the 30.5 cutout before P1 is cut.'),
  ('F7', 'INLET, IEC C14, PANEL MOUNT, FUSED',        1, 'inlet',
   'lower cavity, in the back or the bottom board.'),
+ ('F8', 'FOAM TAPE, NEOPRENE, BLACK, 1/4 x 3/16, 10 ft', 1, 'foam',
+  f'light seal on the BACK of P1. {P.SEAL_LEN:.0f}" used.'),
 ]
 
 GLUES = [
@@ -75,9 +77,23 @@ TOOLS = [
 
 CONSUMABLES = [
  'Blue tape — mark cut lines, keeps tear-out down',
- 'Shop rag + denatured alcohol — squeeze-out, before it cures',
+ 'Shop rag + denatured alcohol — squeeze-out, and wiping the back of P1 '
+ 'clean before the foam seal goes on. Foam tape will not stick to a dusty ACM face.',
  'Cardboard — the printed P1 mock-up',
 ]
+
+# ── the monitor the box can actually take ───────────────────────────────────
+# The picture is centred on the plate, so the CASING is not -- it shifts by half
+# the chin-to-thin bezel difference. These are the three numbers to check on a
+# monitor's spec sheet, or with a tape in the shop, before buying it.
+BUY = dict(
+    # thick bezel -- a SIDE edge in portrait. Beyond this the casing hits a wall.
+    chin_max  = (CAV_W - P.ACT_W)/2,
+    # long-edge bezel -- top and bottom in portrait. The bottom one meets P7.
+    bez_max   = (P.RAIL_Y - CW/2) - P.ACT_Y - P.ACT_H,
+    # body thickness, with the VESA rail and the rear panel behind it.
+    depth_max = OA_D - T4 - T - P.MAT_T - P.GAP,
+)
 
 if __name__ == '__main__':
     fails = []
@@ -106,4 +122,34 @@ if __name__ == '__main__':
        f"{CW - 0.25:g}\" of ledge")
     ok("rail sits where P1 expects it",
        abs((OA_H - P.RAIL_Y) - 6.0) < 1e-9, f"{OA_H - P.RAIL_Y:g}\" up from the bottom")
+
+    # ── the monitor in the cavity ───────────────────────────────────────────
+    # P1's window is centred on the plate and the picture is centred on the
+    # window, so the CASING sits off-centre by P.MON_SHIFT. Check the tight side.
+    mon_l = P.ACT_X - P.BEZ_CHIN                 # chin on the left; mirrored is the same
+    side  = min(mon_l - T, (OA_W - T) - (mon_l + P.MON_OW))
+    ok("casing clears the side walls", side > 0.03,
+       f"{side:.4f}\" on the chin side, {P.MON_SHIFT:.3f} off centre")
+    ok("casing clears the top board", P.MON_TOP - T > 0.10,
+       f"{P.MON_TOP - T:.3f}\"")
+    ok("casing clears the BUTTON RAIL", (P.RAIL_Y - CW/2) - P.MON_BOT > 0.10,
+       f"{(P.RAIL_Y - CW/2) - P.MON_BOT:.3f}\"")
+    ok("monitor + rail + back fit the depth",
+       P.Z['mon_b'] + T + T4 <= OA_D,
+       f"{P.Z['mon_b'] + T + T4:.3f} <= {OA_D:.3f}")
+    ok("foam is behind the plate, not holding it up",
+       P.SEAL_T > P.GAP and P.Z['mon_f'] - P.MAT_T == P.GAP,
+       f"{P.GAP:g}\" gap, rails carry the weight")
+
+    print(f"""
+BUY CRITERIA — the monitor has to satisfy all three
+  thick bezel (a SIDE in portrait)   <= {BUY['chin_max']:.3f}\"   now {P.BEZ_CHIN:.3f}
+  long-edge bezel (top and bottom)   <= {BUY['bez_max']:.3f}\"   now {P.BEZ_SIDE:.3f}
+  body thickness                     <= {BUY['depth_max']:.3f}\"   now {P.MON_T:.3f}
+  ... plus: matte, VESA 100, and it must power itself back up after a mains cut.
+""")
+    ok("the nominal monitor meets its own buy criteria",
+       P.BEZ_CHIN <= BUY['chin_max'] and P.BEZ_SIDE <= BUY['bez_max']
+       and P.MON_T <= BUY['depth_max'], "3 of 3")
+
     print("\nALL CHECKS PASS\n" if not fails else f"\n{len(fails)} FAILED: {fails}\n")

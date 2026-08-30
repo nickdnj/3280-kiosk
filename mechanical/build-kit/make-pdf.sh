@@ -9,6 +9,6 @@ rsvg-convert -f pdf --page-width=8.5in --page-height=11in manual/*.svg \
 info=$(pdfinfo 3280-K-box-cookbook.pdf)
 pages=$(sed -n 's/^Pages: *//p'     <<<"$info")
 size=$(sed  -n 's/^Page size: *//p' <<<"$info")
-[[ "$pages" == "20" ]]        || { echo "FAIL: $pages pages, expected 20"; exit 1; }
+[[ "$pages" == "22" ]]        || { echo "FAIL: $pages pages, expected 22"; exit 1; }
 [[ "$size" == 612\ x\ 792* ]] || { echo "FAIL: page size $size"; exit 1; }
 echo "OK  3280-K-box-cookbook.pdf  ${pages} pages  ${size}"

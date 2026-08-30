@@ -12,12 +12,19 @@ The 3280 is not modified. It is not opened. It is not part of the build.
 > and the comparison tables below.
 
 **Recommendation up front: 24″-class display (23.8″ actual), finished kiosk
-≈ 15-3/8″ W × 28-11/16″ H × 3-1/4″ D, ≈ 23 lb.**
+15″ W × 30″ H × 3-5/8″ D, ≈ 23.8 lb.**
+
+> ⚠️ **Superseded numbers below.** This study sized the kiosk at 15-3/8 ×
+> 28-11/16 × 3-1/4 on a ½″ Baltic birch box. The envelope has since been rounded
+> to a whole **15 × 30** on a solid-pine box with a tacked MDF back, and the
+> window re-derived to lap over the picture. The reasoning here still holds; the
+> live dimensions are in [`fab-rev1/_p1.py`](fab-rev1/_p1.py), which every other
+> artifact is generated from.
 
 **Placement: buttons at 38″ AFF — and the buttons are the datum.** ADA reach sets
 the button height; the button height sets where the kiosk sits; everything else
-follows. Kiosk bottom 34.75″, top 63.44″, screen centre 51.5″, 7.71″ of headroom
-under the door. See §5.
+follows. Kiosk bottom **34″**, top **64″**, 7.15″ of headroom under the door.
+See §5.
 
 ---
 

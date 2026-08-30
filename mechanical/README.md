@@ -18,9 +18,16 @@ The 3280 is not opened, not drilled, not modified.
   (`open mechanical/rev1-design-study.html`) or use the published link in the
   project README.
 
-**Recommendation: 24″-class display, buttons at 38″ AFF. Kiosk ≈ 15-3/8″ W ×
-28-11/16″ H × 3-1/4″ D, ≈ 23 lb — a 3 mm black ACM face on a Baltic birch box,
-with the face plate CNC-cut to order rather than fabricated on site.**
+**Recommendation: 24″-class display, buttons at 38″ AFF. Kiosk 15″ W × 30″ H ×
+3-5/8″ D, ≈ 23.8 lb — a 3 mm black ACM face on a solid-pine box with a tacked
+MDF back, the face plate CNC-cut to order rather than fabricated on site.**
+
+The plate's window is cut **3/16″ smaller than the monitor's lit rectangle**, so
+the ACM masks the last 3/32″ of picture on every side and **no bezel is ever
+visible**: illuminated LCD in a crisp routed opening, and nothing else. A 1/4″
+black foam light seal behind the plate kills the shadow line. There is no
+shroud. That decision, and what it costs, is in
+[`fab-rev1/README.md`](fab-rev1/README.md).
 
 ## Scope
 
@@ -73,9 +80,16 @@ nothing in Rev 1 should be built from it.
 ## Cut files — ready to order
 
 **[`fab-rev1/`](fab-rev1/)** holds the face plate as DXF, generated and
-self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py): **P1**, one
-piece, 15.37 × 28.69″, with the switch cutouts routed straight in. Order notes
-and the one number to verify first are in [`fab-rev1/README.md`](fab-rev1/README.md).
+self-checked by [`make-cutfiles.py`](fab-rev1/make-cutfiles.py) from
+[`_p1.py`](fab-rev1/_p1.py): **P1**, one piece, **15 × 30″**, with the switch
+cutouts routed straight in.
+
+**[`cutlist/`](cutlist/)** turns the same module into a Home Depot buy plan and
+a nine-crosscut cut list; **[`build-kit/`](build-kit/)** turns it into a
+22-page wordless build cookbook. One source of truth, three outputs.
+
+⚠️ **P1 is not releasable yet.** Two numbers gate it — the ⌀30.5 mm switch
+cutout, and the monitor's measured lit rectangle. The box is gated on neither.
 
 ## Can we just buy an enclosure? — no
 
@@ -98,7 +112,10 @@ sheets 300 / 301 / 302**.
 
 ## The sequence
 
-1. **Choose the monitor** — buy or salvage, run the power-cut test. ← *gate*
+1. **Choose the monitor** — buy or salvage, run the power-cut test, and check
+   it against the three fit limits (chin ≤ 0.92″, long-edge bezel ≤ 0.60″, body
+   ≤ 2.12″). Then measure the **lit rectangle**: that is what P1's window is cut
+   from. ← *gate, and now it gates the face plate too*
 2. Build the enclosure. Bench, no 3280 involved.
 3. Install monitor, Pi, buttons, wiring, software.
 4. Bench-test as a complete kiosk.

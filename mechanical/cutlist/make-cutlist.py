@@ -50,6 +50,11 @@ EDGE    = P1.EDGE                      # P1 mount holes, 1/2 in from the edge
 INSERT  = 0.375                        # #8-32 brass insert, outside diameter
 MON_OW, MON_OH, MON_T = P1.MON_OW, P1.MON_OH, P1.MON_T
 MON_TOP = P1.MON_TOP
+Z_GAP   = P1.GAP                # ACM back face to the bezel face. Set in _p1.
+# The window is centred on the plate and the PICTURE is centred on the
+# window, so the CASING is not centred: it shifts toward the chin side.
+MON_L   = P1.ACT_X - P1.BEZ_CHIN               # casing left edge, chin left
+MON_SHIFT = P1.MON_SHIFT
 VESA_W  = 1.500
 TRAY    = (4.000, 3.000)               # rounded with the rest
 REAR_CL = 0.250                        # rear panel clearance; Home Depot cuts it
@@ -100,7 +105,7 @@ TACK = a.back == 'tacked'
 if TACK:
     # A tacked back screws onto the tube's rear edges, so the tube only has to
     # be as deep as what lives inside it, and the depth budget is recomputed.
-    TUBE_D = 0.100 + MON_T + T + a.air
+    TUBE_D = Z_GAP + MON_T + T + a.air
     OA_D   = T_ACM + TUBE_D + T4
 
 CAV_W, CAV_H = OA_W - 2*T, OA_H - 2*T
@@ -263,7 +268,7 @@ if a.stock == 'solid':
 else:
     ok("insert sits mostly in the cleat, not the ply edge", in_cleat > 0.5,
        f"{in_cleat*100:.0f}% in cleat")
-rail_back = T_ACM + 0.100 + MON_T + (T if NORIP else T)
+rail_back = T_ACM + Z_GAP + MON_T + (T if NORIP else T)
 air = (OA_D - T4) - rail_back
 ADAPTER = 4.000 - OA_D                        # ADA 307.2 caps total projection
 ok("depth chain still closes", air > (a.air*0.99 if TACK else 0.15),
@@ -273,21 +278,21 @@ ok("rear panel thickness is free to differ", T4 <= OA_D - rail_back,
 if air < (a.air*0.99 if TACK else 0.15):
     print(f"""
   >> DEPTH CONFLICT, {abs(air):.3f}\"
-     {T_ACM:.3f} face + 0.100 gap + {MON_T:.3f} monitor + {T:.3f} rail + {T4:.3f} back
-     = {T_ACM + 0.100 + MON_T + T + T4:.3f}\" against a {OA_D:.3f}\" envelope.
+     {T_ACM:.3f} face + {Z_GAP:.3f} gap + {MON_T:.3f} monitor + {T:.3f} rail + {T4:.3f} back
+     = {T_ACM + Z_GAP + MON_T + T + T4:.3f}\" against a {OA_D:.3f}\" envelope.
      Do NOT resolve this on paper. MON_T is an ESTIMATE until you own the
      monitor, and it is the largest number in the stack. Cut the tube and the
      cleats now; set the rear cleat position -- and therefore where the rails
      land -- once you can measure the real panel. If it still overruns then,
-     the envelope may go to {T_ACM + 0.100 + MON_T + T + T4:.3f}\": ADA 307.2 caps total
-     projection at 4.000\", so the adapter budget goes 0.750 -> {4.0 - (T_ACM + 0.100 + MON_T + T + T4):.3f}\".
+     the envelope may go to {T_ACM + Z_GAP + MON_T + T + T4:.3f}\": ADA 307.2 caps total
+     projection at 4.000\", so the adapter budget goes 0.750 -> {4.0 - (T_ACM + Z_GAP + MON_T + T + T4):.3f}\".
 """)
 ok("enclosure leaves the adapter a budget", ADAPTER > 0.35,
    f"{OA_D:.3f}\" deep, {ADAPTER:.3f}\" of the 4.000 ADA cap left")
 ok("a one-person lift onto the bench", W_ALL < 35, f"{W_ALL:.1f} lb")
 if NORIP:
     ok("nothing is ripped", True, f"tube depth = the {a.board}\" board width")
-    internal = 0.100 + MON_T + T + T4
+    internal = Z_GAP + MON_T + T + T4
     ok("monitor + rail + inset back fit the tube", internal <= TUBE_D,
        f"{internal:.3f}\" in {TUBE_D:.3f}\"")
     ok("one 1x4 x 8 ft yields the whole tube", 2*OA_H + 2*CAV_W <= 94.0,
@@ -296,26 +301,37 @@ if NORIP:
     # degrees -- 1.500 into the cavity x 0.719 deep -- so they sit entirely
     # behind the monitor instead of running alongside it.
     ok("rear cleat, turned 90, clears the monitor",
-       (OA_D - T4 - T) > (T_ACM + 0.100 + MON_T),
-       f"cleat front {OA_D - T4 - T:.3f}\" vs monitor back {T_ACM + 0.100 + MON_T:.3f}\"")
+       (OA_D - T4 - T) > (T_ACM + Z_GAP + MON_T),
+       f"cleat front {OA_D - T4 - T:.3f}\" vs monitor back {T_ACM + Z_GAP + MON_T:.3f}\"")
     ok("rear panel still lands on the ledge",
        CW - REAR_CL/2 - 0.125 > 0.75,
        f"{CW - REAR_CL/2 - 0.125:.3f}\" of ledge at Home Depot's worst cut")
 front_in = 0.0 if NO_FRONT_CLEATS else T + C
+# Measure from where the casing ACTUALLY sits, not from the centreline.
+_tight = min(MON_L - front_in - T, (OA_W - front_in - T) - (MON_L + MON_OW))
 ok("monitor clears the FRONT CLEATS, not just the cavity",
-   (OA_W - 2*front_in - MON_OW)/2 > 0.10 and
-   (OA_H - T - front_in) - (OA_H - MON_TOP) > 0.10,
-   f"{(OA_W - 2*front_in - MON_OW)/2:+.3f}\"/side, "
-   f"{(OA_H - T - front_in) - (OA_H - MON_TOP):+.3f}\" at the top")
+   _tight > 0.03 and (MON_TOP - T - front_in) > 0.10,
+   f"{_tight:+.3f}\" on the chin side, "
+   f"{MON_TOP - T - front_in:+.3f}\" at the top")
 ok("every P1 hole lands in a board edge or the rail",
    EDGE + INSERT/2 <= T + (C if not NO_FRONT_CLEATS else 0) + 0.10,
    "15 of 15" if NO_FRONT_CLEATS else "via cleats")
 # Rounding the plate 15.370 -> 15.000 took 0.185"/side out of this margin.
 # MON_OW is an ESTIMATE; a true 24.0" panel is wider than the 23.8" we drew.
-worst_ow = 24.0 * 9/math.hypot(16, 9) + (MON_OW - P1.ACT_W)     # widest active + our bezel
-ok("widest \"24 inch\" panel still clears the cavity",
-   (CAV_W - worst_ow)/2 > 0.15, f"{(CAV_W - worst_ow)/2:.3f}\"/side at 24.0\" diag")
-ok("monitor clears the cavity", CAV_W - MON_OW > 0.5, f"{(CAV_W-MON_OW)/2:.3f}\"/side")
+# The cavity's real limit is not a panel WIDTH -- it is how thick a chin the
+# cavity can swallow once the picture is centred. That is the number to take
+# shopping, and it shrinks as the panel gets wider.
+budget = [(d, (CAV_W - w)/2) for d, w, _ in P1.panels()]
+ok("every \"24 inch\" panel leaves a usable chin budget",
+   all(b > 0.60 for _, b in budget),
+   "  ".join(f'{d:g}:{b:.3f}' for d, b in budget))
+ok("monitor clears the cavity, off-centre and all",
+   min(MON_L - T, (OA_W - T) - (MON_L + MON_OW)) > 0.03,
+   f"{min(MON_L - T, (OA_W - T) - (MON_L + MON_OW)):.4f}\"/side, "
+   f"{MON_SHIFT:.3f}\" off centre")
+# The chin is the number that decides whether a given monitor fits at all.
+ok("chin inside the buy limit", P1.BEZ_CHIN <= (CAV_W - P1.ACT_W)/2,
+   f"{P1.BEZ_CHIN:.3f}\" <= {(CAV_W - P1.ACT_W)/2:.3f}\" max")
 ok("cleat deep enough for the insert", C >= 0.44 + 0.10, f"{C:.3f}\"")
 ok("horizontal cleats have positive length", CLH > 6.0, f"{CLH:.3f}\"")
 if a.stock == 'solid' and not NORIP:
@@ -461,20 +477,39 @@ w(f"| P10 PI TRAY | {TRAY[0]:.3f} × {TRAY[1]:.3f} |")
 w()
 w("## Order of operations")
 w()
-w("1. Crosscut **P2 ×2 to 28.690** — the only parts whose size never moves.")
+w(f"1. Crosscut **P2 ×2 to {OA_H:.3f}** — the only parts whose size never moves.")
 w("2. Dry-assemble with P3 and **measure the real cavity.**")
 w("3. Cut P3, P7, P8, P9 to what you measured, not to the tables above.")
 w("4. Glue and screw the tube. **Pilot every hole** — pine end grain splits.")
-w("5. P7 button rail, front-flush, centreline 23.715\" below the top edge.")
+w(f"5. P7 button rail, front-flush, centreline {P1.RAIL_Y:g}\" below the top edge.")
 w("6. P8 rear cleats, **turned 90°** so they sit behind the monitor.")
 w("7. Threaded inserts — 15 on P1's pattern. **Epoxy them.**")
-w("8. P9 rails, monitor, Pi tray, then P1, then the back.")
+w("8. P9 rails, monitor, Pi tray. **Then the foam seal onto the back of P1**,")
+w("   then P1, then the back panel.")
 w()
 w("## Not at Home Depot")
 w()
 w("- #8-32 brass threaded inserts for wood (15) — Rockler / McMaster")
 w("- #8-32 button-head pin-torx screws, black (15) — McMaster")
-w("- **30 mm anti-vandal switches (3)** — still the gate on the face plate order")
+w("- **30 mm anti-vandal switches (3)** — one of two gates on the face plate order")
+w("- **Foam tape, BLACK closed-cell neoprene or EPDM, 1/4\" wide × 3/16\" thick**")
+w(f"  — the light seal behind P1; {P1.SEAL_LEN:.0f}\" used, so a 10 ft roll is plenty.")
+w("  Check the weatherstripping aisle first. It must be black, closed-cell, and")
+w("  **no wider than 1/4\"** — wider tape runs off the bezel and onto the glass.")
+w()
+w("## Before you buy the monitor")
+w()
+w("Three numbers decide whether a monitor fits this box at all. The picture is")
+w("centred on the plate, so the CASING is not — it shifts toward its thick edge.")
+w()
+w("| | limit |")
+w("|---|---|")
+w(f"| thick bezel — the \"chin\", a SIDE edge in portrait | **≤ {(CAV_W - P1.ACT_W)/2:.2f}\"** |")
+w(f"| bezel on the long edges — top and bottom in portrait | **≤ {(P1.RAIL_Y - CW/2) - P1.ACT_Y - P1.ACT_H:.2f}\"** |")
+w(f"| body thickness at its deepest | **≤ {OA_D - T4 - T - T_ACM - Z_GAP:.2f}\"** |")
+w()
+w("Plus: matte screen, VESA 100, and it must power itself back up after a mains")
+w("cut. Then measure the **lit rectangle** — that is what P1's window is cut from.")
 w()
 open('SHOPPING.md', 'w').write('\n'.join(L))
 

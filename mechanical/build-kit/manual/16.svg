@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
 <rect width="8.5" height="11.0" fill="#FFFFFF"/>
 <circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
-<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">9</text>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">8</text>
 <path d="M 2.7105 3.4537 L 3.1500 3.2000 L 3.2442 3.2544 L 3.2442 7.6044 L 2.8047 7.8581 L 2.7105 7.8037 Z" fill="#FFFFFF" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
 <line x1="2.8047" y1="3.5081" x2="2.7105" y2="3.4538" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
 <line x1="2.8047" y1="3.5081" x2="2.8047" y2="7.8581" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
@@ -18,12 +18,24 @@
 <line x1="4.4999" y1="8.7281" x2="2.8047" y2="7.7494" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
 <line x1="4.4999" y1="8.7281" x2="4.4999" y2="8.8369" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
 <line x1="4.4999" y1="8.7281" x2="4.9394" y2="8.4744" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<path d="M 2.82 5.48 q 0.20 -0.42 0.40 0" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 3.65 5.96 q 0.20 -0.42 0.40 0" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M 4.39 6.38 q 0.20 -0.42 0.40 0" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="1.5500" y="9.3500" width="0.3000" height="0.4400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<rect x="1.6400" y="8.8000" width="0.1300" height="0.5500" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<rect x="1.5700" y="8.5000" width="0.2700" height="0.3000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1000" y="10.3000" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">SEAL ALL SIX FACES — INSIDE TOO</text>
+<path d="M 3.3109 3.8367 L 3.4051 3.7823 L 3.7190 3.9635 L 3.7190 8.0960 L 3.6249 8.1504 L 3.3109 7.9692 Z" fill="#E8EAEC" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="3.6249" y1="4.0179" x2="3.3109" y2="3.8367" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="3.6249" y1="4.0179" x2="3.6249" y2="8.1504" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="3.6249" y1="4.0179" x2="3.7190" y2="3.9635" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<path d="M 3.8053 4.1221 L 3.8995 4.0677 L 4.2134 4.2490 L 4.2134 8.3815 L 4.1192 8.4358 L 3.8053 8.2546 Z" fill="#E8EAEC" stroke="#111111" stroke-width="0.03" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="4.1192" y1="4.3033" x2="3.8053" y2="4.1221" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.1192" y1="4.3033" x2="4.1192" y2="8.4358" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<line x1="4.1192" y1="4.3033" x2="4.2134" y2="4.2490" stroke="#111111" stroke-width="0.03" stroke-linecap="round"/>
+<circle cx="4.7623" cy="5.6570" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="4.7623" y="5.7128" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">9</text>
+<line x1="3.9623" y1="5.7570" x2="4.5023" y2="5.6770" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="3.4679" y1="8.3995" x2="3.4679" y2="7.8995" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="3.9623" y1="8.6850" x2="3.9623" y2="8.1850" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
+<line x1="3.4679" y1="8.2695" x2="3.8843" y2="8.5100" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 3.9623 8.5550 L 3.8654 8.5427 L 3.9032 8.4772 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="3.9623" y1="8.5550" x2="3.5458" y2="8.3145" stroke="#111111" stroke-width="0.011" stroke-linecap="round"/>
+<path d="M 3.4679 8.2695 L 3.5647 8.2818 L 3.5269 8.3473 Z" fill="#111111" stroke="#111111" stroke-width="0.007" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="3.7151" y="8.7722" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">100 mm</text>
+<text x="1.1000" y="10.0500" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="start" fill="#111111">VESA 100</text>
 <text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">16</text>
 </svg>

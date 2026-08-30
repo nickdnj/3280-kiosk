@@ -55,17 +55,36 @@ python3 make-cutlist.py --ply <board> --rear <mdf>
 
 ## Order of operations
 
-1. Crosscut **P2 ×2 to 28.690** — the only parts whose size never moves.
+1. Crosscut **P2 ×2 to 30.000** — the only parts whose size never moves.
 2. Dry-assemble with P3 and **measure the real cavity.**
 3. Cut P3, P7, P8, P9 to what you measured, not to the tables above.
 4. Glue and screw the tube. **Pilot every hole** — pine end grain splits.
-5. P7 button rail, front-flush, centreline 23.715" below the top edge.
+5. P7 button rail, front-flush, centreline 24" below the top edge.
 6. P8 rear cleats, **turned 90°** so they sit behind the monitor.
 7. Threaded inserts — 15 on P1's pattern. **Epoxy them.**
-8. P9 rails, monitor, Pi tray, then P1, then the back.
+8. P9 rails, monitor, Pi tray. **Then the foam seal onto the back of P1**,
+   then P1, then the back panel.
 
 ## Not at Home Depot
 
 - #8-32 brass threaded inserts for wood (15) — Rockler / McMaster
 - #8-32 button-head pin-torx screws, black (15) — McMaster
-- **30 mm anti-vandal switches (3)** — still the gate on the face plate order
+- **30 mm anti-vandal switches (3)** — one of two gates on the face plate order
+- **Foam tape, BLACK closed-cell neoprene or EPDM, 1/4" wide × 3/16" thick**
+  — the light seal behind P1; 65" used, so a 10 ft roll is plenty.
+  Check the weatherstripping aisle first. It must be black, closed-cell, and
+  **no wider than 1/4"** — wider tape runs off the bezel and onto the glass.
+
+## Before you buy the monitor
+
+Three numbers decide whether a monitor fits this box at all. The picture is
+centred on the plate, so the CASING is not — it shifts toward its thick edge.
+
+| | limit |
+|---|---|
+| thick bezel — the "chin", a SIDE edge in portrait | **≤ 0.92"** |
+| bezel on the long edges — top and bottom in portrait | **≤ 0.60"** |
+| body thickness at its deepest | **≤ 2.12"** |
+
+Plus: matte screen, VESA 100, and it must power itself back up after a mains
+cut. Then measure the **lit rectangle** — that is what P1's window is cut from.

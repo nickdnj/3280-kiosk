@@ -54,15 +54,31 @@ good.
 **Crosscut P2 first, dry-assemble, and measure the real cavity** before cutting
 anything else.
 
-## 3. The one number that got tighter
+## 3. The tightest number in the box — 1/16″, and it is not where you'd look
 
-Rounding the plate from 15.370″ to 15.000″ took **0.185″ per side** out of the
-monitor's clearance. The cavity is now 13.500″ against a 12.870″ monitor —
-**0.315″ per side**, and against the widest thing sold as "24 inch" (a true 24.0″
-diagonal) **0.267″ per side.** Both positive, both checked on every run.
+The face plate window is centred on the plate, and the **picture** is centred on
+the window. So the **casing is not centred.** In portrait, a monitor's thick
+"chin" bezel lands on a *side* edge, and centring the picture pushes the casing
+sideways by half the chin-to-thin difference — **0.248″** on the nominal
+monitor.
 
-But `MON_OW` is an estimate until you own the monitor. **Measure the actual
-panel before cutting P3.** This is the margin the rounding spent.
+That turns a comfortable 0.315″ per side into **0.0665″ on the chin side.** It
+fits. It is checked on every run. But it is the number that decides whether a
+given monitor goes in the box at all, so it is a **buy criterion**, not a build
+detail:
+
+| | limit | nominal |
+|---|---|---|
+| thick bezel — the chin, a SIDE edge in portrait | **≤ 0.92″** | 0.85 |
+| bezel on the long edges — top and bottom in portrait | **≤ 0.60″** | 0.35 |
+| body thickness at its deepest | **≤ 2.12″** | 1.80 |
+
+The chin budget shrinks as the panel grows: **0.97″** at a 23.6″ diagonal,
+**0.92″** at 23.8″, **0.87″** at a true 24.0″. All three are realistic for a real
+monitor, so nothing is excluded — but check the one you are buying.
+
+`MON_OW` is an estimate until you own the monitor. **Measure the actual panel
+before cutting P3.**
 
 ## 4. Build
 
@@ -76,7 +92,13 @@ panel before cutting P3.** This is the margin the rounding spent.
    a 0.375″ insert broke out of a ¾″ board edge; at ½″ it spans 0.3125–0.6875
    and sits entirely inside. **Epoxy them.**
 5. **Rails** — P9 ×2 on the VESA centres. Monitor, Pi tray, wiring.
-6. Switches into P1, then P1 on, then the back panel.
+6. Switches into P1. Then the **foam light seal** onto the back of P1 — 1/4″
+   black closed-cell neoprene, 1/8″ out from the window edge, all the way round.
+7. P1 on, then the back panel.
+
+> The face plate must **never** clamp the monitor. The P9 rails set the
+> monitor's position 1/8″ behind the ACM; the foam is 3/16″ thick and lands at
+> 33 % compression. If the plate is fighting the panel, move the rails.
 
 **23.8 lb.** Enclosure **3.618″** deep, leaving the mounting adapter **0.382″**
 of the ADA §307.2 4.000″ cap.
@@ -104,7 +126,7 @@ The whole released drawing package is now stale — the envelope itself moved.
 | | was | now |
 |---|---|---|
 | Plate | 15.370 × 28.690 | **15 × 30** |
-| Window | 12.170 × 21.240 | **12¼ × 21¼** |
+| Window | 12.170 × 21.240 | **11½ × 20-9/16** — now *smaller* than the picture |
 | Button datum below top | 25.440 | **26** |
 | Kiosk bottom AFF | 34.750 | **34** |
 | Mount holes in from edge | 0.625 | **0.500** |
@@ -113,6 +135,10 @@ The whole released drawing package is now stale — the envelope itself moved.
 
 Buttons stay at **38″ AFF** — that never moves, it is the ADA datum everything
 else is placed from.
+
+Rev 2b then changed the window again — **11½ × 20-9/16, smaller than the lit
+area** — so the plate now masks the bezel instead of framing it. See
+[`../fab-rev1/README.md`](../fab-rev1/README.md).
 
 **The SendCutSend quote must be redone.** $61.43 was for 441 sq in; this is 450.
 

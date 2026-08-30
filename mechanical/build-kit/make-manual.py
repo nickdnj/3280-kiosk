@@ -11,7 +11,7 @@ import math, os
 import _kit as K
 from _draw import Page, iso, INK, GHOST, W_HEAVY, W_MED, W_LIGHT, W_HAIR
 
-OUT, TOTAL = 'manual', 20
+OUT, TOTAL = 'manual', 22
 P = K.P
 
 
@@ -59,7 +59,7 @@ def finished(pg, ox, oy, sc, lw=W_HEAVY):
 
 # ═══ 01 COVER ═══════════════════════════════════════════════════════════════
 def p01():
-    p = Page(1, TOTAL)
+    p = Page(0, TOTAL)
     p.text(0.80, 1.15, '3280-K', size=0.58, anchor='start')
     p.text(0.80, 1.46, 'BOX — BUILD COOKBOOK', size=0.175, anchor='start', weight='normal')
     p.line(0.80, 1.62, 3.60, 1.62, w=W_HEAVY)
@@ -74,7 +74,7 @@ def p01():
 
 # ═══ 02 BEFORE YOU START ════════════════════════════════════════════════════
 def p02():
-    p = Page(2, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, '!')
     bw, bh, rows = 3.35, 2.25, [1.75, 4.30, 6.85]
 
@@ -119,7 +119,81 @@ def p02():
     return p
 
 
-# ═══ 03 WOOD AS BOUGHT ══════════════════════════════════════════════════════
+# ═══ 03 MEASURE THE LIT RECTANGLE — BEFORE P1 IS ORDERED ════════════════════
+def p02m():
+    """Step 0. The window is derived from this number and nothing else.
+
+    The bezel is drawn wider than life. At true scale a 3/8" bezel is a hair
+    on this page, and the whole point is telling the two rectangles apart."""
+    p = Page(0, TOTAL)
+    p.stepnum(0.95, 1.05, 0)
+
+    LW = 2.55                                   # the lit rectangle, true 9:16
+    LH = LW * P.ACT_H / P.ACT_W
+    BZ_S, BZ_E = 0.34, 0.20                     # drawn bezel, not to scale
+    lx, ly = 3.05, 2.15
+    mx, my = lx - BZ_S, ly - BZ_E
+    MW, MH = LW + 2*BZ_S, LH + 2*BZ_E
+
+    p.rect(mx, my, MW, MH, w=W_HEAVY, fill='#DFE3E6')          # casing
+    p.rect(lx, ly, LW, LH, w=W_HEAVY, fill='#FFFFFF')          # the LIT rectangle
+    for k in range(4):                                          # ... and it is ON
+        a = math.radians(-14 - k*21)
+        p.line(lx + LW + 0.10*math.cos(a), ly + 0.10 + 0.10*math.sin(a),
+               lx + LW + 0.34*math.cos(a), ly + 0.10 + 0.34*math.sin(a), w=W_MED)
+    p.path(f'M {mx + MW*0.5:.2f} {my + MH:.2f} q 0.10 0.55 0.62 0.62', w=W_MED)
+    p.rect(mx + MW*0.5 + 0.68, my + MH + 0.52, 0.22, 0.20, w=W_MED)
+    p.line(mx + MW*0.5 + 0.90, my + MH + 0.57, mx + MW*0.5 + 1.02, my + MH + 0.57, w=W_MED)
+    p.line(mx + MW*0.5 + 0.90, my + MH + 0.67, mx + MW*0.5 + 1.02, my + MH + 0.67, w=W_MED)
+
+    # NOT the casing
+    p.arrow(mx, my - 0.34, mx + MW, my - 0.34, w=W_LIGHT, head=0.09)
+    p.arrow(mx + MW, my - 0.34, mx, my - 0.34, w=W_LIGHT, head=0.09)
+    p.line(mx, my - 0.48, mx, my - 0.06, w=W_HAIR)
+    p.line(mx + MW, my - 0.48, mx + MW, my - 0.06, w=W_HAIR)
+    p.no(mx + MW*0.5, my - 0.34, 0.21)
+
+    # THIS one — dimensions drawn inside the lit rectangle so there is no doubt
+    p.arrow(lx + 0.04, ly + LH - 0.34, lx + LW - 0.04, ly + LH - 0.34, w=W_HEAVY)
+    p.arrow(lx + LW - 0.04, ly + LH - 0.34, lx + 0.04, ly + LH - 0.34, w=W_HEAVY)
+    p.arrow(lx + 0.38, ly + 0.04, lx + 0.38, ly + LH - 0.62, w=W_HEAVY)
+    p.arrow(lx + 0.38, ly + LH - 0.62, lx + 0.38, ly + 0.04, w=W_HEAVY)
+    p.tick(lx + LW*0.62, ly + LH*0.46, 0.42)
+
+    # write the two numbers down, subtract 3/16, and that is the window
+    def pencil(x, y, s=1.0, col=INK):
+        p.poly([(x, y + 0.30*s), (x + 0.30*s, y), (x + 0.38*s, y + 0.08*s),
+                (x + 0.08*s, y + 0.38*s)], w=W_LIGHT, col=col)
+        p.poly([(x, y + 0.30*s), (x - 0.05*s, y + 0.44*s), (x + 0.08*s, y + 0.38*s)],
+               w=W_LIGHT, col=col)
+
+    for row, vertical in enumerate((False, True)):
+        y = 8.42 + row*0.74
+        gx = 1.20
+        if vertical:
+            p.arrow(gx, y - 0.02, gx, y + 0.36, w=W_MED, head=0.09)
+            p.arrow(gx, y + 0.36, gx, y - 0.02, w=W_MED, head=0.09)
+        else:
+            p.arrow(gx - 0.20, y + 0.17, gx + 0.20, y + 0.17, w=W_MED, head=0.09)
+            p.arrow(gx + 0.20, y + 0.17, gx - 0.20, y + 0.17, w=W_MED, head=0.09)
+        p.rect(1.60, y, 1.20, 0.36, w=W_MED, r=0.05)
+        pencil(1.94, y + 0.03, 0.72, GHOST)
+        p.text(3.02, y + 0.27, '\u2212', size=0.24)
+        p.text(3.54, y + 0.27, '3/16', size=0.21)
+        p.text(4.16, y + 0.27, '=', size=0.24)
+        p.rect(4.44, y, 1.20, 0.36, w=W_MED, r=0.05)
+        p.arrow(5.82, y + 0.18, 6.22, y + 0.18, w=W_MED)
+
+    wx, wy, ws = 6.48, 8.05, 0.062
+    p.rect(wx, wy, P.PW*ws, P.PH*ws, w=W_MED, r=P.R_OUT*ws)
+    p.rect(wx + P.WIN_X*ws, wy + P.WIN_Y*ws, P.WIN_W*ws, P.WIN_H*ws,
+           w=W_HEAVY, fill='#EDEFF1')
+    for x in P.BTN_X:
+        p.circle(wx + x*ws, wy + P.BTN_Y*ws, P.BTN_D/2*ws, w=W_HAIR)
+    return p
+
+
+# ═══ 04 WOOD AS BOUGHT ══════════════════════════════════════════════════════
 def board(p, x, y, L, W, sc, label, model, qty):
     p.slab(0, 0, 0, L, K.T, W, x, y, sc, lw=W_HEAVY)
     for i in range(1, 4):
@@ -130,7 +204,7 @@ def board(p, x, y, L, W, sc, label, model, qty):
 
 
 def p03():
-    p = Page(3, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 'A')
     board(p, 2.55, 2.20, 96, 3.5, 0.055, '1×4 × 8 ft', '914681 · .750 × 3.5', 2)
     board(p, 2.55, 4.70, 96, 2.5, 0.055, '1×3 × 8 ft', '914649 · .750 × 2.5', 3)
@@ -155,9 +229,9 @@ def p03():
     return p
 
 
-# ═══ 04 PARTS ═══════════════════════════════════════════════════════════════
+# ═══ 05 PARTS ═══════════════════════════════════════════════════════════════
 def p04():
-    p = Page(4, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 'B')
     S = 0.115
     slots = {'P2': (1.20, 1.90), 'P3': (2.35, 1.90), 'P8': (3.35, 1.90),
@@ -177,7 +251,7 @@ def p04():
     return p
 
 
-# ═══ 05 FASTENERS ═══════════════════════════════════════════════════════════
+# ═══ 06 FASTENERS ═══════════════════════════════════════════════════════════
 def hw(p, kind, x, y):
     if kind == 'screw':
         p.poly([(x, y+0.10), (x+0.13, y), (x+0.26, y+0.10)], w=W_MED)
@@ -213,6 +287,11 @@ def hw(p, kind, x, y):
         p.rect(x, y+0.08, 0.44, 0.32, w=W_MED, r=0.05)
         for i in range(3):
             p.line(x+0.12+i*0.10, y+0.17, x+0.12+i*0.10, y+0.31, w=W_MED)
+    elif kind == 'foam':
+        p.circle(x+0.19, y+0.30, 0.19, w=W_MED)
+        p.circle(x+0.19, y+0.30, 0.07, w=W_MED)
+        p.poly([(x+0.37, y+0.24), (x+0.60, y+0.24), (x+0.60, y+0.36), (x+0.37, y+0.36)],
+               w=W_MED, fill='#8C9298')
     elif kind == 'glue':
         p.rect(x+0.04, y+0.14, 0.22, 0.46, w=W_MED, r=0.05)
         p.poly([(x+0.11, y+0.14), (x+0.15, y), (x+0.19, y+0.14)], w=W_MED)
@@ -227,7 +306,7 @@ def hw(p, kind, x, y):
 
 
 def p05():
-    p = Page(5, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 'C')
     y = 1.90
     for code, name, qty, kind, note in K.FASTENERS:
@@ -241,9 +320,9 @@ def p05():
     return p
 
 
-# ═══ 06 GLUE AND FINISH ═════════════════════════════════════════════════════
+# ═══ 07 GLUE AND FINISH ═════════════════════════════════════════════════════
 def p06():
-    p = Page(6, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 'D')
     y = 2.00
     for code, name, kind, note in K.GLUES:
@@ -265,9 +344,9 @@ def p06():
     return p
 
 
-# ═══ 07 TOOLS ═══════════════════════════════════════════════════════════════
+# ═══ 08 TOOLS ═══════════════════════════════════════════════════════════════
 def p07():
-    p = Page(7, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 'E')
     cells = [(1.25 + (i % 3)*2.20, 1.95 + (i // 3)*2.10) for i in range(12)]
 
@@ -326,9 +405,9 @@ def p07():
     return p
 
 
-# ═══ 08 HOW TO MEASURE ══════════════════════════════════════════════════════
+# ═══ 09 HOW TO MEASURE ══════════════════════════════════════════════════════
 def p08():
-    p = Page(8, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 1)
     # measure from ONE end, always
     p.rect(1.20, 2.10, 6.10, 0.95, w=W_HEAVY)
@@ -361,9 +440,9 @@ def p08():
     return p
 
 
-# ═══ 09 THE NINE CROSSCUTS ══════════════════════════════════════════════════
+# ═══ 10 THE NINE CROSSCUTS ══════════════════════════════════════════════════
 def p09():
-    p = Page(9, TOTAL)
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, 2)
     S = 0.062
 
@@ -405,19 +484,19 @@ def p09():
     return p
 
 
-# ═══ 10-19 ASSEMBLY ═════════════════════════════════════════════════════════
+# ═══ 11-19 ASSEMBLY ═════════════════════════════════════════════════════════
 SC, OX, OY = 0.145, 3.15, 7.55
 
 
-def step(n, num):
-    p = Page(n, TOTAL)
+def step(num):
+    p = Page(0, TOTAL)
     p.stepnum(0.95, 1.05, num)
     return p
 
 
 def p10():
     """Dry fit, clamp, measure."""
-    p = step(10, 3)
+    p = step(3)
     tube(p, OX, OY, SC, lw=W_HEAVY)
     a = ipt(K.T, K.OA_H/2, K.BW, OX, OY, SC)
     b = ipt(K.OA_W-K.T, K.OA_H/2, K.BW, OX, OY, SC)
@@ -434,7 +513,7 @@ def p10():
 
 def p11():
     """Tube: pilot, glue, screw."""
-    p = step(11, 4)
+    p = step(4)
     tube(p, OX, OY, SC, lw=W_HEAVY)
     p.balloon(*ipt(K.T/2, K.OA_H*0.62, K.BW, OX, OY, SC), '2')
     p.balloon(*ipt(K.OA_W/2, K.OA_H-K.T/2, K.BW, OX, OY, SC), '3')
@@ -454,7 +533,7 @@ def p11():
 
 def p12():
     """Button rail, front flush, 6 up from the bottom."""
-    p = step(12, 5)
+    p = step(5)
     tube(p, OX, OY, SC, lw=W_MED)
     p.slab(K.T, RAIL_V - K.T/2, K.BW - K.CW, K.CAV_W, K.T, K.CW,
            OX, OY, SC, lw=W_HEAVY, fill='#E8EAEC')
@@ -474,7 +553,7 @@ def p12():
 
 def p13():
     """Rear cleats, turned 90."""
-    p = step(13, 6)
+    p = step(6)
     tube(p, OX, OY, SC, lw=W_MED)
     for u in (K.T, K.OA_W - K.T - K.CW):
         p.slab(u, K.T, K.BW - K.T4 - K.T, K.CW, K.CAV_H, K.T,
@@ -494,7 +573,7 @@ def p13():
 
 def p14():
     """Inserts: drill 3/8, epoxy, 21 of them."""
-    p = step(14, 7)
+    p = step(7)
     tube(p, OX, OY, SC, lw=W_LIGHT)
     for x, y in P.MOUNT:
         icirc(p, x, K.OA_H - y, K.BW, 0.19, OX, OY, SC, w=W_MED, fill='#FFFFFF')
@@ -515,7 +594,7 @@ def p14():
 
 def p15():
     """VESA rails."""
-    p = step(15, 8)
+    p = step(8)
     tube(p, OX, OY, SC, lw=W_MED)
     for du in (-K.VESA/2, K.VESA/2):
         u = K.OA_W/2 + du - K.CW/2
@@ -537,7 +616,7 @@ def p15():
 
 def p16():
     """Seal and paint — all six faces, before anything goes in."""
-    p = step(16, 9)
+    p = step(9)
     tube(p, OX, OY, SC, lw=W_MED)
     for u in (0.9, K.OA_W*0.5, K.OA_W - 1.6):
         x, y = ipt(u, K.OA_H*0.55, K.BW, OX, OY, SC)
@@ -552,7 +631,7 @@ def p16():
 
 def p17():
     """Monitor onto the rails, Pi tray below."""
-    p = step(17, 10)
+    p = step(10)
     tube(p, OX, OY, SC, lw=W_LIGHT)
     mu = (K.OA_W - P.MON_OW)/2
     mv = K.OA_H - P.MON_TOP - P.MON_OH
@@ -570,7 +649,7 @@ def p17():
 
 def p18():
     """Switches into P1, then wire."""
-    p = step(18, 11)
+    p = step(11)
     ox, oy, sc = 3.05, 7.40, 0.145
     tube(p, ox, oy, sc, lw=W_LIGHT)
     OFF = 5.0
@@ -590,9 +669,76 @@ def p18():
     return p
 
 
-def p19():
+# ═══ 20 THE LIGHT SEAL ══════════════════════════════════════════════════════
+def p19s():
+    """Step 12. Foam onto the BACK of P1, before the plate goes on."""
+    p = step(12)
+
+    SC = 0.170
+    px, py = 1.05, 1.65
+    p.rect(px, py, P.PW*SC, P.PH*SC, w=W_HEAVY, r=P.R_OUT*SC)
+    wx, wy = px + P.WIN_X*SC, py + P.WIN_Y*SC
+    ww, wh = P.WIN_W*SC, P.WIN_H*SC
+    p.rect(wx, wy, ww, wh, w=W_MED, r=P.R_IN*SC, fill='#EDEFF1')
+    g = 0.085                     # drawn thick to be seen; true size in the detail
+    p.rect(wx - g, wy - g, ww + 2*g, wh + 2*g, w=0.070, col='#9AA0A6', r=0.10)
+    for x in P.BTN_X:             # the switches are already in
+        p.circle(px + x*SC, py + P.BTN_Y*SC, P.BTN_D/2*SC, w=W_HAIR, col=GHOST)
+
+    # the roll
+    rx, ry = 1.62, 8.55
+    p.circle(rx, ry, 0.44, w=W_HEAVY)
+    p.circle(rx, ry, 0.16, w=W_MED)
+    p.poly([(rx + 0.42, ry - 0.07), (rx + 1.04, ry - 0.07),
+            (rx + 1.04, ry + 0.07), (rx + 0.42, ry + 0.07)], w=W_MED)
+    p.balloon(rx, ry + 0.82, 'F8')
+    p.curve_arrow(rx + 0.30, ry - 0.52, wx + ww*0.45, wy + wh + 0.30, bow=0.35, w=W_MED)
+
+    # ── the detail: what the front of the kiosk actually is ────────────────
+    cx, cy, R = 5.85, 3.70, 1.72
+    p.detail_bubble(cx, cy, R, wx - g/2, wy + wh*0.28, 0.20)
+    S = 3.10                             # in-plane scale, big enough to read
+    bx, by = cx - 0.32, cy + 0.28        # front face of the ACM, and the window edge
+    t  = P.MAT_T*S
+    fi, fo = P.SEAL_IN*S, (P.SEAL_IN + P.SEAL_W)*S
+    mf = bx + t + P.GAP*S                # the bezel face, where the rails put it
+    ov = P.OV_H*S
+    p.rect(bx, by - 1.20, t, 1.20, w=W_HEAVY, fill='#DFE3E6')                 # ACM
+    p.rect(mf, by - 1.20, 0.52, 1.20 - ov, w=W_HEAVY, fill='#FFFFFF')         # bezel
+    p.rect(mf, by - ov, 0.52, 0.80, w=W_HEAVY, fill='#3B4045')                # LCD
+    # the foam, drawn as it ends up: compressed, bridging ACM to bezel
+    p.rect(bx + t, by - fo, mf - bx - t, fo - fi, w=W_MED, fill='#8C9298')
+    dx = bx - 0.40
+    for lo, hi, lab in ((0.0, fi, '1/8'), (fi, fo, '1/4')):
+        p.arrow(dx, by - lo, dx, by - hi, w=W_LIGHT, head=0.07)
+        p.arrow(dx, by - hi, dx, by - lo, w=W_LIGHT, head=0.07)
+        p.text(dx - 0.30, by - (lo + hi)*0.5 + 0.05, lab, size=0.145)
+        p.line(dx, by - hi, bx, by - hi, w=W_HAIR, dash='0.04 0.03')
+    p.line(dx, by, bx, by, w=W_HAIR, dash='0.04 0.03')
+    # the ACM laps over the picture -- this is the whole point of the page
+    ax = mf + 0.52 + 0.13
+    p.line(bx, by, ax + 0.10, by, w=W_HAIR, dash='0.04 0.03')
+    p.line(mf, by - ov, ax + 0.10, by - ov, w=W_HAIR, dash='0.04 0.03')
+    p.arrow(ax, by, ax, by - ov, w=W_MED, head=0.07)
+    p.arrow(ax, by - ov, ax, by, w=W_MED, head=0.07)
+    ey = by + 0.46                       # the eye sees lit LCD, and nothing else
+    p.circle(bx - 0.72, ey, 0.13, w=W_MED)
+    p.circle(bx - 0.72, ey, 0.045, w=W_MED, fill=INK)
+    p.arrow(bx - 0.56, ey, mf - 0.04, ey, w=W_LIGHT, head=0.09)
+
+    # do not squeeze the plate onto the glass
+    sx, sy = 5.55, 8.50
+    p.rect(sx, sy, 0.12, 1.00, w=W_MED, fill='#DFE3E6')
+    p.rect(sx + 0.32, sy, 0.58, 1.00, w=W_MED)
+    p.arrow(sx - 0.50, sy + 0.50, sx - 0.06, sy + 0.50, w=W_HEAVY, head=0.13)
+    p.arrow(sx + 1.42, sy + 0.50, sx + 0.98, sy + 0.50, w=W_HEAVY, head=0.13)
+    p.no(sx + 1.10, sy - 0.06, 0.26)
+    return p
+
+
+def p20():
     """Face plate on, then the back."""
-    p = step(19, 12)
+    p = step(13)
     ox, oy, sc = 3.05, 7.40, 0.145
     tube(p, ox, oy, sc, lw=W_MED)
     OFF = 3.6
@@ -614,9 +760,9 @@ def p19():
     return p
 
 
-# ═══ 20 DONE ════════════════════════════════════════════════════════════════
-def p20():
-    p = Page(20, TOTAL)
+# ═══ 22 DONE ════════════════════════════════════════════════════════════════
+def p21():
+    p = Page(0, TOTAL)
     finished(p, 2.95, 6.55, 0.152)
     p.circle(6.85, 2.20, 0.42, w=W_HEAVY)
     p.tick(6.85, 2.25, 0.36)
@@ -638,12 +784,13 @@ def p20():
 
 if __name__ == '__main__':
     os.makedirs(OUT, exist_ok=True)
-    pages = [p01, p02, p03, p04, p05, p06, p07, p08, p09, p10,
-             p11, p12, p13, p14, p15, p16, p17, p18, p19, p20]
+    pages = [p01, p02, p02m, p03, p04, p05, p06, p07, p08, p09, p10,
+             p11, p12, p13, p14, p15, p16, p17, p18, p19s, p20, p21]
     assert len(pages) == TOTAL, f'{len(pages)} pages, TOTAL says {TOTAL}'
     bad = 0
-    for fn in pages:
+    for i, fn in enumerate(pages, 1):
         pg = fn()
+        pg.n = i
         path = os.path.join(OUT, f'{pg.n:02d}.svg')
         pg.save(path)
         bad += len(pg.stray)

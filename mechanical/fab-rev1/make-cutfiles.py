@@ -82,10 +82,20 @@ svg('P1-face-plate.svg',
     + [(x, P.PH - y, P.HOLE/2) for x, y in P.MOUNT],
     f'P1 FACE PLATE  {P.PW:g}" x {P.PH:g}"  x 3mm ACM  -  ONE PIECE',
     f'window {P.WIN_W:g} x {P.WIN_H:g}  |  3 x {P.BTN_D:.4f} dia at {P.BTN_CC:g}" cc  |  '
-    f'{len(P.MOUNT)} x {P.HOLE:g} dia mount')
+    f'{len(P.MOUNT)} x {P.HOLE:g} dia mount  |  '
+    + ('lit area MEASURED' if P.ACT_MEASURED else 'NOT FOR RELEASE - LIT AREA NOT MEASURED'))
 
 print(f"P1 face plate   {P.PW:g} x {P.PH:g}      {n} entities")
 print(f"   window       {P.WIN_W:g} x {P.WIN_H:g}  at ({P.WIN_X:g}, {win_y:g}) Y-up")
 print(f"   buttons      3 x {P.BTN_D:.4f} at y={P.PH - P.BTN_Y:g} Y-up")
 print(f"   mount        {len(P.MOUNT)} x {P.HOLE:g}")
 print("\nGeometry and checks live in _p1.py — run it to verify.")
+if not P.ACT_MEASURED:
+    print("""
+  ##################################################################
+  #  NOT FOR RELEASE.  The window is derived from the monitor's    #
+  #  LIT rectangle and that has not been measured yet, so this     #
+  #  DXF is a mock-up file only.  Measure, set ACT_MEASURED in     #
+  #  _p1.py, re-run, THEN upload.                                  #
+  ##################################################################
+""")

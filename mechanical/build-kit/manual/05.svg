@@ -1,84 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="8.5in" height="11.0in" viewBox="0 0 8.5 11.0">
 <rect width="8.5" height="11.0" fill="#FFFFFF"/>
 <circle cx="0.9500" cy="1.0500" r="0.3000" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
-<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">C</text>
-<circle cx="1.1500" cy="2.1400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="2.1958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F1</text>
-<path d="M 1.6800 2.0000 L 1.8100 1.9000 L 1.9400 2.0000 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="1.7650" y="2.0000" width="0.0900" height="0.4400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<line x1="1.7650" y1="2.0500" x2="1.8550" y2="2.0200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7650" y1="2.1300" x2="1.8550" y2="2.1000" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7650" y1="2.2100" x2="1.8550" y2="2.1800" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7650" y1="2.2900" x2="1.8550" y2="2.2600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7650" y1="2.3700" x2="1.8550" y2="2.3400" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<text x="2.3500" y="2.1200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">WOOD SCREW, #6 x 1-1/4, FLAT HEAD</text>
-<text x="2.3500" y="2.3200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">box, rail, cleats, rails. Pilot 7/64.</text>
-<text x="7.3500" y="2.2000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×40</text>
-<line x1="1.1500" y1="2.6200" x2="7.3500" y2="2.6200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="3.0400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="3.0958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F2</text>
-<rect x="1.7200" y="2.8000" width="0.1900" height="0.4200" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<line x1="1.7200" y1="2.8600" x2="1.9100" y2="2.8200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7200" y1="2.9600" x2="1.9100" y2="2.9200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7200" y1="3.0600" x2="1.9100" y2="3.0200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7200" y1="3.1600" x2="1.9100" y2="3.1200" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7800" y1="2.8000" x2="1.7800" y2="3.2200" stroke="#111111" stroke-width="0.007" stroke-linecap="round" stroke-dasharray="0.03 0.03"/>
-<text x="2.3500" y="3.0200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">INSERT, THREADED, #8-32, BRASS, FOR WOOD</text>
-<text x="2.3500" y="3.2200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">15 front + 6 rear. Drill 3/8. EPOXY.</text>
-<text x="7.3500" y="3.1000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×21</text>
-<line x1="1.1500" y1="3.5200" x2="7.3500" y2="3.5200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="3.9400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="3.9958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F3</text>
-<path d="M 1.680 3.800 q 0.13 -0.14 0.26 0" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<line x1="1.6800" y1="3.8000" x2="1.9400" y2="3.8000" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<rect x="1.7700" y="3.8000" width="0.0800" height="0.4000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<text x="2.3500" y="3.9200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">SCREW, #8-32 x 1/2, BUTTON HEAD, BLACK</text>
-<text x="2.3500" y="4.1200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">holds P1. Pin-torx if you want it tamper-resistant.</text>
-<text x="7.3500" y="4.0000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×15</text>
-<line x1="1.1500" y1="4.4200" x2="7.3500" y2="4.4200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="4.8400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="4.8958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F4</text>
-<circle cx="1.8100" cy="4.7100" r="0.1200" fill="none" stroke="#111111" stroke-width="0.018"/>
-<line x1="1.9100" y1="4.7100" x2="1.9600" y2="4.7100" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.8807" y1="4.7807" x2="1.9161" y2="4.8161" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.8100" y1="4.8100" x2="1.8100" y2="4.8600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7393" y1="4.7807" x2="1.7039" y2="4.8161" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7100" y1="4.7100" x2="1.6600" y2="4.7100" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.7393" y1="4.6393" x2="1.7039" y2="4.6039" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.8100" y1="4.6100" x2="1.8100" y2="4.5600" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<line x1="1.8807" y1="4.6393" x2="1.9161" y2="4.6039" stroke="#111111" stroke-width="0.007" stroke-linecap="round"/>
-<rect x="1.7700" y="4.8300" width="0.0800" height="0.3000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<text x="2.3500" y="4.8200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">THUMBSCREW, #8-32 x 1/2</text>
-<text x="2.3500" y="5.0200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">holds P4. Tool-free service.</text>
-<text x="7.3500" y="4.9000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×6</text>
-<line x1="1.1500" y1="5.3200" x2="7.3500" y2="5.3200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="5.7400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="5.7958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F5</text>
-<path d="M 1.9096 5.6675 L 1.8100 5.7250 L 1.7104 5.6675 L 1.7104 5.5525 L 1.8100 5.4950 L 1.9096 5.5525 Z" fill="none" stroke="#111111" stroke-width="0.018" stroke-linejoin="round" stroke-linecap="round"/>
-<rect x="1.7750" y="5.7300" width="0.0700" height="0.3000" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<circle cx="1.8100" cy="5.7600" r="0.1500" fill="none" stroke="#111111" stroke-width="0.007"/>
-<text x="2.3500" y="5.7200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">BOLT, M4 x 12 + FLAT WASHER</text>
-<text x="2.3500" y="5.9200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">monitor to P9, VESA 100.</text>
-<text x="7.3500" y="5.8000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×4</text>
-<line x1="1.1500" y1="6.2200" x2="7.3500" y2="6.2200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="6.6400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="6.6958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F6</text>
-<circle cx="1.8800" cy="6.5900" r="0.1900" fill="none" stroke="#111111" stroke-width="0.018"/>
-<circle cx="1.8800" cy="6.5900" r="0.1100" fill="none" stroke="#111111" stroke-width="0.007"/>
-<rect x="1.7900" y="6.7800" width="0.1800" height="0.2400" rx="0" fill="none" stroke="#111111" stroke-width="0.018"/>
-<text x="2.3500" y="6.6200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">SWITCH, 30 mm ANTI-VANDAL, MOM. SPST-NO</text>
-<text x="2.3500" y="6.8200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">VERIFY the 30.5 cutout before P1 is cut.</text>
-<text x="7.3500" y="6.7000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×3</text>
-<line x1="1.1500" y1="7.1200" x2="7.3500" y2="7.1200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
-<circle cx="1.1500" cy="7.5400" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
-<text x="1.1500" y="7.5958" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">F7</text>
-<rect x="1.6800" y="7.3800" width="0.4400" height="0.3200" rx="0.05" fill="none" stroke="#111111" stroke-width="0.018"/>
-<line x1="1.8000" y1="7.4700" x2="1.8000" y2="7.6100" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<line x1="1.9000" y1="7.4700" x2="1.9000" y2="7.6100" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<line x1="2.0000" y1="7.4700" x2="2.0000" y2="7.6100" stroke="#111111" stroke-width="0.018" stroke-linecap="round"/>
-<text x="2.3500" y="7.5200" font-family="Helvetica,Arial,sans-serif" font-size="0.125" font-weight="normal" text-anchor="start" fill="#111111">INLET, IEC C14, PANEL MOUNT, FUSED</text>
-<text x="2.3500" y="7.7200" font-family="Helvetica,Arial,sans-serif" font-size="0.105" font-weight="normal" text-anchor="start" fill="#6B7075">lower cavity, in the back or the bottom board.</text>
-<text x="7.3500" y="7.6000" font-family="Helvetica,Arial,sans-serif" font-size="0.19" font-weight="bold" text-anchor="end" fill="#111111">×1</text>
-<line x1="1.1500" y1="8.0200" x2="7.3500" y2="8.0200" stroke="#B8BCC0" stroke-width="0.007" stroke-linecap="round"/>
+<text x="0.9500" y="1.1850" font-family="Helvetica,Arial,sans-serif" font-size="0.38" font-weight="bold" text-anchor="middle" fill="#111111">B</text>
+<rect x="1.2000" y="1.9000" width="0.4025" height="3.4500" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">2</text>
+<text x="1.2000" y="5.5700" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">3-1/2 x 30</text>
+<text x="1.2000" y="5.7600" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x4  ×2</text>
+<rect x="2.3500" y="1.9000" width="0.4025" height="1.5525" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="2.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="2.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">3</text>
+<text x="2.3500" y="3.6725" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">3-1/2 x 13-1/2</text>
+<text x="2.3500" y="3.8625" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x4  ×2</text>
+<rect x="1.2000" y="6.1000" width="1.5525" height="0.2875" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="5.8800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="5.9358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">7</text>
+<text x="1.2000" y="6.6075" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 13-1/2</text>
+<text x="1.2000" y="6.7975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×1</text>
+<rect x="3.3500" y="1.9000" width="0.2875" height="3.2775" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="3.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">8</text>
+<text x="3.3500" y="5.3975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 28-1/2</text>
+<text x="3.3500" y="5.5875" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×2</text>
+<rect x="4.3500" y="1.9000" width="0.2875" height="3.2775" rx="0" fill="#FFFFFF" stroke="#111111" stroke-width="0.03"/>
+<circle cx="4.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="4.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">9</text>
+<text x="4.3500" y="5.3975" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">2-1/2 x 28-1/2</text>
+<text x="4.3500" y="5.5875" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">1x3  ×2</text>
+<rect x="5.3500" y="1.9000" width="1.5238" height="3.2488" rx="0" fill="#F1F2F3" stroke="#111111" stroke-width="0.03"/>
+<circle cx="5.5500" cy="1.6800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="5.5500" y="1.7358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">4</text>
+<text x="5.3500" y="5.3687" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">13-1/4 x 28-1/4</text>
+<text x="5.3500" y="5.5587" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">MDF  ×1</text>
+<rect x="1.2000" y="7.1500" width="0.4600" height="0.3450" rx="0" fill="#F1F2F3" stroke="#111111" stroke-width="0.03"/>
+<circle cx="1.4000" cy="6.9300" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="1.4000" y="6.9858" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">10</text>
+<text x="1.2000" y="7.7150" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">4 x 3</text>
+<text x="1.2000" y="7.9050" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">MDF  ×1</text>
+<rect x="3.6000" y="6.1000" width="1.7250" height="3.4500" rx="0" fill="#E4E7E9" stroke="#111111" stroke-width="0.03"/>
+<circle cx="3.8000" cy="5.8800" r="0.1550" fill="#FFFFFF" stroke="#111111" stroke-width="0.018"/>
+<text x="3.8000" y="5.9358" font-family="Helvetica,Arial,sans-serif" font-size="0.155" font-weight="bold" text-anchor="middle" fill="#111111">1</text>
+<text x="3.6000" y="9.7700" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="normal" text-anchor="start" fill="#111111">15 x 30  (ordered)</text>
+<text x="3.6000" y="9.9600" font-family="Helvetica,Arial,sans-serif" font-size="0.115" font-weight="bold" text-anchor="start" fill="#6B7075">ACM  ×1</text>
 <text x="4.2500" y="10.5800" font-family="Helvetica,Arial,sans-serif" font-size="0.15" font-weight="normal" text-anchor="middle" fill="#111111">5</text>
 </svg>

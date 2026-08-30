@@ -207,7 +207,7 @@ HTML = f'''<!doctype html><meta charset="utf-8">
 <div class="instr">
 <h1>P1 Face Plate — 1:1 cardboard stencil</h1>
 <p><b>{COLS} columns &times; {ROWS} rows = {COLS*ROWS} sheets</b>, plus this page.
-Finished size <b>15.370 &times; 28.690 inches</b>.</p>
+Finished size <b>{P.PW:g} &times; {P.PH:g} inches</b>. Window <b>{P.WIN_W:g} &times; {P.WIN_H:g}</b>.</p>
 <h2>1 · Print</h2>
 <ol>
 <li>Print this file on US Letter. In the print dialog set <b>Scale: 100%</b>
@@ -240,10 +240,18 @@ Finished size <b>15.370 &times; 28.690 inches</b>.</p>
 <li>Tape the assembled stencil to cardboard. Corrugated works; foam board is better if
     you want it to stand up.</li>
 <li>Trace the outside profile and both voids, then cut the cardboard.</li>
-<li>Hold it up against the 3280 with the <b>bottom edge 34.750&nbsp;inches above the
+<li>Hold it up against the 3280 with the <b>bottom edge {P.KIOSK_BOT:g}&nbsp;inches above the
     floor</b>. That puts the button centres at 38.000&nbsp;AFF, which is where the ADA
     reach range put them.</li>
 </ol>
+<div class="warn">
+<b>The window is provisional.</b> It is cut <b>3/16&Prime; smaller</b> than the monitor&rsquo;s
+lit rectangle so the face plate masks the bezel entirely &mdash; you should see illuminated
+LCD and no monitor frame at all. That means the window size depends on the monitor, and no
+monitor has been measured yet. These sheets use a nominal 23.8&Prime; panel. Good enough to
+judge proportion on the machine; <b>not</b> the number to fabricate from.
+</div>
+
 <div class="warn">
 <b>What this is for.</b> Proportion is the argument this whole design turns on — whether
 the kiosk reads as an added interpretation device or as a monitor wearing a cabinet. A

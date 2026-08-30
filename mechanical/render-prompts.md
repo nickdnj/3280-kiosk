@@ -58,12 +58,15 @@ FRONT VIEW, straight on.
 A matte black rectangular face plate fills the whole front, 15 x 30 inches,
 exactly twice as tall as wide.
 
-SCREEN OPENING: a single portrait rectangular cutout, 82% of the enclosure
-width, centred left to right with equal 9% margins. Its top edge sits 5% down
-from the top of the enclosure; its bottom edge sits 24% up from the bottom.
-Behind it, a portrait computer monitor is visible and switched on — the black
-screen surface sits about 1/8 inch behind the face plate, so the opening reads
-as a clean machined window with a shallow shadowed reveal, not a bezel.
+SCREEN OPENING: a single portrait rectangular cutout, 77% of the enclosure
+width, centred left to right with equal 11.5% margins. Its top edge sits 5% down
+from the top of the enclosure; its bottom edge sits 26.5% up from the bottom.
+Behind it a portrait computer monitor is switched on, sitting about 1/8 inch
+back. CRITICAL: no monitor bezel, frame, chin, logo or power LED is visible
+anywhere — the face plate laps over the edge of the picture, so the cutout is
+filled edge to edge with live illuminated image right up to the routed edge.
+The opening reads as a clean machined window in solid panel with a shallow
+shadowed reveal. It must not look like a monitor sitting inside a hole.
 
 WHAT IS ON THE SCREEN: a portrait museum exhibit page. Large white sans-serif
 headline across the upper third, three or four short lines of white body text
